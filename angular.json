@@ -1,0 +1,171 @@
+{
+  "version": 1,
+  "projects": {
+    "ivms": {
+      "projectType": "application",
+      "schematics": {
+        "@schematics/angular:component": {
+          "style": "scss"
+        }
+      },
+      "root": "apps/ivms",
+      "sourceRoot": "apps/ivms/src",
+      "prefix": "zyweb",
+      "architect": {
+        "build": {
+          "builder": "@angular-devkit/build-angular:browser",
+          "options": {
+            "outputPath": "dist/apps/ivms",
+            "index": "apps/ivms/src/index.html",
+            "main": "apps/ivms/src/main.ts",
+            "polyfills": "apps/ivms/src/polyfills.ts",
+            "tsConfig": "apps/ivms/tsconfig.app.json",
+            "aot": true,
+            "assets": ["apps/ivms/src/favicon.ico", "apps/ivms/src/assets"],
+            "styles": ["apps/ivms/src/styles.scss"],
+            "scripts": []
+          },
+          "configurations": {
+            "production": {
+              "fileReplacements": [
+                {
+                  "replace": "apps/ivms/src/environments/environment.ts",
+                  "with": "apps/ivms/src/environments/environment.prod.ts"
+                }
+              ],
+              "optimization": true,
+              "outputHashing": "all",
+              "sourceMap": false,
+              "extractCss": true,
+              "namedChunks": false,
+              "extractLicenses": true,
+              "vendorChunk": false,
+              "buildOptimizer": true,
+              "budgets": [
+                {
+                  "type": "initial",
+                  "maximumWarning": "2mb",
+                  "maximumError": "5mb"
+                },
+                {
+                  "type": "anyComponentStyle",
+                  "maximumWarning": "6kb",
+                  "maximumError": "10kb"
+                }
+              ]
+            }
+          }
+        },
+        "serve": {
+          "builder": "@angular-devkit/build-angular:dev-server",
+          "options": {
+            "browserTarget": "ivms:build"
+          },
+          "configurations": {
+            "production": {
+              "browserTarget": "ivms:build:production"
+            }
+          }
+        },
+        "extract-i18n": {
+          "builder": "@angular-devkit/build-angular:extract-i18n",
+          "options": {
+            "browserTarget": "ivms:build"
+          }
+        },
+        "lint": {
+          "builder": "@angular-devkit/build-angular:tslint",
+          "options": {
+            "tsConfig": [
+              "apps/ivms/tsconfig.app.json",
+              "apps/ivms/tsconfig.spec.json",
+              "apps/ivms/tsconfig.editor.json"
+            ],
+            "exclude": ["**/node_modules/**", "!apps/ivms/**/*"]
+          }
+        },
+        "test": {
+          "builder": "@nrwl/jest:jest",
+          "options": {
+            "jestConfig": "apps/ivms/jest.config.js",
+            "passWithNoTests": true
+          }
+        }
+      }
+    },
+    "ivms-e2e": {
+      "root": "apps/ivms-e2e",
+      "sourceRoot": "apps/ivms-e2e/src",
+      "projectType": "application",
+      "architect": {
+        "e2e": {
+          "builder": "@nrwl/cypress:cypress",
+          "options": {
+            "cypressConfig": "apps/ivms-e2e/cypress.json",
+            "tsConfig": "apps/ivms-e2e/tsconfig.e2e.json",
+            "devServerTarget": "ivms:serve"
+          },
+          "configurations": {
+            "production": {
+              "devServerTarget": "ivms:serve:production"
+            }
+          }
+        },
+        "lint": {
+          "builder": "@angular-devkit/build-angular:tslint",
+          "options": {
+            "tsConfig": ["apps/ivms-e2e/tsconfig.e2e.json"],
+            "exclude": ["**/node_modules/**", "!apps/ivms-e2e/**/*"]
+          }
+        }
+      }
+    }
+  },
+  "cli": {
+    "defaultCollection": "@nrwl/angular"
+  },
+  "schematics": {
+    "@nrwl/workspace": {
+      "library": {
+        "linter": "tslint"
+      }
+    },
+    "@nrwl/cypress": {
+      "cypress-project": {
+        "linter": "tslint"
+      }
+    },
+    "@nrwl/node": {
+      "application": {
+        "linter": "tslint"
+      },
+      "library": {
+        "linter": "tslint"
+      }
+    },
+    "@nrwl/nest": {
+      "application": {
+        "linter": "tslint"
+      },
+      "library": {
+        "linter": "tslint"
+      }
+    },
+    "@nrwl/express": {
+      "application": {
+        "linter": "tslint"
+      },
+      "library": {
+        "linter": "tslint"
+      }
+    },
+    "@nrwl/angular:application": {
+      "unitTestRunner": "jest",
+      "e2eTestRunner": "cypress"
+    },
+    "@nrwl/angular:library": {
+      "unitTestRunner": "jest"
+    }
+  },
+  "defaultProject": "ivms"
+}
