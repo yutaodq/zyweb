@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { of, Subscription } from 'rxjs';
-import { NotificationReceiverService } from '@zyweb/shared/util/primeng-message';
+// import { NotificationReceiverService } from '@zyweb/shared/util/primeng-message';
 @Component({
   selector: 'zyweb-layout-ivms',
   templateUrl: './ivds.component.html',
@@ -10,6 +10,8 @@ export class IvdsComponent  implements OnInit {
   private subscriptions: Array<Subscription> = [];
 
   logo = require('../../../../assets/images/logo.svg').default;
+  // logo = require('../../assets/images/logo.svg').default;
+
   menuActive: boolean;
 
   title = 'component';
@@ -35,7 +37,7 @@ export class IvdsComponent  implements OnInit {
       element.className = element.className.replace(new RegExp('(^|\\b)' + className.split(' ').join('|') + '(\\b|$)', 'gi'), ' ');
   }
   constructor(
-    public notificationReceiverService: NotificationReceiverService
+    // public notificationReceiverService: NotificationReceiverService
   ) {
 
 }

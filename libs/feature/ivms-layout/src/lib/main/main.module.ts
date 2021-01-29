@@ -2,7 +2,6 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { RouterModule } from '@angular/router';
 
-import { SharedUiModule } from '@zy/shared/ui';
 
 import { IvdsComponent } from './component/ivds.component';
 import { ToastModule } from 'primeng/toast';
@@ -12,7 +11,6 @@ import { ToastModule } from 'primeng/toast';
   imports: [
     CommonModule,
     RouterModule,
-    SharedUiModule,
     ToastModule
   ],
   exports: [ IvdsComponent ],
