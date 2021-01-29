@@ -15,7 +15,12 @@
     "skipLibCheck": true,
     "skipDefaultLibCheck": true,
     "baseUrl": ".",
-    "paths": {}
+    "paths": {
+      "@zyweb/shared/ui/base": ["libs/shared/ui/base/src/index.ts"],
+      "@zyweb/shared/ui/common": ["libs/shared/ui/common/src/index.ts"],
+      "@zyweb/shared/ui/grid": ["libs/shared/ui/grid/src/index.ts"],
+      "@zyweb/shared/ui/layout": ["libs/shared/ui/layout/src/index.ts"]
+    }
   },
   "exclude": ["node_modules", "tmp"]
 }
