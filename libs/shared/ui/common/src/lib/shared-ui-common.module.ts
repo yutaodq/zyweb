@@ -1,14 +1,13 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { EXPORTS_PRIMENG_MODULES } from './_primeng/theme-primeng.module';
+import {  ThemePrimengModule } from './_primeng/theme-primeng.module';
 
-const EXPORTS_COMMON_MODULES = [
-  ...EXPORTS_PRIMENG_MODULES
-]
+// const EXPORTS_COMMON_MODULES = [
+//   ...EXPORTS_PRIMENG_MODULES
+// ]
 @NgModule({
   imports: [CommonModule,
-
   ],
-  exports: [...EXPORTS_COMMON_MODULES]
+  exports: [ThemePrimengModule,]
 })
 export class SharedUiCommonModule {}

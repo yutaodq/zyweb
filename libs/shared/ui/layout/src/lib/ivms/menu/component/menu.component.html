@@ -1,0 +1,35 @@
+<div class="layout-sidebar" [ngClass]="{'active': active}">
+  <div class="layout-menu">
+
+    <div class="menu-category">智能调派</div>
+    <div class="menu-items">
+      <a [routerLink]=" ['/404']" routerLinkActive="router-link-exact-active">用车申请</a>
+      <div>
+        <a tabindex="0" (click)="toggleSubmenu($event, '/galleria')">审批计划</a>
+        <div [@submenu]="isSubmenuActive('/galleria') ? 'visible': 'hidden'">
+          <ul>
+            <li><a [routerLink]=" ['/galleria']" routerLinkActive="router-link-exact-active"
+                   [routerLinkActiveOptions]="{exact:true}">待审批计划</a></li>
+            <li><a [routerLink]=" ['/galleria/programmatic']" routerLinkActive="router-link-exact-active"
+                   [routerLinkActiveOptions]="{exact:true}">已审批计划</a></li>
+            <li><a [routerLink]=" ['/galleria/indicator']" routerLinkActive="router-link-exact-active"
+                   [routerLinkActiveOptions]="{exact:true}">计划执行情况</a></li>
+
+          </ul>
+        </div>
+      </div>
+    </div>
+
+
+    <div class="menu-category">车辆管理</div>
+    <div class="menu-items">
+      <a [routerLink]=" ['/vehicles']" routerLinkActive="router-link-exact-active">车辆信息档案 <span
+        class="p-tag">New</span></a>
+    </div>
+    <div class="menu-items">
+      <a [routerLink]=" ['/vehicleUseTypes']" routerLinkActive="router-link-exact-active">车辆用途 <span
+        class="p-tag">New</span></a>
+    </div>
+
+  </div>
+</div>

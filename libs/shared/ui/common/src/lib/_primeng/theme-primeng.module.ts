@@ -41,6 +41,6 @@ export const EXPORTS_PRIMENG_MODULES = [
 ];
 
 @NgModule({
-  // exports: [...EXPORTS_PRIMENG_MODULES],
+  exports: [...EXPORTS_PRIMENG_MODULES],
 })
 export class ThemePrimengModule { }

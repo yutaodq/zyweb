@@ -41,6 +41,30 @@
     },
     "shared-ui-layout": {
       "tags": ["scope:shared", "type:ui"]
+    },
+    "shared-data-access-api-vehicle-use-type": {
+      "tags": ["scope:shared", "type:data-access"]
+    },
+    "shared-data-access-store-vehicle-use-type": {
+      "tags": ["scope:shared", "type:data-access"]
+    },
+    "shared-data-access-facade-vehicle-use-type": {
+      "tags": ["scope:shared", "type:data-access"]
+    },
+    "shared-data-access-model-vehicle-use-type": {
+      "tags": ["scope:shared", "type:data-access"]
+    },
+    "feature-vehicle-use-type": {
+      "tags": ["scope:vehicle-use-type", "type:feature"]
+    },
+    "feature-vehicle": {
+      "tags": ["scope:vehicle", "type:feature"]
+    },
+    "feature-ivms-layout": {
+      "tags": ["scope:ivms-layout", "type:feature"]
+    },
+    "shared-util-primeng-message": {
+      "tags": ["scope:shared", "type:util"]
     }
   }
 }

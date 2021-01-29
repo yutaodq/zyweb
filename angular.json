@@ -239,6 +239,264 @@
           "style": "scss"
         }
       }
+    },
+    "shared-data-access-api-vehicle-use-type": {
+      "projectType": "library",
+      "root": "libs/shared/data-access/api/vehicle-use-type",
+      "sourceRoot": "libs/shared/data-access/api/vehicle-use-type/src",
+      "prefix": "zyweb",
+      "architect": {
+        "lint": {
+          "builder": "@angular-devkit/build-angular:tslint",
+          "options": {
+            "tsConfig": [
+              "libs/shared/data-access/api/vehicle-use-type/tsconfig.lib.json",
+              "libs/shared/data-access/api/vehicle-use-type/tsconfig.spec.json"
+            ],
+            "exclude": [
+              "**/node_modules/**",
+              "!libs/shared/data-access/api/vehicle-use-type/**/*"
+            ]
+          }
+        },
+        "test": {
+          "builder": "@nrwl/jest:jest",
+          "options": {
+            "jestConfig": "libs/shared/data-access/api/vehicle-use-type/jest.config.js",
+            "passWithNoTests": true
+          }
+        }
+      },
+      "schematics": {
+        "@schematics/angular:component": {
+          "style": "scss"
+        }
+      }
+    },
+    "shared-data-access-store-vehicle-use-type": {
+      "projectType": "library",
+      "root": "libs/shared/data-access/store/vehicle-use-type",
+      "sourceRoot": "libs/shared/data-access/store/vehicle-use-type/src",
+      "prefix": "zyweb",
+      "architect": {
+        "lint": {
+          "builder": "@angular-devkit/build-angular:tslint",
+          "options": {
+            "tsConfig": [
+              "libs/shared/data-access/store/vehicle-use-type/tsconfig.lib.json",
+              "libs/shared/data-access/store/vehicle-use-type/tsconfig.spec.json"
+            ],
+            "exclude": [
+              "**/node_modules/**",
+              "!libs/shared/data-access/store/vehicle-use-type/**/*"
+            ]
+          }
+        },
+        "test": {
+          "builder": "@nrwl/jest:jest",
+          "options": {
+            "jestConfig": "libs/shared/data-access/store/vehicle-use-type/jest.config.js",
+            "passWithNoTests": true
+          }
+        }
+      },
+      "schematics": {
+        "@schematics/angular:component": {
+          "style": "scss"
+        }
+      }
+    },
+    "shared-data-access-facade-vehicle-use-type": {
+      "projectType": "library",
+      "root": "libs/shared/data-access/facade/vehicle-use-type",
+      "sourceRoot": "libs/shared/data-access/facade/vehicle-use-type/src",
+      "prefix": "zyweb",
+      "architect": {
+        "lint": {
+          "builder": "@angular-devkit/build-angular:tslint",
+          "options": {
+            "tsConfig": [
+              "libs/shared/data-access/facade/vehicle-use-type/tsconfig.lib.json",
+              "libs/shared/data-access/facade/vehicle-use-type/tsconfig.spec.json"
+            ],
+            "exclude": [
+              "**/node_modules/**",
+              "!libs/shared/data-access/facade/vehicle-use-type/**/*"
+            ]
+          }
+        },
+        "test": {
+          "builder": "@nrwl/jest:jest",
+          "options": {
+            "jestConfig": "libs/shared/data-access/facade/vehicle-use-type/jest.config.js",
+            "passWithNoTests": true
+          }
+        }
+      },
+      "schematics": {
+        "@schematics/angular:component": {
+          "style": "scss"
+        }
+      }
+    },
+    "shared-data-access-model-vehicle-use-type": {
+      "projectType": "library",
+      "root": "libs/shared/data-access/model/vehicle-use-type",
+      "sourceRoot": "libs/shared/data-access/model/vehicle-use-type/src",
+      "prefix": "zyweb",
+      "architect": {
+        "lint": {
+          "builder": "@angular-devkit/build-angular:tslint",
+          "options": {
+            "tsConfig": [
+              "libs/shared/data-access/model/vehicle-use-type/tsconfig.lib.json",
+              "libs/shared/data-access/model/vehicle-use-type/tsconfig.spec.json"
+            ],
+            "exclude": [
+              "**/node_modules/**",
+              "!libs/shared/data-access/model/vehicle-use-type/**/*"
+            ]
+          }
+        },
+        "test": {
+          "builder": "@nrwl/jest:jest",
+          "options": {
+            "jestConfig": "libs/shared/data-access/model/vehicle-use-type/jest.config.js",
+            "passWithNoTests": true
+          }
+        }
+      },
+      "schematics": {
+        "@schematics/angular:component": {
+          "style": "scss"
+        }
+      }
+    },
+    "feature-vehicle-use-type": {
+      "projectType": "library",
+      "root": "libs/feature/vehicle-use-type",
+      "sourceRoot": "libs/feature/vehicle-use-type/src",
+      "prefix": "zyweb",
+      "architect": {
+        "lint": {
+          "builder": "@angular-devkit/build-angular:tslint",
+          "options": {
+            "tsConfig": [
+              "libs/feature/vehicle-use-type/tsconfig.lib.json",
+              "libs/feature/vehicle-use-type/tsconfig.spec.json"
+            ],
+            "exclude": [
+              "**/node_modules/**",
+              "!libs/feature/vehicle-use-type/**/*"
+            ]
+          }
+        },
+        "test": {
+          "builder": "@nrwl/jest:jest",
+          "options": {
+            "jestConfig": "libs/feature/vehicle-use-type/jest.config.js",
+            "passWithNoTests": true
+          }
+        }
+      },
+      "schematics": {
+        "@schematics/angular:component": {
+          "style": "scss"
+        }
+      }
+    },
+    "feature-vehicle": {
+      "projectType": "library",
+      "root": "libs/feature/vehicle",
+      "sourceRoot": "libs/feature/vehicle/src",
+      "prefix": "zyweb",
+      "architect": {
+        "lint": {
+          "builder": "@angular-devkit/build-angular:tslint",
+          "options": {
+            "tsConfig": [
+              "libs/feature/vehicle/tsconfig.lib.json",
+              "libs/feature/vehicle/tsconfig.spec.json"
+            ],
+            "exclude": ["**/node_modules/**", "!libs/feature/vehicle/**/*"]
+          }
+        },
+        "test": {
+          "builder": "@nrwl/jest:jest",
+          "options": {
+            "jestConfig": "libs/feature/vehicle/jest.config.js",
+            "passWithNoTests": true
+          }
+        }
+      },
+      "schematics": {
+        "@schematics/angular:component": {
+          "style": "scss"
+        }
+      }
+    },
+    "feature-ivms-layout": {
+      "projectType": "library",
+      "root": "libs/feature/ivms-layout",
+      "sourceRoot": "libs/feature/ivms-layout/src",
+      "prefix": "zyweb",
+      "architect": {
+        "lint": {
+          "builder": "@angular-devkit/build-angular:tslint",
+          "options": {
+            "tsConfig": [
+              "libs/feature/ivms-layout/tsconfig.lib.json",
+              "libs/feature/ivms-layout/tsconfig.spec.json"
+            ],
+            "exclude": ["**/node_modules/**", "!libs/feature/ivms-layout/**/*"]
+          }
+        },
+        "test": {
+          "builder": "@nrwl/jest:jest",
+          "options": {
+            "jestConfig": "libs/feature/ivms-layout/jest.config.js",
+            "passWithNoTests": true
+          }
+        }
+      },
+      "schematics": {
+        "@schematics/angular:component": {
+          "style": "scss"
+        }
+      }
+    },
+    "shared-util-primeng-message": {
+      "projectType": "library",
+      "root": "libs/shared/util/primeng-message",
+      "sourceRoot": "libs/shared/util/primeng-message/src",
+      "prefix": "zyweb",
+      "architect": {
+        "lint": {
+          "builder": "@angular-devkit/build-angular:tslint",
+          "options": {
+            "tsConfig": [
+              "libs/shared/util/primeng-message/tsconfig.lib.json",
+              "libs/shared/util/primeng-message/tsconfig.spec.json"
+            ],
+            "exclude": [
+              "**/node_modules/**",
+              "!libs/shared/util/primeng-message/**/*"
+            ]
+          }
+        },
+        "test": {
+          "builder": "@nrwl/jest:jest",
+          "options": {
+            "jestConfig": "libs/shared/util/primeng-message/jest.config.js",
+            "passWithNoTests": true
+          }
+        }
+      },
+      "schematics": {
+        "@schematics/angular:component": {
+          "style": "scss"
+        }
+      }
     }
   },
   "cli": {

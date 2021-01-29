@@ -19,7 +19,27 @@
       "@zyweb/shared/ui/base": ["libs/shared/ui/base/src/index.ts"],
       "@zyweb/shared/ui/common": ["libs/shared/ui/common/src/index.ts"],
       "@zyweb/shared/ui/grid": ["libs/shared/ui/grid/src/index.ts"],
-      "@zyweb/shared/ui/layout": ["libs/shared/ui/layout/src/index.ts"]
+      "@zyweb/shared/ui/layout": ["libs/shared/ui/layout/src/index.ts"],
+      "@zyweb/shared/data-access/api/vehicle-use-type": [
+        "libs/shared/data-access/api/vehicle-use-type/src/index.ts"
+      ],
+      "@zyweb/shared/data-access/store/vehicle-use-type": [
+        "libs/shared/data-access/store/vehicle-use-type/src/index.ts"
+      ],
+      "@zyweb/shared/data-access/facade/vehicle-use-type": [
+        "libs/shared/data-access/facade/vehicle-use-type/src/index.ts"
+      ],
+      "@zyweb/shared/data-access/model/vehicle-use-type": [
+        "libs/shared/data-access/model/vehicle-use-type/src/index.ts"
+      ],
+      "@zyweb/feature/vehicle-use-type": [
+        "libs/feature/vehicle-use-type/src/index.ts"
+      ],
+      "@zyweb/feature/vehicle": ["libs/feature/vehicle/src/index.ts"],
+      "@zyweb/feature/ivms-layout": ["libs/feature/ivms-layout/src/index.ts"],
+      "@zyweb/shared/util/primeng-message": [
+        "libs/shared/util/primeng-message/src/index.ts"
+      ]
     }
   },
   "exclude": ["node_modules", "tmp"]
