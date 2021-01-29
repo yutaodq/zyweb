@@ -22,7 +22,16 @@
             "tsConfig": "apps/ivms/tsconfig.app.json",
             "aot": true,
             "assets": ["apps/ivms/src/favicon.ico", "apps/ivms/src/assets"],
-            "styles": ["apps/ivms/src/styles.scss"],
+            "styles": [
+              "apps/ivms/src/styles.scss",
+              "node_modules/primeng/resources/themes/saga-blue/theme.css",
+              "node_modules/primeng/resources/primeng.min.css",
+              "node_modules/primeicons/primeicons.css",
+              "node_modules/bootstrap/dist/css/bootstrap.min.css",
+              "node_modules/@fortawesome/fontawesome-free/css/all.css",
+              "node_modules/ag-grid-community/dist/styles/ag-grid.css",
+              "node_modules/ag-grid-community/dist/styles/ag-theme-alpine.css"
+            ],
             "scripts": []
           },
           "configurations": {
