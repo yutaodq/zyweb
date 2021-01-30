@@ -21,16 +21,6 @@
             "polyfills": "apps/ivms/src/polyfills.ts",
             "tsConfig": "apps/ivms/tsconfig.app.json",
             "aot": true,
-            "assets": [
-              "apps/ivms/src/favicon.ico",
-              "apps/ivms/src/assets",
-              {
-                "input": "libs/shared/util/assets/src/assets",
-                "glob": "**/*",
-                "output": "assets"
-              }
-            ],
-
             "assets": ["apps/ivms/src/favicon.ico", "apps/ivms/src/assets"],
             "styles": [
               "apps/ivms/src/styles.scss",
@@ -52,7 +42,7 @@
               "fileReplacements": [
                 {
                   "replace": "libs/shared/util/environments/src/lib/environment.ts",
-                  "with": "libs/shared/util/environments/src/lib/environment.prod.ts",
+                  "with": "libs/shared/util/environments/src/lib/environment.prod.ts"
                 }
               ],
               "optimization": true,
@@ -603,6 +593,39 @@
           "builder": "@nrwl/jest:jest",
           "options": {
             "jestConfig": "libs/shared/util/assets/jest.config.js",
+            "passWithNoTests": true
+          }
+        }
+      },
+      "schematics": {
+        "@schematics/angular:component": {
+          "style": "scss"
+        }
+      }
+    },
+    "feature-common-not-found": {
+      "projectType": "library",
+      "root": "libs/feature/common/not-found",
+      "sourceRoot": "libs/feature/common/not-found/src",
+      "prefix": "zyweb",
+      "architect": {
+        "lint": {
+          "builder": "@angular-devkit/build-angular:tslint",
+          "options": {
+            "tsConfig": [
+              "libs/feature/common/not-found/tsconfig.lib.json",
+              "libs/feature/common/not-found/tsconfig.spec.json"
+            ],
+            "exclude": [
+              "**/node_modules/**",
+              "!libs/feature/common/not-found/**/*"
+            ]
+          }
+        },
+        "test": {
+          "builder": "@nrwl/jest:jest",
+          "options": {
+            "jestConfig": "libs/feature/common/not-found/jest.config.js",
             "passWithNoTests": true
           }
         }

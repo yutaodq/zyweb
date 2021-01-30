@@ -44,7 +44,10 @@
       "@zyweb/shared/util/environments": [
         "libs/shared/util/environments/src/index.ts"
       ],
-      "@zyweb/shared/util/assets": ["libs/shared/util/assets/src/index.ts"]
+      "@zyweb/shared/util/assets": ["libs/shared/util/assets/src/index.ts"],
+      "@zyweb/feature/common/not-found": [
+        "libs/feature/common/not-found/src/index.ts"
+      ]
     }
   },
   "exclude": ["node_modules", "tmp"]

@@ -17,5 +17,6 @@ module.exports = {
     '<rootDir>/libs/shared/ui/styles',
     '<rootDir>/libs/shared/util/environments',
     '<rootDir>/libs/shared/util/assets',
+    '<rootDir>/libs/feature/common/not-found',
   ],
 };

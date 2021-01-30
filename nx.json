@@ -74,6 +74,9 @@
     },
     "shared-util-assets": {
       "tags": ["scope:shared", "type:util"]
+    },
+    "feature-common-not-found": {
+      "tags": ["scope:not-found", "type:feature"]
     }
   }
 }

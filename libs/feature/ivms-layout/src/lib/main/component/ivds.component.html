@@ -4,20 +4,22 @@ aaaaaaaaaaaaaaa
 
   <zyweb-shared-ui-layout-ivms-header [logo] ="logo">
   </zyweb-shared-ui-layout-ivms-header>
-<!--  <zy-ui-navbar [logo] ="logo" (menuButtonClick)="onMenuButtonClick()">-->
+<!--  <zyweb-shared-ui-layout-ivms-navbar [logo] ="logo" (menuButtonClick)="onMenuButtonClick()">-->
 
-<!--  </zy-ui-navbar>-->
-<!--  <zy-ui-menu  [active]="menuActive">-->
-<!--  </zy-ui-menu>-->
-<!--  <zy-ui-config>-->
-<!--  </zy-ui-config>-->
+<!--  </zyweb-shared-ui-layout-ivms-navbar>-->
+
+  <zyweb-shared-ui-layout-ivms-menu  [active]="menuActive">
+  </zyweb-shared-ui-layout-ivms-menu>
+<!--  <zyweb-shared-ui-layout-ivms-config>-->
+<!--  </zyweb-shared-ui-layout-ivms-config>-->
+
 <!--  <div class="layout-mask" [ngClass]="{'layout-mask-active': menuActive}" (click)="onMaskClick()">-->
 <!--  </div>-->
+
 <!--  <div class="layout-content">-->
-<!--&lt;!&ndash;    <p-messages></p-messages>&ndash;&gt;-->
 <!--    <p-toast position="top-left"></p-toast>-->
-<!--    <router-outlet></router-outlet>-->
-<!--    <zy-ui-footer></zy-ui-footer>-->
+    <router-outlet></router-outlet>
+<!--    <zyweb-shared-ui-layout-ivms-footer></zyweb-shared-ui-layout-ivms-footer>-->
 <!--  </div>-->
 
 </div>
