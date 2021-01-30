@@ -3,22 +3,22 @@
 
   <zyweb-shared-ui-layout-ivms-header [logo] ="logo">
   </zyweb-shared-ui-layout-ivms-header>
-<!--  <zyweb-shared-ui-layout-ivms-navbar [logo] ="logo" (menuButtonClick)="onMenuButtonClick()">-->
+  <zyweb-shared-ui-layout-ivms-navbar [logo] ="logo" (menuButtonClick)="onMenuButtonClick()">
 
-<!--  </zyweb-shared-ui-layout-ivms-navbar>-->
+  </zyweb-shared-ui-layout-ivms-navbar>
 
-<!--  <zyweb-shared-ui-layout-ivms-menu  [active]="menuActive">-->
-<!--  </zyweb-shared-ui-layout-ivms-menu>-->
-<!--&lt;!&ndash;  <zyweb-shared-ui-layout-ivms-config>&ndash;&gt;-->
-<!--&lt;!&ndash;  </zyweb-shared-ui-layout-ivms-config>&ndash;&gt;-->
+  <zyweb-shared-ui-layout-ivms-menu  [active]="menuActive">
+  </zyweb-shared-ui-layout-ivms-menu>
+  <zyweb-shared-ui-layout-ivms-config>
+  </zyweb-shared-ui-layout-ivms-config>
 
-<!--  <div class="layout-mask" [ngClass]="{'layout-mask-active': menuActive}" (click)="onMaskClick()">-->
-<!--  </div>-->
+  <div class="layout-mask" [ngClass]="{'layout-mask-active': menuActive}" (click)="onMaskClick()">
+  </div>
 
-<!--  <div class="layout-content">-->
-<!--&lt;!&ndash;    <p-toast position="top-left"></p-toast>&ndash;&gt;-->
-<!--    <router-outlet></router-outlet>-->
-<!--    <zyweb-shared-ui-layout-ivms-footer></zyweb-shared-ui-layout-ivms-footer>-->
-<!--  </div>-->
+  <div class="layout-content">
+<!--    <p-toast position="top-left"></p-toast>-->
+    <router-outlet></router-outlet>
+    <zyweb-shared-ui-layout-ivms-footer></zyweb-shared-ui-layout-ivms-footer>
+  </div>
 
 </div>

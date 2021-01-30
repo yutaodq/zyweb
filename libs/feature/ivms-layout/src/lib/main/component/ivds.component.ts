@@ -10,10 +10,7 @@ export class IvdsComponent  implements OnInit {
   private subscriptions: Array<Subscription> = [];
 
   logo = require('../../../../assets/images/logo.svg').default;
-  // logo = require('../../assets/images/logo.svg').default;
-
   menuActive: boolean;
-
   title = 'component';
 
   onMenuButtonClick() {
