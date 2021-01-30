@@ -52,6 +52,12 @@
       ],
       "@zyweb/vehicle/use-type/main": [
         "libs/vehicle/use-type/main/src/index.ts"
+      ],
+      "@zyweb/shared/data-access/api/http-service": [
+        "libs/shared/data-access/api/http-service/src/index.ts"
+      ],
+      "@zyweb/shared/data-access/facade/base": [
+        "libs/shared/data-access/facade/base/src/index.ts"
       ]
     }
   },

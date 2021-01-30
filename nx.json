@@ -80,6 +80,12 @@
     },
     "vehicle-use-type-main": {
       "tags": ["scope:main", "type:feature"]
+    },
+    "shared-data-access-api-http-service": {
+      "tags": ["scope:shared", "type:data-access"]
+    },
+    "shared-data-access-facade-base": {
+      "tags": ["scope:shared", "type:data-access"]
     }
   }
 }

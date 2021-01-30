@@ -4,7 +4,7 @@
 import { Action, ActionReducer, ActionReducerMap, MetaReducer } from '@ngrx/store';
 import * as fromRouter from '@ngrx/router-store';
 import { InjectionToken } from '@angular/core';
-import { environment } from '@zy/environments';
+import { environment } from '@zyweb/shared/util/environments';
 
 export interface AppState {
   router: fromRouter.RouterReducerState<any>;
