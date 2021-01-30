@@ -46,6 +46,12 @@
       ],
       "@zyweb/shared/data-access/store/lvms-root": [
         "libs/shared/data-access/store/lvms-root/src/index.ts"
+      ],
+      "@zyweb/vehicle/use-type/data-access/store": [
+        "libs/vehicle/use-type/data-access/store/src/index.ts"
+      ],
+      "@zyweb/vehicle/use-type/main": [
+        "libs/vehicle/use-type/main/src/index.ts"
       ]
     }
   },

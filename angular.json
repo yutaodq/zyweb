@@ -605,6 +605,72 @@
           "style": "scss"
         }
       }
+    },
+    "vehicle-use-type-data-access-store": {
+      "projectType": "library",
+      "root": "libs/vehicle/use-type/data-access/store",
+      "sourceRoot": "libs/vehicle/use-type/data-access/store/src",
+      "prefix": "zyweb",
+      "architect": {
+        "lint": {
+          "builder": "@angular-devkit/build-angular:tslint",
+          "options": {
+            "tsConfig": [
+              "libs/vehicle/use-type/data-access/store/tsconfig.lib.json",
+              "libs/vehicle/use-type/data-access/store/tsconfig.spec.json"
+            ],
+            "exclude": [
+              "**/node_modules/**",
+              "!libs/vehicle/use-type/data-access/store/**/*"
+            ]
+          }
+        },
+        "test": {
+          "builder": "@nrwl/jest:jest",
+          "options": {
+            "jestConfig": "libs/vehicle/use-type/data-access/store/jest.config.js",
+            "passWithNoTests": true
+          }
+        }
+      },
+      "schematics": {
+        "@schematics/angular:component": {
+          "style": "scss"
+        }
+      }
+    },
+    "vehicle-use-type-main": {
+      "projectType": "library",
+      "root": "libs/vehicle/use-type/main",
+      "sourceRoot": "libs/vehicle/use-type/main/src",
+      "prefix": "zyweb",
+      "architect": {
+        "lint": {
+          "builder": "@angular-devkit/build-angular:tslint",
+          "options": {
+            "tsConfig": [
+              "libs/vehicle/use-type/main/tsconfig.lib.json",
+              "libs/vehicle/use-type/main/tsconfig.spec.json"
+            ],
+            "exclude": [
+              "**/node_modules/**",
+              "!libs/vehicle/use-type/main/**/*"
+            ]
+          }
+        },
+        "test": {
+          "builder": "@nrwl/jest:jest",
+          "options": {
+            "jestConfig": "libs/vehicle/use-type/main/jest.config.js",
+            "passWithNoTests": true
+          }
+        }
+      },
+      "schematics": {
+        "@schematics/angular:component": {
+          "style": "scss"
+        }
+      }
     }
   },
   "cli": {

@@ -21,5 +21,7 @@ module.exports = {
     '<rootDir>/libs/shared/data-access/store/ngrx-router',
     '<rootDir>/libs/layout/feature/ivms',
     '<rootDir>/libs/shared/data-access/store/lvms-root',
+    '<rootDir>/libs/vehicle/use-type/data-access/store',
+    '<rootDir>/libs/vehicle/use-type/main',
   ],
 };

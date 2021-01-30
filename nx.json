@@ -74,6 +74,12 @@
     },
     "shared-data-access-store-lvms-root": {
       "tags": ["scope:shared", "type:data-access"]
+    },
+    "vehicle-use-type-data-access-store": {
+      "tags": ["scope:shared", "type:data-access"]
+    },
+    "vehicle-use-type-main": {
+      "tags": ["scope:main", "type:feature"]
     }
   }
 }
