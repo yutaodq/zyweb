@@ -32,11 +32,6 @@
       "@zyweb/shared/data-access/model/vehicle-use-type": [
         "libs/shared/data-access/model/vehicle-use-type/src/index.ts"
       ],
-      "@zyweb/feature/vehicle-use-type": [
-        "libs/feature/vehicle-use-type/src/index.ts"
-      ],
-      "@zyweb/feature/vehicle": ["libs/feature/vehicle/src/index.ts"],
-      "@zyweb/feature/ivms-layout": ["libs/feature/ivms-layout/src/index.ts"],
       "@zyweb/shared/util/primeng-message": [
         "libs/shared/util/primeng-message/src/index.ts"
       ],
