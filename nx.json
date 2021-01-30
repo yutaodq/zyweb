@@ -65,6 +65,15 @@
     },
     "shared-util-primeng-message": {
       "tags": ["scope:shared", "type:util"]
+    },
+    "shared-ui-styles": {
+      "tags": ["scope:shared", "type:ui"]
+    },
+    "shared-util-environments": {
+      "tags": ["scope:shared", "type:util"]
+    },
+    "shared-util-assets": {
+      "tags": ["scope:shared", "type:util"]
     }
   }
 }

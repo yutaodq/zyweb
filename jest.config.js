@@ -14,5 +14,8 @@ module.exports = {
     '<rootDir>/libs/feature/ivms-layout',
     '<rootDir>/libs/shared/primeng-message',
     '<rootDir>/libs/shared/util/primeng-message',
+    '<rootDir>/libs/shared/ui/styles',
+    '<rootDir>/libs/shared/util/environments',
+    '<rootDir>/libs/shared/util/assets',
   ],
 };

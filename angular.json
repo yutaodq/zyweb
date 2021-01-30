@@ -21,6 +21,16 @@
             "polyfills": "apps/ivms/src/polyfills.ts",
             "tsConfig": "apps/ivms/tsconfig.app.json",
             "aot": true,
+            "assets": [
+              "apps/ivms/src/favicon.ico",
+              "apps/ivms/src/assets",
+              {
+                "input": "libs/shared/util/assets/src/assets",
+                "glob": "**/*",
+                "output": "assets"
+              }
+            ],
+
             "assets": ["apps/ivms/src/favicon.ico", "apps/ivms/src/assets"],
             "styles": [
               "apps/ivms/src/styles.scss",
@@ -32,14 +42,17 @@
               "node_modules/ag-grid-community/dist/styles/ag-grid.css",
               "node_modules/ag-grid-community/dist/styles/ag-theme-alpine.css"
             ],
+            "stylePreprocessorOptions": {
+              "includePaths": ["libs/shared/ui/styles/src/lib"]
+            },
             "scripts": []
           },
           "configurations": {
             "production": {
               "fileReplacements": [
                 {
-                  "replace": "apps/ivms/src/environments/environment.ts",
-                  "with": "apps/ivms/src/environments/environment.prod.ts"
+                  "replace": "libs/shared/util/environments/src/lib/environment.ts",
+                  "with": "libs/shared/util/environments/src/lib/environment.prod.ts",
                 }
               ],
               "optimization": true,
@@ -497,6 +510,99 @@
           "builder": "@nrwl/jest:jest",
           "options": {
             "jestConfig": "libs/shared/util/primeng-message/jest.config.js",
+            "passWithNoTests": true
+          }
+        }
+      },
+      "schematics": {
+        "@schematics/angular:component": {
+          "style": "scss"
+        }
+      }
+    },
+    "shared-ui-styles": {
+      "projectType": "library",
+      "root": "libs/shared/ui/styles",
+      "sourceRoot": "libs/shared/ui/styles/src",
+      "prefix": "zyweb",
+      "architect": {
+        "lint": {
+          "builder": "@angular-devkit/build-angular:tslint",
+          "options": {
+            "tsConfig": [
+              "libs/shared/ui/styles/tsconfig.lib.json",
+              "libs/shared/ui/styles/tsconfig.spec.json"
+            ],
+            "exclude": ["**/node_modules/**", "!libs/shared/ui/styles/**/*"]
+          }
+        },
+        "test": {
+          "builder": "@nrwl/jest:jest",
+          "options": {
+            "jestConfig": "libs/shared/ui/styles/jest.config.js",
+            "passWithNoTests": true
+          }
+        }
+      },
+      "schematics": {
+        "@schematics/angular:component": {
+          "style": "scss"
+        }
+      }
+    },
+    "shared-util-environments": {
+      "projectType": "library",
+      "root": "libs/shared/util/environments",
+      "sourceRoot": "libs/shared/util/environments/src",
+      "prefix": "zyweb",
+      "architect": {
+        "lint": {
+          "builder": "@angular-devkit/build-angular:tslint",
+          "options": {
+            "tsConfig": [
+              "libs/shared/util/environments/tsconfig.lib.json",
+              "libs/shared/util/environments/tsconfig.spec.json"
+            ],
+            "exclude": [
+              "**/node_modules/**",
+              "!libs/shared/util/environments/**/*"
+            ]
+          }
+        },
+        "test": {
+          "builder": "@nrwl/jest:jest",
+          "options": {
+            "jestConfig": "libs/shared/util/environments/jest.config.js",
+            "passWithNoTests": true
+          }
+        }
+      },
+      "schematics": {
+        "@schematics/angular:component": {
+          "style": "scss"
+        }
+      }
+    },
+    "shared-util-assets": {
+      "projectType": "library",
+      "root": "libs/shared/util/assets",
+      "sourceRoot": "libs/shared/util/assets/src",
+      "prefix": "zyweb",
+      "architect": {
+        "lint": {
+          "builder": "@angular-devkit/build-angular:tslint",
+          "options": {
+            "tsConfig": [
+              "libs/shared/util/assets/tsconfig.lib.json",
+              "libs/shared/util/assets/tsconfig.spec.json"
+            ],
+            "exclude": ["**/node_modules/**", "!libs/shared/util/assets/**/*"]
+          }
+        },
+        "test": {
+          "builder": "@nrwl/jest:jest",
+          "options": {
+            "jestConfig": "libs/shared/util/assets/jest.config.js",
             "passWithNoTests": true
           }
         }

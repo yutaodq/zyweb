@@ -39,7 +39,12 @@
       "@zyweb/feature/ivms-layout": ["libs/feature/ivms-layout/src/index.ts"],
       "@zyweb/shared/util/primeng-message": [
         "libs/shared/util/primeng-message/src/index.ts"
-      ]
+      ],
+      "@zyweb/shared/ui/styles": ["libs/shared/ui/styles/src/index.ts"],
+      "@zyweb/shared/util/environments": [
+        "libs/shared/util/environments/src/index.ts"
+      ],
+      "@zyweb/shared/util/assets": ["libs/shared/util/assets/src/index.ts"]
     }
   },
   "exclude": ["node_modules", "tmp"]
