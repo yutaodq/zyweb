@@ -1590,6 +1590,18 @@
   dependencies:
     tslib "^2.0.0"
 
+"@ngrx/schematics@10.0.0":
+  version "10.0.0"
+  resolved "https://registry.npm.taobao.org/@ngrx/schematics/download/@ngrx/schematics-10.0.0.tgz#5e5b22b354bb725c48162e516cc770f9f20fe241"
+  integrity sha1-Xlsis1S7clxIFi5RbMdw+fIP4kE=
+
+"@ngrx/store-devtools@10.0.0":
+  version "10.0.0"
+  resolved "https://registry.npm.taobao.org/@ngrx/store-devtools/download/@ngrx/store-devtools-10.0.0.tgz#018716afd3df89bd2fa1f603966878f82e80d727"
+  integrity sha1-AYcWr9Pfib0vofYDlmh4+C6A1yc=
+  dependencies:
+    tslib "^2.0.0"
+
 "@ngrx/store@10.0.0":
   version "10.0.0"
   resolved "https://registry.npm.taobao.org/@ngrx/store/download/@ngrx/store-10.0.0.tgz#a355f0fdf6129b78b82fb57cacdb277bde0de066"

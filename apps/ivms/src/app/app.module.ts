@@ -6,7 +6,6 @@ import { AppComponent } from './app.component';
 
 import { AppRoutingModule } from './app-routing.module';
 import { LayoutFeatureIvmsModule } from '@zyweb/layout/feature/ivms';
-// import { FeatureIvmsLayoutModule } from '@zyweb/feature/ivms-layout';
 
 
 @NgModule({
@@ -15,7 +14,6 @@ import { LayoutFeatureIvmsModule } from '@zyweb/layout/feature/ivms';
     BrowserModule,
     BrowserAnimationsModule,
     AppRoutingModule,
-    // FeatureIvmsLayoutModule,
     LayoutFeatureIvmsModule,
   ],
   bootstrap: [AppComponent],
