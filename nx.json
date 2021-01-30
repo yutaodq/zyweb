@@ -42,18 +42,6 @@
     "shared-ui-layout": {
       "tags": ["scope:shared", "type:ui"]
     },
-    "shared-data-access-api-vehicle-use-type": {
-      "tags": ["scope:shared", "type:data-access"]
-    },
-    "shared-data-access-store-vehicle-use-type": {
-      "tags": ["scope:shared", "type:data-access"]
-    },
-    "shared-data-access-facade-vehicle-use-type": {
-      "tags": ["scope:shared", "type:data-access"]
-    },
-    "shared-data-access-model-vehicle-use-type": {
-      "tags": ["scope:shared", "type:data-access"]
-    },
     "shared-util-primeng-message": {
       "tags": ["scope:shared", "type:util"]
     },
@@ -74,6 +62,18 @@
     },
     "layout-feature-ivms": {
       "tags": ["scope:ivms", "type:feature"]
+    },
+    "shared-data-access-api-lvms": {
+      "tags": ["scope:shared", "type:data-access"]
+    },
+    "shared-data-access-facade-lvms": {
+      "tags": ["scope:shared", "type:data-access"]
+    },
+    "shared-data-access-model-lvms": {
+      "tags": ["scope:shared", "type:data-access"]
+    },
+    "shared-data-access-store-lvms-root": {
+      "tags": ["scope:shared", "type:data-access"]
     }
   }
 }

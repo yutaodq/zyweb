@@ -252,138 +252,6 @@
         }
       }
     },
-    "shared-data-access-api-vehicle-use-type": {
-      "projectType": "library",
-      "root": "libs/shared/data-access/api/vehicle-use-type",
-      "sourceRoot": "libs/shared/data-access/api/vehicle-use-type/src",
-      "prefix": "zyweb",
-      "architect": {
-        "lint": {
-          "builder": "@angular-devkit/build-angular:tslint",
-          "options": {
-            "tsConfig": [
-              "libs/shared/data-access/api/vehicle-use-type/tsconfig.lib.json",
-              "libs/shared/data-access/api/vehicle-use-type/tsconfig.spec.json"
-            ],
-            "exclude": [
-              "**/node_modules/**",
-              "!libs/shared/data-access/api/vehicle-use-type/**/*"
-            ]
-          }
-        },
-        "test": {
-          "builder": "@nrwl/jest:jest",
-          "options": {
-            "jestConfig": "libs/shared/data-access/api/vehicle-use-type/jest.config.js",
-            "passWithNoTests": true
-          }
-        }
-      },
-      "schematics": {
-        "@schematics/angular:component": {
-          "style": "scss"
-        }
-      }
-    },
-    "shared-data-access-store-vehicle-use-type": {
-      "projectType": "library",
-      "root": "libs/shared/data-access/store/vehicle-use-type",
-      "sourceRoot": "libs/shared/data-access/store/vehicle-use-type/src",
-      "prefix": "zyweb",
-      "architect": {
-        "lint": {
-          "builder": "@angular-devkit/build-angular:tslint",
-          "options": {
-            "tsConfig": [
-              "libs/shared/data-access/store/vehicle-use-type/tsconfig.lib.json",
-              "libs/shared/data-access/store/vehicle-use-type/tsconfig.spec.json"
-            ],
-            "exclude": [
-              "**/node_modules/**",
-              "!libs/shared/data-access/store/vehicle-use-type/**/*"
-            ]
-          }
-        },
-        "test": {
-          "builder": "@nrwl/jest:jest",
-          "options": {
-            "jestConfig": "libs/shared/data-access/store/vehicle-use-type/jest.config.js",
-            "passWithNoTests": true
-          }
-        }
-      },
-      "schematics": {
-        "@schematics/angular:component": {
-          "style": "scss"
-        }
-      }
-    },
-    "shared-data-access-facade-vehicle-use-type": {
-      "projectType": "library",
-      "root": "libs/shared/data-access/facade/vehicle-use-type",
-      "sourceRoot": "libs/shared/data-access/facade/vehicle-use-type/src",
-      "prefix": "zyweb",
-      "architect": {
-        "lint": {
-          "builder": "@angular-devkit/build-angular:tslint",
-          "options": {
-            "tsConfig": [
-              "libs/shared/data-access/facade/vehicle-use-type/tsconfig.lib.json",
-              "libs/shared/data-access/facade/vehicle-use-type/tsconfig.spec.json"
-            ],
-            "exclude": [
-              "**/node_modules/**",
-              "!libs/shared/data-access/facade/vehicle-use-type/**/*"
-            ]
-          }
-        },
-        "test": {
-          "builder": "@nrwl/jest:jest",
-          "options": {
-            "jestConfig": "libs/shared/data-access/facade/vehicle-use-type/jest.config.js",
-            "passWithNoTests": true
-          }
-        }
-      },
-      "schematics": {
-        "@schematics/angular:component": {
-          "style": "scss"
-        }
-      }
-    },
-    "shared-data-access-model-vehicle-use-type": {
-      "projectType": "library",
-      "root": "libs/shared/data-access/model/vehicle-use-type",
-      "sourceRoot": "libs/shared/data-access/model/vehicle-use-type/src",
-      "prefix": "zyweb",
-      "architect": {
-        "lint": {
-          "builder": "@angular-devkit/build-angular:tslint",
-          "options": {
-            "tsConfig": [
-              "libs/shared/data-access/model/vehicle-use-type/tsconfig.lib.json",
-              "libs/shared/data-access/model/vehicle-use-type/tsconfig.spec.json"
-            ],
-            "exclude": [
-              "**/node_modules/**",
-              "!libs/shared/data-access/model/vehicle-use-type/**/*"
-            ]
-          }
-        },
-        "test": {
-          "builder": "@nrwl/jest:jest",
-          "options": {
-            "jestConfig": "libs/shared/data-access/model/vehicle-use-type/jest.config.js",
-            "passWithNoTests": true
-          }
-        }
-      },
-      "schematics": {
-        "@schematics/angular:component": {
-          "style": "scss"
-        }
-      }
-    },
     "shared-util-primeng-message": {
       "projectType": "library",
       "root": "libs/shared/util/primeng-message",
@@ -596,6 +464,138 @@
           "builder": "@nrwl/jest:jest",
           "options": {
             "jestConfig": "libs/layout/feature/ivms/jest.config.js",
+            "passWithNoTests": true
+          }
+        }
+      },
+      "schematics": {
+        "@schematics/angular:component": {
+          "style": "scss"
+        }
+      }
+    },
+    "shared-data-access-api-lvms": {
+      "projectType": "library",
+      "root": "libs/shared/data-access/api/lvms",
+      "sourceRoot": "libs/shared/data-access/api/lvms/src",
+      "prefix": "zyweb",
+      "architect": {
+        "lint": {
+          "builder": "@angular-devkit/build-angular:tslint",
+          "options": {
+            "tsConfig": [
+              "libs/shared/data-access/api/lvms/tsconfig.lib.json",
+              "libs/shared/data-access/api/lvms/tsconfig.spec.json"
+            ],
+            "exclude": [
+              "**/node_modules/**",
+              "!libs/shared/data-access/api/lvms/**/*"
+            ]
+          }
+        },
+        "test": {
+          "builder": "@nrwl/jest:jest",
+          "options": {
+            "jestConfig": "libs/shared/data-access/api/lvms/jest.config.js",
+            "passWithNoTests": true
+          }
+        }
+      },
+      "schematics": {
+        "@schematics/angular:component": {
+          "style": "scss"
+        }
+      }
+    },
+    "shared-data-access-facade-lvms": {
+      "projectType": "library",
+      "root": "libs/shared/data-access/facade/lvms",
+      "sourceRoot": "libs/shared/data-access/facade/lvms/src",
+      "prefix": "zyweb",
+      "architect": {
+        "lint": {
+          "builder": "@angular-devkit/build-angular:tslint",
+          "options": {
+            "tsConfig": [
+              "libs/shared/data-access/facade/lvms/tsconfig.lib.json",
+              "libs/shared/data-access/facade/lvms/tsconfig.spec.json"
+            ],
+            "exclude": [
+              "**/node_modules/**",
+              "!libs/shared/data-access/facade/lvms/**/*"
+            ]
+          }
+        },
+        "test": {
+          "builder": "@nrwl/jest:jest",
+          "options": {
+            "jestConfig": "libs/shared/data-access/facade/lvms/jest.config.js",
+            "passWithNoTests": true
+          }
+        }
+      },
+      "schematics": {
+        "@schematics/angular:component": {
+          "style": "scss"
+        }
+      }
+    },
+    "shared-data-access-model-lvms": {
+      "projectType": "library",
+      "root": "libs/shared/data-access/model/lvms",
+      "sourceRoot": "libs/shared/data-access/model/lvms/src",
+      "prefix": "zyweb",
+      "architect": {
+        "lint": {
+          "builder": "@angular-devkit/build-angular:tslint",
+          "options": {
+            "tsConfig": [
+              "libs/shared/data-access/model/lvms/tsconfig.lib.json",
+              "libs/shared/data-access/model/lvms/tsconfig.spec.json"
+            ],
+            "exclude": [
+              "**/node_modules/**",
+              "!libs/shared/data-access/model/lvms/**/*"
+            ]
+          }
+        },
+        "test": {
+          "builder": "@nrwl/jest:jest",
+          "options": {
+            "jestConfig": "libs/shared/data-access/model/lvms/jest.config.js",
+            "passWithNoTests": true
+          }
+        }
+      },
+      "schematics": {
+        "@schematics/angular:component": {
+          "style": "scss"
+        }
+      }
+    },
+    "shared-data-access-store-lvms-root": {
+      "projectType": "library",
+      "root": "libs/shared/data-access/store/lvms-root",
+      "sourceRoot": "libs/shared/data-access/store/lvms-root/src",
+      "prefix": "zyweb",
+      "architect": {
+        "lint": {
+          "builder": "@angular-devkit/build-angular:tslint",
+          "options": {
+            "tsConfig": [
+              "libs/shared/data-access/store/lvms-root/tsconfig.lib.json",
+              "libs/shared/data-access/store/lvms-root/tsconfig.spec.json"
+            ],
+            "exclude": [
+              "**/node_modules/**",
+              "!libs/shared/data-access/store/lvms-root/**/*"
+            ]
+          }
+        },
+        "test": {
+          "builder": "@nrwl/jest:jest",
+          "options": {
+            "jestConfig": "libs/shared/data-access/store/lvms-root/jest.config.js",
             "passWithNoTests": true
           }
         }

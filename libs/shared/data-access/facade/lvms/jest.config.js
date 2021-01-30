@@ -1,5 +1,5 @@
 module.exports = {
-  displayName: 'shared-data-access-facade-vehicle-use-type',
+  displayName: 'shared-data-access-facade-lvms',
   preset: '../../../../../jest.preset.js',
   setupFilesAfterEnv: ['<rootDir>/src/test-setup.ts'],
   globals: {
@@ -15,7 +15,7 @@ module.exports = {
     },
   },
   coverageDirectory:
-    '../../../../../coverage/libs/shared/data-access/facade/vehicle-use-type',
+    '../../../../../coverage/libs/shared/data-access/facade/lvms',
   snapshotSerializers: [
     'jest-preset-angular/build/AngularNoNgAttributesSnapshotSerializer.js',
     'jest-preset-angular/build/AngularSnapshotSerializer.js',

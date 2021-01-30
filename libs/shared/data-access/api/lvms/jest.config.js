@@ -1,5 +1,5 @@
 module.exports = {
-  displayName: 'shared-data-access-store-vehicle-use-type',
+  displayName: 'shared-data-access-api-lvms',
   preset: '../../../../../jest.preset.js',
   setupFilesAfterEnv: ['<rootDir>/src/test-setup.ts'],
   globals: {
@@ -14,8 +14,7 @@ module.exports = {
       },
     },
   },
-  coverageDirectory:
-    '../../../../../coverage/libs/shared/data-access/store/vehicle-use-type',
+  coverageDirectory: '../../../../../coverage/libs/shared/data-access/api/lvms',
   snapshotSerializers: [
     'jest-preset-angular/build/AngularNoNgAttributesSnapshotSerializer.js',
     'jest-preset-angular/build/AngularSnapshotSerializer.js',

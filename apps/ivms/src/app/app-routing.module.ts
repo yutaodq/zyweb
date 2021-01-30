@@ -8,7 +8,7 @@ const routes: Routes = [
   // },
   // {
   //   path: 'vehicleUseTypes',
-  //   loadChildren: () => import('@zyweb/feature/vehicle-use-type').then((m) => m.FeatureVehicleUseTypeModule),
+  //   loadChildren: () => import('@zyweb/feature/lvms').then((m) => m.FeatureVehicleUseTypeModule),
   // },
   {
     path: '404',
