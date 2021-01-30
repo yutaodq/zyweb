@@ -7,9 +7,8 @@ import { catchError, map, mergeMap, switchMap } from 'rxjs/operators';
 import {
   VehicleUseTypeActions,
 } from '../actions';
-
-import { VehicleUseType } from '@zy/model';
-import { VehicleUseTypesApiClient } from '@zy/shared/vehicles/data-acces/api/use-type';
+import { VehicleUseTypesApiClient } from '@zyweb/shared/data-access/api/lvms';
+import { VehicleUseType } from '@zyweb/shared/data-access/model/lvms';
 
 @Injectable()
 export class VehicleUseTypeEffects {
