@@ -18,5 +18,7 @@ module.exports = {
     '<rootDir>/libs/shared/util/environments',
     '<rootDir>/libs/shared/util/assets',
     '<rootDir>/libs/feature/common/not-found',
+    '<rootDir>/libs/shared/data-access/store/ngrx-router',
+    '<rootDir>/libs/layout/feature/ivms',
   ],
 };

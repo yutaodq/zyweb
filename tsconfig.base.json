@@ -47,7 +47,11 @@
       "@zyweb/shared/util/assets": ["libs/shared/util/assets/src/index.ts"],
       "@zyweb/feature/common/not-found": [
         "libs/feature/common/not-found/src/index.ts"
-      ]
+      ],
+      "@zyweb/shared/data-access/store/ngrx-router": [
+        "libs/shared/data-access/store/ngrx-router/src/index.ts"
+      ],
+      "@zyweb/layout/feature/ivms": ["libs/layout/feature/ivms/src/index.ts"]
     }
   },
   "exclude": ["node_modules", "tmp"]

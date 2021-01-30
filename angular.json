@@ -635,6 +635,69 @@
           "style": "scss"
         }
       }
+    },
+    "shared-data-access-store-ngrx-router": {
+      "projectType": "library",
+      "root": "libs/shared/data-access/store/ngrx-router",
+      "sourceRoot": "libs/shared/data-access/store/ngrx-router/src",
+      "prefix": "zyweb",
+      "architect": {
+        "lint": {
+          "builder": "@angular-devkit/build-angular:tslint",
+          "options": {
+            "tsConfig": [
+              "libs/shared/data-access/store/ngrx-router/tsconfig.lib.json",
+              "libs/shared/data-access/store/ngrx-router/tsconfig.spec.json"
+            ],
+            "exclude": [
+              "**/node_modules/**",
+              "!libs/shared/data-access/store/ngrx-router/**/*"
+            ]
+          }
+        },
+        "test": {
+          "builder": "@nrwl/jest:jest",
+          "options": {
+            "jestConfig": "libs/shared/data-access/store/ngrx-router/jest.config.js",
+            "passWithNoTests": true
+          }
+        }
+      },
+      "schematics": {
+        "@schematics/angular:component": {
+          "style": "scss"
+        }
+      }
+    },
+    "layout-feature-ivms": {
+      "projectType": "library",
+      "root": "libs/layout/feature/ivms",
+      "sourceRoot": "libs/layout/feature/ivms/src",
+      "prefix": "zyweb",
+      "architect": {
+        "lint": {
+          "builder": "@angular-devkit/build-angular:tslint",
+          "options": {
+            "tsConfig": [
+              "libs/layout/feature/ivms/tsconfig.lib.json",
+              "libs/layout/feature/ivms/tsconfig.spec.json"
+            ],
+            "exclude": ["**/node_modules/**", "!libs/layout/feature/ivms/**/*"]
+          }
+        },
+        "test": {
+          "builder": "@nrwl/jest:jest",
+          "options": {
+            "jestConfig": "libs/layout/feature/ivms/jest.config.js",
+            "passWithNoTests": true
+          }
+        }
+      },
+      "schematics": {
+        "@schematics/angular:component": {
+          "style": "scss"
+        }
+      }
     }
   },
   "cli": {

@@ -77,6 +77,12 @@
     },
     "feature-common-not-found": {
       "tags": ["scope:not-found", "type:feature"]
+    },
+    "shared-data-access-store-ngrx-router": {
+      "tags": ["scope:shared", "type:data-access"]
+    },
+    "layout-feature-ivms": {
+      "tags": ["scope:ivms", "type:feature"]
     }
   }
 }
