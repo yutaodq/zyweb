@@ -15,11 +15,12 @@ import { DataGridColumns } from '../model';
 import { IGridColumnsBuilder } from '../builder';
 import { COLUMN_DEFAULT_VALUE, ROW_HEIGHT } from '../options/column-default-value';
 import { map } from 'rxjs/operators';
-import { LOCALE_TEXT_GRID, SearchNgrxGridService } from '@zyweb/shared/ui/grid';
+import { LOCALE_TEXT_GRID } from '../locale-text/locale-text-grid';
 import { DataGridCommonOptions, DataGridOptionsUtil, IDataGridOptions } from '../options';
 import { ButtonRenderedComponent } from '../components/renderer';
 import { ActionsColumnRendererComponent } from '../components/renderer/actions-column-renderer/actions-column-renderer.component';
 import { GridState } from './grid-state';
+import { SearchNgrxGridService } from '@zyweb/shared/grid/core';
 
 
 @Component({

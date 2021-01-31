@@ -23,7 +23,7 @@ module.exports = {
     '<rootDir>/libs/shared/data-access/store/lvms-root',
     '<rootDir>/libs/vehicle/use-type/data-access/store',
     '<rootDir>/libs/vehicle/use-type/main',
-    '<rootDir>/libs/shared/data-access/api/http-service',
+    '<rootDir>/libs/shared/data-access/api/http-services',
     '<rootDir>/libs/shared/data-access/facade/base',
     '<rootDir>/libs/shared/locale-text/api/i18n',
     '<rootDir>/libs/shared/locale-text/i18n',

@@ -1,5 +1,5 @@
 module.exports = {
-  displayName: 'shared-data-access-api-http-service',
+  displayName: 'shared-data-access-api-http-services',
   preset: '../../../../../jest.preset.js',
   setupFilesAfterEnv: ['<rootDir>/src/test-setup.ts'],
   globals: {
@@ -15,7 +15,7 @@ module.exports = {
     },
   },
   coverageDirectory:
-    '../../../../../coverage/libs/shared/data-access/api/http-service',
+    '../../../../../coverage/libs/shared/data-access/api/http-services',
   snapshotSerializers: [
     'jest-preset-angular/build/AngularNoNgAttributesSnapshotSerializer.js',
     'jest-preset-angular/build/AngularSnapshotSerializer.js',
