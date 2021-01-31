@@ -86,6 +86,9 @@
     },
     "shared-data-access-facade-base": {
       "tags": ["scope:shared", "type:data-access"]
+    },
+    "shared-util-i18n": {
+      "tags": ["scope:shared", "type:util"]
     }
   }
 }

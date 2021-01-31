@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { NGXLogger } from 'ngx-logger';
+// import { NGXLogger } from 'ngx-logger';
 import { Vehicle } from '@zyweb/shared/data-access/model/lvms';
 import { VehicleUseTypesFacade } from '@zyweb/shared/data-access/facade/lvms';
 
@@ -13,32 +13,32 @@ import { VehicleUseTypesFacade } from '@zyweb/shared/data-access/facade/lvms';
 export class VehiclesUseTypeComponent implements OnInit {
 
 
-  // constructor(
-  //   private _facade: VehicleUseTypesFacade,
-  //   private _logger: NGXLogger
-  // ) {
-  //
-  // }
-  //
+  constructor(
+    private _facade: VehicleUseTypesFacade,
+    // private _logger: NGXLogger
+  ) {
+
+  }
+
   ngOnInit(): void {
     // this._logger.debug('日志功能：Your log message goes here');
   }
-  //
-  // onSelectData(vehicle: Vehicle) {
-  //   console.log(`onSelectData(event):aaaaaaaaaaaaaaaa` );
-  //   // this._vehiclesFacade.selectVehicle(vehicle);
-  //   // this.router.navigate(['vehicles', vehicle.id,'detail']);
-  // }
-  //
-  // get facade() {
-  //   return this._facade;
-  // }
-  //
-  // create() {
-  //   this._logger.debug('日志功能：create');
-  //   // this.router.navigate(['vehicles', 'create']);
-  //
-  // }
+
+  onSelectData(vehicle: Vehicle) {
+    console.log(`onSelectData(event):aaaaaaaaaaaaaaaa` );
+    // this._vehiclesFacade.selectVehicle(vehicle);
+    // this.router.navigate(['vehicles', vehicle.id,'detail']);
+  }
+
+  get facade() {
+    return this._facade;
+  }
+
+  create() {
+    // this._logger.debug('日志功能：create');
+    // this.router.navigate(['vehicles', 'create']);
+
+  }
 
 
 }

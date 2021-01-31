@@ -25,5 +25,7 @@ module.exports = {
     '<rootDir>/libs/vehicle/use-type/main',
     '<rootDir>/libs/shared/data-access/api/http-service',
     '<rootDir>/libs/shared/data-access/facade/base',
+    '<rootDir>/libs/shared/util/api/i18n',
+    '<rootDir>/libs/shared/util/i18n',
   ],
 };

@@ -1,11 +1,11 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-// import { SharedVehicleDataAccesApiModule } from '@zy/shared/vehicle/data-acces-api';
 import { StoreModule } from '@ngrx/store';
 import { EffectsModule } from '@ngrx/effects';
 
 import * as fromVehicleUseType from './reducers';
 import { VehicleUseTypeEffects } from './effects';
+import { VehicleUseTypesApiClient } from '@zyweb/shared/data-access/api/lvms';
 @NgModule({
   imports: [
     CommonModule,
@@ -13,6 +13,7 @@ import { VehicleUseTypeEffects } from './effects';
     StoreModule.forFeature(fromVehicleUseType.vehicleUseTypeFeatureKey, fromVehicleUseType.reducers),
     EffectsModule.forFeature([VehicleUseTypeEffects ]),
   ],
+  providers: [VehicleUseTypesApiClient]
 })
 
 export class VehicleUseTypeDataAccessStoreModule {}
