@@ -11,18 +11,18 @@ export class VehicleUseTypeSearchNgrxGridService extends  SearchNgrxGridService{
     protected appState$: Store<fromVehicleUseTypes.State>,
   ) {
     super();
-    // this.query$ = this.appState$.pipe(select(fromVehicleUseTypes.selectCollectionQuery));
+    this.query$ = this.appState$.pipe(select(fromVehicleUseTypes.selectCollectionQuery));
     this.registerEvents();
   }
 
   search(query: string) {
-    // this.appState$.dispatch(fromVehicleUseTypes.CollectionPageActions.searchCollection({query}));
+    this.appState$.dispatch(fromVehicleUseTypes.VehicleUseTypeActions.searchCollection({query}));
   }
 
 
-  clearSearch() {
-    // this.appState$.dispatch(fromVehicleUseTypes.CollectionPageActions.searchCollectionClear());
-  }
+  // clearSearch() {
+  //   this.appState$.dispatch(fromVehicleUseTypes.VehicleUseTypeActions.searchCollectionClear());
+  // }
 
   /**
    * Subscribes to events

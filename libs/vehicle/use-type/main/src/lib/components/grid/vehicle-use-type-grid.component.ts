@@ -6,8 +6,9 @@ import {
 import { VehicleUseTypeColumnsBuilder } from '../../grid/vehicle-use-type-columns.builder';
 
 import { Vehicle } from '@zyweb/shared/data-access/model/lvms';
-import { BaseGridViewModel, IGridColumnsBuilder } from '@zyweb/shared/ui/grid';
 import { VehicleUseTypeSearchNgrxGridService } from '../../services';
+import { IGridColumnsBuilder } from '@zyweb/shared/grid/core';
+import { BaseGridViewModel } from '@zyweb/shared/grid/ui';
 
 @Component({
   selector: 'zyweb-vehicle-use-type-grid',

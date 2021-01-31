@@ -25,6 +25,11 @@ export const selectVehicleUseTypesLoading = createSelector(
   fromVehicleUseType.getVehicleUseTypesLoading
 );
 
+export const selectCollectionQuery = createSelector(
+  fromFeature.getVehicleUseTypesState,
+  fromVehicleUseType.getVehicleUseTypesQuery
+);
+
 // export const getSelectedPagoDeMorralla = createSelector(
 //   getPagoDeMorrallasEntities,
 //   fromRoot.getRouterState,

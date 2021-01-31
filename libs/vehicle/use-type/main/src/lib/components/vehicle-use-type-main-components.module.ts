@@ -8,7 +8,6 @@ export const COMPONENTS_EXPORTS : Array<any> = [
 @NgModule({
   imports: [
     CommonModule,
-    // VehicleUseTypeGridModule,
   ],
   declarations: [
   ],

@@ -12,13 +12,17 @@ export const vehicleUseTypeFeatureKey = 'vehicleUseTypes';
 export interface State extends EntityState<VehicleUseType> {
   loading: boolean;
   loaded: boolean;
+  query: string;
+
 }
 
 export const adapter: EntityAdapter<VehicleUseType> = createEntityAdapter<VehicleUseType>();
 
 export const initialState: State = adapter.getInitialState({
   loading: false,
-  loaded: false
+  loaded: false,
+  query: '',
+
 });
 
 export const reducer = createReducer(
@@ -35,7 +39,15 @@ export const reducer = createReducer(
         loading: false,
         loaded: true
       }))
-  )
+  ),
+  /*
+  查询
+ */
+  on(VehicleUseTypeActions.searchCollection, (state, { query }) => ({
+    ...state,
+    query: query
+  })),
+
 );
 
 export const {
@@ -47,3 +59,4 @@ export const {
 
 export const getVehicleUseTypesLoading = (state: State) => state.loading;
 export const getVehicleUseTypesLoaded = (state: State) => state.loaded;
+export const getVehicleUseTypesQuery = (state: State) => state.query;

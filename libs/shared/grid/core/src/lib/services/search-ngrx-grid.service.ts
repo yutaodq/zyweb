@@ -10,9 +10,9 @@ export class SearchNgrxGridService {
    search(query: string) {
    }
 
-   clearSearch() {
-
-   }
+   // clearSearch() {
+   //
+   // }
 
   get query$(): Observable<string> {
     return this._query$;

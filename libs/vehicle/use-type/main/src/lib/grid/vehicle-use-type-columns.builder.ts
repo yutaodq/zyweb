@@ -1,5 +1,6 @@
 import { Injectable } from '@angular/core';
-import { BaseGridColumnsBuilder, DataGridColumns } from '@zyweb/shared/ui/grid';
+import { BaseGridColumnsBuilder, DataGridColumns } from '@zyweb/shared/grid/core';
+// import { BaseGridColumnsBuilder, DataGridColumns } from '@zyweb/shared/ui/grid';
 
 
 @Injectable()
