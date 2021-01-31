@@ -36,9 +36,6 @@
     "shared-ui-common": {
       "tags": ["scope:shared", "type:ui"]
     },
-    "shared-ui-grid": {
-      "tags": ["scope:shared", "type:ui"]
-    },
     "shared-ui-layout": {
       "tags": ["scope:shared", "type:ui"]
     },

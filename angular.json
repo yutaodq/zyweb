@@ -192,36 +192,6 @@
         }
       }
     },
-    "shared-ui-grid": {
-      "projectType": "library",
-      "root": "libs/shared/ui/grid",
-      "sourceRoot": "libs/shared/ui/grid/src",
-      "prefix": "zyweb",
-      "architect": {
-        "lint": {
-          "builder": "@angular-devkit/build-angular:tslint",
-          "options": {
-            "tsConfig": [
-              "libs/shared/ui/grid/tsconfig.lib.json",
-              "libs/shared/ui/grid/tsconfig.spec.json"
-            ],
-            "exclude": ["**/node_modules/**", "!libs/shared/ui/grid/**/*"]
-          }
-        },
-        "test": {
-          "builder": "@nrwl/jest:jest",
-          "options": {
-            "jestConfig": "libs/shared/ui/grid/jest.config.js",
-            "passWithNoTests": true
-          }
-        }
-      },
-      "schematics": {
-        "@schematics/angular:component": {
-          "style": "scss"
-        }
-      }
-    },
     "shared-ui-layout": {
       "projectType": "library",
       "root": "libs/shared/ui/layout",
