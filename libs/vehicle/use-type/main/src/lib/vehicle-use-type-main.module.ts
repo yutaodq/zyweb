@@ -5,6 +5,7 @@ import { VehicleFeatureVehicleUseTypeRouting } from './vehicle-use-type-main-rou
 import { VehiclesUseTypeComponent } from './containers/list/vehicles-use-type.component';
 import { VehicleUseTypeDataAccessStoreModule } from '@zyweb/vehicle/use-type/data-access/store';
 import { SharedUiBaseModule } from '@zyweb/shared/ui/base';
+import { VehicleUseTypeMainComponentsModule } from './components';
 
 @NgModule({
   imports: [
@@ -12,6 +13,7 @@ import { SharedUiBaseModule } from '@zyweb/shared/ui/base';
     VehicleFeatureVehicleUseTypeRouting,
     VehicleUseTypeDataAccessStoreModule,
     SharedUiBaseModule,
+    VehicleUseTypeMainComponentsModule
   ],
   declarations: [
     VehiclesUseTypeComponent,

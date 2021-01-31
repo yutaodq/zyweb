@@ -3,13 +3,17 @@ import { CommonModule } from '@angular/common';
 import { TranslateModule } from '@ngx-translate/core';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
-import { SearchNgrxGridService, ThemePrimengModule } from '@zy/shared/locale-text';
-import { SharedUiComponentModule } from '@zy/shared/ui';
-import { SharedUiGridModule } from '@zy/shared/ui-grid';
+// import { SearchNgrxGridService, ThemePrimengModule } from '@zy/shared/locale-text';
+// import { SharedUiComponentModule } from '@zy/shared/ui';
+// import { SharedUiGridModule } from '@zy/shared/ui-grid';
 
 import { FormlyModule } from '@ngx-formly/core';
+import { SharedUiCommonModule } from '@zyweb/shared/ui/common';
+import { SharedUiGridModule } from '@zyweb/shared/ui/grid';
+import { VehicleUseTypeGridComponent } from './vehicle-use-type-grid.component';
 
 export const COMPONENTS_EXPORTS : Array<any> = [
+  VehicleUseTypeGridComponent
 ];
 
 @NgModule({
@@ -18,17 +22,16 @@ export const COMPONENTS_EXPORTS : Array<any> = [
     FormsModule,
     TranslateModule,
     SharedUiGridModule,
-    SharedUiComponentModule,
-    ThemePrimengModule,
+    SharedUiCommonModule,
     FormlyModule,
     ReactiveFormsModule
   ],
-  declarations: [
+  declarations: [VehicleUseTypeGridComponent
   ],
   exports: [...COMPONENTS_EXPORTS],
 
   entryComponents: [
   ]
 })
-export class VehicleFeatureUseTypeComponentsModule {}
+export class VehicleUseTypeGridModule {}
 

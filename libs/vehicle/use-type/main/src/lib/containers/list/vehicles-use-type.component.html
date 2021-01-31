@@ -25,11 +25,12 @@
     <div class="row">
 
       <div class="col">
-<!--        <zy-vehicle-grid-->
-<!--          [items]="oxvehiclesSandb.vehicles$ | async"-->
-<!--          (selectDataEvent)="onSelectData($event)"-->
-<!--        >-->
-<!--        </zy-vehicle-grid>-->
+
+        <zyweb-vehicle-use-type-grid
+          [items]="facade.vehicleUseTypes$ | async"
+          (selectDataEvent)="onSelectData($event)"
+        >
+        </zyweb-vehicle-use-type-grid>
       </div>
     </div>
 
