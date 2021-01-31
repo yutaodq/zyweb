@@ -8,10 +8,10 @@ import { SearchGridService } from '@zyweb/shared/grid/core';
 
 @Component({
   selector: 'zyweb-ui-grid-search',
-  templateUrl: './search.component.html',
-  styleUrls: ['./search.component.css']
+  templateUrl: './search-rxjs.component.html',
+  styleUrls: ['./search-rxjs.component.css']
 })
-export class SearchComponent implements OnInit {
+export class SearchRxjsComponent implements OnInit {
   public globalFilter: string;
   @Input() set globalFilterInp(value: string) {
     this.globalFilter = value;
