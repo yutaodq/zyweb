@@ -1,5 +1,4 @@
 import { Injectable, Inject, forwardRef } from '@angular/core';
-import { Vehicle } from '@zy/model';
 
 @Injectable()
 export class VehiclesService {

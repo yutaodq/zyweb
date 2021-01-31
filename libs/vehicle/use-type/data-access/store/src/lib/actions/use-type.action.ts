@@ -1,5 +1,5 @@
 import { createAction, props } from '@ngrx/store';
-import { VehicleUseType } from '@zy/model';
+import { VehicleUseType } from '@zyweb/shared/data-access/model/lvms';
 
 
 export const loadVehicleUseTypes = createAction('[vehicleUseTypes] LOAD_VEHICLE_USE_TYPES');

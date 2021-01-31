@@ -3,7 +3,7 @@ D:\学习案例\sx-tesoreria\src\app\egresos\store\reducers\pago-morralla.reduce
  */
 
 import { createEntityAdapter, EntityAdapter, EntityState } from '@ngrx/entity';
-import { VehicleUseType } from '@zy/model';
+import { VehicleUseType } from '@zyweb/shared/data-access/model/lvms';
 import { createReducer, on } from '@ngrx/store';
 import { VehicleUseTypeActions } from '../actions';
 

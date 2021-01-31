@@ -1,4 +1,3 @@
-import { Vehicle } from '@zy/model';
 import {
   createSelector,
   createFeatureSelector,
@@ -6,8 +5,7 @@ import {
   Action
 } from '@ngrx/store';
 import * as fromVehicleUseType from './use-type.reducer';
-import * as fromRoot from '@zy/store';
-import { vehiclesFeatureKey, VehiclesState } from '@zy/shared/vehicle/data-acces';
+import * as fromRoot from '@zyweb/shared/data-access/store/lvms-root';
 
 export const vehicleUseTypeFeatureKey = 'vehicleUseTypes';
 

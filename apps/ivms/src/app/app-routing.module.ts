@@ -6,15 +6,16 @@ const routes: Routes = [
   //   path: 'vehicles',
   //   loadChildren: () => import('@zyweb/feature/vehicle').then((m) => m.FeatureVehicleModule),
   // },
-  // {
-  //   path: 'vehicleUseTypes',
-  //   loadChildren: () => import('@zyweb/feature/lvms').then((m) => m.FeatureVehicleUseTypeModule),
-  // },
+  {
+    path: 'vehicleUseTypes',
+    loadChildren: () => import('@zyweb/vehicle/use-type/main').then((m) => m.VehicleUseTypeMainModule),
+  },
   {
     path: '404',
     loadChildren: () => import('@zyweb/feature/common/not-found').then((m) => m.FeatureCommonNotFoundModule),
   },
-  { path: '', redirectTo: '404', pathMatch: 'full' },
+  { path: '', redirectTo: 'vehicleUseTypes', pathMatch: 'full' },
+
   // { path: '', redirectTo: 'vehicles', pathMatch: 'full' },
 ];
 

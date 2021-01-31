@@ -3,7 +3,7 @@ import { createSelector } from '@ngrx/store';
 
 import * as fromFeature from '../reducers';
 import * as fromVehicleUseType from '../reducers/use-type.reducer';
-import { selectVehiclesState } from '@zy/shared/vehicle/data-acces';
+// import { selectVehiclesState } from '@zy/shared/vehicle/data-acces';
 
 export const getVehicleUseTypesEntities = createSelector(
   fromFeature.getVehicleUseTypesState,

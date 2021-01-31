@@ -6,7 +6,7 @@ import { HttpResponseHandler } from './httpResponseHandler.service';
 import { HttpAdapter } from './http.adapter';
 
 import { catchError, map } from 'rxjs/operators';
-import { environment } from "@zy/environments";
+import { environment } from "@zyweb/shared/util/environments";
 
 /**
  * Supported @Produces media types

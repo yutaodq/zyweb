@@ -2,7 +2,7 @@ import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { VehiclesUseTypeComponent } from './containers/list/vehicles-use-type.component';
 
-const vehiclesRoutes: Routes = [
+const routes: Routes = [
   { path: '', redirectTo: 'list', pathMatch: 'full' },
   {
     path: 'list',
@@ -12,7 +12,7 @@ const vehiclesRoutes: Routes = [
 
 @NgModule({
   imports: [
-    RouterModule.forChild(vehiclesRoutes)
+    RouterModule.forChild(routes)
   ],
   exports: [
     RouterModule
