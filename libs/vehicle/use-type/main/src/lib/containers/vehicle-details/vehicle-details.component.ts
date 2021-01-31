@@ -6,8 +6,8 @@ import { Vehicle } from '@zy/model';
 import { VehiclesFacade } from '@zy/shared/vehicle/data-acces-facade';
 import { DialogService, DynamicDialogRef } from 'primeng/dynamicdialog';
 import { ConfirmationService, MessageService } from 'primeng/api';
-import { VehicleDeleteDialogComponent } from '../../components/vehicle-delete-dialog/vehicle-delete-dialog.component';
-import { NotificationService } from '@zy/shared/util';
+import { VehicleDeleteDialogComponent } from '../../components/delete-dialog/vehicle-delete-dialog.component';
+import { NotificationService } from '@zy/shared/locale-text';
 import { RouterFacade } from '@zy/shared/utils/ngrx-router';
 
 @Component({

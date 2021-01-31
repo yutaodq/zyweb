@@ -1,5 +1,5 @@
 module.exports = {
-  displayName: 'shared-util-primeng-message',
+  displayName: 'shared-locale-text-primeng-message',
   preset: '../../../../jest.preset.js',
   setupFilesAfterEnv: ['<rootDir>/src/test-setup.ts'],
   globals: {
@@ -14,7 +14,7 @@ module.exports = {
       },
     },
   },
-  coverageDirectory: '../../../../coverage/libs/shared/util/primeng-message',
+  coverageDirectory: '../../../../coverage/libs/shared/locale-text/primeng-message',
   snapshotSerializers: [
     'jest-preset-angular/build/AngularNoNgAttributesSnapshotSerializer.js',
     'jest-preset-angular/build/AngularSnapshotSerializer.js',

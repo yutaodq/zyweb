@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 // import { NGXLogger } from 'ngx-logger';
-import { Vehicle } from '@zyweb/shared/data-access/model/lvms';
+import { Vehicle, VehicleUseType } from '@zyweb/shared/data-access/model/lvms';
 import { VehicleUseTypesFacade } from '@zyweb/shared/data-access/facade/lvms';
 
 @Component({
@@ -24,7 +24,7 @@ export class VehiclesUseTypeComponent implements OnInit {
     // this._logger.debug('日志功能：Your log message goes here');
   }
 
-  onSelectData(vehicle: Vehicle) {
+  onSelectData(vehicleUseType: VehicleUseType) {
     console.log(`onSelectData(event):aaaaaaaaaaaaaaaa` );
     // this._vehiclesFacade.selectVehicle(vehicle);
     // this.router.navigate(['vehicles', vehicle.id,'detail']);

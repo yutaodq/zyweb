@@ -6,19 +6,19 @@ import {
 import { VehicleUseTypeColumnsBuilder } from '../../grid/vehicle-use-type-columns.builder';
 import { BaseGridViewModel, GridLocaleService, IGridColumnsBuilder } from '@zy/shared/ui-grid';
 import { VehicleSearchNgrxGridService } from '@zy/shared/vehicle/data-acces-facade';
-import { SearchNgrxGridService } from '@zy/shared/util';
+import { SearchNgrxGridService } from '@zy/shared/locale-text';
 import { Vehicle } from '@zyweb/shared/data-access/model/lvms';
 
 @Component({
   selector: 'zyweb-vehicle-grid',
-  templateUrl: './vehicles-grid.component.html',
-  styleUrls: ['./vehicles-grid.component.scss'],
+  templateUrl: './vehicle-use-type-grid.component.html',
+  styleUrls: ['./vehicle-use-type-grid.component.scss'],
   providers: [ VehicleUseTypeColumnsBuilder, VehicleSearchNgrxGridService],
   changeDetection: ChangeDetectionStrategy.OnPush
 
 })
 
-export class VehiclesGridComponent extends BaseGridViewModel<Vehicle> {
+export class VehicleUseTypeGridComponent extends BaseGridViewModel<Vehicle> {
 
   @Input() loading = true;
   private readonly _gridColumnsBuilder: IGridColumnsBuilder;

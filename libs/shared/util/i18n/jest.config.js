@@ -1,5 +1,5 @@
 module.exports = {
-  displayName: 'shared-util-i18n',
+  displayName: 'shared-locale-text-i18n',
   preset: '../../../../jest.preset.js',
   setupFilesAfterEnv: ['<rootDir>/src/test-setup.ts'],
   globals: {
@@ -14,7 +14,7 @@ module.exports = {
       },
     },
   },
-  coverageDirectory: '../../../../coverage/libs/shared/util/i18n',
+  coverageDirectory: '../../../../coverage/libs/shared/locale-text/i18n',
   snapshotSerializers: [
     'jest-preset-angular/build/AngularNoNgAttributesSnapshotSerializer.js',
     'jest-preset-angular/build/AngularSnapshotSerializer.js',

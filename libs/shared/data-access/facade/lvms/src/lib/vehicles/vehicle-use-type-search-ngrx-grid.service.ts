@@ -2,7 +2,7 @@
 // import { select, Store } from '@ngrx/store';
 //
 // import * as fromVehicleUseTypes from '@zyweb/vehicle/use-type/data-acces/store';
-// import { SearchNgrxGridService } from '@zy/shared/util';
+// import { SearchNgrxGridService } from '@zy/shared/locale-text';
 //
 // @Injectable()
 // export class VehicleUseTypeSearchNgrxGridService extends  SearchNgrxGridService{

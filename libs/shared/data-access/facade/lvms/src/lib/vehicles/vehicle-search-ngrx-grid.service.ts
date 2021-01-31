@@ -2,7 +2,7 @@
 // import { select, Store } from '@ngrx/store';
 //
 // import * as fromVehicles from '@zy/shared/vehicle/data-acces';
-// // import { SearchNgrxGridService } from '@zy/shared/util';
+// // import { SearchNgrxGridService } from '@zy/shared/locale-text';
 //
 // @Injectable()
 // export class VehicleSearchNgrxGridService extends  SearchNgrxGridService{

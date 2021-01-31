@@ -1,7 +1,3 @@
 # shared-ui-grid
-
-This library was generated with [Nx](https://nx.dev).
-
-## Running unit tests
-
-Run `nx test shared-ui-grid` to execute the unit tests.
+学习：
+https://github.com/Manjuanand021/ls_perfect/tree/master/src

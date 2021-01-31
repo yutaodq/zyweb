@@ -13,7 +13,7 @@ import { VehiclesFacade } from '@zy/shared/vehicle/data-acces-facade';
 import { Router } from '@angular/router';
 import { DialogService, DynamicDialogRef } from 'primeng/dynamicdialog';
 import { ConfirmationService, MessageService } from 'primeng/api';
-import { VehicleDeleteDialogComponent } from '../vehicle-delete-dialog/vehicle-delete-dialog.component';
+import { VehicleDeleteDialogComponent } from '../delete-dialog/vehicle-delete-dialog.component';
 
 @Component({
   selector: 'zy-vehicle-details-toolbar',

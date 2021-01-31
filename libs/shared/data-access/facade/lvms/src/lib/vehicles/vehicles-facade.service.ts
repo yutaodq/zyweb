@@ -2,7 +2,7 @@
 // import { select, Store } from '@ngrx/store';
 // import { Observable, Subscription } from 'rxjs';
 //
-// import { Sandbox } from '@zy/shared/util';
+// import { Sandbox } from '@zy/shared/locale-text';
 // import * as fromVehicles from '@zy/shared/vehicle/data-acces';
 // import { Vehicle } from '@zy/model';
 // import { filter, map, take } from 'rxjs/operators';
@@ -52,7 +52,7 @@
 //   }
 //
 //   /**
-//    * Loads vehicle vehicle-details-form from the server
+//    * Loads vehicle details-form from the server
 //    * loadVehicle
 //    */
 //   public loadVehicleDetails(id: string): void {
@@ -60,7 +60,7 @@
 //   }
 //
 //   /**
-//    * Dispatches an action to select product vehicle-details-form
+//    * Dispatches an action to select product details-form
 //    */
 //   public selectVehicle(vehicle: Vehicle): void {
 //     this.appState$.dispatch(fromVehicles.CollectionPageActions.selectVehicle( vehicle ))

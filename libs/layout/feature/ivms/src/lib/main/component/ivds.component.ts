@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { of, Subscription } from 'rxjs';
-// import { NotificationReceiverService } from '@zyweb/shared/util/primeng-message';
+// import { NotificationReceiverService } from '@zyweb/shared/locale-text/primeng-message';
 @Component({
   selector: 'zyweb-layout-ivms',
   templateUrl: './ivds.component.html',

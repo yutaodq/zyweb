@@ -1,2 +1,2 @@
 export * from './vehicle-feature-use-type-components.module';
-// export * from './vehicle-delete-dialog/vehicle-delete-dialog.component';
+// export * from './delete-dialog/delete-dialog.component';
