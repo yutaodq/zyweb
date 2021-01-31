@@ -7,7 +7,6 @@ import { FormlyModule } from '@ngx-formly/core';
 import { SharedUiCommonModule } from '@zyweb/shared/ui/common';
 import { VehicleUseTypeGridComponent } from './vehicle-use-type-grid.component';
 import { SharedGridUiModule } from '@zyweb/shared/grid/ui';
-import { VehicleUseTypeSearchNgrxGridService } from '../../services';
 
 export const COMPONENTS_EXPORTS : Array<any> = [
   VehicleUseTypeGridComponent
@@ -26,7 +25,7 @@ export const COMPONENTS_EXPORTS : Array<any> = [
   declarations: [VehicleUseTypeGridComponent
   ],
   exports: [...COMPONENTS_EXPORTS],
-providers: [VehicleUseTypeSearchNgrxGridService],
+providers: [],
   entryComponents: [
   ]
 })

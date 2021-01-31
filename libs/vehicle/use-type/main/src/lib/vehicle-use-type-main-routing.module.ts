@@ -1,12 +1,12 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import { VehiclesUseTypeComponent } from './containers/list/vehicles-use-type.component';
+import { ListComponent } from './containers/list/list.component';
 
 const routes: Routes = [
   { path: '', redirectTo: 'list', pathMatch: 'full' },
   {
     path: 'list',
-    component: VehiclesUseTypeComponent,
+    component: ListComponent,
   },
 ];
 

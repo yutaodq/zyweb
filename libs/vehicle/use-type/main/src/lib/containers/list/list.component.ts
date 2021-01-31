@@ -1,16 +1,16 @@
 import { Component, OnInit } from '@angular/core';
 // import { NGXLogger } from 'ngx-logger';
-import { Vehicle, VehicleUseType } from '@zyweb/shared/data-access/model/lvms';
+import { VehicleUseType } from '@zyweb/shared/data-access/model/lvms';
 import { VehicleUseTypesFacade } from '@zyweb/shared/data-access/facade/lvms';
 
 @Component({
   selector: 'zyweb-vehicle-use-type-list',
-  templateUrl: './vehicles-use-type.component.html',
-  styleUrls: ['./vehicles-use-type.component.scss'],
+  templateUrl: './list.component.html',
+  styleUrls: ['./list.component.scss'],
   providers: [VehicleUseTypesFacade]
 })
 
-export class VehiclesUseTypeComponent implements OnInit {
+export class ListComponent implements OnInit {
 
 
   constructor(
