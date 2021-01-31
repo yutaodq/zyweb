@@ -59,7 +59,9 @@
       "@zyweb/shared/data-access/facade/base": [
         "libs/shared/data-access/facade/base/src/index.ts"
       ],
-      "@zyweb/shared/util/i18n": ["libs/shared/util/i18n/src/index.ts"]
+      "@zyweb/shared/util/i18n": ["libs/shared/util/i18n/src/index.ts"],
+      "@zyweb/shared/grid/ui": ["libs/shared/grid/ui/src/index.ts"],
+      "@zyweb/shared/grid/core": ["libs/shared/grid/core/src/index.ts"]
     }
   },
   "exclude": ["node_modules", "tmp"]

@@ -767,6 +767,66 @@
           "style": "scss"
         }
       }
+    },
+    "shared-grid-ui": {
+      "projectType": "library",
+      "root": "libs/shared/grid/ui",
+      "sourceRoot": "libs/shared/grid/ui/src",
+      "prefix": "zyweb",
+      "architect": {
+        "lint": {
+          "builder": "@angular-devkit/build-angular:tslint",
+          "options": {
+            "tsConfig": [
+              "libs/shared/grid/ui/tsconfig.lib.json",
+              "libs/shared/grid/ui/tsconfig.spec.json"
+            ],
+            "exclude": ["**/node_modules/**", "!libs/shared/grid/ui/**/*"]
+          }
+        },
+        "test": {
+          "builder": "@nrwl/jest:jest",
+          "options": {
+            "jestConfig": "libs/shared/grid/ui/jest.config.js",
+            "passWithNoTests": true
+          }
+        }
+      },
+      "schematics": {
+        "@schematics/angular:component": {
+          "style": "scss"
+        }
+      }
+    },
+    "shared-grid-core": {
+      "projectType": "library",
+      "root": "libs/shared/grid/core",
+      "sourceRoot": "libs/shared/grid/core/src",
+      "prefix": "zyweb",
+      "architect": {
+        "lint": {
+          "builder": "@angular-devkit/build-angular:tslint",
+          "options": {
+            "tsConfig": [
+              "libs/shared/grid/core/tsconfig.lib.json",
+              "libs/shared/grid/core/tsconfig.spec.json"
+            ],
+            "exclude": ["**/node_modules/**", "!libs/shared/grid/core/**/*"]
+          }
+        },
+        "test": {
+          "builder": "@nrwl/jest:jest",
+          "options": {
+            "jestConfig": "libs/shared/grid/core/jest.config.js",
+            "passWithNoTests": true
+          }
+        }
+      },
+      "schematics": {
+        "@schematics/angular:component": {
+          "style": "scss"
+        }
+      }
     }
   },
   "cli": {

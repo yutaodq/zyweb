@@ -89,6 +89,12 @@
     },
     "shared-util-i18n": {
       "tags": ["scope:shared", "type:util"]
+    },
+    "shared-grid-ui": {
+      "tags": ["scope:shared", "type:ui"]
+    },
+    "shared-grid-core": {
+      "tags": ["scope:shared", "type:util"]
     }
   }
 }

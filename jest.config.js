@@ -27,5 +27,9 @@ module.exports = {
     '<rootDir>/libs/shared/data-access/facade/base',
     '<rootDir>/libs/shared/locale-text/api/i18n',
     '<rootDir>/libs/shared/locale-text/i18n',
+    '<rootDir>/libs/grid/core',
+    '<rootDir>/libs/grid/ui',
+    '<rootDir>/libs/shared/grid/ui',
+    '<rootDir>/libs/shared/grid/core',
   ],
 };
