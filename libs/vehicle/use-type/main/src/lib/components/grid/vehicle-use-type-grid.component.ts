@@ -5,7 +5,7 @@ import {
 } from '@angular/core';
 import { VehicleUseTypeColumnsBuilder } from '../../grid/vehicle-use-type-columns.builder';
 
-import { Vehicle } from '@zyweb/shared/data-access/model/lvms';
+import {  VehicleUseType } from '@zyweb/shared/data-access/model/lvms';
 import { IGridColumnsBuilder } from '@zyweb/shared/grid/core';
 import { BaseGridViewModel } from '@zyweb/shared/grid/ui';
 import { VehicleUseTypeSearchNgrxGridService } from '@zyweb/shared/data-access/facade/lvms';
@@ -19,7 +19,7 @@ import { VehicleUseTypeSearchNgrxGridService } from '@zyweb/shared/data-access/f
 
 })
 
-export class VehicleUseTypeGridComponent extends BaseGridViewModel<Vehicle> {
+export class VehicleUseTypeGridComponent extends BaseGridViewModel<VehicleUseType> {
 
   @Input() loading = true;
   private readonly _gridColumnsBuilder: IGridColumnsBuilder;

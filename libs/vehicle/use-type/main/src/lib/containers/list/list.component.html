@@ -1,44 +1,4 @@
 哒哒哒哒哒哒多多多多多多多多多多多多多多多多
-<!--{{facade.vehicleUseTypes$ | async}}-->
-<!--<div class="container">-->
-<!--  <div class=" introduction">-->
-<!--    <div class="feature-intro">-->
-<!--      <h1>车辆档案<span>列表</span></h1>-->
-<!--      <p>档案主要记录车辆所属单位</p>-->
-<!--    </div>-->
-<!--  </div>-->
-<!--  <div class="container content-section implementation">-->
-<!--    <div class="card  ">-->
-<!--      <div class="row justify-content-between">-->
-<!--        <div class="col-md-3">-->
-<!--          <zyweb-ui-base-button-list-new (onClick)="create()">-->
-<!--          </zyweb-ui-base-button-list-new>-->
-
-<!--        </div>-->
-
-<!--        &lt;!&ndash;      <div class="col-md-3 align-self-end">&ndash;&gt;-->
-<!--        &lt;!&ndash;        <zy-ui-grid-search-ngrx></zy-ui-grid-search-ngrx>&ndash;&gt;-->
-<!--        &lt;!&ndash;      </div>&ndash;&gt;-->
-
-<!--        &lt;!&ndash;    </div>&ndash;&gt;-->
-<!--        <p></p>-->
-<!--        <div class="row">-->
-
-<!--          <div class="col">-->
-
-<!--            <zyweb-vehicle-use-type-grid-->
-<!--              [items]="facade.vehicleUseTypes$ | async"-->
-<!--              (selectDataEvent)="onSelectData($event)"-->
-<!--            >-->
-<!--            </zyweb-vehicle-use-type-grid>-->
-<!--          </div>-->
-<!--        </div>-->
-
-<!--      </div>-->
-<!--    </div>-->
-<!--  </div>-->
-<!--</div>-->
-
 
 <div class="container">
   <div class=" introduction">
@@ -62,9 +22,18 @@
     </div>
     <p></p>
     <div class="row">
-
       <div class="col">
-        <zyweb-vehicle-use-type-grid
+        <zyweb-grid
+          [items]="facade.vehicleUseTypes$ | async"
+        >
+        </zyweb-grid>
+
+       </div>
+    </div>
+
+    <div class="row">
+      <div class="col">
+         <zyweb-vehicle-use-type-grid
           [items]="facade.vehicleUseTypes$ | async"
           (selectDataEvent)="onSelectData($event)"
         >
