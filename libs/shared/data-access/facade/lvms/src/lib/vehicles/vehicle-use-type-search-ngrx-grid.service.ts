@@ -16,7 +16,7 @@ export class VehicleUseTypeSearchNgrxGridService extends  SearchNgrxGridService{
   }
 
   search(query: string) {
-    this.appState$.dispatch(fromVehicleUseTypes.VehicleUseTypeActions.searchCollection({query}));
+    this.appState$.dispatch(fromVehicleUseTypes.OldVehicleUseTypeActions.searchCollection({query}));
   }
 
   /**

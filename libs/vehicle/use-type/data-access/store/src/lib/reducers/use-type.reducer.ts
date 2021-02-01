@@ -5,7 +5,7 @@ D:\学习案例\sx-tesoreria\src\app\egresos\store\reducers\pago-morralla.reduce
 import { createEntityAdapter, EntityAdapter, EntityState } from '@ngrx/entity';
 import { VehicleUseType } from '@zyweb/shared/data-access/model/lvms';
 import { createReducer, on } from '@ngrx/store';
-import { VehicleUseTypeActions } from '../actions';
+import { OldVehicleUseTypeActions } from '../actions';
 
 export const vehicleUseTypeFeatureKey = 'vehicleUseTypes';
 
@@ -27,12 +27,12 @@ export const initialState: State = adapter.getInitialState({
 
 export const reducer = createReducer(
   initialState,
-  on(VehicleUseTypeActions.loadVehicleUseTypes,
+  on(OldVehicleUseTypeActions.loadVehicleUseTypes,
     (state, {}) => ({
       ...state,
       loading: true
     })),
-  on(VehicleUseTypeActions.loadVehicleUseTypesSuccess,
+  on(OldVehicleUseTypeActions.loadVehicleUseTypesSuccess,
     (state, { useTypes }) => (
       adapter.addMany(useTypes, {
         ...state,
@@ -43,7 +43,7 @@ export const reducer = createReducer(
   /*
   查询
  */
-  on(VehicleUseTypeActions.searchCollection, (state, { query }) => ({
+  on(OldVehicleUseTypeActions.searchCollection, (state, { query }) => ({
     ...state,
     query: query
   })),

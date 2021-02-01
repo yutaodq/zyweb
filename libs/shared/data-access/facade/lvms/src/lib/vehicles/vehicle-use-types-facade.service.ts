@@ -33,7 +33,7 @@ export class VehicleUseTypesFacade extends Sandbox {
    * Loads vehicles from the server
    */
   public loadVehicles(): void {
-    this.appState$.dispatch(fromVehicleUseTypes.VehicleUseTypeActions.loadVehicleUseTypes());
+    this.appState$.dispatch(fromVehicleUseTypes.OldVehicleUseTypeActions.loadVehicleUseTypes());
   }
 
   public unregisterEvents() {
