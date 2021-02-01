@@ -97,14 +97,14 @@ export class VehicleExistsGuard implements CanActivate {
   }
 
   /**
-   * This is the actual method the router will call when our guard is run.
+   * This is the actual method the router will call when our guards is run.
    *
-   * Our guard waits for the collection to load, then it checks if we need
+   * Our guards waits for the collection to load, then it checks if we need
    * to request a vehicle from the API or if we already have it in our cache.
    * If it finds it in the cache or in the API, it returns an Observable
    * of `true` and the route is rendered successfully.
    *
-   * If it was unable to find it in our cache or in the API, this guard
+   * If it was unable to find it in our cache or in the API, this guards
    * will return an Observable of `false`, causing the router to move
    * on to the next candidate route. In this case, it will move on
    * to the 404 page.

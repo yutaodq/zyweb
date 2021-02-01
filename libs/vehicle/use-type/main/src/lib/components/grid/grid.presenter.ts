@@ -19,7 +19,7 @@ export class GridPresenter extends LxGridViewModel<VehicleUseType> {
   ) {
     super( );
   }
-  public get columnDefs(): IDataGridOptions {
+  public columnDefs() {
     return require('./grid.json');
   }
 

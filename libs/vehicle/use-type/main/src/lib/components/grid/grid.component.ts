@@ -1,12 +1,15 @@
 import {
+  AfterViewInit,
   ChangeDetectionStrategy,
   Component,
-  Input,
+  Input, OnInit
 } from '@angular/core';
 
 import { Vehicle, VehicleUseType } from '@zyweb/shared/data-access/model/lvms';
 import { GridPresenter } from './grid.presenter';
 import { IDataGridOptions } from '@zyweb/shared/grid/ui';
+import { VehicleUseTypeSearchNgrxGridService } from '@zyweb/shared/data-access/facade/lvms';
+import { map } from 'rxjs/operators';
 
 @Component({
   selector: 'zyweb-grid',
@@ -16,23 +19,34 @@ import { IDataGridOptions } from '@zyweb/shared/grid/ui';
 
 })
 
-export class GridComponent  {
+export class GridComponent implements OnInit, AfterViewInit {
   private _items: VehicleUseType[];
-
-  constructor(private _gridPresenter: GridPresenter
+  public gridOptions: IDataGridOptions ;
+  constructor(private _gridPresenter: GridPresenter,
+              private _searchNgrxGridService: VehicleUseTypeSearchNgrxGridService,
   ) {
   }
 
-   public get gridOptions(): IDataGridOptions {
-    return this._gridPresenter.gridOptions;
+  ngOnInit() {
+    this.gridOptions = this._gridPresenter.gridOptions;
   }
-  public get columnDefs() {
-    return this._gridPresenter.columnDefs;
+
+  public ngAfterViewInit(): void {
+    let vale;
+    this._searchNgrxGridService.query$.pipe(
+      map(query => vale = query))
+      .subscribe(query => this.quickFilter(query));
+    this.quickFilter(vale);
+  }
+
+  private quickFilter(filterValue: any) {
+    if (!!this.gridOptions.api) {
+      this.gridOptions.api.setQuickFilter(filterValue);
+    }
   }
 
   @Input()
   public set items(value: VehicleUseType[]) {
-    console.log(`在控制台打印:@Input() ` + value);
     this._items = value;
   }
 

@@ -12,12 +12,12 @@ import { RouterFacade } from '@zy/shared/utils/ngrx-router';
 
 @Component({
   selector: 'zy-vehicle-details',
-  templateUrl: './vehicle-details.component.html',
-  styleUrls: ['./vehicle-details.component.scss'],
+  templateUrl: './details.component.html',
+  styleUrls: ['./details.component.scss'],
   providers: [DialogService, ConfirmationService],
 })
 
-export class VehicleDetailsComponent implements OnInit, OnDestroy {
+export class DetailsComponent implements OnInit, OnDestroy {
 
   public vehicle$: Observable<Vehicle>;
   public vehicle: Vehicle;

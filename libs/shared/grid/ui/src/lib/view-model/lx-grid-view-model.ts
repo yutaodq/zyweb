@@ -1,23 +1,8 @@
-import {
-  AfterViewInit,
-  Component,
-  Inject,
-  Injector,
-  Input,
-  OnInit,
-  EventEmitter,
-  ViewChild, Output
-} from '@angular/core';
 
-import { ColDef, GridReadyEvent, Module } from 'ag-grid-community';
-import { AgGridModule } from 'ag-grid-angular';
-import { map } from 'rxjs/operators';
-import { GridState } from './grid-state';
 import { DataGridCommonOptions, DataGridOptionsUtil, IDataGridOptions } from '../options';
 import { IGridColumnsBuilder, LOCALE_TEXT_GRID, SearchNgrxGridService } from '@zyweb/shared/grid/core';
 import { COLUMN_DEFAULT_VALUE, ROW_HEIGHT } from '../options/column-default-value';
 import { ActionsColumnRendererComponent, ButtonRenderedComponent } from '../components/renderer';
-import { Observable, Subject } from 'rxjs';
 
 
 export abstract class LxGridViewModel<T>  {
@@ -32,6 +17,7 @@ export abstract class LxGridViewModel<T>  {
     public get gridOptions(): IDataGridOptions {
     const gridOptions = DataGridOptionsUtil.getGridOptions(
       {
+        columnDefs: this.columnDefs(),
         defaultColDef: COLUMN_DEFAULT_VALUE,
         localeText: LOCALE_TEXT_GRID,
         frameworkComponents: this._frameworkComponents,
@@ -44,6 +30,7 @@ export abstract class LxGridViewModel<T>  {
      return gridOptions
 
    }
+  protected abstract columnDefs(): [];
 
 }
 
