@@ -1,39 +1,27 @@
 import {
   ChangeDetectionStrategy,
-  Component,
-  Input,
+  Component, Injectable,
+  Input
 } from '@angular/core';
 import { VehicleUseTypeColumnsBuilder } from '../../grid/vehicle-use-type-columns.builder';
 
 import { VehicleUseType } from '@zyweb/shared/data-access/model/lvms';
 import { IGridColumnsBuilder } from '@zyweb/shared/grid/core';
-import { BaseGridViewModel, LxGridViewModel } from '@zyweb/shared/grid/ui';
+import { BaseGridViewModel, IDataGridOptions, LxGridViewModel } from '@zyweb/shared/grid/ui';
 import { VehicleUseTypeSearchNgrxGridService } from '@zyweb/shared/data-access/facade/lvms';
 
+// const COLUMN_DEFS_FILE  = require('./grid.json');
+const COLUMN_DEFS_FILE  = "./grid.json";
+@Injectable()
+export class GridPresenter extends LxGridViewModel<VehicleUseType> {
 
-export class GridPresenter  {
-  // export class GridPresenter extends LxGridViewModel<VehicleUseType> {
+  constructor(
+  ) {
+    super( );
+  }
+  public get columnDefs(): IDataGridOptions {
+    return require('./grid.json');
+  }
 
-  // private readonly _gridColumnsBuilder: IGridColumnsBuilder;
-  //
-  //
-  // constructor(searchNgrxGridService: VehicleUseTypeSearchNgrxGridService,
-  //             vehicleColumnsBuilder: VehicleUseTypeColumnsBuilder
-  // ) {
-  //   super( searchNgrxGridService);
-  //   this._gridColumnsBuilder = vehicleColumnsBuilder
-  // }
-  //
-  // protected getGridColumnsBuilder(): IGridColumnsBuilder {
-  //   return this._gridColumnsBuilder;
-  // }
-  //
-  // protected registerFilterChangeHandlers(): void {
-  // }
-  //
-  // protected getGridStateKey(): string {
-  //   return 'aa'
-  //   // return GridDataStateKeys.REASSIGN_CASE;
-  // }
 }
 

@@ -26,10 +26,10 @@ export class VehicleUseTypeGridComponent extends BaseGridViewModel<VehicleUseTyp
 
 
   constructor(searchNgrxGridService: VehicleUseTypeSearchNgrxGridService,
-  vehicleColumnsBuilder: VehicleUseTypeColumnsBuilder
+  vehicleUseTypeColumnsBuilder: VehicleUseTypeColumnsBuilder
   ) {
     super( searchNgrxGridService);
-    this._gridColumnsBuilder = vehicleColumnsBuilder
+    this._gridColumnsBuilder = vehicleUseTypeColumnsBuilder
   }
 
   protected getGridColumnsBuilder(): IGridColumnsBuilder {
