@@ -12,4 +12,18 @@ export class VehicleUseTypesApiClient extends HttpService {
 
     return null;
   }
+
+  @GET('/vehicle_use_types/{id}')
+  // @Adapter(VehiclesService.vehicleDetailsAdapter)
+  public getVehicleUseTypeDetails(@Path('id') id: string): Observable<any> {
+    return null;
+  }
+
+  @DELETE('/vehicle_use_types/{id}')
+  // @Adapter(VehiclesService.vehicleDetailsAdapter)
+  public getRemoveVehicleUseType(@Path('id') id: string): Observable<any> {
+    console.log(`onSelectData(event):+ selectDataId+ selectDataId+ selectDataId` );
+    return null;
+  }
+
 }

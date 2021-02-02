@@ -3,8 +3,8 @@ import { createReducer, on } from '@ngrx/store';
 import {
   CollectionApiActions,
   CollectionPageActions,
-  SelectedBookPageActions,
-} from '@example-app/books/actions';
+  NewVehicleUseTypePageActions, ViewVehicleUseTypePageActions
+} from '../actions';
 
 export const collectionFeatureKey = 'collection';
 
@@ -17,50 +17,50 @@ export interface State {
 const initialState: State = {
   loaded: false,
   loading: false,
-  ids: [],
+  ids: []
 };
 
 export const reducer = createReducer(
   initialState,
-  on(CollectionPageActions.enter, (state) => ({
-    ...state,
-    loading: true,
-  })),
-  on(CollectionApiActions.loadBooksSuccess, (state, { books }) => ({
-    loaded: true,
-    loading: false,
-    ids: books.map((book) => book.id),
-  })),
+  on(CollectionPageActions.loadVehicleUseTypes,
+    (state) => ({
+      ...state,
+      loading: true
+    })),
   /**
-   * Optimistically add book to collection.
-   * If this succeeds there's nothing to do.
-   * If this fails we revert state by removing the book.
-   *
-   * `on` supports handling multiple types of actions
+   * 加载集合成功.
+   */
+  on(CollectionApiActions.loadVehicleUseTypesSuccess,
+    (state, { vehicleUseTypes }) => ({
+      loaded: true,
+      loading: false,
+      ids: vehicleUseTypes.map((vehicleUseType) => vehicleUseType.id)
+    })),
+  /**
+   * 删除失败或添加.
    */
   on(
-    SelectedBookPageActions.addBook,
-    CollectionApiActions.removeBookFailure,
-    (state, { book }) => {
-      if (state.ids.indexOf(book.id) > -1) {
+    NewVehicleUseTypePageActions.addVehicleUseType,
+    CollectionApiActions.removeVehicleUseTypeFailure,
+    (state, { vehicleUseType }) => {
+      if (state.ids.indexOf(vehicleUseType.id) > -1) {
         return state;
       }
       return {
         ...state,
-        ids: [...state.ids, book.id],
+        ids: [...state.ids, vehicleUseType.id]
       };
     }
   ),
   /**
-   * Optimistically remove book from collection.
-   * If addBook fails, we "undo" adding the book.
+   * 删除或添加失败.
    */
   on(
-    SelectedBookPageActions.removeBook,
-    CollectionApiActions.addBookFailure,
-    (state, { book }) => ({
+    ViewVehicleUseTypePageActions.removeVehicleUseType,
+    CollectionApiActions.addVehicleUseTypeFailure,
+    (state, { vehicleUseType }) => ({
       ...state,
-      ids: state.ids.filter((id) => id !== book.id),
+      ids: state.ids.filter((id) => id !== vehicleUseType.id)
     })
   )
 );

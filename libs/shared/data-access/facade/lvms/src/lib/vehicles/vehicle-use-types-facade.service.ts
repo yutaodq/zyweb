@@ -4,19 +4,17 @@ import { Observable, Subscription } from 'rxjs';
 import { filter, map, take } from 'rxjs/operators';
 
 import * as fromVehicleUseTypes from '@zyweb/vehicle/use-type/data-access/store';
-// import { VehicleUseType } from '@zy/model';
 import { Router } from '@angular/router';
 import { Sandbox } from '@zyweb/shared/data-access/facade/base';
 
 @Injectable()
 export class VehicleUseTypesFacade extends Sandbox {
-  public vehicleUseTypes$ = this.appState$.pipe(select(fromVehicleUseTypes.selectAllVehicleUseTypes));
-  public vehicleUseTypesLoading$       = this.appState$.pipe(select(fromVehicleUseTypes.selectVehicleUseTypesLoading ));
-
-
-  // public query$ = this.appState$.pipe(select(fromVehicleUseTypes.selectVehicleUseTypesQuery));
-
-  public vehicleUseTypesLoaded$ = this.appState$.pipe(select(fromVehicleUseTypes.selectVehicleUseTypesLoaded));
+  public vehicleUseTypes$ = this.appState$.pipe(
+    select(fromVehicleUseTypes.CollectionSelectors.selectVehicleUseTypeCollection));
+  public vehicleUseTypesLoading$  = this.appState$.pipe(
+    select(fromVehicleUseTypes.CollectionSelectors.selectCollectionLoading ));
+  public vehicleUseTypesLoaded$ = this.appState$.pipe(
+    select(fromVehicleUseTypes.CollectionSelectors.selectCollectionLoaded));
 
   private subscriptions: Array<Subscription> = [];
 
@@ -33,7 +31,7 @@ export class VehicleUseTypesFacade extends Sandbox {
    * Loads vehicles from the server
    */
   public loadVehicles(): void {
-    this.appState$.dispatch(fromVehicleUseTypes.OldVehicleUseTypeActions.loadVehicleUseTypes());
+    this.appState$.dispatch(fromVehicleUseTypes.CollectionPageActions.loadVehicleUseTypes());
   }
 
   public unregisterEvents() {

@@ -1,7 +1,9 @@
-import { VehicleUseTypeEffects } from './use-type.effects';
+// import { VehicleUseTypeEffects } from './use-type.effects';
+//
+// export const effects: any[] = [
+//   VehicleUseTypeEffects,
+// ];
 
-export const effects: any[] = [
-  VehicleUseTypeEffects,
-];
-
-export * from './use-type.effects';
+// export * from './use-type.effects';
+export * from './collection.effects';
+// export * from './vehicle-use-Type.effects';

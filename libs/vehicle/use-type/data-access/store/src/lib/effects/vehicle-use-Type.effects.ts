@@ -11,12 +11,11 @@
 //   takeUntil,
 // } from 'rxjs/operators';
 //
-// import { Book } from '@example-app/books/models';
+// import { VehicleUseType } from '@zyweb/shared/data-access/model/lvms';
 // import {
-//   BooksApiActions,
-//   FindBookPageActions,
-// } from '@example-app/books/actions';
-// import { GoogleBooksService } from '@example-app/core/services';
+//   CollectionPageActions,
+// } from '../actions';
+// import { VehicleUseTypesApiClient } from '@zyweb/shared/data-access/api/lvms';
 //
 // /**
 //  * Effects offer a way to isolate and easily test side-effects within your
@@ -34,7 +33,7 @@
 //   search$ = createEffect(
 //     () => ({ debounce = 300, scheduler = asyncScheduler } = {}) =>
 //       this.actions$.pipe(
-//         ofType(FindBookPageActions.searchBooks),
+//         ofType(CollectionPageActions.searchVehicleUseTypes),
 //         debounceTime(debounce, scheduler),
 //         switchMap(({ query }) => {
 //           if (query === '') {
@@ -59,6 +58,5 @@
 //
 //   constructor(
 //     private actions$: Actions,
-//     private googleBooks: GoogleBooksService
 //   ) {}
 // }

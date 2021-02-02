@@ -6,7 +6,9 @@ import { catchError, map, mergeMap, switchMap } from 'rxjs/operators';
 
 import {
   CollectionApiActions,
-  CollectionPageActions, OldVehicleUseTypeActions
+  CollectionPageActions,
+  NewVehicleUseTypePageActions,
+  ViewVehicleUseTypePageActions
 } from '../actions';
 import { VehicleUseTypesApiClient } from '@zyweb/shared/data-access/api/lvms';
 import { VehicleUseType } from '@zyweb/shared/data-access/model/lvms';
@@ -29,6 +31,31 @@ export class CollectionEffects {
       )
     )
   );
+
+  // addVehicleUseTypeToCollection$ = createEffect(() =>
+  //   this.actions$.pipe(
+  //     ofType(NewVehicleUseTypePageActions.addVehicleUseType),
+  //     mergeMap(({ vehicleUseTypes }) =>
+  //       this.apiClient.addToCollection([book]).pipe(
+  //         map(() => CollectionApiActions.addBookSuccess({ book })),
+  //         catchError(() => of(CollectionApiActions.addBookFailure({ book })))
+  //       )
+  //     )
+  //   )
+  // );
+
+  removeVehicleUseTypeFromCollection$ = createEffect(() =>
+    this.actions$.pipe(
+      ofType(ViewVehicleUseTypePageActions.removeVehicleUseType),
+      mergeMap(({ vehicleUseType }) =>
+        this.apiClient.getRemoveVehicleUseType(vehicleUseType.id).pipe(
+          map(() => CollectionApiActions.removeVehicleUseTypeSuccess({ vehicleUseType })),
+          catchError(() => of(CollectionApiActions.removeVehicleUseTypeFailure({ vehicleUseType })))
+        )
+      )
+    )
+  );
+
   constructor(
     private actions$: Actions,
     private apiClient: VehicleUseTypesApiClient

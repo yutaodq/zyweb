@@ -1,7 +1,7 @@
 import { createSelector } from '@ngrx/store';
 
 
-import * as fromFeature from '../reducers';
+import * as fromFeature from '../reducers/index-old';
 import * as fromVehicleUseType from '../reducers/use-type.reducer';
 // import { selectVehiclesState } from '@zy/shared/vehicle/data-acces';
 

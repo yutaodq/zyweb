@@ -1,6 +1,11 @@
 import { createAction, props } from '@ngrx/store';
+import { VehicleUseType } from '@zyweb/shared/data-access/model/lvms';
 
-export const selectVehicleUseType = createAction(
-  '[View Details Page] Delete VehicleUseType',
-  props<{ id: string }>()
+/**
+ * Remove VehicleUseType from Collection Action
+ */
+export const removeVehicleUseType = createAction(
+  '[View Details Page] Remove VehicleUseType',
+  props<{ vehicleUseType: VehicleUseType }>()
 );
+
