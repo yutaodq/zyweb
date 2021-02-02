@@ -6,13 +6,13 @@
 </div>
 
 <div class="container content-section implementation">
-  <zy-vehicle-details-toolbar (onList)="returnList()" (onDelete)="delete()">
+  <zyweb-vehicle-details-toolbar (onList)="returnList()" (onDelete)="delete()">
 
-  </zy-vehicle-details-toolbar>
+  </zyweb-vehicle-details-toolbar>
   <div class="card">
 
-    <zy-vehicle-details-form [vehicle]="vehicle$| async">
-    </zy-vehicle-details-form>
+    <zyweb-vehicle-use-type-details-form [vehicleUseType]="vehicleUseType$| async">
+    </zyweb-vehicle-use-type-details-form>
   </div>
 
 </div>

@@ -8,11 +8,10 @@ import {
   OnInit,
   Output
 } from '@angular/core';
-import { Vehicle } from '@zy/model';
 import { DynamicDialogRef } from 'primeng/dynamicdialog';
 
 @Component({
-  selector: 'zy-vehicle-delete-dialog',
+  selector: 'zyweb-vehicle-delete-dialog',
   templateUrl: './vehicle-delete-dialog.component.html',
   styleUrls: ['./vehicle-delete-dialog.component.scss'],
   providers: [],

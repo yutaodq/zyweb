@@ -16,7 +16,7 @@ import { ConfirmationService, MessageService } from 'primeng/api';
 import { VehicleDeleteDialogComponent } from '../delete-dialog/vehicle-delete-dialog.component';
 
 @Component({
-  selector: 'zy-vehicle-details-toolbar',
+  selector: 'zyweb-vehicle-details-toolbar',
   templateUrl: './vehicle-details-toolbar.component.html',
   styleUrls: ['./vehicle-details-toolbar.component.scss'],
   providers: [DialogService, MessageService, ConfirmationService],

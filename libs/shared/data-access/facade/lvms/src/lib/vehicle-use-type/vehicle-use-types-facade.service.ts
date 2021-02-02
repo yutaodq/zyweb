@@ -16,6 +16,9 @@ export class VehicleUseTypesFacade extends Sandbox {
   public vehicleUseTypesLoaded$ = this.appState$.pipe(
     select(fromVehicleUseTypes.CollectionSelectors.selectCollectionLoaded));
 
+  public vehicleUseTypeDetails$ = this.appState$.pipe(
+    select(fromVehicleUseTypes.VehicleUseTypeSelectors.selectSelectedVehicleUseType));
+
   private subscriptions: Array<Subscription> = [];
 
   constructor(
@@ -43,7 +46,5 @@ export class VehicleUseTypesFacade extends Sandbox {
    */
   private registerEvents(): void {
   }
-
-
 
 }

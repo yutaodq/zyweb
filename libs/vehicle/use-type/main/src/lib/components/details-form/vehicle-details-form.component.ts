@@ -8,10 +8,10 @@ import {
   OnInit,
   Output
 } from '@angular/core';
-import { Vehicle } from '@zy/model';
+import { VehicleUseType } from '@zyweb/shared/data-access/model/lvms';
 
 @Component({
-  selector: 'zy-vehicle-details-form',
+  selector: 'zyweb-vehicle-use-type-details-form',
   templateUrl: './vehicle-details-form.component.html',
   styleUrls: ['./vehicle-details-form.component.scss'],
   providers: [],
@@ -19,7 +19,7 @@ import { Vehicle } from '@zy/model';
 })
 
 export class VehicleDetailsFormComponent  {
-  @Input()   public vehicle:        Vehicle;
+  @Input()   public vehicleUseType:        VehicleUseType;
 
   constructor() {
   }

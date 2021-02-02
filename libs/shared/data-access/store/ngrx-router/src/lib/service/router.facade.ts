@@ -1,8 +1,8 @@
 import { Injectable } from '@angular/core';
 
 import { Store } from '@ngrx/store';
-import * as RouterActions from './router.actions';
-import { NgrxRoute } from './router.interfaces';
+import * as RouterActions from '../+state/router.actions';
+import { NgrxRoute } from '../+state/router.interfaces';
 
 @Injectable({
     providedIn: 'root'

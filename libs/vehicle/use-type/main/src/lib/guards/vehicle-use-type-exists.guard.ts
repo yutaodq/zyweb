@@ -1,83 +1,83 @@
+/*
+学习ngrx官网案例 book
+D:\学习案例\ngrx-master\projects\example-app\src\app\books\guards\book-exists.guard.ts
+ */
 import { Injectable } from '@angular/core';
 import { ActivatedRouteSnapshot, CanActivate, Router } from '@angular/router';
 import { select, Store } from '@ngrx/store';
 import { Observable, of } from 'rxjs';
 import { catchError, filter, map, switchMap, take, tap } from 'rxjs/operators';
 
-import { VehicleUseTypesFacade } from '@zyweb/shared/data-access/facade/lvms';
+import { VehicleUseTypesExistsService, VehicleUseTypesFacade } from '@zyweb/shared/data-access/facade/lvms';
 import * as fromVehicleUseTypes from '@zyweb/vehicle/use-type/data-access/store';
 
 
 @Injectable({
   providedIn: 'root',
 })
-export class BookExistsGuard implements CanActivate {
+export class VehicleUseTypeExistsGuard implements CanActivate {
   constructor(
-    private store: Store<fromBooks.State>,
-    private googleBooks: GoogleBooksService,
+    private vehicleUseTypesExistsService: VehicleUseTypesExistsService,
     private router: Router
   ) {}
 
-  /**
-   * This method creates an observable that waits for the `loaded` property
-   * of the collection state to turn `true`, emitting one time once loading
-   * has finished.
-   */
-  waitForCollectionToLoad(): Observable<boolean> {
-    return this.store.pipe(
-      select(fromBooks.selectCollectionLoaded),
-      filter((loaded) => loaded),
-      take(1)
-    );
-  }
+  // /**
+  //  * 这个方法创建了一个可观察对象，它等待集合状态的' loaded '属性变为' true '，
+  //  * 在加载完成后发出一次响应.
+  //  */
+  // waitForCollectionToLoad(): Observable<boolean> {
+  //   return this.store.pipe(
+  //     select(fromBooks.selectCollectionLoaded),
+  //     filter((loaded) => loaded),
+  //     take(1)
+  //   );
+  // }
+  //
+  // /**
+  //  * 该方法检查具有给定ID的图书是否已经在存储中注册
+  //  */
+  // hasBookInStore(id: string): Observable<boolean> {
+  //   return this.store.pipe(
+  //     select(fromBooks.selectBookEntities),
+  //     map((entities) => !!entities[id]),
+  //     take(1)
+  //   );
+  // }
+  //
+  // /**
+  //  * 该方法从API中加载具有给定ID的图书，并将其缓存到存储中，
+  //  * 如果找到它则返回' true '或' false '。
+  //  */
+  // hasBookInApi(id: string): Observable<boolean> {
+  //   return this.googleBooks.retrieveBook(id).pipe(
+  //     map((bookEntity) => BookActions.loadBook({ book: bookEntity })),
+  //     tap((action) => this.store.dispatch(action)),
+  //     map((book) => !!book),
+  //     catchError(() => {
+  //       this.router.navigate(['/404']);
+  //       return of(false);
+  //     })
+  //   );
+  // }
+  //
+  // /**
+  //  * ' hasBook '由' hasbookstore '和' hasBookInApi '组成。
+  //  * 它首先检查图书是否在存储中，如果没有，则检查它是否在API中。
+  //  */
+  // hasBook(id: string): Observable<boolean> {
+  //   return this.hasBookInStore(id).pipe(
+  //     switchMap((inStore) => {
+  //       if (inStore) {
+  //         return of(inStore);
+  //       }
+  //
+  //       return this.hasBookInApi(id);
+  //     })
+  //   );
+  // }
 
   /**
-   * This method checks if a book with the given ID is already registered
-   * in the Store
-   */
-  hasBookInStore(id: string): Observable<boolean> {
-    return this.store.pipe(
-      select(fromBooks.selectBookEntities),
-      map((entities) => !!entities[id]),
-      take(1)
-    );
-  }
-
-  /**
-   * This method loads a book with the given ID from the API and caches
-   * it in the store, returning `true` or `false` if it was found.
-   */
-  hasBookInApi(id: string): Observable<boolean> {
-    return this.googleBooks.retrieveBook(id).pipe(
-      map((bookEntity) => BookActions.loadBook({ book: bookEntity })),
-      tap((action) => this.store.dispatch(action)),
-      map((book) => !!book),
-      catchError(() => {
-        this.router.navigate(['/404']);
-        return of(false);
-      })
-    );
-  }
-
-  /**
-   * `hasBook` composes `hasBookInStore` and `hasBookInApi`. It first checks
-   * if the book is in store, and if not it then checks if it is in the
-   * API.
-   */
-  hasBook(id: string): Observable<boolean> {
-    return this.hasBookInStore(id).pipe(
-      switchMap((inStore) => {
-        if (inStore) {
-          return of(inStore);
-        }
-
-        return this.hasBookInApi(id);
-      })
-    );
-  }
-
-  /**
-   * This is the actual method the router will call when our guard is run.
+   * 这是我们的守卫运行时路由器会调用的实际方法。
    *
    * Our guard waits for the collection to load, then it checks if we need
    * to request a book from the API or if we already have it in our cache.
@@ -90,8 +90,10 @@ export class BookExistsGuard implements CanActivate {
    * to the 404 page.
    */
   canActivate(route: ActivatedRouteSnapshot): Observable<boolean> {
-    return this.waitForCollectionToLoad().pipe(
-      switchMap(() => this.hasBook(route.params['id']))
-    );
+    const id = route.params['id'];
+    return this.vehicleUseTypesExistsService.canActivate(id);
+    // return this.waitForCollectionToLoad().pipe(
+    //   switchMap(() => this.hasBook(route.params['id']))
+    // );
   }
 }
