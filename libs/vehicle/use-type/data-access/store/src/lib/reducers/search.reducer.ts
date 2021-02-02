@@ -1,5 +1,5 @@
 import {
-  CollectionPageActions, OldVehicleUseTypeActions
+  CollectionPageActions
 } from '../actions';
 import { createReducer, on } from '@ngrx/store';
 
