@@ -10,6 +10,7 @@ import { VehicleUseTypesFacade } from '@zyweb/shared/data-access/facade/lvms';
 import { RouterFacade } from '@zyweb/shared/data-access/store/ngrx-router';
 import { ActivatedRoute } from '@angular/router';
 import { map } from 'rxjs/operators';
+import { NotificationService } from '@zyweb/shared/util/message';
 // import { NotificationService } from '@zy/shared/locale-text';
 // import { RouterFacade } from '@zy/shared/utils/ngrx-router';
 
@@ -33,9 +34,9 @@ export class DetailsComponent implements OnInit, OnDestroy {
     private changeDetector: ChangeDetectorRef,
     private _dialogService: DialogService,
     private _routerFacade: RouterFacade,
-    private _route: ActivatedRoute
+    private _route: ActivatedRoute,
     // private _messageService: MessageService,
-    // private notification: NotificationService
+    private notification: NotificationService
   ) {
 
   }

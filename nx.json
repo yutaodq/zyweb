@@ -95,6 +95,9 @@
     },
     "shared-util-log4": {
       "tags": ["scope:shared", "type:util"]
+    },
+    "shared-util-message": {
+      "tags": ["scope:shared", "type:util"]
     }
   }
 }

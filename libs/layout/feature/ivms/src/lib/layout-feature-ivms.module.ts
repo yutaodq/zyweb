@@ -11,6 +11,7 @@ import { FormlyModule } from '@ngx-formly/core';
 import { SharedDataAccessApiHttpServiceModule } from '@zyweb/shared/data-access/api/http-service';
 import { SharedUtilI18nModule } from '@zyweb/shared/util/i18n';
 import { SharedUtilLog4Module } from '@zyweb/shared/util/log4';
+import { MessageService } from 'primeng/api';
 
 @NgModule({
   imports: [CommonModule,
@@ -27,5 +28,6 @@ import { SharedUtilLog4Module } from '@zyweb/shared/util/log4';
     SharedUtilLog4Module,
   ],
   exports: [MainModule],
+  providers: [MessageService]
 })
 export class LayoutFeatureIvmsModule {}

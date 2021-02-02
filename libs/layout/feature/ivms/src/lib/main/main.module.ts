@@ -6,6 +6,7 @@ import { RouterModule } from '@angular/router';
 import { IvdsComponent } from './component/ivds.component';
 import { ToastModule } from 'primeng/toast';
 import { SharedUiLayoutModule } from '@zyweb/shared/ui/layout';
+import { SharedUtilMessageModule } from '@zyweb/shared/util/message';
 
 @NgModule({
   declarations: [IvdsComponent],
@@ -14,6 +15,7 @@ import { SharedUiLayoutModule } from '@zyweb/shared/ui/layout';
     RouterModule,
     ToastModule,
     SharedUiLayoutModule,
+    SharedUtilMessageModule,
   ],
   exports: [ IvdsComponent ],
   providers: []
