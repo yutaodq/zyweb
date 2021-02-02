@@ -4,7 +4,7 @@ import { select, Store } from '@ngrx/store';
 import { Observable, of } from 'rxjs';
 import { catchError, filter, map, switchMap, take, tap } from 'rxjs/operators';
 
-import { VehiclesFacade } from '@zy/shared/vehicle/data-acces-facade';
+import { VehicleUseTypesFacade } from '@zyweb/shared/data-access/facade/lvms';
 
 /**
  * ngrx 官网案例
@@ -16,9 +16,9 @@ import { VehiclesFacade } from '@zy/shared/vehicle/data-acces-facade';
   providedIn: 'root',
 })
 export class VehicleExistsGuard implements CanActivate {
-  private _vehiclesFacade : VehiclesFacade;
+  private _vehiclesFacade : VehicleUseTypesFacade;
   constructor(
-    public vehiclesFacade: VehiclesFacade,
+    public vehiclesFacade: VehicleUseTypesFacade,
     private router: Router
   ) {
     this._vehiclesFacade = vehiclesFacade;
