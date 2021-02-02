@@ -23,8 +23,8 @@ export class GridComponent implements OnInit, AfterViewInit {
   private _items: VehicleUseType[];
   @Output() selectDataEvent = new EventEmitter<VehicleUseType>();
 
-
   public gridOptions: IDataGridOptions ;
+  public columnDefs;
   constructor(private _gridPresenter: GridPresenter,
               private _searchNgrxGridService: VehicleUseTypeSearchNgrxGridService,
   ) {
@@ -32,6 +32,22 @@ export class GridComponent implements OnInit, AfterViewInit {
 
   ngOnInit() {
     this.gridOptions = this._gridPresenter.gridOptions;
+    this.columnDefs = [... require('./grid.json'), {
+      headerName: '',
+      editable: false,
+      sortable: false,
+      filter: false,
+      width: 65,
+      fixedWidth: true,
+      lockPinned: true,
+      pinned: 'right',
+      cellRenderer: 'actionsColRendered',
+      cellRendererParams: {
+        onClick: this.onSelectData.bind(this),
+        fa: 'fa fa-info-circle',
+        iconClass: 'detail-icon'
+      }
+    }];
   }
 
   public ngAfterViewInit(): void {

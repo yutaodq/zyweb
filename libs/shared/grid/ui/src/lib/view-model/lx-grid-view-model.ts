@@ -17,7 +17,7 @@ export abstract class LxGridViewModel<T>  {
     public get gridOptions(): IDataGridOptions {
     const gridOptions = DataGridOptionsUtil.getGridOptions(
       {
-        columnDefs: this.columnDefs(),
+        // columnDefs: this.columnDefs(),
         defaultColDef: COLUMN_DEFAULT_VALUE,
         localeText: LOCALE_TEXT_GRID,
         frameworkComponents: this._frameworkComponents,

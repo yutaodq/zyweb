@@ -8,6 +8,8 @@ import { VehicleDeleteDialogComponent } from '../../components/delete-dialog/veh
 import { VehicleUseType } from '@zyweb/shared/data-access/model/lvms';
 import { VehicleUseTypesFacade } from '@zyweb/shared/data-access/facade/lvms';
 import { RouterFacade } from '@zyweb/shared/data-access/store/ngrx-router';
+import { ActivatedRoute } from '@angular/router';
+import { map } from 'rxjs/operators';
 // import { NotificationService } from '@zy/shared/locale-text';
 // import { RouterFacade } from '@zy/shared/utils/ngrx-router';
 
@@ -15,13 +17,14 @@ import { RouterFacade } from '@zyweb/shared/data-access/store/ngrx-router';
   selector: 'zyweb-vehicle-use-type-details',
   templateUrl: './details.component.html',
   styleUrls: ['./details.component.scss'],
-  providers: [DialogService, ConfirmationService],
+  providers: [DialogService, ConfirmationService, VehicleUseTypesFacade],
 })
 
 export class DetailsComponent implements OnInit, OnDestroy {
 
   public vehicleUseType$: Observable<VehicleUseType>;
   public vehicleUseType: VehicleUseType;
+  private _actionsSubscription: Subscription;
   private subscriptions: Array<Subscription> = [];
   private ref: DynamicDialogRef;
 
@@ -30,9 +33,11 @@ export class DetailsComponent implements OnInit, OnDestroy {
     private changeDetector: ChangeDetectorRef,
     private _dialogService: DialogService,
     private _routerFacade: RouterFacade,
+    private _route: ActivatedRoute
     // private _messageService: MessageService,
     // private notification: NotificationService
   ) {
+
   }
 
   public returnList(): void {
@@ -72,10 +77,14 @@ export class DetailsComponent implements OnInit, OnDestroy {
           this.vehicleUseType$ = of(vehicleUseType);
         }
       }),
+      this._actionsSubscription = this._route.params
+        .pipe(map((params) =>  params.id))
+        .subscribe((id) => this.vehiclesFacade.dispatchSelectVehicleUseType(id)),
+
       // this.vehiclesFacade.vehicleDetailsRemoveSuccess$.subscribe((removeSuccess) => {
       //   if (removeSuccess) {
       //     this.returnList()
-      //   }
+      //   },
       //   }
       //
       // )

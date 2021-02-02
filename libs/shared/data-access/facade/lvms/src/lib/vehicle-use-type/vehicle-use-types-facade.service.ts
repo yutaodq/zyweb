@@ -26,15 +26,19 @@ export class VehicleUseTypesFacade extends Sandbox {
     private _router: Router,
   ) {
     super(appState$);
-    this.loadVehicles();
+    this.dispatchLoadVehicleUseTypes();
     this.registerEvents();
   }
 
   /**
    * Loads vehicles from the server
    */
-  public loadVehicles(): void {
+  public dispatchLoadVehicleUseTypes(): void {
     this.appState$.dispatch(fromVehicleUseTypes.CollectionPageActions.loadVehicleUseTypes());
+  }
+
+  public dispatchSelectVehicleUseType(id: string): void {
+    this.appState$.dispatch(fromVehicleUseTypes.CollectionPageActions.selectVehicleUseType({id}));
   }
 
   public unregisterEvents() {

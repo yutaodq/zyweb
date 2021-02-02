@@ -29,7 +29,7 @@ export class ListComponent implements OnInit {
   onSelectData(vehicleUseType: VehicleUseType) {
     console.log(`onSelectData(event):aaaaaaaaaaaaaaaa` );
     // this._facade.selectVehicle(vehicleUseType);
-    this.router.navigate(['vehicles', vehicleUseType.id,'detail']);
+    this.router.navigate(['vehicleUseTypes', vehicleUseType.id,'detail']);
   }
 
   get facade() {
