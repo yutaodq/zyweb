@@ -12,13 +12,13 @@ import { VehicleUseType } from '@zyweb/shared/data-access/model/lvms';
 
 @Component({
   selector: 'zyweb-vehicle-use-type-details-form',
-  templateUrl: './vehicle-details-form.component.html',
-  styleUrls: ['./vehicle-details-form.component.scss'],
+  templateUrl: './vehicle-use-type-details-form.component.html',
+  styleUrls: ['./vehicle-use-type-details-form.component.scss'],
   providers: [],
   changeDetection: ChangeDetectionStrategy.OnPush
 })
 
-export class VehicleDetailsFormComponent  {
+export class VehicleUseTypeDetailsFormComponent  {
   @Input()   public vehicleUseType:        VehicleUseType;
 
   constructor() {

@@ -3,17 +3,11 @@ import { CommonModule } from '@angular/common';
 import { TranslateModule } from '@ngx-translate/core';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
-import { FormlyModule } from '@ngx-formly/core';
 import { SharedUiCommonModule } from '@zyweb/shared/ui/common';
-import { VehicleUseTypeGridComponent } from './vehicle-use-type-grid.component';
-import { SharedGridUiModule } from '@zyweb/shared/grid/ui';
-import { GridComponent } from './grid.component';
-import { VehicleUseTypeSearchNgrxGridService } from '@zyweb/shared/data-access/facade/lvms';
-import { VehicleUseTypeColumnsBuilder } from '../../grid/vehicle-use-type-columns.builder';
+import { VehicleUseTypeDetailsFormComponent } from './vehicle-use-type-details-form.component';
 
 export const COMPONENTS_EXPORTS : Array<any> = [
-  VehicleUseTypeGridComponent,
-  GridComponent
+  VehicleUseTypeDetailsFormComponent
 ];
 
 @NgModule({
@@ -21,18 +15,15 @@ export const COMPONENTS_EXPORTS : Array<any> = [
     CommonModule,
     FormsModule,
     TranslateModule,
-    SharedGridUiModule,
     SharedUiCommonModule,
-    FormlyModule,
-    ReactiveFormsModule
   ],
-  declarations: [VehicleUseTypeGridComponent,
-    GridComponent
+  declarations: [VehicleUseTypeDetailsFormComponent
+
   ],
   exports: [...COMPONENTS_EXPORTS],
-  providers: [VehicleUseTypeSearchNgrxGridService, VehicleUseTypeColumnsBuilder],
+  providers: [ ],
   entryComponents: [
   ]
 })
-export class VehicleUseTypeGridModule {}
+export class VehicleUseTypeMainComponentDetailFormModule {}
 

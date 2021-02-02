@@ -16,7 +16,7 @@
       </div>
 
       <div class="col-md-3 align-self-end">
-        <zyweb-ui-grid-search-ngrx> </zyweb-ui-grid-search-ngrx>
+        <zyweb-ui-grid-search-ngrx></zyweb-ui-grid-search-ngrx>
       </div>
 
     </div>
@@ -25,21 +25,23 @@
       <div class="col">
         <zyweb-grid
           [items]="facade.vehicleUseTypes$ | async"
+
         >
         </zyweb-grid>
 
-       </div>
+      </div>
     </div>
+<!--    (selectDataEvent)="onSelectData($event)"-->
 
-<!--    <div class="row">-->
-<!--      <div class="col">-->
-<!--         <zyweb-vehicle-use-type-grid-->
-<!--          [items]="facade.vehicleUseTypes$ | async"-->
-<!--          (selectDataEvent)="onSelectData($event)"-->
-<!--        >-->
-<!--        </zyweb-vehicle-use-type-grid>-->
-<!--      </div>-->
-<!--    </div>-->
+    <!--    <div class="row">-->
+    <!--      <div class="col">-->
+    <!--         <zyweb-vehicle-use-type-grid-->
+    <!--          [items]="facade.vehicleUseTypes$ | async"-->
+    <!--          (selectDataEvent)="onSelectData($event)"-->
+    <!--        >-->
+    <!--        </zyweb-vehicle-use-type-grid>-->
+    <!--      </div>-->
+    <!--    </div>-->
 
   </div>
 </div>
