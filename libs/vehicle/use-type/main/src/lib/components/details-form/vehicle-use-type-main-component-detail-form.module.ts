@@ -5,6 +5,7 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 import { SharedUiCommonModule } from '@zyweb/shared/ui/common';
 import { VehicleUseTypeDetailsFormComponent } from './vehicle-use-type-details-form.component';
+import { SharedUiBaseModule } from '@zyweb/shared/ui/base';
 
 export const COMPONENTS_EXPORTS : Array<any> = [
   VehicleUseTypeDetailsFormComponent
@@ -16,6 +17,7 @@ export const COMPONENTS_EXPORTS : Array<any> = [
     FormsModule,
     TranslateModule,
     SharedUiCommonModule,
+    SharedUiBaseModule,
   ],
   declarations: [VehicleUseTypeDetailsFormComponent
 

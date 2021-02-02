@@ -1,8 +1,8 @@
 import {
   AfterViewInit,
   ChangeDetectionStrategy,
-  Component,
-  Input, OnInit
+  Component, EventEmitter,
+  Input, OnInit, Output
 } from '@angular/core';
 
 import { Vehicle, VehicleUseType } from '@zyweb/shared/data-access/model/lvms';
@@ -21,6 +21,9 @@ import { map } from 'rxjs/operators';
 
 export class GridComponent implements OnInit, AfterViewInit {
   private _items: VehicleUseType[];
+  @Output() selectDataEvent = new EventEmitter<VehicleUseType>();
+
+
   public gridOptions: IDataGridOptions ;
   constructor(private _gridPresenter: GridPresenter,
               private _searchNgrxGridService: VehicleUseTypeSearchNgrxGridService,
@@ -43,6 +46,11 @@ export class GridComponent implements OnInit, AfterViewInit {
     if (!!this.gridOptions.api) {
       this.gridOptions.api.setQuickFilter(filterValue);
     }
+  }
+  // cellRenderer: 'buttonRendered',
+
+  public onSelectData(params: any): void {
+    this.selectDataEvent.emit(params.rowData);
   }
 
   @Input()

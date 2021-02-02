@@ -25,6 +25,7 @@
       <div class="col">
         <zyweb-grid
           [items]="facade.vehicleUseTypes$ | async"
+            (selectDataEvent)="onSelectData($event)"
 
         >
         </zyweb-grid>
