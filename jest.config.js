@@ -31,5 +31,6 @@ module.exports = {
     '<rootDir>/libs/grid/ui',
     '<rootDir>/libs/shared/grid/ui',
     '<rootDir>/libs/shared/grid/core',
+    '<rootDir>/libs/shared/util/log4',
   ],
 };

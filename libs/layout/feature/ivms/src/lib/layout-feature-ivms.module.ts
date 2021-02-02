@@ -10,6 +10,7 @@ import { HttpClientModule } from '@angular/common/http';
 import { FormlyModule } from '@ngx-formly/core';
 import { SharedDataAccessApiHttpServiceModule } from '@zyweb/shared/data-access/api/http-service';
 import { SharedUtilI18nModule } from '@zyweb/shared/util/i18n';
+import { SharedUtilLog4Module } from '@zyweb/shared/util/log4';
 
 @NgModule({
   imports: [CommonModule,
@@ -23,6 +24,7 @@ import { SharedUtilI18nModule } from '@zyweb/shared/util/i18n';
     SharedDataAccessStoreNgrxRouterModule,
     SharedDataAccessApiHttpServiceModule,
     SharedUtilI18nModule,
+    SharedUtilLog4Module,
   ],
   exports: [MainModule],
 })

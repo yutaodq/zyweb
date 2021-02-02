@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-// import { NGXLogger } from 'ngx-logger';
+import { NGXLogger } from 'ngx-logger';
 import { VehicleUseType } from '@zyweb/shared/data-access/model/lvms';
 import { VehicleUseTypesFacade } from '@zyweb/shared/data-access/facade/lvms';
 import { Router } from '@angular/router';
@@ -12,18 +12,16 @@ import { Router } from '@angular/router';
 })
 
 export class ListComponent implements OnInit {
-
-
   constructor(
     private _facade: VehicleUseTypesFacade,
     private router: Router,
-    // private _logger: NGXLogger
+    private _logger: NGXLogger
   ) {
 
   }
 
   ngOnInit(): void {
-    // this._logger.debug('日志功能：Your log message goes here');
+    this._logger.debug('日志功能：NGXLogger Your log message goes here');
   }
 
   onSelectData(vehicleUseType: VehicleUseType) {

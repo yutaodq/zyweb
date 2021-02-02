@@ -797,6 +797,36 @@
           "style": "scss"
         }
       }
+    },
+    "shared-util-log4": {
+      "projectType": "library",
+      "root": "libs/shared/util/log4",
+      "sourceRoot": "libs/shared/util/log4/src",
+      "prefix": "zyweb",
+      "architect": {
+        "lint": {
+          "builder": "@angular-devkit/build-angular:tslint",
+          "options": {
+            "tsConfig": [
+              "libs/shared/util/log4/tsconfig.lib.json",
+              "libs/shared/util/log4/tsconfig.spec.json"
+            ],
+            "exclude": ["**/node_modules/**", "!libs/shared/util/log4/**/*"]
+          }
+        },
+        "test": {
+          "builder": "@nrwl/jest:jest",
+          "options": {
+            "jestConfig": "libs/shared/util/log4/jest.config.js",
+            "passWithNoTests": true
+          }
+        }
+      },
+      "schematics": {
+        "@schematics/angular:component": {
+          "style": "scss"
+        }
+      }
     }
   },
   "cli": {

@@ -60,7 +60,8 @@
       ],
       "@zyweb/shared/util/i18n": ["libs/shared/util/i18n/src/index.ts"],
       "@zyweb/shared/grid/ui": ["libs/shared/grid/ui/src/index.ts"],
-      "@zyweb/shared/grid/core": ["libs/shared/grid/core/src/index.ts"]
+      "@zyweb/shared/grid/core": ["libs/shared/grid/core/src/index.ts"],
+      "@zyweb/shared/util/log4": ["libs/shared/util/log4/src/index.ts"]
     }
   },
   "exclude": ["node_modules", "tmp"]

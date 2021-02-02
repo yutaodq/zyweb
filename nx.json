@@ -92,6 +92,9 @@
     },
     "shared-grid-core": {
       "tags": ["scope:shared", "type:util"]
+    },
+    "shared-util-log4": {
+      "tags": ["scope:shared", "type:util"]
     }
   }
 }
