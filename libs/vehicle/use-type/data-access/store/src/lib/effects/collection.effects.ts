@@ -2,7 +2,7 @@ import { Injectable } from '@angular/core';
 
 import { Actions, createEffect, ofType } from '@ngrx/effects';
 import { defer, of } from 'rxjs';
-import { catchError, map, mergeMap, switchMap } from 'rxjs/operators';
+import { catchError, map, mergeMap, switchMap, tap } from 'rxjs/operators';
 
 import {
   CollectionApiActions,
@@ -24,10 +24,10 @@ export class CollectionEffects {
       switchMap(() =>
         this.apiClient.getCollection().pipe(
           map((vehicleUseTypes: VehicleUseType[]) =>
-            CollectionApiActions.loadVehicleUseTypesSuccess( {vehicleUseTypes} )
+            CollectionApiActions.loadVehicleUseTypesSuccess({ vehicleUseTypes })
           ),
           catchError((error) =>
-            of(CollectionApiActions.loadVehicleUseTypesFailure( error ))
+            of(CollectionApiActions.loadVehicleUseTypesFailure(error))
           )
         )
       )
@@ -35,13 +35,27 @@ export class CollectionEffects {
   );
 
 
+  // addVehicleUseTypeToCollection$ = createEffect(() =>
+  //   this.actions$.pipe(
+  //     ofType(NewVehicleUseTypePageActions.addVehicleUseType),
+  //     mergeMap(({ vehicleUseType }) =>
+  //       this.apiClient.create(vehicleUseType).pipe(
+  //         map(() =>
+  //           CollectionApiActions.addVehicleUseTypeSuccess( {vehicleUseType} )
+  //         ),
+  //         catchError(() => of(CollectionApiActions.addVehicleUseTypeFailure({ vehicleUseType })))
+  //       )
+  //     )
+  //   )
+  // );
+
   addVehicleUseTypeToCollection$ = createEffect(() =>
     this.actions$.pipe(
       ofType(NewVehicleUseTypePageActions.addVehicleUseType),
       mergeMap(({ vehicleUseType }) =>
         this.apiClient.create(vehicleUseType).pipe(
           map(() =>
-            CollectionApiActions.addVehicleUseTypeSuccess( {vehicleUseType} )
+            CollectionApiActions.addVehicleUseTypeSuccess({ vehicleUseType })
           ),
           catchError(() => of(CollectionApiActions.addVehicleUseTypeFailure({ vehicleUseType })))
         )
@@ -49,14 +63,8 @@ export class CollectionEffects {
     )
   );
 
-  // addVehicleUseTypeSuccess$ = createEffect(() =>
-  //   this.actions$.pipe(
-  //     ofType(CollectionApiActions.addVehicleUseTypeSuccess),
-  //     map( (vehicleUseType) => RouterAction.go({ to: { path: ['vehicleUseTypes', { id: vehicleUseType.id }, 'detail'] } }
-  //       )
-  //     )
-  //   )
-  // );
+
+   // RouterAction.go({ to: { path: ['vehicleUseTypes', action.vehicleUseType.id, 'detail'] } });
 
 
   removeVehicleUseTypeFromCollection$ = createEffect(() =>
@@ -77,12 +85,13 @@ export class CollectionEffects {
       map(() => RouterAction.go({ to: { path: ['vehicleUseTypes', 'list'] } }
         )
       )
-    )
+    ), { dispatch: false }
   );
 
   constructor(
     private actions$: Actions,
     private apiClient: VehicleUseTypesApiClient
-  ) {}
+  ) {
+  }
 
 }
