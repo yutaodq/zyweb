@@ -21,61 +21,6 @@ export class VehicleUseTypeExistsGuard implements CanActivate {
     private router: Router
   ) {}
 
-  // /**
-  //  * 这个方法创建了一个可观察对象，它等待集合状态的' loaded '属性变为' true '，
-  //  * 在加载完成后发出一次响应.
-  //  */
-  // waitForCollectionToLoad(): Observable<boolean> {
-  //   return this.store.pipe(
-  //     select(fromBooks.selectCollectionLoaded),
-  //     filter((loaded) => loaded),
-  //     take(1)
-  //   );
-  // }
-  //
-  // /**
-  //  * 该方法检查具有给定ID的图书是否已经在存储中注册
-  //  */
-  // hasBookInStore(id: string): Observable<boolean> {
-  //   return this.store.pipe(
-  //     select(fromBooks.selectBookEntities),
-  //     map((entities) => !!entities[id]),
-  //     take(1)
-  //   );
-  // }
-  //
-  // /**
-  //  * 该方法从API中加载具有给定ID的图书，并将其缓存到存储中，
-  //  * 如果找到它则返回' true '或' false '。
-  //  */
-  // hasBookInApi(id: string): Observable<boolean> {
-  //   return this.googleBooks.retrieveBook(id).pipe(
-  //     map((bookEntity) => BookActions.loadBook({ book: bookEntity })),
-  //     tap((action) => this.store.dispatch(action)),
-  //     map((book) => !!book),
-  //     catchError(() => {
-  //       this.router.navigate(['/404']);
-  //       return of(false);
-  //     })
-  //   );
-  // }
-  //
-  // /**
-  //  * ' hasBook '由' hasbookstore '和' hasBookInApi '组成。
-  //  * 它首先检查图书是否在存储中，如果没有，则检查它是否在API中。
-  //  */
-  // hasBook(id: string): Observable<boolean> {
-  //   return this.hasBookInStore(id).pipe(
-  //     switchMap((inStore) => {
-  //       if (inStore) {
-  //         return of(inStore);
-  //       }
-  //
-  //       return this.hasBookInApi(id);
-  //     })
-  //   );
-  // }
-
   /**
    * 这是我们的守卫运行时路由器会调用的实际方法。
    *
@@ -90,10 +35,6 @@ export class VehicleUseTypeExistsGuard implements CanActivate {
    * to the 404 page.
    */
   canActivate(route: ActivatedRouteSnapshot): Observable<boolean> {
-    const id = route.params['id'];
-    return this.vehicleUseTypesExistsService.canActivate(id);
-    // return this.waitForCollectionToLoad().pipe(
-    //   switchMap(() => this.hasBook(route.params['id']))
-    // );
+    return this.vehicleUseTypesExistsService.canActivate(route.params['id']);
   }
 }

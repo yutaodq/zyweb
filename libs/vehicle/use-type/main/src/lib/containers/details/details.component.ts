@@ -9,6 +9,7 @@ import { VehicleUseTypesFacade } from '@zyweb/shared/data-access/facade/lvms';
 import { ActivatedRoute } from '@angular/router';
 import { map } from 'rxjs/operators';
 import { NotificationService } from '@zyweb/shared/util/message';
+import { VehicleUseTypeDeleteDialogComponent } from '../../components/delete-dialog/vehicle-use-type-delete-dialog.component';
 
 @Component({
   selector: 'zyweb-vehicle-use-type-details',
@@ -40,20 +41,19 @@ export class DetailsComponent implements OnInit, OnDestroy {
    }
 
   public delete(): void {
-    // this.notification.showMessage({severity: 'success', summary: '提示信息：', detail: '您已经删除了一台车辆信息' });
-    // // this._messageService.add({severity:'success', summary:'Service Message', detail:'Via MessageService'});
-    // this.ref = this._dialogService.open(VehicleUseTypeDeleteDialogComponent, {
-    //   header: '删除车辆信息档案',
-    //   width: '70%',
-    //   contentStyle: { 'max-height': '500px', 'overflow': 'auto' },
-    //   baseZIndex: 10000
-    // });
-    //
-    // this.ref.onClose.subscribe((isDelete) => {
-    //   if (isDelete) {
-    //     this.vehiclesFacade.removeVehicle(this.vehicle);
-    //   }
-    // });
+    this.notification.showMessage({severity: 'success', summary: '提示信息：', detail: '您已经删除了一台车辆信息' });
+    this.ref = this._dialogService.open(VehicleUseTypeDeleteDialogComponent, {
+      header: '删除车辆信息档案',
+      width: '70%',
+      contentStyle: { 'max-height': '500px', 'overflow': 'auto' },
+      baseZIndex: 10000
+    });
+
+    this.ref.onClose.subscribe((isDelete) => {
+      if (isDelete) {
+        this.vehicleUseTypesFacade.removeDetail(this.vehicleUseType);
+      }
+    });
 
   }
 

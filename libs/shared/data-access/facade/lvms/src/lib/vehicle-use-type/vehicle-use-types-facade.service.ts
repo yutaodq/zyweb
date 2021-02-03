@@ -13,8 +13,8 @@ import { VehicleUseType } from '@zyweb/shared/data-access/model/lvms';
 export class VehicleUseTypesFacade extends Sandbox {
   public vehicleUseTypes$ = this.appState$.pipe(
     select(fromVehicleUseTypes.CollectionSelectors.selectVehicleUseTypeCollection));
-  public vehicleUseTypesLoading$  = this.appState$.pipe(
-    select(fromVehicleUseTypes.CollectionSelectors.selectCollectionLoading ));
+  public vehicleUseTypesLoading$ = this.appState$.pipe(
+    select(fromVehicleUseTypes.CollectionSelectors.selectCollectionLoading));
   public vehicleUseTypesLoaded$ = this.appState$.pipe(
     select(fromVehicleUseTypes.CollectionSelectors.selectCollectionLoaded));
 
@@ -25,7 +25,7 @@ export class VehicleUseTypesFacade extends Sandbox {
 
   constructor(
     protected appState$: Store<fromVehicleUseTypes.State>,
-    private _router: Router,
+    private _router: Router
   ) {
     super(appState$);
     this.dispatchLoadVehicleUseTypes();
@@ -40,7 +40,7 @@ export class VehicleUseTypesFacade extends Sandbox {
   }
 
   public dispatchSelectVehicleUseType(id: string): void {
-    this.appState$.dispatch(fromVehicleUseTypes.CollectionPageActions.selectVehicleUseType({id}));
+    this.appState$.dispatch(fromVehicleUseTypes.CollectionPageActions.selectVehicleUseType({ id }));
   }
 
   public unregisterEvents() {
@@ -54,16 +54,20 @@ export class VehicleUseTypesFacade extends Sandbox {
   }
 
   private routeTo(param: { path: (string)[] }) {
-    this.appState$.dispatch(go({to: param}))
+    this.appState$.dispatch(go({ to: param }));
   }
 
   showDetail(vehicleUseType: VehicleUseType) {
-    this.routeTo({ path: ['vehicleUseTypes', vehicleUseType.id,'detail'] })
+    this.routeTo({ path: ['vehicleUseTypes', vehicleUseType.id, 'detail'] });
 
   }
 
   returnToList() {
-    this.routeTo({ path: ['vehicleUseTypes', 'list'] })
-
+    this.routeTo({ path: ['vehicleUseTypes', 'list'] });
   }
+
+  public removeDetail(vehicleUseType: VehicleUseType) {
+    this.appState$.dispatch(fromVehicleUseTypes.ViewVehicleUseTypePageActions.removeVehicleUseType({ vehicleUseType }));
+  }
+
 }
