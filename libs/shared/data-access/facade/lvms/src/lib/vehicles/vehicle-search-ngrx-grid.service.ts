@@ -15,7 +15,7 @@
 //     this.registerEvents();
 //   }
 //
-//   search(query: string) {
+//   search-rxjs(query: string) {
 //     this.appState$.dispatch(fromVehicles.CollectionPageActions.searchCollection({query}));
 //   }
 //

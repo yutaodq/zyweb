@@ -5,10 +5,10 @@
 /*    display: flex;*/
 /*    justify-content: space-between;    */
 /*}*/
-/*div.search-icon {*/
+/*div.search-rxjs-icon {*/
 /*    position: relative;*/
 /*}*/
-/*div.search-icon i {*/
+/*div.search-rxjs-icon i {*/
 /*    position: absolute;*/
 /*    left: 81%;*/
 /*    top: 0px;*/
@@ -20,14 +20,14 @@
 /*    color: #ccc;*/
 /*}*/
 
-/*.control-search {*/
+/*.control-search-rxjs {*/
 /*    width: 90%;*/
 /*    margin-left: 0px;*/
 /*}*/
 /*.control-btns {*/
 /*    margin-right: 0px;*/
 /*}*/
-/*.control-search {    */
+/*.control-search-rxjs {    */
 /*    margin-left: 0px;*/
 /*}*/
 /*.control-btns {*/

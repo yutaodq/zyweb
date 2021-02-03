@@ -32,6 +32,6 @@ export const selectSelectedVehicleUseType = createSelector(
 );
 
 /**
- * Just like with the vehicleUseTypes selectors, we also have to compose the search
+ * Just like with the vehicleUseTypes selectors, we also have to compose the search-rxjs
  * reducer's and collection reducer's selectors.
  */

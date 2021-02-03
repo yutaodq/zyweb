@@ -8,10 +8,9 @@ import {
   OnInit,
   Output
 } from '@angular/core';
-import { VehicleUseType } from '@zyweb/shared/data-access/model/lvms';
 
 @Component({
-  selector: 'zyweb-vehicle-use-type-details-form',
+  selector: 'zyweb-shared-grid',
   templateUrl: './grid.html',
   styleUrls: ['./grid.scss'],
   providers: [],
@@ -19,7 +18,10 @@ import { VehicleUseType } from '@zyweb/shared/data-access/model/lvms';
 })
 
 export class GridComponent  {
-  @Input()   public vehicleUseType:        VehicleUseType;
+  @Input()   public rowData;
+  @Input()   public gridOptions;
+  @Input()   public columnDefs;
+
 
   constructor() {
   }

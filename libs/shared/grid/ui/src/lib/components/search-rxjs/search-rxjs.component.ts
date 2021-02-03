@@ -7,7 +7,7 @@ import { Component, OnInit, Input } from '@angular/core';
 import { SearchGridService } from '@zyweb/shared/grid/core';
 
 @Component({
-  selector: 'zyweb-ui-grid-search',
+  selector: 'zyweb-ui-grid-search-rxjs',
   templateUrl: './search-rxjs.component.html',
   styleUrls: ['./search-rxjs.component.css']
 })

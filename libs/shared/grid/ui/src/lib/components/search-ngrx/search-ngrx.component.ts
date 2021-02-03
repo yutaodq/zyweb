@@ -7,7 +7,7 @@ import { Component, OnInit } from '@angular/core';
 import { SearchNgrxGridService } from '@zyweb/shared/grid/core';
 
 @Component({
-  selector: 'zyweb-ui-grid-search-ngrx',
+  selector: 'zyweb-ui-grid-search',
   templateUrl: './search-ngrx.component.html',
   styleUrls: ['./search-ngrx.component.css'],
   providers: []

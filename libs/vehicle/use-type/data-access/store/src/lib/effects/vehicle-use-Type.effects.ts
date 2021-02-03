@@ -30,7 +30,7 @@
 //
 // @Injectable()
 // export class VehicleUseTypeEffects {
-//   search$ = createEffect(
+//   search-rxjs$ = createEffect(
 //     () => ({ debounce = 300, scheduler = asyncScheduler } = {}) =>
 //       this.actions$.pipe(
 //         ofType(CollectionPageActions.searchVehicleUseTypes),
