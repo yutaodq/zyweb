@@ -36,11 +36,8 @@ export class DetailsComponent implements OnInit, OnDestroy {
   }
 
   public returnList(): void {
-    this.vehicleUseTypesFacade.routeTo( { path: ['vehicleUseTypes', 'list'] });
-    // this._routerFacade.goTo({ path: ['vehicles', 'list'] } );
-    // this.vehiclesFacade.returnToList();
-
-  }
+    this.vehicleUseTypesFacade.returnToList();
+   }
 
   public delete(): void {
     // this.notification.showMessage({severity: 'success', summary: '提示信息：', detail: '您已经删除了一台车辆信息' });

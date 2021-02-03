@@ -26,8 +26,7 @@ export class ListComponent implements OnInit {
   }
 
   onSelectData(vehicleUseType: VehicleUseType) {
-    this._facade.routeTo({ path: ['vehicleUseTypes', vehicleUseType.id,'detail'] })
-    // this._routerFacade.goTo({ path: ['vehicleUseTypes', vehicleUseType.id,'detail'] } );
+    this._facade.showDetail(vehicleUseType);
     this._notification.showMessage({severity: 'success', summary: '提示信息：', detail: '您已经删除了一台车辆信息' });
   }
 

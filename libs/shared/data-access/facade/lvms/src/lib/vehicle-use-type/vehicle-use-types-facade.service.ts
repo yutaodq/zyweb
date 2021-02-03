@@ -7,6 +7,7 @@ import * as fromVehicleUseTypes from '@zyweb/vehicle/use-type/data-access/store'
 import { Router } from '@angular/router';
 import { Sandbox } from '@zyweb/shared/data-access/facade/base';
 import { go } from '@zyweb/shared/data-access/store/ngrx-router';
+import { VehicleUseType } from '@zyweb/shared/data-access/model/lvms';
 
 @Injectable()
 export class VehicleUseTypesFacade extends Sandbox {
@@ -52,7 +53,17 @@ export class VehicleUseTypesFacade extends Sandbox {
   private registerEvents(): void {
   }
 
-  routeTo(param: { path: (string)[] }) {
+  private routeTo(param: { path: (string)[] }) {
     this.appState$.dispatch(go({to: param}))
+  }
+
+  showDetail(vehicleUseType: VehicleUseType) {
+    this.routeTo({ path: ['vehicleUseTypes', vehicleUseType.id,'detail'] })
+
+  }
+
+  returnToList() {
+    this.routeTo({ path: ['vehicleUseTypes', 'list'] })
+
   }
 }
