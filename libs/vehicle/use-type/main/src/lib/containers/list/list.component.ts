@@ -35,6 +35,9 @@ export class ListComponent implements OnInit {
   }
 
   create() {
+
+    this._facade.createVehicleUseType();
+
     // this._logger.debug('日志功能：create');
     // this.router.navigate(['vehicles', 'create']);
 

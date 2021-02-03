@@ -62,7 +62,7 @@ export class VehicleUseTypesFacade extends Sandbox {
   private routeTo(param: { path: (string)[] }) {
     this.appState$.dispatch(go({ to: param }));
   }
-// { to: { path: ['vehicleUseTypes', 'list'] } }
+
   showDetail(vehicleUseType: VehicleUseType) {
     this.routeTo({ path: ['vehicleUseTypes', vehicleUseType.id, 'detail'] });
 
@@ -79,4 +79,8 @@ export class VehicleUseTypesFacade extends Sandbox {
         .removeVehicleUseType({ vehicleUseType }));
   }
 
+  createVehicleUseType() {
+    this.routeTo({ path: ['vehicleUseTypes', 'create'] });
+
+  }
 }

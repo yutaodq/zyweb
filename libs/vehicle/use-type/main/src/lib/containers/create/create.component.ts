@@ -2,27 +2,28 @@ import { ChangeDetectionStrategy, ChangeDetectorRef, Component, OnDestroy, OnIni
 import { ActivatedRoute } from '@angular/router';
 
 import { Subscription } from 'rxjs';
+import { VehicleUseType } from '@zyweb/shared/data-access/model/lvms';
+import { VehicleUseTypesFacade } from '@zyweb/shared/data-access/facade/lvms';
 
-import { Vehicle } from '@zy/model';
-import { VehiclesFacade } from '@zy/shared/vehicle/data-acces-facade';
 /*
 https://github.com/vladeye/druo-dashboard-app/tree/master/src/app/content/pages
 D:\学习案例\druo-dashboard\src\app\content\pages\components\invoices\invoices-routing.module.ts
  */
 @Component({
-  selector: 'zy-vehicle-create',
-  templateUrl: './vehicle-create.component.html',
-  styleUrls: ['./vehicle-create.component.scss'],
+  selector: 'zyweb-vehicle-use-type-create',
+  templateUrl: './create.component.html',
+  styleUrls: ['./create.component.scss'],
+  providers: [VehicleUseTypesFacade],
   changeDetection: ChangeDetectionStrategy.OnPush
 })
 
-export class VehicleCreateComponent implements OnInit, OnDestroy {
+export class CreateComponent implements OnInit, OnDestroy {
 
-  public vehicle:        Vehicle;
+  public vehicleUseType:        VehicleUseType;
   private subscriptions: Array<Subscription> = [];
 
   constructor(
-    public vehiclesSandbox: VehiclesFacade,
+    public vehicleUseTypesSandbox: VehicleUseTypesFacade,
     private changeDetector: ChangeDetectorRef,
     private activatedRoute: ActivatedRoute) {}
 
@@ -35,13 +36,13 @@ export class VehicleCreateComponent implements OnInit, OnDestroy {
   }
 
   onCancel() {
-    this.vehiclesSandbox.returnToList()
+    this.vehicleUseTypesSandbox.returnToList()
   }
 
-  onAdd(vehicle: Vehicle) {
-    console.log('VehicleCreateComponent保存记录' + vehicle);
+  onAdd(vehicleUseType: VehicleUseType) {
+    console.log('VehicleUseTypeCreateComponent保存记录' + vehicleUseType);
 
-    this.vehiclesSandbox.addVehicle(vehicle);
+    // this.vehicleUseTypesSandbox.addVehicleUseType(vehicleUseType);
   }
 
   /**
@@ -49,10 +50,10 @@ export class VehicleCreateComponent implements OnInit, OnDestroy {
    */
   private registerEvents(): void {
     // 订阅车辆详情
-    // this.subscriptions.push(this.vehiclesSandbox.vehicleDetails$.subscribe((vehicle: any) => {
-    //   if (vehicle) {
+    // this.subscriptions.push(this.vehicleUseTypesSandbox.vehicleUseTypeDetails$.subscribe((vehicleUseType: any) => {
+    //   if (vehicleUseType) {
     //     this.changeDetector.markForCheck();
-    //     this.vehicle = vehicle;
+    //     this.vehicleUseType = vehicleUseType;
     //   }
     // }));
   }

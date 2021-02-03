@@ -8,6 +8,7 @@ import { VehicleUseTypeMainContainersListModule } from './containers/list/vehicl
 import { VehicleUseTypeMainContainersDetailsModule } from './containers/details/vehicle-use-type-main-containers-details.module';
 import { VehicleUseTypeExistsGuard } from './guards/vehicle-use-type-exists.guard';
 import { VehicleUseTypesExistsService } from '@zyweb/shared/data-access/facade/lvms';
+import { VehicleUseTypeMainContainersCreateModule } from './containers/create/vehicle-use-type-main-containers-create.module';
 
 @NgModule({
   imports: [
@@ -16,6 +17,7 @@ import { VehicleUseTypesExistsService } from '@zyweb/shared/data-access/facade/l
     VehicleFeatureVehicleUseTypeRouting,  // route
     VehicleUseTypeMainContainersListModule,
     VehicleUseTypeMainContainersDetailsModule,
+    VehicleUseTypeMainContainersCreateModule,
   ],
 providers: [VehicleUseTypeExistsGuard, VehicleUseTypesExistsService]
 })
