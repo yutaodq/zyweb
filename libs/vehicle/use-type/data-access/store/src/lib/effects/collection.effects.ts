@@ -34,17 +34,30 @@ export class CollectionEffects {
     )
   );
 
+
   addVehicleUseTypeToCollection$ = createEffect(() =>
     this.actions$.pipe(
       ofType(NewVehicleUseTypePageActions.addVehicleUseType),
       mergeMap(({ vehicleUseType }) =>
         this.apiClient.create(vehicleUseType).pipe(
-          map(() => CollectionApiActions.addVehicleUseTypeSuccess( {vehicleUseType} )),
+          map(() =>
+            CollectionApiActions.addVehicleUseTypeSuccess( {vehicleUseType} )
+          ),
           catchError(() => of(CollectionApiActions.addVehicleUseTypeFailure({ vehicleUseType })))
         )
       )
     )
   );
+
+  // addVehicleUseTypeSuccess$ = createEffect(() =>
+  //   this.actions$.pipe(
+  //     ofType(CollectionApiActions.addVehicleUseTypeSuccess),
+  //     map( (vehicleUseType) => RouterAction.go({ to: { path: ['vehicleUseTypes', { id: vehicleUseType.id }, 'detail'] } }
+  //       )
+  //     )
+  //   )
+  // );
+
 
   removeVehicleUseTypeFromCollection$ = createEffect(() =>
     this.actions$.pipe(

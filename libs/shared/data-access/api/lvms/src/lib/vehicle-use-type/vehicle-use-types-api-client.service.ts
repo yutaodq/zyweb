@@ -26,8 +26,11 @@ export class VehicleUseTypesApiClient extends HttpService {
     return null;
   }
   create(vehicleUseType: VehicleUseType): Observable<VehicleUseType> {
-    console.log("createhttp://localhost:8080/api/vehicles");
     return this.http.post<VehicleUseType>(`http://localhost:8080/api/vehicle_use_types`, vehicleUseType);
+  }
+  @POST('/vehicle_use_types')
+  public getCreateVehicle(@Body vehicleUseType): Observable<any> {
+    return null;
   }
 
 }
