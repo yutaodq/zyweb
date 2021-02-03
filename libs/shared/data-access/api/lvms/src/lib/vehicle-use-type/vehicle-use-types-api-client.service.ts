@@ -2,7 +2,7 @@ import { Injectable } from '@angular/core';
 
 import { Adapter, GET, HttpService, Path, DELETE, POST, Body } from '@zyweb/shared/data-access/api/http-service';
 import { Observable } from 'rxjs';
-import { VehicleUseType } from '@zyweb/shared/data-access/model/lvms';
+import { Vehicle, VehicleUseType } from '@zyweb/shared/data-access/model/lvms';
 
 @Injectable()
 export class VehicleUseTypesApiClient extends HttpService {
@@ -26,7 +26,8 @@ export class VehicleUseTypesApiClient extends HttpService {
     return null;
   }
   create(vehicleUseType: VehicleUseType): Observable<VehicleUseType> {
-    return this.http.post<VehicleUseType>(`http://localhost:8080/api/vehicleUseTypes`, vehicleUseType);
+    console.log("createhttp://localhost:8080/api/vehicles");
+    return this.http.post<VehicleUseType>(`http://localhost:8080/api/vehicle_use_types`, vehicleUseType);
   }
 
 }

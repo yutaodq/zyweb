@@ -34,17 +34,17 @@ export class CollectionEffects {
     )
   );
 
-  // addVehicleUseTypeToCollection$ = createEffect(() =>
-  //   this.actions$.pipe(
-  //     ofType(NewVehicleUseTypePageActions.addVehicleUseType),
-  //     mergeMap(({ vehicleUseTypes }) =>
-  //       this.apiClient.addToCollection([book]).pipe(
-  //         map(() => CollectionApiActions.addBookSuccess({ book })),
-  //         catchError(() => of(CollectionApiActions.addBookFailure({ book })))
-  //       )
-  //     )
-  //   )
-  // );
+  addVehicleUseTypeToCollection$ = createEffect(() =>
+    this.actions$.pipe(
+      ofType(NewVehicleUseTypePageActions.addVehicleUseType),
+      mergeMap(({ vehicleUseType }) =>
+        this.apiClient.create(vehicleUseType).pipe(
+          map(() => CollectionApiActions.addVehicleUseTypeSuccess( {vehicleUseType} )),
+          catchError(() => of(CollectionApiActions.addVehicleUseTypeFailure({ vehicleUseType })))
+        )
+      )
+    )
+  );
 
   removeVehicleUseTypeFromCollection$ = createEffect(() =>
     this.actions$.pipe(

@@ -38,7 +38,6 @@ export class CreateComponent implements OnInit, OnDestroy {
   }
 
   onAdd(vehicleUseType: VehicleUseType) {
-    console.log('VehicleUseTypeCreateComponent保存记录' + vehicleUseType);
     this._facade.addVehicleUseType(vehicleUseType)
  }
 
