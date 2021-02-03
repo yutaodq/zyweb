@@ -5,7 +5,7 @@ export interface Vehicle {
   nbpz: string;
   type: string;
   zt: string;
-  bz: string;
+  description: string;
 
 }
 
@@ -17,7 +17,7 @@ export function generateMockVehicle(): Vehicle {
     nbpz: '内部牌照',
     type: '车辆类型',
     zt: '使用状态',
-    bz: '备注'
+    description: '备注'
   };
 }
 

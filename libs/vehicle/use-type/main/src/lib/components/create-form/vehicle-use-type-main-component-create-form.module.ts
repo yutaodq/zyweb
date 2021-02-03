@@ -1,29 +1,30 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { ReactiveFormsModule } from '@angular/forms';
+import {  ReactiveFormsModule } from '@angular/forms';
+import { FormlyModule } from '@ngx-formly/core';
 
 import { SharedUiCommonModule } from '@zyweb/shared/ui/common';
-import { VehicleUseTypeDetailsFormComponent } from './vehicle-use-type-details-form.component';
 import { SharedUiBaseModule } from '@zyweb/shared/ui/base';
+import { CreateFormComponent } from './create-form.component';
 
 export const COMPONENTS_EXPORTS : Array<any> = [
-  VehicleUseTypeDetailsFormComponent
+  CreateFormComponent
 ];
 
 @NgModule({
   imports: [
     CommonModule,
+    FormlyModule,
     ReactiveFormsModule,
     SharedUiCommonModule,
     SharedUiBaseModule,
   ],
-  declarations: [VehicleUseTypeDetailsFormComponent
-
+  declarations: [CreateFormComponent
   ],
   exports: [...COMPONENTS_EXPORTS],
   providers: [ ],
   entryComponents: [
   ]
 })
-export class VehicleUseTypeMainComponentDetailFormModule {}
+export class VehicleUseTypeMainComponentCreateFormModule {}
 
