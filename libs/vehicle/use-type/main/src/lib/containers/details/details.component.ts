@@ -9,7 +9,6 @@ import { VehicleUseTypesFacade } from '@zyweb/shared/data-access/facade/lvms';
 import { ActivatedRoute } from '@angular/router';
 import { map } from 'rxjs/operators';
 import { NotificationService } from '@zyweb/shared/util/message';
-// import { VehicleUseTypeDeleteDialogComponent } from '../../components/delete-dialog/vehicle-use-type-delete-dialog.component';
 import { DialogDeleteComponent } from '@zyweb/shared/ui/base';
 
 @Component({
@@ -25,7 +24,7 @@ export class DetailsComponent implements OnInit, OnDestroy {
   public vehicleUseType: VehicleUseType;
   private _actionsSubscription: Subscription;
   private subscriptions: Array<Subscription> = [];
-  private ref: DynamicDialogRef;
+  private _ref: DynamicDialogRef;
 
   constructor(
     public vehicleUseTypesFacade: VehicleUseTypesFacade,
@@ -43,7 +42,7 @@ export class DetailsComponent implements OnInit, OnDestroy {
 
   public delete(): void {
     this.notification.showMessage({severity: 'success', summary: '提示信息：', detail: '您已经删除了一台车辆信息' });
-    this.ref = this._dialogService.open(DialogDeleteComponent, {
+    this._ref = this._dialogService.open(DialogDeleteComponent, {
     // this.ref = this._dialogService.open(VehicleUseTypeDeleteDialogComponent, {
       header: '删除车辆信息档案',
       width: '70%',
@@ -51,7 +50,7 @@ export class DetailsComponent implements OnInit, OnDestroy {
       baseZIndex: 10000
     });
 
-    this.ref.onClose.subscribe((isDelete) => {
+    this._ref.onClose.subscribe((isDelete) => {
       if (isDelete) {
         this.vehicleUseTypesFacade.removeDetail(this.vehicleUseType);
       }
@@ -94,8 +93,8 @@ export class DetailsComponent implements OnInit, OnDestroy {
   }
 
   ngOnDestroy() {
-    if (this.ref) {
-      this.ref.close();
+    if (this._ref) {
+      this._ref.close();
     }
     this.subscriptions.forEach(sub => sub.unsubscribe());
   }
