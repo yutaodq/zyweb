@@ -5,8 +5,6 @@ import { SearchRxjsComponent } from './search/search-rxjs.component';
 import { ButtonRenderedComponent, RendererComponent } from './renderer';
 import { LoadingOverlayComponent, NoRowsOverlayComponent } from './overlay';
 import { ActionsColumnRendererComponent } from './renderer/actions-column-renderer/actions-column-renderer.component';
-// import { SearchNgrxComponent } from './search-ngrx/search-ngrx.component';
-// import { SharedUiGridComponentModule } from './search-ngrx/shared-grid-ui-components-search.module';
 
 import { ThemePrimengModule } from '@zyweb/shared/ui/common';
 import { SharedGridUiComponentsSearchModule } from './search-ngrx/shared-grid-ui-components-search.module';

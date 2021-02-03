@@ -1,47 +1,81 @@
 import {
+  AfterViewInit,
   ChangeDetectionStrategy,
-  Component,
-  Input,
+  Component, EventEmitter,
+  Input, OnInit, Output
 } from '@angular/core';
-import { VehicleUseTypeColumnsBuilder } from '../../grid/vehicle-use-type-columns.builder';
 
-import {  VehicleUseType } from '@zyweb/shared/data-access/model/lvms';
-import { IGridColumnsBuilder } from '@zyweb/shared/grid/core';
-import { BaseGridViewModel } from '@zyweb/shared/grid/ui';
+import { Vehicle, VehicleUseType } from '@zyweb/shared/data-access/model/lvms';
+import { VehicleUseTypeGridPresenter } from './vehicle-use-type-grid.presenter';
+import { IDataGridOptions } from '@zyweb/shared/grid/ui';
 import { VehicleUseTypeSearchNgrxGridService } from '@zyweb/shared/data-access/facade/lvms';
+import { map } from 'rxjs/operators';
 
 @Component({
-  selector: 'zyweb-vehicle-use-type-grid',
+  selector: 'zyweb-wehicle-use-type-grid',
   templateUrl: './vehicle-use-type-grid.component.html',
-  styleUrls: ['./vehicle-use-type-grid.component.scss'],
-  providers: [ VehicleUseTypeColumnsBuilder, VehicleUseTypeSearchNgrxGridService],
+  providers: [ VehicleUseTypeGridPresenter],
   changeDetection: ChangeDetectionStrategy.OnPush
 
 })
 
-export class VehicleUseTypeGridComponent extends BaseGridViewModel<VehicleUseType> {
+export class VehicleUseTypeGridComponent implements OnInit, AfterViewInit {
+  private _items: VehicleUseType[];
+  @Output() selectDataEvent = new EventEmitter<VehicleUseType>();
 
-  @Input() loading = true;
-  private readonly _gridColumnsBuilder: IGridColumnsBuilder;
-
-
-  constructor(searchNgrxGridService: VehicleUseTypeSearchNgrxGridService,
-  vehicleUseTypeColumnsBuilder: VehicleUseTypeColumnsBuilder
+  public gridOptions: IDataGridOptions ;
+  public columnDefs;
+  constructor(private _gridPresenter: VehicleUseTypeGridPresenter,
+              private _searchNgrxGridService: VehicleUseTypeSearchNgrxGridService,
   ) {
-    super( searchNgrxGridService);
-    this._gridColumnsBuilder = vehicleUseTypeColumnsBuilder
   }
 
-  protected getGridColumnsBuilder(): IGridColumnsBuilder {
-    return this._gridColumnsBuilder;
+  ngOnInit() {
+    this.gridOptions = this._gridPresenter.gridOptions;
+    this.columnDefs = [... require('./vehicle-use-type-grid.json'), {
+      headerName: '',
+      editable: false,
+      sortable: false,
+      filter: false,
+      width: 65,
+      fixedWidth: true,
+      lockPinned: true,
+      pinned: 'right',
+      cellRenderer: 'actionsColRendered',
+      cellRendererParams: {
+        onClick: this.onSelectData.bind(this),
+        fa: 'fa fa-info-circle',
+        iconClass: 'detail-icon'
+      }
+    }];
   }
 
-  protected registerFilterChangeHandlers(): void {
+  public ngAfterViewInit(): void {
+    let vale;
+    this._searchNgrxGridService.query$.pipe(
+      map(query => vale = query))
+      .subscribe(query => this.quickFilter(query));
+    this.quickFilter(vale);
   }
 
-  protected getGridStateKey(): string {
-    return 'aa'
-    // return GridDataStateKeys.REASSIGN_CASE;
+  private quickFilter(filterValue: any) {
+    if (!!this.gridOptions.api) {
+      this.gridOptions.api.setQuickFilter(filterValue);
+    }
+  }
+  // cellRenderer: 'buttonRendered',
+
+  public onSelectData(params: any): void {
+    this.selectDataEvent.emit(params.rowData);
+  }
+
+  @Input()
+  public set items(value: VehicleUseType[]) {
+    this._items = value;
+  }
+
+  public get items(): VehicleUseType[] {
+    return this._items;
   }
 }
 

@@ -11,7 +11,7 @@ import {
 import { Router } from '@angular/router';
 import { DialogService, DynamicDialogRef } from 'primeng/dynamicdialog';
 import { ConfirmationService, MessageService } from 'primeng/api';
-import { VehicleDeleteDialogComponent } from '../delete-dialog/vehicle-delete-dialog.component';
+import { VehicleUseTypeDeleteDialogComponent } from '../delete-dialog/vehicle-use-type-delete-dialog.component';
 
 @Component({
   selector: 'zyweb-vehicle-use-type-details-toolbar',

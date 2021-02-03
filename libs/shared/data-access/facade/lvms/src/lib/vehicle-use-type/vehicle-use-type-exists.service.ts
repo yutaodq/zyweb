@@ -24,7 +24,6 @@ export class VehicleUseTypesExistsService  {
    * 在加载完成后发出一次响应.
    */
   waitForCollectionToLoad(): Observable<boolean> {
-    console.log(`2 - onSelectData(event):waitForCollectionToLoad` );
     return this.appState$.pipe(
       select(fromVehicleUseTypes.CollectionSelectors.selectCollectionLoaded),
       filter((loaded) => loaded),
@@ -36,7 +35,6 @@ export class VehicleUseTypesExistsService  {
    * 该方法检查具有给定ID的图书是否已经在存储中注册
    */
   hasBookInStore(id: string): Observable<boolean> {
-    console.log(`4- onSelectData(event):hasBookInStore` );
     return this.appState$.pipe(
       select(fromVehicleUseTypes.VehicleUseTypeSelectors.selectVehicleUseTypeEntities),
       map((entities) => !!entities[id]),
@@ -48,7 +46,6 @@ export class VehicleUseTypesExistsService  {
    * 如果找到它则返回' true '或' false '。
    */
   hasBookInApi(id: string): Observable<boolean> {
-    console.log(`5- onSelectData(event):hasBookInApi` );
     return this._vehicleUseTypesApiClient.getVehicleUseTypeDetails(id).pipe(
       map((vehicleUseTypeEntity) =>
         fromVehicleUseTypes.VehicleUseTypeActions.loadVehicleUseType(
@@ -67,7 +64,6 @@ export class VehicleUseTypesExistsService  {
    * 它首先检查图书是否在存储中，如果没有，则检查它是否在API中。
    */
   hasBook(id: string): Observable<boolean> {
-    console.log(`3 - onSelectData(event):hasBook` );
     return this.hasBookInStore(id).pipe(
       switchMap((inStore) => {
         if (inStore) {
@@ -78,7 +74,6 @@ export class VehicleUseTypesExistsService  {
     );
   }
   canActivate(id: string): Observable<boolean> {
-    console.log(`1 - onSelectData(event):canActivate` );
     return this.waitForCollectionToLoad().pipe(
       switchMap(() => this.hasBook(id))
     );

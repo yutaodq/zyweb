@@ -1,11 +1,17 @@
-<!--<div style="display: flex; flex-direction: row; height: 100%;">-->
-<!--  <div style=" overflow: hidden; flex-grow: 1">-->
-    <ag-grid-angular
-      #agGrid
-      style="height: 50vh;"
-      class="ag-theme-alpine"
-      [gridOptions]="gridOptions"
-    >
-    </ag-grid-angular>
-<!--  </div>-->
-<!--</div>-->
+<!--<ag-grid-angular-->
+<!--  style="height: 50vh;"-->
+<!--  class="ag-theme-alpine"-->
+<!--  [gridOptions]="gridOptions"-->
+<!--  [rowData]="items"-->
+<!--  [columnDefs]="columnDefs"-->
+<!--&gt;-->
+<!--</ag-grid-angular>-->
+<ag-grid-angular
+  style="height: 50vh;"
+  class="ag-theme-alpine"
+  [rowData]="items"
+  [gridOptions]="gridOptions"
+  [columnDefs]="columnDefs"
+
+>
+</ag-grid-angular>

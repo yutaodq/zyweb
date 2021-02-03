@@ -12,13 +12,13 @@ import { DynamicDialogRef } from 'primeng/dynamicdialog';
 
 @Component({
   selector: 'zyweb-vehicle-delete-dialog',
-  templateUrl: './vehicle-delete-dialog.component.html',
-  styleUrls: ['./vehicle-delete-dialog.component.scss'],
+  templateUrl: './vehicle-use-type-delete-dialog.component.html',
+  styleUrls: ['./vehicle-use-type-delete-dialog.component.scss'],
   providers: [],
   changeDetection: ChangeDetectionStrategy.OnPush
 })
 
-export class VehicleDeleteDialogComponent  {
+export class VehicleUseTypeDeleteDialogComponent  {
 
   constructor( private _ref: DynamicDialogRef) {
   }

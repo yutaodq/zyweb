@@ -5,7 +5,7 @@ import { COLUMN_DEFAULT_VALUE, ROW_HEIGHT } from '../options/column-default-valu
 import { ActionsColumnRendererComponent, ButtonRenderedComponent } from '../components/renderer';
 
 
-export abstract class LxGridViewModel<T>  {
+export abstract class GridOptionsModel<T>  {
   private _frameworkComponents = {
     buttonRendered: ButtonRenderedComponent,
     actionsColRendered: ActionsColumnRendererComponent
