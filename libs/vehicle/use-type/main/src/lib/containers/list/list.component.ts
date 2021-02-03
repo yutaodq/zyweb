@@ -2,7 +2,6 @@ import { Component, OnInit } from '@angular/core';
 import { NGXLogger } from 'ngx-logger';
 import { VehicleUseType } from '@zyweb/shared/data-access/model/lvms';
 import { VehicleUseTypesFacade } from '@zyweb/shared/data-access/facade/lvms';
-import { Router } from '@angular/router';
 import { NotificationService } from '@zyweb/shared/util/message';
 
 @Component({
@@ -15,9 +14,8 @@ import { NotificationService } from '@zyweb/shared/util/message';
 export class ListComponent implements OnInit {
   constructor(
     private _facade: VehicleUseTypesFacade,
-    private router: Router,
     private _logger: NGXLogger,
-    private notification: NotificationService,
+    private _notification: NotificationService,
 
   ) {
 
@@ -28,8 +26,9 @@ export class ListComponent implements OnInit {
   }
 
   onSelectData(vehicleUseType: VehicleUseType) {
-    this.notification.showMessage({severity: 'success', summary: '提示信息：', detail: '您已经删除了一台车辆信息' });
-    this.router.navigate(['vehicleUseTypes', vehicleUseType.id,'detail']);
+    this._facade.routeTo({ path: ['vehicleUseTypes', vehicleUseType.id,'detail'] })
+    // this._routerFacade.goTo({ path: ['vehicleUseTypes', vehicleUseType.id,'detail'] } );
+    this._notification.showMessage({severity: 'success', summary: '提示信息：', detail: '您已经删除了一台车辆信息' });
   }
 
   get facade() {

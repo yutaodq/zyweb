@@ -3,16 +3,12 @@ import { ChangeDetectionStrategy, ChangeDetectorRef, Component, OnDestroy, OnIni
 import { Observable, of, Subscription } from 'rxjs';
 
 import { DialogService, DynamicDialogRef } from 'primeng/dynamicdialog';
-import { ConfirmationService, MessageService } from 'primeng/api';
-import { VehicleDeleteDialogComponent } from '../../components/delete-dialog/vehicle-delete-dialog.component';
+import { ConfirmationService  } from 'primeng/api';
 import { VehicleUseType } from '@zyweb/shared/data-access/model/lvms';
 import { VehicleUseTypesFacade } from '@zyweb/shared/data-access/facade/lvms';
-import { RouterFacade } from '@zyweb/shared/data-access/store/ngrx-router';
 import { ActivatedRoute } from '@angular/router';
 import { map } from 'rxjs/operators';
 import { NotificationService } from '@zyweb/shared/util/message';
-// import { NotificationService } from '@zy/shared/locale-text';
-// import { RouterFacade } from '@zy/shared/utils/ngrx-router';
 
 @Component({
   selector: 'zyweb-vehicle-use-type-details',
@@ -30,19 +26,18 @@ export class DetailsComponent implements OnInit, OnDestroy {
   private ref: DynamicDialogRef;
 
   constructor(
-    public vehiclesFacade: VehicleUseTypesFacade,
+    public vehicleUseTypesFacade: VehicleUseTypesFacade,
     private changeDetector: ChangeDetectorRef,
     private _dialogService: DialogService,
-    private _routerFacade: RouterFacade,
     private _route: ActivatedRoute,
-    // private _messageService: MessageService,
     private notification: NotificationService
   ) {
 
   }
 
   public returnList(): void {
-    this._routerFacade.goTo({ path: ['vehicles', 'list'] } );
+    this.vehicleUseTypesFacade.routeTo( { path: ['vehicleUseTypes', 'list'] });
+    // this._routerFacade.goTo({ path: ['vehicles', 'list'] } );
     // this.vehiclesFacade.returnToList();
 
   }
@@ -71,7 +66,7 @@ export class DetailsComponent implements OnInit, OnDestroy {
   private registerEvents(): void {
     // 订阅车辆详情
     this.subscriptions.push(
-      this.vehiclesFacade.vehicleUseTypeDetails$.subscribe((vehicleUseType: any) => {
+      this.vehicleUseTypesFacade.vehicleUseTypeDetails$.subscribe((vehicleUseType: any) => {
         if (vehicleUseType) {
           this.changeDetector.markForCheck();
           this.vehicleUseType = vehicleUseType;
@@ -80,7 +75,7 @@ export class DetailsComponent implements OnInit, OnDestroy {
       }),
       this._actionsSubscription = this._route.params
         .pipe(map((params) =>  params.id))
-        .subscribe((id) => this.vehiclesFacade.dispatchSelectVehicleUseType(id)),
+        .subscribe((id) => this.vehicleUseTypesFacade.dispatchSelectVehicleUseType(id)),
 
       // this.vehiclesFacade.vehicleDetailsRemoveSuccess$.subscribe((removeSuccess) => {
       //   if (removeSuccess) {

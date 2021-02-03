@@ -6,6 +6,7 @@ import { filter, map, take } from 'rxjs/operators';
 import * as fromVehicleUseTypes from '@zyweb/vehicle/use-type/data-access/store';
 import { Router } from '@angular/router';
 import { Sandbox } from '@zyweb/shared/data-access/facade/base';
+import { go } from '@zyweb/shared/data-access/store/ngrx-router';
 
 @Injectable()
 export class VehicleUseTypesFacade extends Sandbox {
@@ -51,4 +52,7 @@ export class VehicleUseTypesFacade extends Sandbox {
   private registerEvents(): void {
   }
 
+  routeTo(param: { path: (string)[] }) {
+    this.appState$.dispatch(go({to: param}))
+  }
 }
