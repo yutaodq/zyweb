@@ -4,7 +4,11 @@
 </div>
 
 <div class="container content-section implementation">
-  <zyweb-vehicle-use-type-details-toolbar (onList)="returnList()" (onDelete)="delete()">
+  <zyweb-vehicle-use-type-details-toolbar
+    (onListEvent)="returnList()"
+    (onRemoveEvent)="delete()"
+    (onCreateEvent)="create()"
+  >
 
   </zyweb-vehicle-use-type-details-toolbar>
   <div class="card">

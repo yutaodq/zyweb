@@ -14,7 +14,6 @@ D:\学习案例\druo-dashboard\src\app\content\pages\components\invoices\invoice
   templateUrl: './create.component.html',
   styleUrls: ['./create.component.scss'],
   providers: [VehicleUseTypesFacade],
-  changeDetection: ChangeDetectionStrategy.OnPush
 })
 
 export class CreateComponent implements OnInit, OnDestroy {
@@ -23,9 +22,8 @@ export class CreateComponent implements OnInit, OnDestroy {
   private subscriptions: Array<Subscription> = [];
 
   constructor(
-    public vehicleUseTypesSandbox: VehicleUseTypesFacade,
-    private changeDetector: ChangeDetectorRef,
-    private activatedRoute: ActivatedRoute) {}
+    private _facade: VehicleUseTypesFacade,
+    ) {}
 
   ngOnInit() {
     this.registerEvents();
@@ -36,14 +34,13 @@ export class CreateComponent implements OnInit, OnDestroy {
   }
 
   onCancel() {
-    this.vehicleUseTypesSandbox.returnToList()
+    this._facade.cancelCreate()
   }
 
   onAdd(vehicleUseType: VehicleUseType) {
     console.log('VehicleUseTypeCreateComponent保存记录' + vehicleUseType);
-
-    // this.vehicleUseTypesSandbox.addVehicleUseType(vehicleUseType);
-  }
+    this._facade.addVehicleUseType(vehicleUseType)
+ }
 
   /**
    * Registers events

@@ -26,7 +26,7 @@ export class DetailsComponent implements OnInit, OnDestroy {
   private _ref: DynamicDialogRef;
 
   constructor(
-    public vehicleUseTypesFacade: VehicleUseTypesFacade,
+    public _facade: VehicleUseTypesFacade,
     private changeDetector: ChangeDetectorRef,
     private _dialogService: DialogService,
     private _route: ActivatedRoute,
@@ -36,8 +36,12 @@ export class DetailsComponent implements OnInit, OnDestroy {
   }
 
   public returnList(): void {
-    this.vehicleUseTypesFacade.returnToList();
+    this._facade.returnToList();
    }
+
+  public create(): void {
+    this._facade.createVehicleUseType();
+  }
 
   public delete(): void {
     this.notification.showMessage({severity: 'success', summary: '提示信息：', detail: '您已经删除了一台车辆信息' });
@@ -52,7 +56,7 @@ export class DetailsComponent implements OnInit, OnDestroy {
       console.log('1 - VehicleCreateComponent保存记录');
 
       if (isDelete) {
-        this.vehicleUseTypesFacade.removeDetail(this.vehicleUseType);
+        this._facade.removeDetail(this.vehicleUseType);
       }
     });
   }
@@ -63,7 +67,7 @@ export class DetailsComponent implements OnInit, OnDestroy {
   private registerEvents(): void {
     // 订阅车辆详情
     this.subscriptions.push(
-      this.vehicleUseTypesFacade.vehicleUseTypeDetails$.subscribe((vehicleUseType: any) => {
+      this._facade.vehicleUseTypeDetails$.subscribe((vehicleUseType: any) => {
         if (vehicleUseType) {
           this.changeDetector.markForCheck();
           this.vehicleUseType = vehicleUseType;
@@ -72,7 +76,7 @@ export class DetailsComponent implements OnInit, OnDestroy {
       }),
       this._actionsSubscription = this._route.params
         .pipe(map((params) =>  params.id))
-        .subscribe((id) => this.vehicleUseTypesFacade.dispatchSelectVehicleUseType(id)),
+        .subscribe((id) => this._facade.dispatchSelectVehicleUseType(id)),
     );
   }
 

@@ -6,7 +6,7 @@ import { filter, map, take } from 'rxjs/operators';
 import * as fromVehicleUseTypes from '@zyweb/vehicle/use-type/data-access/store';
 import { Router } from '@angular/router';
 import { Sandbox } from '@zyweb/shared/data-access/facade/base';
-import { go } from '@zyweb/shared/data-access/store/ngrx-router';
+import { go, back } from '@zyweb/shared/data-access/store/ngrx-router';
 import { VehicleUseType } from '@zyweb/shared/data-access/model/lvms';
 
 @Injectable()
@@ -82,5 +82,16 @@ export class VehicleUseTypesFacade extends Sandbox {
   createVehicleUseType() {
     this.routeTo({ path: ['vehicleUseTypes', 'create'] });
 
+  }
+
+  addVehicleUseType(vehicleUseType: VehicleUseType) {
+    this.appState$.dispatch(
+      fromVehicleUseTypes
+        .NewVehicleUseTypePageActions
+        .addVehicleUseType({ vehicleUseType }));
+  }
+
+  cancelCreate() {
+    this.appState$.dispatch(back());
   }
 }

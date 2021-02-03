@@ -18,17 +18,25 @@ import {
 
 export class VehicleUseTypeDetailsToolbarComponent  {
   @Output()
-  public onDelete: EventEmitter<any> = new EventEmitter();
+  public onRemoveEvent: EventEmitter<any> = new EventEmitter();
   @Output()
-  public onList: EventEmitter<any> = new EventEmitter();
+  public onListEvent: EventEmitter<any> = new EventEmitter();
+  @Output()
+  public onCreateEvent: EventEmitter<any> = new EventEmitter();
+
   constructor(  ) {  }
 
   public delete(event: Event): void {
-      this.onDelete.emit();
+      this.onRemoveEvent.emit();
   }
 
-  toList(event: Event): void {
-    this.onList.emit();
+  public list(event: Event): void {
+    this.onListEvent.emit();
   }
+  public create(event: Event): void {
+    this.onCreateEvent.emit();
+  }
+
+
 }
 

@@ -145,11 +145,6 @@
   ],
   "vehicle_use_types": [
     {
-      "id": 3,
-      "name": "水泥车",
-      "description": "5fg"
-    },
-    {
       "id": 4,
       "name": "清水罐车",
       "description": "fdwe333"

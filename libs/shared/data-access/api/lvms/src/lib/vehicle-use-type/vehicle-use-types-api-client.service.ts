@@ -25,5 +25,8 @@ export class VehicleUseTypesApiClient extends HttpService {
     console.log(`onSelectData(event):+ selectDataId+ selectDataId+ selectDataId` );
     return null;
   }
+  create(vehicleUseType: VehicleUseType): Observable<VehicleUseType> {
+    return this.http.post<VehicleUseType>(`http://localhost:8080/api/vehicleUseTypes`, vehicleUseType);
+  }
 
 }

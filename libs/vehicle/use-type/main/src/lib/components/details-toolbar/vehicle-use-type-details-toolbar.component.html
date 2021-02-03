@@ -1,7 +1,7 @@
 
 <p-toolbar>
   <div class="p-toolbar-group-left">
-    <p-button label="New" icon="pi pi-plus"  class="mr-md-1"></p-button>
+    <p-button label="New" icon="pi pi-plus" (onClick)="create($event)" class="mr-md-1"></p-button>
     <p-button label="Upload" icon="pi pi-upload" class="mr-md-1" styleClass="p-button-success"></p-button>
 
     <p-button label="删除" icon="pi pi-times" (onClick)="delete($event)"  class="mr-md-1" styleClass="p-button-danger"></p-button>
@@ -15,7 +15,7 @@
     <p-button icon="pi pi-search" class="mr-md-1"></p-button>
     <p-button icon="pi pi-calendar" class="mr-md-1" styleClass="p-button-success"></p-button>
     <p-button icon="pi pi-times" class="mr-md-1" styleClass="p-button-danger"></p-button>
-    <p-button icon="pi pi-list" (onClick)="toList($event)" class="mr-md-1" styleClass="p-button-danger"></p-button>
+    <p-button icon="pi pi-list" (onClick)="list($event)" class="mr-md-1" styleClass="p-button-danger"></p-button>
 
   </div>
 </p-toolbar>
