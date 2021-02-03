@@ -1,11 +1,9 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { TranslateModule } from '@ngx-translate/core';
-import { FormsModule, ReactiveFormsModule } from '@angular/forms';
-
-import { SharedUiCommonModule } from '@zyweb/shared/ui/common';
-import { SharedUiBaseModule } from '@zyweb/shared/ui/base';
 import { VehicleUseTypeDetailsToolbarComponent } from './vehicle-use-type-details-toolbar.component';
+import { ButtonModule } from 'primeng/button';
+import {ToolbarModule} from 'primeng/toolbar';
+import {SplitButtonModule} from 'primeng/splitbutton';
 
 export const COMPONENTS_EXPORTS : Array<any> = [
   VehicleUseTypeDetailsToolbarComponent
@@ -14,10 +12,9 @@ export const COMPONENTS_EXPORTS : Array<any> = [
 @NgModule({
   imports: [
     CommonModule,
-    FormsModule,
-    TranslateModule,
-    SharedUiCommonModule,
-    SharedUiBaseModule,
+    ButtonModule,
+    ToolbarModule,
+    SplitButtonModule,
   ],
   declarations: [VehicleUseTypeDetailsToolbarComponent
 

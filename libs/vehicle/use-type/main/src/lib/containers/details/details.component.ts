@@ -9,7 +9,7 @@ import { VehicleUseTypesFacade } from '@zyweb/shared/data-access/facade/lvms';
 import { ActivatedRoute } from '@angular/router';
 import { map } from 'rxjs/operators';
 import { NotificationService } from '@zyweb/shared/util/message';
-import { VehicleUseTypeDeleteDialogComponent } from '../../components/delete-dialog/vehicle-use-type-delete-dialog.component';
+// import { VehicleUseTypeDeleteDialogComponent } from '../../components/delete-dialog/vehicle-use-type-delete-dialog.component';
 import { DialogDeleteComponent } from '@zyweb/shared/ui/base';
 
 @Component({
