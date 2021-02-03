@@ -3,7 +3,6 @@ import { ChangeDetectionStrategy, ChangeDetectorRef, Component, OnDestroy, OnIni
 import { Observable, of, Subscription } from 'rxjs';
 
 import { DialogService, DynamicDialogRef } from 'primeng/dynamicdialog';
-import { ConfirmationService  } from 'primeng/api';
 import { VehicleUseType } from '@zyweb/shared/data-access/model/lvms';
 import { VehicleUseTypesFacade } from '@zyweb/shared/data-access/facade/lvms';
 import { ActivatedRoute } from '@angular/router';
@@ -15,7 +14,7 @@ import { DialogDeleteComponent } from '@zyweb/shared/ui/base';
   selector: 'zyweb-vehicle-use-type-details',
   templateUrl: './details.component.html',
   styleUrls: ['./details.component.scss'],
-  providers: [DialogService, ConfirmationService, VehicleUseTypesFacade],
+  providers: [DialogService, VehicleUseTypesFacade],
 })
 
 export class DetailsComponent implements OnInit, OnDestroy {
@@ -74,14 +73,6 @@ export class DetailsComponent implements OnInit, OnDestroy {
       this._actionsSubscription = this._route.params
         .pipe(map((params) =>  params.id))
         .subscribe((id) => this.vehicleUseTypesFacade.dispatchSelectVehicleUseType(id)),
-
-      // this.vehiclesFacade.vehicleDetailsRemoveSuccess$.subscribe((removeSuccess) => {
-      //   if (removeSuccess) {
-      //     this.returnList()
-      //   },
-      //   }
-      //
-      // )
     );
   }
 
