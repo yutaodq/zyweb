@@ -36,11 +36,17 @@ export class VehicleUseTypesFacade extends Sandbox {
    * Loads vehicles from the server
    */
   public dispatchLoadVehicleUseTypes(): void {
-    this.appState$.dispatch(fromVehicleUseTypes.CollectionPageActions.loadVehicleUseTypes());
+    this.appState$.dispatch(
+      fromVehicleUseTypes
+        .CollectionPageActions
+        .loadVehicleUseTypes());
   }
 
   public dispatchSelectVehicleUseType(id: string): void {
-    this.appState$.dispatch(fromVehicleUseTypes.CollectionPageActions.selectVehicleUseType({ id }));
+    this.appState$.dispatch(
+      fromVehicleUseTypes
+        .CollectionPageActions
+        .selectVehicleUseType({ id }));
   }
 
   public unregisterEvents() {
@@ -56,7 +62,7 @@ export class VehicleUseTypesFacade extends Sandbox {
   private routeTo(param: { path: (string)[] }) {
     this.appState$.dispatch(go({ to: param }));
   }
-
+// { to: { path: ['vehicleUseTypes', 'list'] } }
   showDetail(vehicleUseType: VehicleUseType) {
     this.routeTo({ path: ['vehicleUseTypes', vehicleUseType.id, 'detail'] });
 
@@ -67,7 +73,10 @@ export class VehicleUseTypesFacade extends Sandbox {
   }
 
   public removeDetail(vehicleUseType: VehicleUseType) {
-    this.appState$.dispatch(fromVehicleUseTypes.ViewVehicleUseTypePageActions.removeVehicleUseType({ vehicleUseType }));
+    this.appState$.dispatch(
+      fromVehicleUseTypes
+        .ViewVehicleUseTypePageActions
+        .removeVehicleUseType({ vehicleUseType }));
   }
 
 }

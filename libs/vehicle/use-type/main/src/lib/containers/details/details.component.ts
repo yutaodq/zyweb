@@ -43,7 +43,6 @@ export class DetailsComponent implements OnInit, OnDestroy {
   public delete(): void {
     this.notification.showMessage({severity: 'success', summary: '提示信息：', detail: '您已经删除了一台车辆信息' });
     this._ref = this._dialogService.open(DialogDeleteComponent, {
-    // this.ref = this._dialogService.open(VehicleUseTypeDeleteDialogComponent, {
       header: '删除车辆信息档案',
       width: '70%',
       contentStyle: { 'max-height': '500px', 'overflow': 'auto' },
@@ -51,11 +50,12 @@ export class DetailsComponent implements OnInit, OnDestroy {
     });
 
     this._ref.onClose.subscribe((isDelete) => {
+      console.log('1 - VehicleCreateComponent保存记录');
+
       if (isDelete) {
         this.vehicleUseTypesFacade.removeDetail(this.vehicleUseType);
       }
     });
-
   }
 
   /**
