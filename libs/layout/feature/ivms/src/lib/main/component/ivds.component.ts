@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { of, Subscription } from 'rxjs';
+import { NotificationReceiverService } from '@zyweb/shared/util/message';
 @Component({
   selector: 'zyweb-layout-ivms',
   templateUrl: './ivds.component.html',
@@ -33,6 +34,7 @@ export class IvdsComponent  implements OnInit {
       element.className = element.className.replace(new RegExp('(^|\\b)' + className.split(' ').join('|') + '(\\b|$)', 'gi'), ' ');
   }
   constructor(
+    public notificationReceiverService: NotificationReceiverService
   ) {
 
 }

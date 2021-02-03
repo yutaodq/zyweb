@@ -10,7 +10,8 @@ import { MessageService } from 'primeng/api';
     providers: [ MessageService]
 })
 export class ToasterComponent {
-    constructor(notificationReceiverService: NotificationReceiverService
+    constructor(
+      // notificationReceiverService: NotificationReceiverService
     ) {
     }
 }
