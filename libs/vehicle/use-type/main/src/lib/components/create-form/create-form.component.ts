@@ -17,6 +17,7 @@ import { VehicleUseType } from '@zyweb/shared/data-access/model/lvms';
   selector: 'zyweb-vehicle-use-type-create-form',
   templateUrl: './create-form.component.html',
   styleUrls: ['./create-form.component.scss'],
+  providers: [CreateFormPresenter],
   changeDetection: ChangeDetectionStrategy.OnPush
 })
 
@@ -24,7 +25,9 @@ export class CreateFormComponent   implements OnInit {
   @Output() addEvent: EventEmitter<VehicleUseType> = new EventEmitter();
   @Output() cancelEvent: EventEmitter<string> = new EventEmitter();
 
-  constructor( private _formPresenter: CreateFormPresenter) { }
+  constructor( private _formPresenter: CreateFormPresenter) {
+
+  }
 
   ngOnInit(): void {
     this._formPresenter.add$.subscribe(vehicleUseType => this.addEvent.emit(vehicleUseType));

@@ -53,7 +53,7 @@ export class CollectionEffects {
     this.actions$.pipe(
       ofType(NewVehicleUseTypePageActions.addVehicleUseType),
       mergeMap(({ vehicleUseType }) =>
-        this.apiClient.create(vehicleUseType).pipe(
+        this.apiClient.addVehicleUseType(vehicleUseType).pipe(
           map((vehicleUseTypeE) =>
             CollectionApiActions.addVehicleUseTypeSuccess({ vehicleUseType })
           ),
@@ -66,22 +66,17 @@ export class CollectionEffects {
   addVehicleUseTypeSuccess$ = createEffect(() =>
     this.actions$.pipe(
       ofType(CollectionApiActions.addVehicleUseTypeSuccess),
-      map((action) =>
-        RouterAction.go({ to: { path: ['vehicleUseTypes', action.vehicleUseType.id, 'detail'] } })
-
+      map(( {vehicleUseType: vehicleUseType}) =>
+         RouterAction.go({ to: { path: ['vehicleUseTypes', vehicleUseType.id, 'detail'] } })
       )
     )
   );
-  // RouterAction.go({ to: { path: ['vehicleUseTypes', action.vehicleUseType.id, 'detail'] } })
-
-   // RouterAction.go({ to: { path: ['vehicleUseTypes', action.vehicleUseType.id, 'detail'] } });
-
 
   removeVehicleUseTypeFromCollection$ = createEffect(() =>
     this.actions$.pipe(
       ofType(ViewVehicleUseTypePageActions.removeVehicleUseType),
       mergeMap(({ vehicleUseType }) =>
-        this.apiClient.getRemoveVehicleUseType(vehicleUseType.id).pipe(
+        this.apiClient.removeVehicleUseType(vehicleUseType.id).pipe(
           map(() => CollectionApiActions.removeVehicleUseTypeSuccess({ vehicleUseType })),
           catchError(() => of(CollectionApiActions.removeVehicleUseTypeFailure({ vehicleUseType })))
         )

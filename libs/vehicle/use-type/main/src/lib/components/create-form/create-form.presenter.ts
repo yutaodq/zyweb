@@ -26,11 +26,11 @@ export class CreateFormPresenter {
 
   public save(): void {
     if (!this.form.valid) {
-      console.log('public save(): void保存记录错误' + uuidv4());
       return;
     }
     const vehicleUseType: VehicleUseType = this.model as VehicleUseType;
-    if (vehicleUseType.id === null || vehicleUseType.id === '') {
+
+    if (vehicleUseType.id === undefined || vehicleUseType.id === null || vehicleUseType.id === '') {
       vehicleUseType.id = uuidv4();
     }
     Object.keys(vehicleUseType).forEach((key) => (vehicleUseType[key] === null || vehicleUseType[key] === '') && delete vehicleUseType[key]);

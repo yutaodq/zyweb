@@ -10,10 +10,10 @@ import { FormlyModule } from '@ngx-formly/core';
 import { MainModule } from './main/main.module';
 import { SharedDataAccessStoreLvmsRootModule } from '@zyweb/shared/data-access/store/lvms-root';
 import { SharedDataAccessStoreNgrxRouterModule } from '@zyweb/shared/data-access/store/ngrx-router';
-import { SharedDataAccessApiHttpServiceModule } from '@zyweb/shared/data-access/api/http-service';
 import { SharedUtilI18nModule } from '@zyweb/shared/util/i18n';
 import { SharedUtilLog4Module } from '@zyweb/shared/util/log4';
 import { SharedDataAccessStoreNgrxErrorModule } from '@zyweb/shared/data-access/store/ngrx-error';
+import { SharedDataAccessApiLvmsModule } from '@zyweb/shared/data-access/api/lvms';
 
 @NgModule({
   imports: [CommonModule,
@@ -23,10 +23,10 @@ import { SharedDataAccessStoreNgrxErrorModule } from '@zyweb/shared/data-access/
     RxReactiveFormsModule,
     FormlyModule.forRoot(),
     FormlyPrimeNGModule,
+    SharedDataAccessApiLvmsModule,
     SharedDataAccessStoreLvmsRootModule.forRoot(),
     SharedDataAccessStoreNgrxRouterModule,
-    SharedDataAccessApiHttpServiceModule,
-    SharedDataAccessStoreNgrxErrorModule,
+    // SharedDataAccessStoreNgrxErrorModule,
     SharedUtilI18nModule,
     SharedUtilLog4Module,
   ],
