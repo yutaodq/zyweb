@@ -1,17 +1,19 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
+import { MessageService } from 'primeng/api';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { FormlyPrimeNGModule } from '@ngx-formly/primeng';
+import { RxReactiveFormsModule } from '@rxweb/reactive-form-validators';
+import { HttpClientModule } from '@angular/common/http';
+import { FormlyModule } from '@ngx-formly/core';
+
 import { MainModule } from './main/main.module';
 import { SharedDataAccessStoreLvmsRootModule } from '@zyweb/shared/data-access/store/lvms-root';
 import { SharedDataAccessStoreNgrxRouterModule } from '@zyweb/shared/data-access/store/ngrx-router';
-import { FormsModule, ReactiveFormsModule } from '@angular/forms';
-import { RxReactiveFormsModule } from '@rxweb/reactive-form-validators';
-import { FormlyPrimeNGModule } from '@ngx-formly/primeng';
-import { HttpClientModule } from '@angular/common/http';
-import { FormlyModule } from '@ngx-formly/core';
 import { SharedDataAccessApiHttpServiceModule } from '@zyweb/shared/data-access/api/http-service';
 import { SharedUtilI18nModule } from '@zyweb/shared/util/i18n';
 import { SharedUtilLog4Module } from '@zyweb/shared/util/log4';
-import { MessageService } from 'primeng/api';
+import { SharedDataAccessStoreNgrxErrorModule } from '@zyweb/shared/data-access/store/ngrx-error';
 
 @NgModule({
   imports: [CommonModule,
@@ -24,6 +26,7 @@ import { MessageService } from 'primeng/api';
     SharedDataAccessStoreLvmsRootModule.forRoot(),
     SharedDataAccessStoreNgrxRouterModule,
     SharedDataAccessApiHttpServiceModule,
+    SharedDataAccessStoreNgrxErrorModule,
     SharedUtilI18nModule,
     SharedUtilLog4Module,
   ],

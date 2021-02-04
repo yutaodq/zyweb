@@ -857,6 +857,39 @@
           "style": "scss"
         }
       }
+    },
+    "shared-data-access-store-ngrx-error": {
+      "projectType": "library",
+      "root": "libs/shared/data-access/store/ngrx-error",
+      "sourceRoot": "libs/shared/data-access/store/ngrx-error/src",
+      "prefix": "zyweb",
+      "architect": {
+        "lint": {
+          "builder": "@angular-devkit/build-angular:tslint",
+          "options": {
+            "tsConfig": [
+              "libs/shared/data-access/store/ngrx-error/tsconfig.lib.json",
+              "libs/shared/data-access/store/ngrx-error/tsconfig.spec.json"
+            ],
+            "exclude": [
+              "**/node_modules/**",
+              "!libs/shared/data-access/store/ngrx-error/**/*"
+            ]
+          }
+        },
+        "test": {
+          "builder": "@nrwl/jest:jest",
+          "options": {
+            "jestConfig": "libs/shared/data-access/store/ngrx-error/jest.config.js",
+            "passWithNoTests": true
+          }
+        }
+      },
+      "schematics": {
+        "@schematics/angular:component": {
+          "style": "scss"
+        }
+      }
     }
   },
   "cli": {

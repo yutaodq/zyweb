@@ -98,6 +98,9 @@
     },
     "shared-util-message": {
       "tags": ["scope:shared", "type:util"]
+    },
+    "shared-data-access-store-ngrx-error": {
+      "tags": ["scope:shared", "type:data-access"]
     }
   }
 }

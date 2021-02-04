@@ -33,5 +33,6 @@ module.exports = {
     '<rootDir>/libs/shared/grid/core',
     '<rootDir>/libs/shared/util/log4',
     '<rootDir>/libs/shared/util/message',
+    '<rootDir>/libs/shared/data-access/store/ngrx-error',
   ],
 };
