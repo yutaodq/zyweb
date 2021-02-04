@@ -29,14 +29,12 @@ export class CreateFormPresenter {
       console.log('public save(): void保存记录错误' + uuidv4());
       return;
     }
-    // const vehicleUseType: vehicleUseTypeUseType = {id: 'ddsdsdsds',
-    // name: this.model.valueOf}
-    // // this.model as vehicleUseTypeUseType;
     const vehicleUseType: VehicleUseType = this.model as VehicleUseType;
-    vehicleUseType.id = uuidv4();
+    if (vehicleUseType.id === null || vehicleUseType.id === '') {
+      vehicleUseType.id = uuidv4();
+    }
     Object.keys(vehicleUseType).forEach((key) => (vehicleUseType[key] === null || vehicleUseType[key] === '') && delete vehicleUseType[key]);
 
-    // const data = { ...this.model };
     this._add.next(vehicleUseType);
 
   }
