@@ -17,13 +17,10 @@ export const COMPONENTS_EXPORTS : Array<any> = [
     SharedUiCommonModule,
     SharedUiBaseModule,
   ],
-  declarations: [VehicleUseTypeDetailsFormComponent
-
+  declarations: [
+    VehicleUseTypeDetailsFormComponent
   ],
   exports: [...COMPONENTS_EXPORTS],
-  providers: [ ],
-  entryComponents: [
-  ]
 })
 export class VehicleUseTypeMainComponentDetailFormModule {}
 

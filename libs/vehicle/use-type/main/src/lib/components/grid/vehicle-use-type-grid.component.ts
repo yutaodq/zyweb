@@ -5,7 +5,7 @@ import {
   Input, OnInit, Output
 } from '@angular/core';
 
-import { Vehicle, VehicleUseType } from '@zyweb/shared/data-access/model/lvms';
+import { VehicleUseType } from '@zyweb/shared/data-access/model/lvms';
 import { VehicleUseTypeGridPresenter } from './vehicle-use-type-grid.presenter';
 import { IDataGridOptions } from '@zyweb/shared/grid/ui';
 import { VehicleUseTypeSearchNgrxGridService } from '@zyweb/shared/data-access/facade/lvms';
@@ -14,9 +14,7 @@ import { map } from 'rxjs/operators';
 @Component({
   selector: 'zyweb-wehicle-use-type-grid',
   templateUrl: './vehicle-use-type-grid.component.html',
-  providers: [ VehicleUseTypeGridPresenter],
   changeDetection: ChangeDetectionStrategy.OnPush
-
 })
 
 export class VehicleUseTypeGridComponent implements OnInit, AfterViewInit {

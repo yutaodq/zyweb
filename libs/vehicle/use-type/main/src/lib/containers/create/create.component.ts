@@ -13,7 +13,7 @@ D:\学习案例\druo-dashboard\src\app\content\pages\components\invoices\invoice
   selector: 'zyweb-vehicle-use-type-create',
   templateUrl: './create.component.html',
   styleUrls: ['./create.component.scss'],
-  providers: [VehicleUseTypesFacade],
+  changeDetection: ChangeDetectionStrategy.OnPush,
 })
 
 export class CreateComponent implements OnInit, OnDestroy {

@@ -14,7 +14,7 @@ import { DialogDeleteComponent } from '@zyweb/shared/ui/base';
   selector: 'zyweb-vehicle-use-type-details',
   templateUrl: './details.component.html',
   styleUrls: ['./details.component.scss'],
-  providers: [DialogService, VehicleUseTypesFacade],
+  changeDetection: ChangeDetectionStrategy.OnPush,
 })
 
 export class DetailsComponent implements OnInit, OnDestroy {

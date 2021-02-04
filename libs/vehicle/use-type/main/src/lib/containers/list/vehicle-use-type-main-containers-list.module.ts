@@ -6,7 +6,7 @@ import { VehicleUseTypeMainComponentsModule } from '../../components';
 import { SharedGridUiModule } from '@zyweb/shared/grid/ui';
 import { SearchNgrxGridService } from '@zyweb/shared/grid/core';
 import { ListComponent } from './list.component';
-import { VehicleUseTypeSearchNgrxGridService } from '@zyweb/shared/data-access/facade/lvms';
+import { VehicleUseTypeSearchNgrxGridService, VehicleUseTypesFacade } from '@zyweb/shared/data-access/facade/lvms';
 
 @NgModule({
   imports: [
@@ -19,6 +19,6 @@ import { VehicleUseTypeSearchNgrxGridService } from '@zyweb/shared/data-access/f
   declarations: [
     ListComponent,
   ],
-  providers: [ {provide:SearchNgrxGridService, useClass:VehicleUseTypeSearchNgrxGridService}],
+  providers: [ VehicleUseTypesFacade, {provide:SearchNgrxGridService, useClass:VehicleUseTypeSearchNgrxGridService}],
 })
 export class VehicleUseTypeMainContainersListModule {}

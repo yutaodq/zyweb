@@ -16,13 +16,11 @@ export const COMPONENTS_EXPORTS : Array<any> = [
     ToolbarModule,
     SplitButtonModule,
   ],
-  declarations: [VehicleUseTypeDetailsToolbarComponent
-
+  declarations: [
+    VehicleUseTypeDetailsToolbarComponent
   ],
   exports: [...COMPONENTS_EXPORTS],
   providers: [ ],
-  entryComponents: [
-  ]
 })
 export class VehicleUseTypeMainComponentsDetailToolbarModule {}
 

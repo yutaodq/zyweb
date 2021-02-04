@@ -145,10 +145,6 @@
   ],
   "vehicle_use_types": [
     {
-      "name": "哈哈哈",
-      "id": 5
-    },
-    {
       "name": "啊额额",
       "description": "爱的发声",
       "id": 6
@@ -289,6 +285,10 @@
       "name": "579",
       "description": "123",
       "id": "0963a23d-fae1-405c-a85d-77088a7763d1"
+    },
+    {
+      "name": "党务发大V",
+      "id": "121728a7-4d57-4013-8fe4-25405fbcbc4c"
     }
   ]
 }

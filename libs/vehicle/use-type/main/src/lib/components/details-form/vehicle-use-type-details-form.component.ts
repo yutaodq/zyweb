@@ -20,7 +20,6 @@ import { VehicleUseType } from '@zyweb/shared/data-access/model/lvms';
 
 export class VehicleUseTypeDetailsFormComponent  {
   @Input()   public vehicleUseType:        VehicleUseType;
-
   constructor() {
   }
 
