@@ -32,7 +32,7 @@ export class VehicleUseTypesApiClient {
   }
 
   public addVehicleUseType(vehicleUseType: VehicleUseType): Observable<VehicleUseType> {
-    return this.apiService.post(`/vehicle_use_types/`,  vehicleUseType);
+    return this.apiService.post(`/vehicle_use_typesg/`,  vehicleUseType);
   }
   // public addVehicleUseType(vehicleUseType: VehicleUseType): Observable<VehicleUseType> {
   //   return this.http.post<VehicleUseType>(`http://localhost:8080/api/vehicle_use_types`, vehicleUseType);

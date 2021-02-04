@@ -17,7 +17,6 @@ import { VehicleUseType } from '@zyweb/shared/data-access/model/lvms';
   selector: 'zyweb-vehicle-use-type-create-form',
   templateUrl: './create-form.component.html',
   styleUrls: ['./create-form.component.scss'],
-  providers: [CreateFormPresenter],
   changeDetection: ChangeDetectionStrategy.OnPush
 })
 

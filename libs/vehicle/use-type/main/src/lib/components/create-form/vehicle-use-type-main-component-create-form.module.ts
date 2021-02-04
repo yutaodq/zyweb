@@ -6,6 +6,7 @@ import { FormlyModule } from '@ngx-formly/core';
 import { SharedUiCommonModule } from '@zyweb/shared/ui/common';
 import { SharedUiBaseModule } from '@zyweb/shared/ui/base';
 import { CreateFormComponent } from './create-form.component';
+import { CreateFormPresenter } from './create-form.presenter';
 
 export const COMPONENTS_EXPORTS : Array<any> = [
   CreateFormComponent
@@ -22,6 +23,7 @@ export const COMPONENTS_EXPORTS : Array<any> = [
   declarations: [CreateFormComponent
   ],
   exports: [...COMPONENTS_EXPORTS],
+  providers: [CreateFormPresenter],
 })
 export class VehicleUseTypeMainComponentCreateFormModule {}
 

@@ -26,7 +26,7 @@ import { SharedDataAccessApiLvmsModule } from '@zyweb/shared/data-access/api/lvm
     SharedDataAccessApiLvmsModule,
     SharedDataAccessStoreLvmsRootModule.forRoot(),
     SharedDataAccessStoreNgrxRouterModule,
-    // SharedDataAccessStoreNgrxErrorModule,
+    SharedDataAccessStoreNgrxErrorModule,
     SharedUtilI18nModule,
     SharedUtilLog4Module,
   ],
