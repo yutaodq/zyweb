@@ -24,6 +24,7 @@ export class CreateFormComponent   implements OnInit {
   @Output() addEvent: EventEmitter<VehicleUseType> = new EventEmitter();
   @Output() cancelEvent: EventEmitter<string> = new EventEmitter();
 
+  private _model: {};
   constructor( private _formPresenter: CreateFormPresenter) {
 
   }
@@ -31,6 +32,7 @@ export class CreateFormComponent   implements OnInit {
   ngOnInit(): void {
     this._formPresenter.add$.subscribe(vehicleUseType => this.addEvent.emit(vehicleUseType));
     this._formPresenter.cancel$.subscribe(name => this.cancelEvent.emit(name));
+    this._model = this._formPresenter.model
   }
 
   onSubmit(model: any) {
@@ -49,7 +51,7 @@ export class CreateFormComponent   implements OnInit {
     return this._formPresenter.form;
   }
   get model() {
-    return this._formPresenter.model;
+    return this._model;
   }
   get fields(): FormlyFieldConfig[] {
     return this._formPresenter.fields;

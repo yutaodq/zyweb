@@ -5,10 +5,8 @@
     <p-button label="Upload" icon="pi pi-upload" class="mr-md-1" styleClass="p-button-success"></p-button>
 
     <p-button label="删除" icon="pi pi-times" (onClick)="delete($event)"  class="mr-md-1" styleClass="p-button-danger"></p-button>
-    <p-splitButton label="Save" clase="fa flaticon-plus" class="mr-md-1" styleClass="p-button-warning"></p-splitButton>
-<!--    <p-button label="取消删除" icon="pi flaticon-plus" (onClick)="cancel($event)"  styleClass="p-button-danger"></p-button>-->
+    <ng-content></ng-content>
 
-    <!--      <p-splitButton label="Save" icon="pi pi-check" [model]="items" styleClass="p-button-warning"></p-splitButton>-->
   </div>
 
   <div class="p-toolbar-group-right">
