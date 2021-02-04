@@ -54,7 +54,7 @@ export class CollectionEffects {
       ofType(NewVehicleUseTypePageActions.addVehicleUseType),
       mergeMap(({ vehicleUseType }) =>
         this.apiClient.create(vehicleUseType).pipe(
-          map(() =>
+          map((vehicleUseTypeE) =>
             CollectionApiActions.addVehicleUseTypeSuccess({ vehicleUseType })
           ),
           catchError(() => of(CollectionApiActions.addVehicleUseTypeFailure({ vehicleUseType })))
@@ -63,6 +63,16 @@ export class CollectionEffects {
     )
   );
 
+  addVehicleUseTypeSuccess$ = createEffect(() =>
+    this.actions$.pipe(
+      ofType(CollectionApiActions.addVehicleUseTypeSuccess),
+      map((action) =>
+        RouterAction.go({ to: { path: ['vehicleUseTypes', action.vehicleUseType.id, 'detail'] } })
+
+      )
+    )
+  );
+  // RouterAction.go({ to: { path: ['vehicleUseTypes', action.vehicleUseType.id, 'detail'] } })
 
    // RouterAction.go({ to: { path: ['vehicleUseTypes', action.vehicleUseType.id, 'detail'] } });
 
@@ -85,7 +95,7 @@ export class CollectionEffects {
       map(() => RouterAction.go({ to: { path: ['vehicleUseTypes', 'list'] } }
         )
       )
-    ), { dispatch: false }
+    )
   );
 
   constructor(
