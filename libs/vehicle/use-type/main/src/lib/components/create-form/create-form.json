@@ -8,7 +8,8 @@
         "type": "input",
         "templateOptions": {
           "label": "车辆用途",
-          "placeholder": "车辆用途"
+          "placeholder": "车辆用途",
+          "required": true
         }
       }
     ]

@@ -14,13 +14,18 @@ export class CreateFormPresenter {
   private _cancel: Subject<string> = new Subject();
   cancel$: Observable<string> = this._cancel.asObservable();
 
-  form = new FormGroup({});
+  // form = new FormGroup({});
   // private _model = {};
 
   fields: FormlyFieldConfig[] = FIELDS;
   options: FormlyFormOptions = {};
-public get model() {
+
+  public get model() {
   return {}
+}
+
+public get form() {
+    return new FormGroup({});
 }
   public cancel(): void {
     this._cancel.next('cancelCreate');

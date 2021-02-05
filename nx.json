@@ -101,6 +101,9 @@
     },
     "shared-data-access-store-ngrx-error": {
       "tags": ["scope:shared", "type:data-access"]
+    },
+    "shared-ui-form": {
+      "tags": ["scope:shared", "type:ui"]
     }
   }
 }

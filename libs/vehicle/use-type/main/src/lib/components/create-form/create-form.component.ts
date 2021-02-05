@@ -17,7 +17,8 @@ import { VehicleUseType } from '@zyweb/shared/data-access/model/lvms';
   selector: 'zyweb-vehicle-use-type-create-form',
   templateUrl: './create-form.component.html',
   styleUrls: ['./create-form.component.scss'],
-  changeDetection: ChangeDetectionStrategy.OnPush
+  providers: [CreateFormPresenter],
+  // changeDetection: ChangeDetectionStrategy.OnPush
 })
 
 export class CreateFormComponent   implements OnInit {
@@ -25,6 +26,8 @@ export class CreateFormComponent   implements OnInit {
   @Output() cancelEvent: EventEmitter<string> = new EventEmitter();
 
   private _model: {};
+  private _form: FormGroup;
+
   constructor( private _formPresenter: CreateFormPresenter) {
 
   }
@@ -33,6 +36,8 @@ export class CreateFormComponent   implements OnInit {
     this._formPresenter.add$.subscribe(vehicleUseType => this.addEvent.emit(vehicleUseType));
     this._formPresenter.cancel$.subscribe(name => this.cancelEvent.emit(name));
     this._model = this._formPresenter.model
+    this._form = this._formPresenter.form;
+    console.log("aaaaaaaaaaaaaaaaaaaaaaaaaaa");
   }
 
   onSubmit(model: any) {
@@ -48,7 +53,7 @@ export class CreateFormComponent   implements OnInit {
   }
 
   get form(): FormGroup {
-    return this._formPresenter.form;
+    return this._form;
   }
   get model() {
     return this._model;

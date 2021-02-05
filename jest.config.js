@@ -34,5 +34,7 @@ module.exports = {
     '<rootDir>/libs/shared/util/log4',
     '<rootDir>/libs/shared/util/message',
     '<rootDir>/libs/shared/data-access/store/ngrx-error',
+    '<rootDir>/libs/shared/ui/ngx-formly',
+    '<rootDir>/libs/shared/ui/form',
   ],
 };

@@ -12,14 +12,14 @@ import { VehicleUseType } from '@zyweb/shared/data-access/model/lvms';
 import { MenuItem } from 'primeng/api';
 
 @Component({
-  selector: 'zyweb-vehicle-use-type-update-button',
-  templateUrl: './vehicle-use-type-update-button.component.html',
-  styleUrls: ['./vehicle-use-type-update-button.component.scss'],
+  selector: 'zyweb-vehicle-use-type-detail-button',
+  templateUrl: './vehicle-use-type-detail-button.component.html',
+  styleUrls: ['./vehicle-use-type-detail-button.component.scss'],
   providers: [],
   changeDetection: ChangeDetectionStrategy.OnPush
 })
 
-export class VehicleUseTypeUpdateButtonComponent  implements OnInit {
+export class VehicleUseTypeDetailButtonComponent  implements OnInit {
   items: MenuItem[];
 
   @Output()
