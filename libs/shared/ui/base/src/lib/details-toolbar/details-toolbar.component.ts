@@ -10,13 +10,13 @@ import {
 } from '@angular/core';
 
 @Component({
-  selector: 'zyweb-vehicle-use-type-details-toolbar',
-  templateUrl: './vehicle-use-type-details-toolbar.component.html',
-  styleUrls: ['./vehicle-use-type-details-toolbar.component.scss'],
+  selector: 'zyweb-ui-base-details-toolbar',
+  templateUrl: './details-toolbar.component.html',
+  styleUrls: ['./details-toolbar.component.scss'],
   changeDetection: ChangeDetectionStrategy.OnPush
 })
 
-export class VehicleUseTypeDetailsToolbarComponent  {
+export class DetailsToolbarComponent  {
   @Output()
   public onRemoveEvent: EventEmitter<any> = new EventEmitter();
   @Output()

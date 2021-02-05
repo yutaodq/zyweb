@@ -4,19 +4,31 @@
 </div>
 
 <div class="container content-section implementation">
-  <zyweb-vehicle-use-type-details-toolbar
+  <zyweb-ui-base-details-toolbar
     (onListEvent)="returnList()"
     (onRemoveEvent)="delete()"
     (onCreateEvent)="create()"
   >
-    <p-splitButton label="Save"
-                   clase="fa flaticon-plus"
-                   class="mr-md-1"
-                   styleClass="p-button-warning">
+    <zyweb-vehicle-use-type-update-button>
+    </zyweb-vehicle-use-type-update-button>
 
-    </p-splitButton>
+  </zyweb-ui-base-details-toolbar>
+  <!--  <zyweb-vehicle-use-type-details-toolbar-->
+  <!--    (onListEvent)="returnList()"-->
+  <!--    (onRemoveEvent)="delete()"-->
+  <!--    (onCreateEvent)="create()"-->
+  <!--  >-->
+  <!--    <zyweb-vehicle-use-type-update-button>-->
+  <!--    </zyweb-vehicle-use-type-update-button>-->
 
-  </zyweb-vehicle-use-type-details-toolbar>
+  <!--    &lt;!&ndash;    <p-splitButton label="Save"&ndash;&gt;-->
+  <!--    &lt;!&ndash;                   clase="fa flaticon-plus"&ndash;&gt;-->
+  <!--    &lt;!&ndash;                   class="mr-md-1"&ndash;&gt;-->
+  <!--    &lt;!&ndash;                   styleClass="p-button-warning">&ndash;&gt;-->
+
+  <!--    &lt;!&ndash;    </p-splitButton>&ndash;&gt;-->
+
+  <!--  </zyweb-vehicle-use-type-details-toolbar>-->
   <div class="card">
 
     <zyweb-vehicle-use-type-details-form [vehicleUseType]="vehicleUseType$| async">

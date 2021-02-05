@@ -1,12 +1,12 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { VehicleUseTypeDetailsToolbarComponent } from './vehicle-use-type-details-toolbar.component';
+import { DetailsToolbarComponent } from './details-toolbar.component';
 import { ButtonModule } from 'primeng/button';
 import {ToolbarModule} from 'primeng/toolbar';
 import {SplitButtonModule} from 'primeng/splitbutton';
 
 export const COMPONENTS_EXPORTS : Array<any> = [
-  VehicleUseTypeDetailsToolbarComponent
+  DetailsToolbarComponent
 ];
 
 @NgModule({
@@ -17,10 +17,10 @@ export const COMPONENTS_EXPORTS : Array<any> = [
     SplitButtonModule,
   ],
   declarations: [
-    VehicleUseTypeDetailsToolbarComponent
+    DetailsToolbarComponent
   ],
   exports: [...COMPONENTS_EXPORTS],
   providers: [ ],
 })
-export class VehicleUseTypeMainComponentsDetailToolbarModule {}
+export class ZyDetailToolbarModule {}
 
