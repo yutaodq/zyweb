@@ -1,9 +1,10 @@
 import { ChangeDetectionStrategy, Component, OnDestroy } from '@angular/core';
 import { FormControl, FormGroup } from '@angular/forms';
-import { Observable, Subject } from 'rxjs';
+import { Observable, of, Subject } from 'rxjs';
 import { FormlyFieldConfig, FormlyFormOptions } from '@ngx-formly/core';
 import { v4 as uuidv4 } from 'uuid';
 import { VehicleUseType } from '@zyweb/shared/data-access/model/lvms';
+import { FormlyJsonschema } from '@ngx-formly/core/json-schema';
 
 const FIELDS = require('./create-form.json');
 
@@ -17,14 +18,18 @@ export class CreateFormPresenter {
   // form = new FormGroup({});
   // private _model = {};
 
-  fields: FormlyFieldConfig[] = FIELDS;
+  // fields: FormlyFieldConfig[] = FIELDS;
+
   options: FormlyFormOptions = {};
 
   public get model() {
   return {}
 }
+  getFields() {
+    return of(FIELDS as any);
+  }
 
-public get form() {
+  public get form() {
     return new FormGroup({});
 }
   public cancel(): void {
