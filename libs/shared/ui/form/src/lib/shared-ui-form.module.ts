@@ -42,9 +42,9 @@ const UI_FORM_EXPORTS_MODULE = [
 })
 
 export class SharedUiFormModule {
-  // constructor(formlyValidation: FormlyValidation) {
-  //   // formlyValidation.init();
-  // }
+  constructor(formlyValidation: FormlyValidation) {
+    formlyValidation.init();
+  }
 
   static forRoot(): ModuleWithProviders<SharedUiFormModule> {
     return {

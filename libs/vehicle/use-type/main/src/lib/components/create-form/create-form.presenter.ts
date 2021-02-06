@@ -1,5 +1,5 @@
 import { ChangeDetectionStrategy, Component, OnDestroy } from '@angular/core';
-import { FormControl, FormGroup } from '@angular/forms';
+import { AbstractControl, AsyncValidatorFn, FormControl, FormGroup, ValidationErrors } from '@angular/forms';
 import { Observable, of, Subject } from 'rxjs';
 import { FormlyFieldConfig, FormlyFormOptions } from '@ngx-formly/core';
 import { v4 as uuidv4 } from 'uuid';
@@ -15,29 +15,40 @@ export class CreateFormPresenter {
   private _cancel: Subject<string> = new Subject();
   cancel$: Observable<string> = this._cancel.asObservable();
 
-  // form = new FormGroup({});
-  // private _model = {};
+  private _form = new FormGroup({});
+  private _model = {};
+  private _options: FormlyFormOptions = {};
 
   // fields: FormlyFieldConfig[] = FIELDS;
 
-  options: FormlyFormOptions = {};
 
-  public get model() {
-  return {}
-}
-  getFields() {
-    return of(FIELDS as any);
+//   public findName(control: FormControl): Observable<boolean> {
+//   console.log('aasdfsdfdfsfa : ' + control.value)
+//   return of(false);
+// }
+
+  public findName(control: FormControl): Observable<ValidationErrors | null> {
+    console.log('aasdfsdfdfsfa : ' + control.value)
+    return of( { 'notActive': true });
   }
 
-  public get form() {
-    return new FormGroup({});
-}
+//   public findName(): AsyncValidatorFn {
+//     return (control: AbstractControl): Promise<ValidationErrors | null> | Observable<ValidationErrors | null> => {
+// console.log('ddddddddddddddddddddddddddddddddd');
+//       if (!control.value) { return of(null); }
+//       console.log('aaaaaaaaaaaaaaaaaaaaaa');
+//       return  of(null);
+//         // map(isCodeValid => isCodeValid ? null : { 'notActive': true })
+//        };
+//
+//   }
+
   public cancel(): void {
     this._cancel.next('cancelCreate');
   }
 
   public save(): void {
-    if (!this.form.valid) {
+    if (!this._form.valid) {
       return;
     }
     const vehicleUseType: VehicleUseType = this.model as VehicleUseType;
@@ -48,6 +59,15 @@ export class CreateFormPresenter {
     Object.keys(vehicleUseType).forEach((key) => (vehicleUseType[key] === null || vehicleUseType[key] === '') && delete vehicleUseType[key]);
 
     this._add.next(vehicleUseType);
-
   }
+
+  get form(): FormGroup {
+    return this._form;
+  }
+  get model() {
+    return this._model;
+  }
+get options() {
+    return this._options
+}
 }

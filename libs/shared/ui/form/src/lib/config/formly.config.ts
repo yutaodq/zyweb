@@ -6,8 +6,6 @@ export const config: ConfigOption = {
   ],
   wrappers: [{ name: 'panel', component: FormlyWrapperPanelComponent }],
   validationMessages: [
-    { name: 'required', message: 'This field is required' },
-
   ],
   extras: { lazyRender: true }
 };

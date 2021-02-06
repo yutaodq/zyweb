@@ -1,0 +1,24 @@
+{
+  "type": "object",
+  "required": ["name"],
+  "properties": {
+    "name": {
+      "key": "Input",
+      "type": "input",
+      "templateOptions": {
+        "label": "Project Name",
+        "placeholder": "Project Name",
+        "required": true
+      }
+    },
+    "description": {
+      "key": "Input",
+      "type": "input",
+      "templateOptions": {
+        "label": "Project Description",
+        "placeholder": "Project Description",
+        "required": true
+      }
+    }
+  }
+}
