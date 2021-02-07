@@ -60,8 +60,9 @@ export class CreateFormComponent implements OnInit {
               uniqueName: {
                 expression:
                   (control: FormControl) => {
+                    // return this._formPresenter.exists;
                   return this._formPresenter.findName(control);
-                  // return of(false);
+                  // return of({ 'uniqueName': true });
                 }
               },
 

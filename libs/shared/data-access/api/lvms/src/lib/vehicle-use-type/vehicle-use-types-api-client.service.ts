@@ -66,9 +66,11 @@ export class VehicleUseTypesApiClient {
   //   return null;
   // }
 
-  public exists( name: string): Observable<boolean> {
-    return of(true);
-    // return this.apiService.get<VehicleUseType>('/vehicle_use_types/' + name)
+  public exists( name: string) {
+console.log("existsexistsexistsexistsexists:" + name)
+    return this.apiService.get<VehicleUseType>('/vehicle_use_types?name=' + name)
   }
 
 }
+// //根据公司名字获取信息
+// http://localhost:3000/vehicle_use_types?name='a'

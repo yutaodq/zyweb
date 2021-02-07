@@ -29,23 +29,31 @@ export class CreateFormPresenter {
 
   exists(): AsyncValidatorFn {
     return (control: AbstractControl): Promise<ValidationErrors | null> | Observable<ValidationErrors | null> => {
-      if (!control.value) { return of(null); }
+      if (!control.value) {
+        return of(null);
+      }
       return timer(1000).pipe(
         switchMap(() => this._vehicleUseTypesApiClient.exists(control.value)),
         map(isCodeValid => isCodeValid ? null : { 'uniqueName': true })
-      ); };
+      );
+    };
   }
 
-  //   public findName(control: FormControl): Observable<boolean> {
-//   console.log('aasdfsdfdfsfa : ' + control.value)
-//   return of(false);
-// }
-
-  public findName(control: FormControl): Observable<ValidationErrors | null> {
-    console.log('aasdfsdfdfsfa : ' + control.value)
-    return of( null);
-    // return of( { 'notActive': true });
+  public findName(control: FormControl): Promise<ValidationErrors | null> | Observable<ValidationErrors | null> {
+    console.log('aasdfsdfdfsfadddddddddddddddddd : ' + control.value);
+    return timer(1000).pipe(
+      switchMap(() => this._vehicleUseTypesApiClient.exists(control.value)),
+      map(isCodeValid => { console.log('findNamefindNamefindNamefindNamefindName' + isCodeValid.name)
+        return isCodeValid ? null : { 'uniqueName': true }
+      })
+    );
   }
+
+  // public findName(control: FormControl): Observable<ValidationErrors | null> {
+  //   console.log('aasdfsdfdfsfa : ' + control.value)
+  //   return of( null);
+  //   // return of( { 'notActive': true });
+  // }
 
 //   public findName(): AsyncValidatorFn {
 //     return (control: AbstractControl): Promise<ValidationErrors | null> | Observable<ValidationErrors | null> => {
@@ -79,10 +87,12 @@ export class CreateFormPresenter {
   get form(): FormGroup {
     return this._form;
   }
+
   get model() {
     return this._model;
   }
-get options() {
-    return this._options
-}
+
+  get options() {
+    return this._options;
+  }
 }
