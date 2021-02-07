@@ -2,7 +2,7 @@ import { Injectable } from '@angular/core';
 import { HttpClient, HttpRequest, HttpParams, HttpResponse } from '@angular/common/http';
 
 import { Adapter, GET, HttpService, Path, DELETE, POST, Body } from '@zyweb/shared/data-access/api/http-service';
-import { Observable } from 'rxjs';
+import { Observable, of } from 'rxjs';
 import { VehicleUseType } from '@zyweb/shared/data-access/model/lvms';
 import {ApiService } from '../api'
 @Injectable()
@@ -65,5 +65,10 @@ export class VehicleUseTypesApiClient {
   // public getCreateVehicle(@Body vehicleUseType): Observable<any> {
   //   return null;
   // }
+
+  public exists( name: string): Observable<boolean> {
+    return of(true);
+    // return this.apiService.get<VehicleUseType>('/vehicle_use_types/' + name)
+  }
 
 }

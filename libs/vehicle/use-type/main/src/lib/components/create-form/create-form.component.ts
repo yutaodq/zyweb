@@ -16,6 +16,7 @@ import { VehicleUseType } from '@zyweb/shared/data-access/model/lvms';
 import { FormlyJsonschema } from '@ngx-formly/core/json-schema';
 import * as Fields from './create-form.fields';
 import { Observable, of } from 'rxjs';
+import { VehicleUseTypesApiClient } from '@zyweb/shared/data-access/api/lvms';
 const FIELDS = require('./create-form.json');
 
 export function IpValidator(control: FormControl):
@@ -27,7 +28,7 @@ export function IpValidator(control: FormControl):
   selector: 'zyweb-vehicle-use-type-create-form',
   templateUrl: './create-form.component.html',
   styleUrls: ['./create-form.component.scss'],
-  providers: [CreateFormPresenter]
+  providers: [CreateFormPresenter, VehicleUseTypesApiClient]
   // changeDetection: ChangeDetectionStrategy.OnPush
 })
 

@@ -94,4 +94,5 @@ export class VehicleUseTypesFacade extends Sandbox {
   cancelCreate() {
     this.appState$.dispatch(back());
   }
+
 }

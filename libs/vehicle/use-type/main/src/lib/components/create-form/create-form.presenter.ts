@@ -1,13 +1,17 @@
-import { ChangeDetectionStrategy, Component, OnDestroy } from '@angular/core';
+import { ChangeDetectionStrategy, Component, Injectable, OnDestroy } from '@angular/core';
 import { AbstractControl, AsyncValidatorFn, FormControl, FormGroup, ValidationErrors } from '@angular/forms';
-import { Observable, of, Subject } from 'rxjs';
+import { Observable, of, Subject, timer } from 'rxjs';
 import { FormlyFieldConfig, FormlyFormOptions } from '@ngx-formly/core';
 import { v4 as uuidv4 } from 'uuid';
 import { VehicleUseType } from '@zyweb/shared/data-access/model/lvms';
 import { FormlyJsonschema } from '@ngx-formly/core/json-schema';
+import { map, switchMap } from 'rxjs/operators';
+import { VehicleUseTypesFacade } from '@zyweb/shared/data-access/facade/lvms';
+import { VehicleUseTypesApiClient } from '@zyweb/shared/data-access/api/lvms';
 
 const FIELDS = require('./create-form.json');
 
+@Injectable()
 export class CreateFormPresenter {
   private _add: Subject<VehicleUseType> = new Subject();
   add$: Observable<VehicleUseType> = this._add.asObservable();
@@ -20,16 +24,27 @@ export class CreateFormPresenter {
   private _options: FormlyFormOptions = {};
 
   // fields: FormlyFieldConfig[] = FIELDS;
+  constructor(private _vehicleUseTypesApiClient: VehicleUseTypesApiClient) {
+  }
 
+  exists(): AsyncValidatorFn {
+    return (control: AbstractControl): Promise<ValidationErrors | null> | Observable<ValidationErrors | null> => {
+      if (!control.value) { return of(null); }
+      return timer(1000).pipe(
+        switchMap(() => this._vehicleUseTypesApiClient.exists(control.value)),
+        map(isCodeValid => isCodeValid ? null : { 'uniqueName': true })
+      ); };
+  }
 
-//   public findName(control: FormControl): Observable<boolean> {
+  //   public findName(control: FormControl): Observable<boolean> {
 //   console.log('aasdfsdfdfsfa : ' + control.value)
 //   return of(false);
 // }
 
   public findName(control: FormControl): Observable<ValidationErrors | null> {
     console.log('aasdfsdfdfsfa : ' + control.value)
-    return of( { 'notActive': true });
+    return of( null);
+    // return of( { 'notActive': true });
   }
 
 //   public findName(): AsyncValidatorFn {
