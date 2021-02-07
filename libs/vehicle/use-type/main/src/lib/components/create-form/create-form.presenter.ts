@@ -5,7 +5,7 @@ import { FormlyFieldConfig, FormlyFormOptions } from '@ngx-formly/core';
 import { v4 as uuidv4 } from 'uuid';
 import { VehicleUseType } from '@zyweb/shared/data-access/model/lvms';
 import { FormlyJsonschema } from '@ngx-formly/core/json-schema';
-import { map, switchMap } from 'rxjs/operators';
+import { catchError, map, switchMap } from 'rxjs/operators';
 import { VehicleUseTypesFacade } from '@zyweb/shared/data-access/facade/lvms';
 import { VehicleUseTypesApiClient } from '@zyweb/shared/data-access/api/lvms';
 
@@ -41,13 +41,23 @@ export class CreateFormPresenter {
 
   public findName(control: FormControl): Promise<ValidationErrors | null> | Observable<ValidationErrors | null> {
     console.log('aasdfsdfdfsfadddddddddddddddddd : ' + control.value);
-    return timer(1000).pipe(
-      switchMap(() => this._vehicleUseTypesApiClient.exists(control.value)),
-      map(isCodeValid => { console.log('findNamefindNamefindNamefindNamefindName' + isCodeValid.name)
-        return isCodeValid ? null : { 'uniqueName': true }
-      })
+    return  this._vehicleUseTypesApiClient.exists(control.value).pipe(
+      map(valid => (!valid ? {'uniqueName': true} : null)),
+      catchError(() => {console.log('aasdfsdfdfsfadddddddddddddddddd : ' + control.value);
+      return null;})
+
     );
   }
+
+  // public findName(control: FormControl): Promise<ValidationErrors | null> | Observable<ValidationErrors | null> {
+  //   console.log('aasdfsdfdfsfadddddddddddddddddd : ' + control.value);
+  //   return timer(1000).pipe(
+  //     switchMap(() => this._vehicleUseTypesApiClient.exists(control.value)),
+  //     map(vehicleUseType => { console.log('findNamefindNamefindNamefindNamefindName' + vehicleUseType.name);
+  //       return vehicleUseType ? null : { 'uniqueName': true };
+  //     })
+  //   );
+  // }
 
   // public findName(control: FormControl): Observable<ValidationErrors | null> {
   //   console.log('aasdfsdfdfsfa : ' + control.value)

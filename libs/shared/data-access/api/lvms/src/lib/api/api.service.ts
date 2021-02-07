@@ -1,21 +1,37 @@
+// https://github.com/gothinkster/realworld#community-created-resources
+//
+//   https://github.com/stefanoslig/angular-ngrx-nx-realworld-example-app
+
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpParams, HttpHeaders } from '@angular/common/http';
 import { Observable } from 'rxjs';
 import { environment } from '@zyweb/shared/util/environments';
+import { catchError, retry } from 'rxjs/operators';
 
 @Injectable()
 export class ApiService {
+  private readonly api = environment.baseUrl;
+
   constructor(private http: HttpClient) {}
 
   get<T>(url: string, params: HttpParams = new HttpParams()): Observable<T> {
-    return this.http.get<T>(`${environment.baseUrl}${url}`, {
+    // return this.http.get<T>(`${environment.baseUrl}${url}`, {
+    console.log('aaaaaaaaaaget' + params.toString())
+    return this.http.get<T>(this.api+url, {
       headers: this.headers,
       params,
     });
+    //   .pipe(
+    //   retry(3), // retry a failed request up to 3 times
+    //   // catchError(_ => console.log('a')) // then handle the error
+    // );
   }
 
   post<T, D>(url: string, data: D): Observable<T> {
-    return this.http.post<T>(`${environment.baseUrl}${url}`, JSON.stringify(data), { headers: this.headers });
+    return this.http.post<T>(
+      `${environment.baseUrl}${url}`,
+      JSON.stringify(data),
+      { headers: this.headers });
   }
 
   put<T, D>(url: string, data: D): Observable<T> {

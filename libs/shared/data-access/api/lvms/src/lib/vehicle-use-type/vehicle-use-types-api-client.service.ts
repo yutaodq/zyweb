@@ -1,20 +1,23 @@
 import { Injectable } from '@angular/core';
-import { HttpClient, HttpRequest, HttpParams, HttpResponse } from '@angular/common/http';
+import { HttpClient, HttpRequest, HttpParams, HttpResponse, HttpHeaders } from '@angular/common/http';
 
 import { Adapter, GET, HttpService, Path, DELETE, POST, Body } from '@zyweb/shared/data-access/api/http-service';
 import { Observable, of } from 'rxjs';
 import { VehicleUseType } from '@zyweb/shared/data-access/model/lvms';
-import {ApiService } from '../api'
+import { ApiService } from '../api';
+import { map, tap } from 'rxjs/operators';
+
 @Injectable()
 export class VehicleUseTypesApiClient {
   // export class VehicleUseTypesApiClient extends HttpService {
 
   constructor(private apiService: ApiService,
               private http: HttpClient
-              ) {}
+  ) {
+  }
 
   public getCollection(): Observable<VehicleUseType[]> {
-    return this.apiService.get('/vehicle_use_types')
+    return this.apiService.get<VehicleUseType[]>('/vehicle_use_types');
   }
 
   // public getVehicleUseTypeDetails( id: string): Observable<VehicleUseType> {
@@ -23,17 +26,18 @@ export class VehicleUseTypesApiClient {
   //     .get<VehicleUseType>(`http://localhost:8080/api/vehicle_use_types/${id}`);
   // }
 
-  public getVehicleUseTypeDetails( id: string): Observable<VehicleUseType> {
-    return this.apiService.get<VehicleUseType>('/vehicle_use_types/' + id)
+  public getVehicleUseTypeDetails(id: string): Observable<VehicleUseType> {
+    return this.apiService.get<VehicleUseType>('/vehicle_use_types/' + id);
   }
 
   public removeVehicleUseType(id: string): Observable<VehicleUseType> {
-    return this.apiService.delete<VehicleUseType>('/vehicle_use_types/' + id)
+    return this.apiService.delete<VehicleUseType>('/vehicle_use_types/' + id);
   }
 
   public addVehicleUseType(vehicleUseType: VehicleUseType): Observable<VehicleUseType> {
-    return this.apiService.post(`/vehicle_use_typesg/`,  vehicleUseType);
+    return this.apiService.post(`/vehicle_use_typesg/`, vehicleUseType);
   }
+
   // public addVehicleUseType(vehicleUseType: VehicleUseType): Observable<VehicleUseType> {
   //   return this.http.post<VehicleUseType>(`http://localhost:8080/api/vehicle_use_types`, vehicleUseType);
   // }
@@ -65,12 +69,42 @@ export class VehicleUseTypesApiClient {
   // public getCreateVehicle(@Body vehicleUseType): Observable<any> {
   //   return null;
   // }
-
-  public exists( name: string) {
-console.log("existsexistsexistsexistsexists:" + name)
-    return this.apiService.get<VehicleUseType>('/vehicle_use_types?name=' + name)
+  public exists(name: string) {
+    return this.http.get<VehicleUseType>(
+      'http://localhost:8080/api/vehicle_use_types',
+      {
+        headers: this.headers,
+        withCredentials: true,
+        params: new HttpParams().set('name', name)
+      }
+    ).subscribe(
+      (vehicleUseType => console.log('validate salon name: ' + vehicleUseType.name))
+      // catchError(this.handleError('validateSalonName', []))
+    );
+    // return this.apiService.get<VehicleUseType>('/vehicle_use_types?name=' + name)
   }
 
+  get headers(): HttpHeaders {
+    const headersConfig = {
+      'Content-Type': 'application/json;charset=UTF-8',
+      Accept: 'application/json'
+    };
+
+    return new HttpHeaders(headersConfig);
+  }
+
+  // public exists(name: string) {
+  //   return this.apiService.get<VehicleUseType>(
+  //     '/vehicle_use_types',
+  //     new HttpParams().set('name', name))
+  //     .pipe(
+  //       map(vehicleUseType => console.log('validate salon name: ' + vehicleUseType.name))
+  //       // catchError(this.handleError('validateSalonName', []))
+  //     );
+  //   // return this.apiService.get<VehicleUseType>('/vehicle_use_types?name=' + name)
+  // }
+
 }
-// //根据公司名字获取信息
+
+// //根据公司名字获取信息 new HttpParams().set('name', term)
 // http://localhost:3000/vehicle_use_types?name='a'
