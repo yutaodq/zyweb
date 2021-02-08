@@ -35,15 +35,11 @@ export class VehicleUseTypesApiClient {
     return this.apiService.post(FEATURE_URL_FULL, vehicleUseType);
   }
 
-  public findByName(name: string): Observable<boolean> {
+  public findByName(name: string): Observable<VehicleUseType[]> {
     return this.apiService.get<VehicleUseType[]>(
       FEATURE_URL,
       new HttpParams().set('name', name)
-    ).pipe(
-      first(),
-      map(vehicleUseType => {
-        return vehicleUseType.length === 1;
-      }));
+    );
   }
 
   // public findByName(name: string): Observable<boolean> {

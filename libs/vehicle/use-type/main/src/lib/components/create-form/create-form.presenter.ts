@@ -1,11 +1,11 @@
 import { ChangeDetectionStrategy, Component, Injectable, OnDestroy } from '@angular/core';
 import { AbstractControl, AsyncValidatorFn, FormControl, FormGroup, ValidationErrors } from '@angular/forms';
-import { Observable, of, Subject, timer } from 'rxjs';
+import { Observable, of, Subject, timer} from 'rxjs';
 import { FormlyFieldConfig, FormlyFormOptions } from '@ngx-formly/core';
 import { v4 as uuidv4 } from 'uuid';
 import { VehicleUseType } from '@zyweb/shared/data-access/model/lvms';
 import { FormlyJsonschema } from '@ngx-formly/core/json-schema';
-import { catchError, map, switchMap } from 'rxjs/operators';
+import { catchError, map, switchMap, first  } from 'rxjs/operators';
 import { VehicleUseTypesFacade } from '@zyweb/shared/data-access/facade/lvms';
 import { VehicleUseTypesApiClient } from '@zyweb/shared/data-access/api/lvms';
 
@@ -29,16 +29,19 @@ export class CreateFormPresenter {
 
   exists(): AsyncValidatorFn {
     return (control: AbstractControl): Promise<ValidationErrors | null> | Observable<ValidationErrors | null> => {
-      if (!control.value) {
+      const name = control.value;
+      if (!name) {
         return of(null);
       }
-      return this.findName(control);
+      return this.findName(name);
     };
   }
 
-  public findName(control: AbstractControl): Promise<ValidationErrors | null> | Observable<ValidationErrors | null> {
-    return  this._vehicleUseTypesApiClient.findByName(control.value).pipe(
-      map(valid => (!valid ? {'uniqueName': true} : null)),
+  public findName(name: string): Promise<ValidationErrors | null> | Observable<ValidationErrors | null> {
+    return  this._vehicleUseTypesApiClient.findByName(name).pipe(
+          first(),
+          map(vehicleUseType => vehicleUseType.length === 1),
+          map(valid => (!valid ? {'uniqueName': true} : null)),
     );
   }
 
