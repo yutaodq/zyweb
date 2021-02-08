@@ -16,31 +16,19 @@
       <div class="col-md-3 align-self-end">
         <zyweb-ui-grid-search></zyweb-ui-grid-search>
       </div>
-
     </div>
-    <p></p>
+
+    <hr />
+
     <div class="row">
       <div class="col">
         <zyweb-wehicle-use-type-grid
           [items]="facade.vehicleUseTypes$ | async"
             (selectDataEvent)="onSelectData($event)"
-
         >
         </zyweb-wehicle-use-type-grid>
-
       </div>
     </div>
-<!--    (selectDataEvent)="onSelectData($event)"-->
-
-    <!--    <div class="row">-->
-    <!--      <div class="col">-->
-    <!--         <zyweb-vehicle-use-type-grid-->
-    <!--          [items]="facade.vehicleUseTypes$ | async"-->
-    <!--          (selectDataEvent)="onSelectData($event)"-->
-    <!--        >-->
-    <!--        </zyweb-vehicle-use-type-grid>-->
-    <!--      </div>-->
-    <!--    </div>-->
 
   </div>
 </div>

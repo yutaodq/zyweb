@@ -57,27 +57,8 @@ export class CreateFormComponent implements OnInit {
               updateOn: 'blur',
             },
             asyncValidators: {
-              uniqueName: {
-                expression:
-                  (control: FormControl) => {
-                    // return this._formPresenter.exists;
-                  return this._formPresenter.findName(control);
-                  // return of({ 'uniqueName': true });
-                }
-              },
-
+              uniqueName: this._formPresenter.exists(),
             },
-
-            // asyncValidators: {
-            //   uniqueName: {
-            //     expression:
-            //       (control: FormControl) => {
-            //       this._formPresenter.findName();
-            //       // return of(false);
-            //     }
-            //   },
-            //
-            // },
           }
         ]
       },

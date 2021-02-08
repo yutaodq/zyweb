@@ -7,9 +7,11 @@ import { VehicleUseType } from '@zyweb/shared/data-access/model/lvms';
 import { ApiService } from '../api';
 import { first, map, take, takeUntil, tap } from 'rxjs/operators';
 
+const FEATURE_URL = '/vehicle_use_types';
+const FEATURE_URL_FULL = FEATURE_URL + '/';
+
 @Injectable()
 export class VehicleUseTypesApiClient {
-  // export class VehicleUseTypesApiClient extends HttpService {
 
   constructor(private apiService: ApiService,
               private http: HttpClient
@@ -17,25 +19,45 @@ export class VehicleUseTypesApiClient {
   }
 
   public getCollection(): Observable<VehicleUseType[]> {
-    return this.apiService.get<VehicleUseType[]>('/vehicle_use_types');
+    return this.apiService.get<VehicleUseType[]>(FEATURE_URL);
+
   }
 
-  // public getVehicleUseTypeDetails( id: string): Observable<VehicleUseType> {
-  //     console.log(`addVehicleUseTypeaddVehicleUseTypeaddVehicleUseType` );
-  //   return this.http
-  //     .get<VehicleUseType>(`http://localhost:8080/api/vehicle_use_types/${id}`);
-  // }
-
   public getVehicleUseTypeDetails(id: string): Observable<VehicleUseType> {
-    return this.apiService.get<VehicleUseType>('/vehicle_use_types/' + id);
+    return this.apiService.get<VehicleUseType>(FEATURE_URL_FULL + id);
   }
 
   public removeVehicleUseType(id: string): Observable<VehicleUseType> {
-    return this.apiService.delete<VehicleUseType>('/vehicle_use_types/' + id);
+    return this.apiService.delete<VehicleUseType>(FEATURE_URL_FULL + id);
   }
 
   public addVehicleUseType(vehicleUseType: VehicleUseType): Observable<VehicleUseType> {
-    return this.apiService.post(`/vehicle_use_typesg/`, vehicleUseType);
+    return this.apiService.post(FEATURE_URL_FULL, vehicleUseType);
+  }
+
+  public existsName(name: string): Observable<boolean> {
+    return this.apiService.get<VehicleUseType[]>(
+      FEATURE_URL,
+      new HttpParams().set('name', name)
+    ).pipe(
+      first(),
+      map(vehicleUseType => {
+        return vehicleUseType.length === 1;
+      }));
+  }
+
+  private handleError(error: Response | any) {
+    console.error('ApiService::handleError', error);
+    return Observable.throw(error);
+  }
+
+  get headers(): HttpHeaders {
+    const headersConfig = {
+      'Content-Type': 'application/json;charset=UTF-8',
+      Accept: 'application/json'
+    };
+
+    return new HttpHeaders(headersConfig);
   }
 
   // public addVehicleUseType(vehicleUseType: VehicleUseType): Observable<VehicleUseType> {
@@ -74,20 +96,22 @@ export class VehicleUseTypesApiClient {
   //   let params = new HttpParams().set("searchTerm", searchTerm);
   //   return this.httpClient.get<TaskInfo[]>(this.publicMeetingsUrl, {params: params})
   //     .pipe(map(resp => resp.map(task => TaskInfo.createInstance(task))));
+  // }this.apiService.
+
+
+  // public existsName(name: string): Observable<boolean> {
+  //   return this.http.get<VehicleUseType[]>(
+  //     'http://localhost:8080/api/vehicle_use_types',
+  //     {
+  //       headers: this.headers,
+  //       params: new HttpParams().set('name', name)
+  //     }
+  //   ).pipe(
+  //     first(),
+  //     map(vehicleUseType => {
+  //       return vehicleUseType.length === 1;
+  //     }));
   // }
-  public exists(name: string): Observable<boolean> {
-    return this.http.get<VehicleUseType[]>(
-      'http://localhost:8080/api/vehicle_use_types',
-      {
-        headers: this.headers,
-        params: new HttpParams().set('name', name)
-      }
-    ).pipe(
-      first(),
-      map(vehicleUseType => {
-        return vehicleUseType.length === 1;
-      }));
-  }
 
   // public exists(name: string): Observable<boolean> {
   //   return this.http.get<VehicleUseType[]>(
@@ -111,20 +135,7 @@ export class VehicleUseTypesApiClient {
   //   // return this.apiService.get<VehicleUseType>('/vehicle_use_types?name=' + name)
   // }
 
-// console.log('validate salon name:gggggggggggggggggggggg'
-  private handleError(error: Response | any) {
-    console.error('ApiService::handleError', error);
-    return Observable.throw(error);
-  }
-
-  get headers(): HttpHeaders {
-    const headersConfig = {
-      'Content-Type': 'application/json;charset=UTF-8',
-      Accept: 'application/json'
-    };
-
-    return new HttpHeaders(headersConfig);
-  }
+// console.log('validate salon name:gggggggggggggggggggggg'FEATURE_URL
 
   // public exists(name: string) {
   //   return this.apiService.get<VehicleUseType>(
