@@ -32,19 +32,19 @@ export class CreateFormPresenter {
       if (!control.value) {
         return of(null);
       }
-      return timer(1000).pipe(
-        switchMap(() => this._vehicleUseTypesApiClient.exists(control.value)),
-        map(isCodeValid => isCodeValid ? null : { 'uniqueName': true })
-      );
+      return this.findName(control);
+      // return timer(1000).pipe(
+      //   switchMap(() => this._vehicleUseTypesApiClient.exists(control.value)),
+      //   map(isCodeValid => isCodeValid ? null : { 'uniqueName': true })
+      // );
     };
   }
 
-  public findName(control: FormControl): Promise<ValidationErrors | null> | Observable<ValidationErrors | null> {
-    console.log('aasdfsdfdfsfadddddddddddddddddd : ' + control.value);
+  public findName(control: AbstractControl): Promise<ValidationErrors | null> | Observable<ValidationErrors | null> {
     return  this._vehicleUseTypesApiClient.exists(control.value).pipe(
       map(valid => (!valid ? {'uniqueName': true} : null)),
-      catchError(() => {console.log('aasdfsdfdfsfadddddddddddddddddd : ' + control.value);
-      return null;})
+      // catchError(() => {console.log('catchErrorcatchError : ' + control.value);
+      // return of(null);})
 
     );
   }

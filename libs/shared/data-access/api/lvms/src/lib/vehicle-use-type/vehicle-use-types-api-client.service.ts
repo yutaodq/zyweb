@@ -5,7 +5,7 @@ import { Adapter, GET, HttpService, Path, DELETE, POST, Body } from '@zyweb/shar
 import { Observable, of } from 'rxjs';
 import { VehicleUseType } from '@zyweb/shared/data-access/model/lvms';
 import { ApiService } from '../api';
-import { map, tap } from 'rxjs/operators';
+import { first, map, take, takeUntil, tap } from 'rxjs/operators';
 
 @Injectable()
 export class VehicleUseTypesApiClient {
@@ -69,19 +69,52 @@ export class VehicleUseTypesApiClient {
   // public getCreateVehicle(@Body vehicleUseType): Observable<any> {
   //   return null;
   // }
-  public exists(name: string) {
-    return this.http.get<VehicleUseType>(
+
+  // loadPublicMeetings(searchTerm:string):Observable<TaskInfo[]>{
+  //   let params = new HttpParams().set("searchTerm", searchTerm);
+  //   return this.httpClient.get<TaskInfo[]>(this.publicMeetingsUrl, {params: params})
+  //     .pipe(map(resp => resp.map(task => TaskInfo.createInstance(task))));
+  // }
+  public exists(name: string): Observable<boolean> {
+    return this.http.get<VehicleUseType[]>(
       'http://localhost:8080/api/vehicle_use_types',
       {
         headers: this.headers,
-        withCredentials: true,
         params: new HttpParams().set('name', name)
       }
-    ).subscribe(
-      (vehicleUseType => console.log('validate salon name: ' + vehicleUseType.name))
-      // catchError(this.handleError('validateSalonName', []))
-    );
-    // return this.apiService.get<VehicleUseType>('/vehicle_use_types?name=' + name)
+    ).pipe(
+      first(),
+      map(vehicleUseType => {
+        return vehicleUseType.length === 1;
+      }));
+  }
+
+  // public exists(name: string): Observable<boolean> {
+  //   return this.http.get<VehicleUseType[]>(
+  //     'http://localhost:8080/api/vehicle_use_types',
+  //     {
+  //       headers: this.headers,
+  //       withCredentials: true,
+  //       params: new HttpParams().set('name', name)
+  //     }
+  //   ).pipe(
+  //     take(1),
+  //     map(vehicleUseType => {
+  //       let exists = true;
+  //       if (vehicleUseType[0] === undefined || vehicleUseType[0] === null) {
+  //         exists =  false;
+  //       }
+  //       // console.log('validate salon name:gggggggggggggggggggggg' + vehicleUseType[0].name);
+  //       return exists;
+  //     }));
+  //   // catchError(console.log('validate salon name:gggggggggggggggggggggg'))
+  //   // return this.apiService.get<VehicleUseType>('/vehicle_use_types?name=' + name)
+  // }
+
+// console.log('validate salon name:gggggggggggggggggggggg'
+  private handleError(error: Response | any) {
+    console.error('ApiService::handleError', error);
+    return Observable.throw(error);
   }
 
   get headers(): HttpHeaders {
