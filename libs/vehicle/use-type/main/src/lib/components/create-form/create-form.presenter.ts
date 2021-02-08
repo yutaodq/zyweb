@@ -37,37 +37,11 @@ export class CreateFormPresenter {
   }
 
   public findName(control: AbstractControl): Promise<ValidationErrors | null> | Observable<ValidationErrors | null> {
-    return  this._vehicleUseTypesApiClient.existsName(control.value).pipe(
+    return  this._vehicleUseTypesApiClient.findByName(control.value).pipe(
       map(valid => (!valid ? {'uniqueName': true} : null)),
     );
   }
 
-  // public findName(control: FormControl): Promise<ValidationErrors | null> | Observable<ValidationErrors | null> {
-  //   console.log('aasdfsdfdfsfadddddddddddddddddd : ' + control.value);
-  //   return timer(1000).pipe(
-  //     switchMap(() => this._vehicleUseTypesApiClient.exists(control.value)),
-  //     map(vehicleUseType => { console.log('findNamefindNamefindNamefindNamefindName' + vehicleUseType.name);
-  //       return vehicleUseType ? null : { 'uniqueName': true };
-  //     })
-  //   );
-  // }
-
-  // public findName(control: FormControl): Observable<ValidationErrors | null> {
-  //   console.log('aasdfsdfdfsfa : ' + control.value)
-  //   return of( null);
-  //   // return of( { 'notActive': true });
-  // }
-
-//   public findName(): AsyncValidatorFn {
-//     return (control: AbstractControl): Promise<ValidationErrors | null> | Observable<ValidationErrors | null> => {
-// console.log('ddddddddddddddddddddddddddddddddd');
-//       if (!control.value) { return of(null); }
-//       console.log('aaaaaaaaaaaaaaaaaaaaaa');
-//       return  of(null);
-//         // map(isCodeValid => isCodeValid ? null : { 'notActive': true })
-//        };
-//
-//   }
 
   public cancel(): void {
     this._cancel.next('cancelCreate');

@@ -5,7 +5,7 @@ import { Adapter, GET, HttpService, Path, DELETE, POST, Body } from '@zyweb/shar
 import { Observable, of } from 'rxjs';
 import { VehicleUseType } from '@zyweb/shared/data-access/model/lvms';
 import { ApiService } from '../api';
-import { first, map, take, takeUntil, tap } from 'rxjs/operators';
+import { first, map } from 'rxjs/operators';
 
 const FEATURE_URL = '/vehicle_use_types';
 const FEATURE_URL_FULL = FEATURE_URL + '/';
@@ -35,7 +35,7 @@ export class VehicleUseTypesApiClient {
     return this.apiService.post(FEATURE_URL_FULL, vehicleUseType);
   }
 
-  public existsName(name: string): Observable<boolean> {
+  public findByName(name: string): Observable<boolean> {
     return this.apiService.get<VehicleUseType[]>(
       FEATURE_URL,
       new HttpParams().set('name', name)
@@ -45,6 +45,17 @@ export class VehicleUseTypesApiClient {
         return vehicleUseType.length === 1;
       }));
   }
+
+  // public findByName(name: string): Observable<boolean> {
+  //   return this.apiService.get<VehicleUseType[]>(
+  //     FEATURE_URL,
+  //     new HttpParams().set('name', name)
+  //   ).pipe(
+  //     first(),
+  //     map(vehicleUseType => {
+  //       return vehicleUseType.length === 1;
+  //     }));
+  // }
 
   private handleError(error: Response | any) {
     console.error('ApiService::handleError', error);
