@@ -20,15 +20,19 @@ export class CreateFormPresenter {
   reset$: Observable<string> = this._reset.asObservable();
 
   private _form = new FormGroup({});
-  private _model = {};
+
+  private _model: any = {};
   private _options: FormlyFormOptions = {};
 
   constructor(private _vehicleUseTypesApiClient: VehicleUseTypesApiClient,
               private _existsService: ExistsService) {
   }
+  // this.subscription = this.form.valueChanges.subscribe(value =>
+  //   this.aplicar.emit(value)
+  // );
 
   exists(): AsyncValidatorFn {
-    return this._existsService.exists(this._vehicleUseTypesApiClient);
+      return this._existsService.exists(this._vehicleUseTypesApiClient);
   }
 
   public cancel(): void {
@@ -36,11 +40,17 @@ export class CreateFormPresenter {
   }
 
   public reset(): void {
-    this._reset.next('reset');
+    console.log('ddddddddddddddddddddd');
+    this.options.resetModel();
+    // this.options.updateInitialValue();
+    // this._reset.next('reset');
   }
 
   public isFormValid() {
-    return this._form.valid;
+    return this._form?.valid;
+  }
+  canSave() {
+    return this.form.valid && this.form.pristine;
   }
 
   public save(): void {
@@ -78,7 +88,7 @@ export class CreateFormPresenter {
     return this._model;
   }
 
-  get options() {
+  get options(): FormlyFormOptions {
     return this._options;
   }
 }

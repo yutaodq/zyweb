@@ -1,22 +1,25 @@
 <div class="p-fluid p-formgrid p-grid">
   <form [formGroup]="form" (ngSubmit)="onSubmit(model)">
 
+
     <zyweb-shared-ui-form
       [form]="form"
       [fields]="fields"
       [model]="model"
-      [options]=""
+      [options]="options"
     >
 
     </zyweb-shared-ui-form>
     <hr/>
-    <div class="row">
+    <div class="row justify-content-center">
       <zyweb-shared-ui-form-new-form-button
         (cancelEvent)="cancelCreate()"
         (resetEvent)="reset()"
-        [isFormValid]=true
-              >
+        [isFormValid]="canSave()"
+      >
       </zyweb-shared-ui-form-new-form-button>
+      <button type="button" class="btn btn-default" (click)="options.resetModel()">Reset</button>
+
     </div>
   </form>
 </div>

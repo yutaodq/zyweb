@@ -104,6 +104,9 @@
     },
     "shared-ui-form": {
       "tags": ["scope:shared", "type:ui"]
+    },
+    "shared-ui-directive": {
+      "tags": ["scope:shared", "type:ui"]
     }
   }
 }

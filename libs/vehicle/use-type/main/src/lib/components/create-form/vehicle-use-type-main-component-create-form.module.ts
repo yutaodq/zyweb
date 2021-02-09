@@ -5,6 +5,7 @@ import { SharedUiCommonModule } from '@zyweb/shared/ui/common';
 import { SharedUiBaseModule } from '@zyweb/shared/ui/base';
 import { CreateFormComponent } from './create-form.component';
 import { SharedUiFormModule } from '@zyweb/shared/ui/form';
+import { SharedUiDirectiveModule } from '@zyweb/shared/ui/directive';
 
 export const COMPONENTS_EXPORTS : Array<any> = [
   CreateFormComponent
@@ -16,6 +17,7 @@ export const COMPONENTS_EXPORTS : Array<any> = [
     SharedUiFormModule,
     SharedUiCommonModule,
     SharedUiBaseModule,
+    SharedUiDirectiveModule,
   ],
   declarations: [CreateFormComponent
   ],

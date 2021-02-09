@@ -29,7 +29,7 @@ const UI_FORM_EXPORTS_MODULE = [
 @NgModule({
   imports: [
     CommonModule,
-    FormlyModule,
+    FormlyModule.forRoot(),
     FormlyPrimeNGModule,
     RxReactiveFormsModule,
     FormsModule,

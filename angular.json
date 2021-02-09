@@ -920,6 +920,36 @@
           "style": "scss"
         }
       }
+    },
+    "shared-ui-directive": {
+      "projectType": "library",
+      "root": "libs/shared/ui/directive",
+      "sourceRoot": "libs/shared/ui/directive/src",
+      "prefix": "zyweb",
+      "architect": {
+        "lint": {
+          "builder": "@angular-devkit/build-angular:tslint",
+          "options": {
+            "tsConfig": [
+              "libs/shared/ui/directive/tsconfig.lib.json",
+              "libs/shared/ui/directive/tsconfig.spec.json"
+            ],
+            "exclude": ["**/node_modules/**", "!libs/shared/ui/directive/**/*"]
+          }
+        },
+        "test": {
+          "builder": "@nrwl/jest:jest",
+          "options": {
+            "jestConfig": "libs/shared/ui/directive/jest.config.js",
+            "passWithNoTests": true
+          }
+        }
+      },
+      "schematics": {
+        "@schematics/angular:component": {
+          "style": "scss"
+        }
+      }
     }
   },
   "cli": {

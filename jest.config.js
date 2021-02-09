@@ -36,5 +36,6 @@ module.exports = {
     '<rootDir>/libs/shared/data-access/store/ngrx-error',
     '<rootDir>/libs/shared/ui/ngx-formly',
     '<rootDir>/libs/shared/ui/form',
+    '<rootDir>/libs/shared/ui/directive',
   ],
 };

@@ -66,7 +66,8 @@
       "@zyweb/shared/data-access/store/ngrx-error": [
         "libs/shared/data-access/store/ngrx-error/src/index.ts"
       ],
-      "@zyweb/shared/ui/form": ["libs/shared/ui/form/src/index.ts"]
+      "@zyweb/shared/ui/form": ["libs/shared/ui/form/src/index.ts"],
+      "@zyweb/shared/ui/directive": ["libs/shared/ui/directive/src/index.ts"]
     }
   },
   "exclude": ["node_modules", "tmp"]

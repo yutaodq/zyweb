@@ -4,7 +4,7 @@ import {
   EventEmitter,
   inject,
   Injector,
-  Input,
+  Input, OnDestroy,
   OnInit,
   Output
 } from '@angular/core';
@@ -13,16 +13,10 @@ import { CreateFormPresenter } from './create-form.presenter';
 import { FormControl, FormGroup, ValidationErrors } from '@angular/forms';
 import { FormlyFieldConfig, FormlyFormBuilder, FormlyFormOptions } from '@ngx-formly/core';
 import { VehicleUseType } from '@zyweb/shared/data-access/model/lvms';
-import { FormlyJsonschema } from '@ngx-formly/core/json-schema';
-import * as Fields from './create-form.fields';
-import { Observable, of } from 'rxjs';
+import { Observable, of, Subscription } from 'rxjs';
 import { VehicleUseTypesApiClient } from '@zyweb/shared/data-access/api/lvms';
-const FIELDS = require('./create-form.json');
-
-export function IpValidator(control: FormControl):
-  Promise<ValidationErrors | null> | Observable<ValidationErrors | null> {
-  return of(null);
-}
+import { map } from 'rxjs/operators';
+// import { OnlyNumbersDirective } from '@zyweb/shared/ui/directive';
 
 @Component({
   selector: 'zyweb-vehicle-use-type-create-form',
@@ -33,55 +27,67 @@ export function IpValidator(control: FormControl):
 })
 
 
-export class CreateFormComponent implements OnInit {
+export class CreateFormComponent implements OnInit, OnDestroy {
   @Output() addEvent: EventEmitter<VehicleUseType> = new EventEmitter();
   @Output() cancelEvent: EventEmitter<string> = new EventEmitter();
   @Output() resetEvent: EventEmitter<string> = new EventEmitter();
+  private subscriptions: Array<Subscription> = [];
 
   public fields: FormlyFieldConfig[] =
     [
       {
-        fieldGroupClassName: "row",
+        fieldGroupClassName: 'row',
         fieldGroup: [
           {
-            className: "col-md-6",
-            key: "name",
-            type: "input",
+            className: 'col-md-6',
+            key: 'name',
+            type: 'input',
+            focus: true,
             templateOptions: {
-              label: "车辆用途",
+              label: '车辆用途',
               description: 'dfffffffffffffffffffffffffff',
-              placeholder: "车辆用途",
+              placeholder: '车辆用途',
               required: true,
               minLength: 2,
             },
             modelOptions: {
-              updateOn: 'blur',
+              updateOn: 'blur' //失去焦点后验证
             },
             asyncValidators: {
-              uniqueName: this._formPresenter.exists(),
+              uniqueName: this._formPresenter.exists()
             },
           }
         ]
       },
-      { template: "<hr /> "},
+      { template: '<hr /> ' },
       {
-        key: "description",
-        type: "input",
+        key: 'description',
+        type: 'input',
         templateOptions: {
-          label: "用途描述",
-          placeholder: ""
+          label: '用途描述',
+          placeholder: ''
         }
       }
     ];
 
-  constructor(private _formPresenter: CreateFormPresenter) {
-  }
+  constructor(private _formPresenter: CreateFormPresenter) { }
 
   ngOnInit(): void {
-    this._formPresenter.add$.subscribe(vehicleUseType => this.addEvent.emit(vehicleUseType));
-    this._formPresenter.cancel$.subscribe(name => this.cancelEvent.emit(name));
-    this._formPresenter.reset$.subscribe(name => this.resetEvent.emit(name));
+    this.registerEvents();
+  }
 
+  private registerEvents(): void {
+    // 订阅车辆详情
+    this.subscriptions.push(
+      this._formPresenter.add$.subscribe(vehicleUseType => this.addEvent.emit(vehicleUseType)),
+      this._formPresenter.cancel$.subscribe(name => this.cancelEvent.emit(name)),
+      this._formPresenter.reset$.subscribe(name => this.resetEvent.emit(name)),
+
+    );
+  }
+
+  ngOnDestroy() {
+    this.subscriptions.forEach(sub => sub.unsubscribe());
   }
 
   onSubmit(model: any) {
@@ -96,15 +102,23 @@ export class CreateFormComponent implements OnInit {
     this._formPresenter.reset();
   }
 
+  public get isFormValid() {
+    return this._formPresenter.isFormValid;
+  }
+  canSave() {
+    return this.form.valid && this.form.pristine;
+  }
 
   get form(): FormGroup {
     return this._formPresenter.form;
   }
+
   get model() {
     return this._formPresenter.model;
   }
-  get options() {
-    return this._formPresenter.options
+
+  get options(): FormlyFormOptions {
+    return this._formPresenter.options;
   }
 }
 
