@@ -1,9 +1,11 @@
 import { NgModule } from '@angular/core';
 import { SharedUiFormComponentsButtonModule } from './buttons';
+import { SharedUiFormComponentsFormModule } from './form';
 
 
 const UI_FORM_EXPORTS_MODULE = [
-  SharedUiFormComponentsButtonModule
+  SharedUiFormComponentsButtonModule,
+  SharedUiFormComponentsFormModule,
 ]
 @NgModule({
   imports: [

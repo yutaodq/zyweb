@@ -11,6 +11,7 @@ import {
 
 import { VehicleUseType } from '@zyweb/shared/data-access/model/lvms';
 import { Observable, of } from 'rxjs';
+import { FormGroup } from '@angular/forms';
 
 @Component({
   selector: 'zyweb-shared-ui-form-new-form-button',
@@ -21,6 +22,7 @@ import { Observable, of } from 'rxjs';
 
 
 export class NewFormButtonComponent implements OnInit {
+  @Input()   public isFormValid = false;
   @Output() cancelEvent: EventEmitter<string> = new EventEmitter();
   @Output() resetEvent: EventEmitter<string> = new EventEmitter();
 
