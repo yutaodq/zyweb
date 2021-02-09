@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
 import { FormlyFieldConfig, FormlyConfig } from '@ngx-formly/core';
 import { TranslateService } from '@ngx-translate/core';
+import { FORMLY_UNIQUE_NAME } from './formly-const';
 
 // https://github.com/Anthony-Lardy/trace-app/blob/6426f2b9c6591bd53599873ee95a93b1db102597/front/src/app/formly-config.module.ts
 @Injectable()
@@ -10,7 +11,7 @@ export class FormlyValidation {
 
   init(): void {
     // message without params
-    this.formlyConfig.addValidatorMessage('uniqueName', (_err, _field) =>
+    this.formlyConfig.addValidatorMessage(FORMLY_UNIQUE_NAME, (_err, _field) =>
       '已经存在相同的：' + _field.templateOptions.label + ' 信息'
     );
 

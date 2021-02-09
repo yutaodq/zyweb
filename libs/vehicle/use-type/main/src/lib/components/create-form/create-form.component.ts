@@ -36,6 +36,7 @@ export function IpValidator(control: FormControl):
 export class CreateFormComponent implements OnInit {
   @Output() addEvent: EventEmitter<VehicleUseType> = new EventEmitter();
   @Output() cancelEvent: EventEmitter<string> = new EventEmitter();
+  @Output() resetEvent: EventEmitter<string> = new EventEmitter();
 
   public fields: FormlyFieldConfig[] =
     [
@@ -79,6 +80,7 @@ export class CreateFormComponent implements OnInit {
   ngOnInit(): void {
     this._formPresenter.add$.subscribe(vehicleUseType => this.addEvent.emit(vehicleUseType));
     this._formPresenter.cancel$.subscribe(name => this.cancelEvent.emit(name));
+    this._formPresenter.reset$.subscribe(name => this.resetEvent.emit(name));
 
   }
 
@@ -88,6 +90,10 @@ export class CreateFormComponent implements OnInit {
 
   public cancelCreate(): void {
     this._formPresenter.cancel();
+  }
+
+  public reset(): void {
+    this._formPresenter.reset();
   }
 
 

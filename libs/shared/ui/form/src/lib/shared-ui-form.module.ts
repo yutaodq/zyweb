@@ -7,6 +7,7 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { FormlyWrapperPanelComponent } from './formly-wrapper';
 import { FormlyValidation } from './formly-validation';
 import { config } from './config/formly.config';
+import { SharedUiFormComponentsModule } from './components';
 
 const providers = []
 /**
@@ -23,7 +24,7 @@ const UI_FORM_EXPORTS_MODULE = [
   RxReactiveFormsModule,
   FormsModule,
   ReactiveFormsModule,
-
+  SharedUiFormComponentsModule,
 ]
 @NgModule({
   imports: [

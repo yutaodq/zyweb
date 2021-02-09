@@ -6,12 +6,13 @@ import { Observable, of } from 'rxjs';
 import { VehicleUseType } from '@zyweb/shared/data-access/model/lvms';
 import { ApiService } from '../api';
 import { first, map } from 'rxjs/operators';
+import { FindByNameApi } from '../..';
 
 const FEATURE_URL = '/vehicle_use_types';
 const FEATURE_URL_FULL = FEATURE_URL + '/';
 
 @Injectable()
-export class VehicleUseTypesApiClient {
+export class VehicleUseTypesApiClient implements FindByNameApi {
 
   constructor(private apiService: ApiService,
               private http: HttpClient
