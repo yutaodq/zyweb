@@ -1,6 +1,6 @@
 import {
   ChangeDetectionStrategy, ChangeDetectorRef,
-  Component,
+  Component, Directive,
   EventEmitter,
   inject,
   Injector,
@@ -16,6 +16,8 @@ import { VehicleUseType } from '@zyweb/shared/data-access/model/lvms';
 import { Observable, of, Subscription } from 'rxjs';
 import { VehicleUseTypesApiClient } from '@zyweb/shared/data-access/api/lvms';
 import { map } from 'rxjs/operators';
+import { OnlyNumbersDirective } from '@zyweb/shared/ui/directive';
+
 // import { OnlyNumbersDirective } from '@zyweb/shared/ui/directive';
 
 @Component({
@@ -32,6 +34,8 @@ export class CreateFormComponent implements OnInit, OnDestroy {
   @Output() cancelEvent: EventEmitter<string> = new EventEmitter();
   @Output() resetEvent: EventEmitter<string> = new EventEmitter();
   private subscriptions: Array<Subscription> = [];
+  private zywebOnlyNumbers: OnlyNumbersDirective;
+
 
   public fields: FormlyFieldConfig[] =
     [
@@ -49,13 +53,14 @@ export class CreateFormComponent implements OnInit, OnDestroy {
               placeholder: '车辆用途',
               required: true,
               minLength: 2,
+              attributes: { zywebOnlyNumbers: null },
             },
             modelOptions: {
               updateOn: 'blur' //失去焦点后验证
             },
             asyncValidators: {
               uniqueName: this._formPresenter.exists()
-            },
+            }
           }
         ]
       },
@@ -70,7 +75,8 @@ export class CreateFormComponent implements OnInit, OnDestroy {
       }
     ];
 
-  constructor(private _formPresenter: CreateFormPresenter) { }
+  constructor(private _formPresenter: CreateFormPresenter) {
+  }
 
   ngOnInit(): void {
     this.registerEvents();
@@ -81,8 +87,7 @@ export class CreateFormComponent implements OnInit, OnDestroy {
     this.subscriptions.push(
       this._formPresenter.add$.subscribe(vehicleUseType => this.addEvent.emit(vehicleUseType)),
       this._formPresenter.cancel$.subscribe(name => this.cancelEvent.emit(name)),
-      this._formPresenter.reset$.subscribe(name => this.resetEvent.emit(name)),
-
+      this._formPresenter.reset$.subscribe(name => this.resetEvent.emit(name))
     );
   }
 
@@ -105,6 +110,7 @@ export class CreateFormComponent implements OnInit, OnDestroy {
   public get isFormValid() {
     return this._formPresenter.isFormValid;
   }
+
   canSave() {
     return this.form.valid && this.form.pristine;
   }
