@@ -45,7 +45,7 @@ export class CreateFormComponent implements OnInit, OnDestroy {
           {
             className: 'col-md-6',
             key: 'name',
-            type: 'input',
+            type: 'inputLx',
             focus: true,
             templateOptions: {
               label: '车辆用途',
@@ -67,7 +67,7 @@ export class CreateFormComponent implements OnInit, OnDestroy {
       { template: '<hr /> ' },
       {
         key: 'description',
-        type: 'input',
+        type: 'inputLx',
         templateOptions: {
           label: '用途描述',
           placeholder: ''

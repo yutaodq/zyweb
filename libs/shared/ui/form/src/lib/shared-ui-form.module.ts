@@ -5,7 +5,7 @@ import { FormlyPrimeNGModule } from '@ngx-formly/primeng';
 import { RxReactiveFormsModule } from '@rxweb/reactive-form-validators';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { FormlyWrapperPanelComponent } from './formly-wrapper';
-import { FormlyValidation } from './formly-validation';
+import { FormlyValidation } from './validation/formly-validation';
 import { config } from './config/formly.config';
 import { SharedUiFormComponentsModule } from './components';
 
@@ -29,7 +29,8 @@ const UI_FORM_EXPORTS_MODULE = [
 @NgModule({
   imports: [
     CommonModule,
-    FormlyModule.forRoot(),
+    // FormlyModule.forRoot(),
+    FormlyModule,
     FormlyPrimeNGModule,
     RxReactiveFormsModule,
     FormsModule,
