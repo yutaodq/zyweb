@@ -9,6 +9,7 @@ import { ActivatedRoute } from '@angular/router';
 import { map } from 'rxjs/operators';
 import { NotificationService } from '@zyweb/shared/util/message';
 import { DialogDeleteComponent } from '@zyweb/shared/ui/base';
+import { UpdateNameFormComponent } from '../../components/update-form/update/update-name-form.component';
 
 @Component({
   selector: 'zyweb-vehicle-use-type-details',
@@ -23,7 +24,7 @@ export class DetailsComponent implements OnInit, OnDestroy {
   public vehicleUseType: VehicleUseType;
   private _actionsSubscription: Subscription;
   private subscriptions: Array<Subscription> = [];
-  private _ref: DynamicDialogRef;
+  private _ref: DynamicDialogRef | null = null;
 
   constructor(
     public _facade: VehicleUseTypesFacade,
@@ -49,14 +50,33 @@ export class DetailsComponent implements OnInit, OnDestroy {
       header: '删除车辆信息档案',
       width: '70%',
       contentStyle: { 'max-height': '500px', 'overflow': 'auto' },
-      baseZIndex: 10000
+      baseZIndex: 10000,
     });
 
     this._ref.onClose.subscribe((isDelete) => {
-      console.log('1 - VehicleCreateComponent保存记录');
 
       if (isDelete) {
         this._facade.removeDetail(this.vehicleUseType);
+      }
+    });
+  }
+
+  public updateName(): void {
+    this.notification.showMessage({severity: 'success', summary: '提示信息：', detail: '修改记录' });
+    this._ref = this._dialogService.open(UpdateNameFormComponent, {
+      header: '删除车辆信息档案',
+      width: '70%',
+      contentStyle: { 'max-height': '500px', 'overflow': 'auto' },
+      baseZIndex: 10000,
+      data: this.vehicleUseType,
+    });
+
+    this._ref.onClose.subscribe((vehicleUseType) => {
+      console.log('1 - 修改记录1111111111111111');
+
+      if (vehicleUseType) {
+        console.log('2 - 修改记录2222222222');
+        // this._facade.removeDetail(this.vehicleUseType);
       }
     });
   }

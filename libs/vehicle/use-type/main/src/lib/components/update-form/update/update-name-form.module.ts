@@ -5,11 +5,11 @@ import { FormlyModule } from '@ngx-formly/core';
 
 import { SharedUiCommonModule } from '@zyweb/shared/ui/common';
 import { SharedUiBaseModule } from '@zyweb/shared/ui/base';
-import { CreateFormComponent } from './create-form.component';
-import { CreateFormPresenter } from './create-form.presenter';
+import { UpdateNameFormComponent } from './update-name-form.component';
+import { UpdateNameFormPresenter } from './update-name-form.presenter';
 
 export const COMPONENTS_EXPORTS : Array<any> = [
-  CreateFormComponent
+  UpdateNameFormComponent
 ];
 
 @NgModule({
@@ -20,10 +20,10 @@ export const COMPONENTS_EXPORTS : Array<any> = [
     SharedUiCommonModule,
     SharedUiBaseModule,
   ],
-  declarations: [CreateFormComponent
+  declarations: [UpdateNameFormComponent
   ],
   exports: [...COMPONENTS_EXPORTS],
-  providers: [CreateFormPresenter],
+  providers: [UpdateNameFormPresenter],
 })
-export class VehicleUseTypeMainComponentCreateFormModule {}
+export class UpdateNameFormModule {}
 

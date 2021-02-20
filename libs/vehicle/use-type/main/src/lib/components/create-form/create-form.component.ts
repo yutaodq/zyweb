@@ -15,10 +15,6 @@ import { FormlyFieldConfig, FormlyFormBuilder, FormlyFormOptions } from '@ngx-fo
 import { VehicleUseType } from '@zyweb/shared/data-access/model/lvms';
 import { Observable, of, Subscription } from 'rxjs';
 import { VehicleUseTypesApiClient } from '@zyweb/shared/data-access/api/lvms';
-import { map } from 'rxjs/operators';
-import { OnlyNumbersDirective } from '@zyweb/shared/ui/directive';
-
-// import { OnlyNumbersDirective } from '@zyweb/shared/ui/directive';
 
 @Component({
   selector: 'zyweb-vehicle-use-type-create-form',
@@ -34,7 +30,6 @@ export class CreateFormComponent implements OnInit, OnDestroy {
   @Output() cancelEvent: EventEmitter<string> = new EventEmitter();
   @Output() resetEvent: EventEmitter<string> = new EventEmitter();
   private subscriptions: Array<Subscription> = [];
-  private zywebOnlyNumbers: OnlyNumbersDirective;
 
 
   public fields: FormlyFieldConfig[] =

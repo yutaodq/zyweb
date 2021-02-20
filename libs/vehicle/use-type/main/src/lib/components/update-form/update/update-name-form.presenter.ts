@@ -5,9 +5,9 @@ import { FormlyFieldConfig, FormlyFormOptions } from '@ngx-formly/core';
 import { v4 as uuidv4 } from 'uuid';
 import { VehicleUseType } from '@zyweb/shared/data-access/model/lvms';
 
-const FIELDS = require('./create-form.json');
+const FIELDS = require('./update-name-form.json');
 
-export class CreateFormPresenter {
+export class UpdateNameFormPresenter {
   private _add: Subject<VehicleUseType> = new Subject();
   add$: Observable<VehicleUseType> = this._add.asObservable();
 

@@ -145,14 +145,6 @@
   ],
   "vehicle_use_types": [
     {
-      "name": "吞吞吐吐",
-      "id": 7
-    },
-    {
-      "name": "12",
-      "id": "e1f86ff1-a3f5-471f-a794-6acd52b80e82"
-    },
-    {
       "name": "34",
       "id": "51aee9a2-e529-49fb-a16c-4d7e96a84c95"
     },
@@ -165,16 +157,6 @@
       "name": "789",
       "description": "789",
       "id": "6c630ed7-88b2-47c6-8155-160361583027"
-    },
-    {
-      "name": "12手动阀as",
-      "description": "代发费",
-      "id": "8b1891a0-0975-452d-baac-df13dfa53c67"
-    },
-    {
-      "name": "12dfgfg",
-      "description": "fd",
-      "id": "d729afb9-e648-47ae-961b-46933a17eb2e"
     },
     {
       "name": "1234dfs",
@@ -230,15 +212,6 @@
       "name": "12567ppp",
       "description": "pppjj",
       "id": "4ef4a36d-c2be-44ac-abc9-2d3964c5cfda"
-    },
-    {
-      "id": "56ee5b44-2f25-416a-978e-f8dd83a3a092"
-    },
-    {
-      "id": "0bbb30e8-9e72-46d7-bd5f-9131ceed2778"
-    },
-    {
-      "id": "82b50ef1-b5b6-4e45-b958-70d80db4a227"
     }
   ]
 }
