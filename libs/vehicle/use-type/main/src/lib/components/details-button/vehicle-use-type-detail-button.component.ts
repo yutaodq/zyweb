@@ -40,12 +40,10 @@ export class VehicleUseTypeDetailButtonComponent  implements OnInit {
   }
 
   public changeUseType(): void {
-    console.log("aaaaaaaaaaaaaaaaaaaaa");
     this.onChangeUseTypeEvent.emit();
   }
 
   public editOther(): void {
-    console.log("bbbbbbbbbbbbbbbbbbbbbb");
     this.onEditOtherEvent.emit();
   }
 }

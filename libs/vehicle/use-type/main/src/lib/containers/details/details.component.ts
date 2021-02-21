@@ -73,7 +73,7 @@ export class DetailsComponent implements OnInit, OnDestroy {
 
     this._ref.onClose.subscribe((vehicleUseType) => {
       if (vehicleUseType) {
-        // this._facade.removeDetail(this.vehicleUseType);
+        this._facade.updateVehicleUseType(vehicleUseType);
       }
     });
   }

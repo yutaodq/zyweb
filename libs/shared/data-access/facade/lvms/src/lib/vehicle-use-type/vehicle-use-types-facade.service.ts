@@ -85,10 +85,11 @@ export class VehicleUseTypesFacade extends Sandbox {
   }
 
   updateVehicleUseType(vehicleUseType: VehicleUseType) {
-    this.appState$.dispatch(
-      fromVehicleUseTypes
-        .NewVehicleUseTypePageActions
-        .addVehicleUseType({ vehicleUseType }));
+    console.log('ssssssssssssssssss' + vehicleUseType.name)
+    // this.appState$.dispatch(
+    //   fromVehicleUseTypes
+    //     .NewVehicleUseTypePageActions
+    //     .addVehicleUseType({ vehicleUseType }));
   }
 
   addVehicleUseType(vehicleUseType: VehicleUseType) {

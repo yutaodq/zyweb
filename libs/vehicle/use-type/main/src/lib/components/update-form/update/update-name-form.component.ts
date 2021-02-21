@@ -36,7 +36,7 @@ export class UpdateNameFormComponent {
           {
             className: 'col-md-6',
             key: 'name',
-            type: 'inputLx',
+            type: 'input',
             focus: true,
             templateOptions: {
               label: '车辆用途',
@@ -57,7 +57,7 @@ export class UpdateNameFormComponent {
       { template: '<hr /> ' },
       {
         key: 'description',
-        type: 'inputLx',
+        type: 'input',
         templateOptions: {
           label: '用途描述',
           placeholder: ''
@@ -69,14 +69,15 @@ export class UpdateNameFormComponent {
                private _config: DynamicDialogConfig,
   ) {
     this.vehicleUseType = this._config.data;
-    // this._model = {description: this.vehicleUseType.description}
-    this._model =  this.vehicleUseType
+    this._model = {description: this.vehicleUseType.description, name: this.vehicleUseType.name}
+    // this._model =  this.vehicleUseType
 
   }
 
 
   public saveUpdate(): void{
-    this._ref.close(this.vehicleUseType)
+    const useType: VehicleUseType = this.model as VehicleUseType;
+    this._ref.close(useType)
 
   }
   public cancel(): void{
