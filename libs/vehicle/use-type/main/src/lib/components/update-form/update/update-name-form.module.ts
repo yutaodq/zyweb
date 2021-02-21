@@ -7,6 +7,7 @@ import { SharedUiCommonModule } from '@zyweb/shared/ui/common';
 import { SharedUiBaseModule } from '@zyweb/shared/ui/base';
 import { UpdateNameFormComponent } from './update-name-form.component';
 import { UpdateNameFormPresenter } from './update-name-form.presenter';
+import { SharedUiFormModule } from '@zyweb/shared/ui/form';
 
 export const COMPONENTS_EXPORTS : Array<any> = [
   UpdateNameFormComponent
@@ -15,10 +16,9 @@ export const COMPONENTS_EXPORTS : Array<any> = [
 @NgModule({
   imports: [
     CommonModule,
-    FormlyModule,
-    ReactiveFormsModule,
     SharedUiCommonModule,
     SharedUiBaseModule,
+    SharedUiFormModule,
   ],
   declarations: [UpdateNameFormComponent
   ],

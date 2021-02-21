@@ -72,10 +72,7 @@ export class DetailsComponent implements OnInit, OnDestroy {
     });
 
     this._ref.onClose.subscribe((vehicleUseType) => {
-      console.log('1 - 修改记录1111111111111111');
-
       if (vehicleUseType) {
-        console.log('2 - 修改记录2222222222');
         // this._facade.removeDetail(this.vehicleUseType);
       }
     });
