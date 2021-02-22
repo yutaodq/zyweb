@@ -1,16 +1,6 @@
-import {
-  ChangeDetectionStrategy, ChangeDetectorRef,
-  Component,
-  EventEmitter,
-  inject,
-  Injector,
-  Input,
-  OnInit,
-  Output
-} from '@angular/core';
-
-import { FormGroup } from '@angular/forms';
-import { FormlyFieldConfig, FormlyFormOptions } from '@ngx-formly/core';
+import { ChangeDetectionStrategy, Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
+import { FormGroup } from '@angular/forms'
+import { FormlyFieldConfig, FormlyFormBuilder, FormlyFormOptions } from '@ngx-formly/core'
 
 
 @Component({
@@ -22,13 +12,16 @@ import { FormlyFieldConfig, FormlyFormOptions } from '@ngx-formly/core';
 })
 
 
-export class CreateFormComponent  {
+export class CreateFormComponent implements OnInit {
   @Input()   public form:        FormGroup;
   @Input()   public model:        {};
   @Input()   public options:        FormlyFormOptions;
   @Input()   public fields:        FormlyFieldConfig[];
 
-  constructor() {
+  constructor(private builder: FormlyFormBuilder) {
+  }
+  ngOnInit(): void {
+    this.builder.buildForm(this.form, this.fields, this.model, this.options)
   }
 
 }

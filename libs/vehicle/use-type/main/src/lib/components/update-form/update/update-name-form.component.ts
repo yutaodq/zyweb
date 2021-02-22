@@ -82,8 +82,8 @@ export class UpdateNameFormComponent {
   }
   public cancel(): void{
     this._ref.close(null)
-
   }
+
   onSubmit(model: any) {
     this.saveUpdate();
   }
