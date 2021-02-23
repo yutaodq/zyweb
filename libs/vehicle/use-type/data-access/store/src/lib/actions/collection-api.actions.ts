@@ -39,3 +39,11 @@ export const loadVehicleUseTypesFailure = createAction(
   '[Collection/API] Load VehicleUseTypes Failure',
   props<{ error: any }>()
 );
+
+/**
+ * Update Collection Actions
+ */
+export const updateVehicleUseTypeSuccess = createAction(
+  '[Collection/API] Update VehicleUseTypes Success',
+  props<{ vehicleUseType: VehicleUseType }>()
+);

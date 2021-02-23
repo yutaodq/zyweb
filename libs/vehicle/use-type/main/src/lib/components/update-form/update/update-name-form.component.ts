@@ -1,15 +1,8 @@
 import {
-  ChangeDetectionStrategy, ChangeDetectorRef,
+  ChangeDetectionStrategy,
   Component,
-  EventEmitter,
-  inject,
-  Injector,
-  Input,
-  OnInit,
-  Output
 } from '@angular/core';
 
-import {UpdateNameFormPresenter} from './update-name-form.presenter';
 import { FormGroup } from '@angular/forms';
 import { FormlyFieldConfig, FormlyFormOptions } from '@ngx-formly/core';
 import { VehicleUseType } from '@zyweb/shared/data-access/model/lvms';
@@ -73,28 +66,13 @@ export class UpdateNameFormComponent {
     // this._model =  this.vehicleUseType
 
   }
-
-
-  public saveUpdate(): void{
-    const useType: VehicleUseType = this.model as VehicleUseType;
-    this._ref.close(useType)
-
-  }
   public cancel(): void{
     this._ref.close(null)
   }
 
   onSubmit(model: any) {
-    this.saveUpdate();
-  }
-
-  public reset(): void {
-    this._options.resetModel();
-
-  }
-
-  canSave() {
-    return this.form.valid && this.form.pristine;
+    const useType: VehicleUseType = model as VehicleUseType;
+    this._ref.close(useType)
   }
 
   get form(): FormGroup {

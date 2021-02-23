@@ -1,35 +1,13 @@
-<div class="p-fluid p-formgrid p-grid">
-ddddd
+<!--<div class="p-fluid p-formgrid p-grid">-->
   <zyweb-shared-ui-my-form
         [form]="form"
         [fields]="fields"
         [model]="model"
         [options]="options"
           (cancelEvent)="cancel()"
-        (submitFormEvent)="onSubmit()"
+        (submitFormEvent)="onSubmit($event)"
 
   >
 
   </zyweb-shared-ui-my-form>
-<!--  <form [formGroup]="form" (ngSubmit)="onSubmit(model)">-->
-
-<!--    <zyweb-shared-ui-form-->
-<!--      [form]="form"-->
-<!--      [fields]="fields"-->
-<!--      [model]="model"-->
-<!--      [options]="options"-->
-<!--    >-->
-
-<!--    </zyweb-shared-ui-form>-->
-<!--    <hr/>-->
-<!--    <div class="row justify-content-center">-->
-<!--      <zyweb-shared-ui-form-new-form-button-->
-<!--        (cancelEvent)="cancel()"-->
-<!--        (resetEvent)="reset()"-->
-<!--        [isFormValid]="canSave()"-->
-<!--      >-->
-<!--      </zyweb-shared-ui-form-new-form-button>-->
-
-<!--    </div>-->
-<!--  </form>-->
-</div>
+<!--</div>-->

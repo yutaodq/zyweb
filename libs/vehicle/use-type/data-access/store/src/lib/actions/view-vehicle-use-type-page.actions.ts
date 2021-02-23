@@ -9,3 +9,8 @@ export const removeVehicleUseType = createAction(
   props<{ vehicleUseType: VehicleUseType }>()
 );
 
+export const updateVehicleUseType = createAction(
+  '[View Details Page] Update VehicleUseType',
+  props<{ vehicleUseType: VehicleUseType }>()
+
+);

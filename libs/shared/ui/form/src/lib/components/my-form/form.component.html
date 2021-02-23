@@ -1,4 +1,5 @@
-<form [formGroup]="form" novalidate (ngSubmit)="submit()">
+<div class="p-fluid p-formgrid p-grid">
+  <form [formGroup]="form" novalidate (ngSubmit)="submit()">
   <formly-form [form]="form" [fields]="fields" [model]="model" [options]="options"></formly-form>
 
   <hr/>
@@ -12,3 +13,4 @@
 
   </div>
 </form>
+</div>

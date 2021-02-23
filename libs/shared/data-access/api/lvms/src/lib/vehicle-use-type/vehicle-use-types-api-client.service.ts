@@ -18,6 +18,10 @@ export class VehicleUseTypesApiClient implements FindByNameApi {
               private http: HttpClient
   ) {
   }
+  update(vehicleUseType: VehicleUseType): Observable<VehicleUseType> {
+    return this.http.put<VehicleUseType>(FEATURE_URL_FULL , vehicleUseType);
+    // return this.http.patch<VehicleUseType>(FEATURE_URL_FULL + vehicleUseType.id, vehicleUseType);
+  }
 
   public getCollection(): Observable<VehicleUseType[]> {
     return this.apiService.get<VehicleUseType[]>(FEATURE_URL);
@@ -42,17 +46,6 @@ export class VehicleUseTypesApiClient implements FindByNameApi {
       new HttpParams().set('name', name)
     );
   }
-
-  // public findByName(name: string): Observable<boolean> {
-  //   return this.apiService.get<VehicleUseType[]>(
-  //     FEATURE_URL,
-  //     new HttpParams().set('name', name)
-  //   ).pipe(
-  //     first(),
-  //     map(vehicleUseType => {
-  //       return vehicleUseType.length === 1;
-  //     }));
-  // }
 
   private handleError(error: Response | any) {
     console.error('ApiService::handleError', error);
@@ -157,6 +150,3 @@ export class VehicleUseTypesApiClient implements FindByNameApi {
   // }
 
 }
-
-// //根据公司名字获取信息 new HttpParams().set('name', term)
-// http://localhost:3000/vehicle_use_types?name='a'

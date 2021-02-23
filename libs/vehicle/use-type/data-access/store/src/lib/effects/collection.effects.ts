@@ -18,6 +18,21 @@ import * as RouterAction from '@zyweb/shared/data-access/store/ngrx-router';
 @Injectable()
 export class CollectionEffects {
 
+  updateVehicleUseTypeToCollection$ = createEffect(() =>
+    this.actions$.pipe(
+      ofType(ViewVehicleUseTypePageActions.updateVehicleUseType),
+      mergeMap(({ vehicleUseType }) =>
+        this.apiClient.update(vehicleUseType).pipe(
+          map((vehicleUseTypeE) =>
+            CollectionApiActions.updateVehicleUseTypeSuccess( { vehicleUseType } )
+          ),
+          catchError(() => of(CollectionApiActions.addVehicleUseTypeFailure({ vehicleUseType })))
+        )
+      )
+    )
+  );
+
+
   loadCollection$ = createEffect(() =>
     this.actions$.pipe(
       ofType(CollectionPageActions.loadVehicleUseTypes),
@@ -33,21 +48,6 @@ export class CollectionEffects {
       )
     )
   );
-
-
-  // addVehicleUseTypeToCollection$ = createEffect(() =>
-  //   this.actions$.pipe(
-  //     ofType(NewVehicleUseTypePageActions.addVehicleUseType),
-  //     mergeMap(({ vehicleUseType }) =>
-  //       this.apiClient.create(vehicleUseType).pipe(
-  //         map(() =>
-  //           CollectionApiActions.addVehicleUseTypeSuccess( {vehicleUseType} )
-  //         ),
-  //         catchError(() => of(CollectionApiActions.addVehicleUseTypeFailure({ vehicleUseType })))
-  //       )
-  //     )
-  //   )
-  // );
 
   addVehicleUseTypeToCollection$ = createEffect(() =>
     this.actions$.pipe(
