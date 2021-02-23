@@ -29,6 +29,11 @@ export const initialState: State = adapter.getInitialState({
 export const reducer = createReducer(
   initialState,
 
+  on(CollectionApiActions.updateVehicleUseTypeSuccess,
+    (state, { vehicleUseType }) =>
+      adapter.updateOne({id: vehicleUseType.id, changes: vehicleUseType}, state)
+  ),
+
   on(
     CollectionApiActions.loadVehicleUseTypesSuccess,
     (state, { vehicleUseTypes }) => adapter.addMany(vehicleUseTypes, state)

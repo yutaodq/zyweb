@@ -83,12 +83,18 @@ export class VehicleUseTypesFacade extends Sandbox {
     this.routeTo({ path: ['vehicleUseTypes', 'create'] });
 
   }
+//   this.store.dispatch(
+//   new fromStore.UpdateCuenta({
+//                                cuenta: { id: cuenta.id, changes: data }
+//                              })
+// );
 
   updateVehicleUseType(vehicleUseType: VehicleUseType) {
     this.appState$.dispatch(
       fromVehicleUseTypes
         .ViewVehicleUseTypePageActions
-        .updateVehicleUseType({ vehicleUseType }));
+        .updateVehicleUseType(
+          { vehicleUseType:  { id: vehicleUseType.id, changes: vehicleUseType }}));
   }
 
   addVehicleUseType(vehicleUseType: VehicleUseType) {

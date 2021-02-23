@@ -7,20 +7,25 @@ import { VehicleUseType } from '@zyweb/shared/data-access/model/lvms';
 import { ApiService } from '../api';
 import { first, map } from 'rxjs/operators';
 import { FindByNameApi } from '../..';
+import { environment } from '@zyweb/shared/util/environments';
+import { Update } from '@ngrx/entity';
 
 const FEATURE_URL = '/vehicle_use_types';
 const FEATURE_URL_FULL = FEATURE_URL + '/';
 
 @Injectable()
 export class VehicleUseTypesApiClient implements FindByNameApi {
+  private readonly api = environment.baseUrl;
 
   constructor(private apiService: ApiService,
               private http: HttpClient
   ) {
   }
-  update(vehicleUseType: VehicleUseType): Observable<VehicleUseType> {
-    return this.http.put<VehicleUseType>(FEATURE_URL_FULL , vehicleUseType);
-    // return this.http.patch<VehicleUseType>(FEATURE_URL_FULL + vehicleUseType.id, vehicleUseType);
+
+  public update(vehicleUseType: Update<VehicleUseType>): Observable<VehicleUseType> {
+    console.log('aaaaaaaaaa:' + vehicleUseType.id)
+    // return this.http.put<T>(`${environment.baseUrl}${url}`, JSON.stringify(data), {
+    return this.apiService.put(FEATURE_URL_FULL + vehicleUseType.id , vehicleUseType);
   }
 
   public getCollection(): Observable<VehicleUseType[]> {
