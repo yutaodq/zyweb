@@ -62,7 +62,9 @@ export class UpdateNameFormComponent {
                private _config: DynamicDialogConfig,
   ) {
     this.vehicleUseType = this._config.data;
-    this._model = {description: this.vehicleUseType.description, name: this.vehicleUseType.name}
+    this._model = {id: this.vehicleUseType.id,
+      description: this.vehicleUseType.description,
+      name: this.vehicleUseType.name}
     // this._model =  this.vehicleUseType
 
   }

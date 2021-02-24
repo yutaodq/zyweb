@@ -90,6 +90,7 @@ export class VehicleUseTypesFacade extends Sandbox {
 // );
 
   updateVehicleUseType(vehicleUseType: VehicleUseType) {
+    console.log('ddddddddddddddddddd:' + vehicleUseType.id)
     this.appState$.dispatch(
       fromVehicleUseTypes
         .ViewVehicleUseTypePageActions

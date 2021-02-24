@@ -145,8 +145,9 @@
   ],
   "vehicle_use_types": [
     {
-      "name": "34",
-      "id": "51aee9a2-e529-49fb-a16c-4d7e96a84c95"
+      "id": "51aee9a2-e529-49fb-a16c-4d7e96a84c95",
+      "description": "的说",
+      "name": "34当当的"
     },
     {
       "name": "56",
