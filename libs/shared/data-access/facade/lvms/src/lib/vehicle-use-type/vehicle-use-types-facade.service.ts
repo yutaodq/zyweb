@@ -8,6 +8,7 @@ import { Router } from '@angular/router';
 import { Sandbox } from '@zyweb/shared/data-access/facade/base';
 import { go, back } from '@zyweb/shared/data-access/store/ngrx-router';
 import { VehicleUseType } from '@zyweb/shared/data-access/model/lvms';
+import { Update } from '@ngrx/entity';
 
 @Injectable()
 export class VehicleUseTypesFacade extends Sandbox {
@@ -83,19 +84,15 @@ export class VehicleUseTypesFacade extends Sandbox {
     this.routeTo({ path: ['vehicleUseTypes', 'create'] });
 
   }
-//   this.store.dispatch(
-//   new fromStore.UpdateCuenta({
-//                                cuenta: { id: cuenta.id, changes: data }
-//                              })
-// );
 
   updateVehicleUseType(vehicleUseType: VehicleUseType) {
-    console.log('ddddddddddddddddddd:' + vehicleUseType.id)
+    const update: Update<VehicleUseType> =  { id: vehicleUseType.id, changes: vehicleUseType };
     this.appState$.dispatch(
       fromVehicleUseTypes
         .ViewVehicleUseTypePageActions
         .updateVehicleUseType(
-          { vehicleUseType:  { id: vehicleUseType.id, changes: vehicleUseType }}));
+          { vehicleUseType:  update})
+    );
   }
 
   addVehicleUseType(vehicleUseType: VehicleUseType) {

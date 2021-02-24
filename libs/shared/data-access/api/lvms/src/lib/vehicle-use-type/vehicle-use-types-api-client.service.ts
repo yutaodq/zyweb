@@ -23,8 +23,6 @@ export class VehicleUseTypesApiClient implements FindByNameApi {
   }
 
   public update(vehicleUseType: Update<VehicleUseType>): Observable<VehicleUseType> {
-    console.log('aaaaaaaaaa:' + vehicleUseType.changes.id)
-    // return this.http.put<T>(`${environment.baseUrl}${url}`, JSON.stringify(data), {
     return this.apiService.put(FEATURE_URL_FULL + vehicleUseType.id , vehicleUseType.changes);
   }
 
