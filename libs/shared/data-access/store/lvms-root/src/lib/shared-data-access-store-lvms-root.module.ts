@@ -2,6 +2,8 @@ import { ModuleWithProviders, NgModule, Optional, SkipSelf } from '@angular/core
 import { EffectsModule } from '@ngrx/effects';
 import { StoreModule } from '@ngrx/store';
 import { StoreDevtoolsModule } from '@ngrx/store-devtools';
+import { EntityDataModule } from '@ngrx/data';
+import { entityConfig } from './data';
 
 @NgModule({
   imports: [
@@ -11,8 +13,9 @@ import { StoreDevtoolsModule } from '@ngrx/store-devtools';
       name: '作业大队应用程序',
 
     }),
-
-    EffectsModule.forRoot()]
+    EffectsModule.forRoot(),
+  EntityDataModule.forRoot(entityConfig),
+  ],
 })
 export class SharedDataAccessStoreLvmsRootModule {
   static forRoot(): ModuleWithProviders<any> {
