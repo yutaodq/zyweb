@@ -24,23 +24,6 @@
       "id": 4
     }
   ],
-  "profiles": [
-    {
-      "id": 1,
-      "userId": 1,
-      "job": "Plumber"
-    },
-    {
-      "id": 2,
-      "userId": 2,
-      "job": "developer"
-    },
-    {
-      "id": 3,
-      "userId": 3,
-      "job": "Manager"
-    }
-  ],
   "products": [
     {
       "id": 1,
@@ -113,42 +96,10 @@
       "nbpz": "作业12345",
       "type": "锅炉车",
       "zt": "在用"
-    },
-    {
-      "id": 14,
-      "name": "卡车",
-      "pz": "fdwe333",
-      "nbpz": "作业7777889999",
-      "type": "吊车",
-      "zt": "停用"
-    },
-    {
-      "id": 15,
-      "name": "汽车",
-      "pz": "ky75",
-      "nbpz": "作业12345",
-      "type": "锅炉车",
-      "zt": "在用"
-    },
-    {
-      "id": 16,
-      "name": "卡车",
-      "pz": "7777889999",
-      "nbpz": "作业7777889999",
-      "type": "吊车",
-      "zt": "停用"
-    },
-    {
-      "name": "uuuuu",
-      "id": 17
     }
+
   ],
   "vehicle_use_types": [
-    {
-      "id": "51aee9a2-e529-49fb-a16c-4d7e96a84c95",
-      "description": "的说",
-      "name": "34当当的"
-    },
     {
       "id": "afdb2357-fa44-4733-bef1-447542680987",
       "description": "5675555",

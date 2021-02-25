@@ -1,7 +1,6 @@
 import { Injectable } from '@angular/core';
 import { select, Store } from '@ngrx/store';
-import { Observable, Subscription } from 'rxjs';
-import { filter, map, take } from 'rxjs/operators';
+import { Subscription } from 'rxjs';
 
 import * as fromVehicleUseTypes from '@zyweb/vehicle/use-type/data-access/store';
 import { Router } from '@angular/router';
@@ -105,5 +104,4 @@ export class VehicleUseTypesFacade extends Sandbox {
   cancelCreate() {
     this.appState$.dispatch(back());
   }
-
 }

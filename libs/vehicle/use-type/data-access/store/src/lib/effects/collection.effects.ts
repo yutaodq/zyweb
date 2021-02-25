@@ -17,17 +17,6 @@ import * as RouterAction from '@zyweb/shared/data-access/store/ngrx-router';
 
 @Injectable()
 export class CollectionEffects {
-  // @Effect()
-  // updateCuenta$ = this.actions$.pipe(
-  //   ofType<fromActions.UpdateCuenta>(CuentaActionTypes.UpdateCuenta),
-  //   map(action => action.payload.cuenta),
-  //   switchMap(cuenta => {
-  //     return this.service.update(cuenta).pipe(
-  //       map(res => new fromActions.UpdateCuentaSuccess({ cuenta: res })),
-  //       catchError(error => of(new fromActions.UpdateCuentaFail(error)))
-  //     );
-  //   })
-  // );
 
   updateVehicleUseTypeToCollection$ = createEffect(() =>
     this.actions$.pipe(
