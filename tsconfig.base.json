@@ -67,7 +67,11 @@
         "libs/shared/data-access/store/ngrx-error/src/index.ts"
       ],
       "@zyweb/shared/ui/form": ["libs/shared/ui/form/src/index.ts"],
-      "@zyweb/shared/ui/directive": ["libs/shared/ui/directive/src/index.ts"]
+      "@zyweb/shared/ui/directive": ["libs/shared/ui/directive/src/index.ts"],
+      "@zyweb/vehicle/vehicle/main": ["libs/vehicle/vehicle/main/src/index.ts"],
+      "@zyweb/vehicle/vehicle/data-access/store": [
+        "libs/vehicle/vehicle/data-access/store/src/index.ts"
+      ]
     }
   },
   "exclude": ["node_modules", "tmp"]

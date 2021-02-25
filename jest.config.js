@@ -37,5 +37,7 @@ module.exports = {
     '<rootDir>/libs/shared/ui/ngx-formly',
     '<rootDir>/libs/shared/ui/form',
     '<rootDir>/libs/shared/ui/directive',
+    '<rootDir>/libs/vehicle/vehicle/main',
+    '<rootDir>/libs/vehicle/vehicle/data-access/store',
   ],
 };

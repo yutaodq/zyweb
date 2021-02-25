@@ -1,0 +1,11 @@
+[
+  {
+    "field": "name",
+    "headerName": "车辆用途"
+  },
+  {
+    "field": "description",
+    "headerName": "备注"
+  }
+
+]

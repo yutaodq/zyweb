@@ -107,6 +107,12 @@
     },
     "shared-ui-directive": {
       "tags": ["scope:shared", "type:ui"]
+    },
+    "vehicle-vehicle-main": {
+      "tags": ["scope:main", "type:feature"]
+    },
+    "vehicle-vehicle-data-access-store": {
+      "tags": ["scope:shared", "type:data-access"]
     }
   }
 }
