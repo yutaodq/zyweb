@@ -14,6 +14,11 @@ const routes: Routes = [
       .then((m) => m.VehicleUseTypeMainModule),
   },
   {
+    path: 'vehicles',
+    loadChildren: () => import('@zyweb/vehicle/vehicle/main')
+      .then((m) => m.VehicleMainModule),
+  },
+  {
     path: '404',
     loadChildren: () => import('@zyweb/feature/common/not-found')
       .then((m) => m.FeatureCommonNotFoundModule),
