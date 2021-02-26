@@ -1,37 +1,41 @@
-import { Injectable } from '@angular/core';
+import { Injectable, OnInit } from '@angular/core';
 import { select, Store } from '@ngrx/store';
-import { Subscription } from 'rxjs';
+import { Observable, Subscription } from 'rxjs';
 
 import * as fromVehicleUseTypes from '@zyweb/vehicle/use-type/data-access/store';
 import { Router } from '@angular/router';
 import { Sandbox } from '@zyweb/shared/data-access/facade/base';
 import { go, back } from '@zyweb/shared/data-access/store/ngrx-router';
-import { VehicleUseType } from '@zyweb/shared/data-access/model/lvms';
+import { Vehicle} from '@zyweb/shared/data-access/model/lvms';
 import { Update } from '@ngrx/entity';
+import { VehicleCollectionService } from './vehicle-collection.service';
 
 @Injectable()
-export class VehicleFacade extends Sandbox {
-  public vehicleUseTypes$ = this.appState$.pipe(
-    select(fromVehicleUseTypes.CollectionSelectors.selectVehicleUseTypeCollection));
-  public vehicleUseTypesLoading$ = this.appState$.pipe(
-    select(fromVehicleUseTypes.CollectionSelectors.selectCollectionLoading));
-  public vehicleUseTypesLoaded$ = this.appState$.pipe(
-    select(fromVehicleUseTypes.CollectionSelectors.selectCollectionLoaded));
-
-  public vehicleUseTypeDetails$ = this.appState$.pipe(
-    select(fromVehicleUseTypes.VehicleUseTypeSelectors.selectSelectedVehicleUseType));
+export class VehicleFacade extends Sandbox  implements OnInit{
+  loading$: Observable<boolean>;
+  vehicles$: Observable<Vehicle[]>;
 
   private subscriptions: Array<Subscription> = [];
 
   constructor(
     protected appState$: Store<fromVehicleUseTypes.State>,
-    private _router: Router
+    private _router: Router,
+    private _collectionService: VehicleCollectionService
   ) {
     super(appState$);
+  this.vehicles$ = _collectionService.entities$;
+    this.loading$ = _collectionService.loading$
+
     this.dispatchLoadVehicleUseTypes();
     this.registerEvents();
   }
 
+  ngOnInit() {
+    this.getVehicles();
+  }
+  getVehicles() {
+    this._collectionService.getAll();
+  }
   /**
    * Loads vehicles from the server
    */
@@ -63,7 +67,7 @@ export class VehicleFacade extends Sandbox {
     this.appState$.dispatch(go({ to: param }));
   }
 
-  showDetail(vehicleUseType: VehicleUseType) {
+  showDetail(vehicleUseType: Vehicle) {
     this.routeTo({ path: ['vehicleUseTypes', vehicleUseType.id, 'detail'] });
 
   }
@@ -72,20 +76,20 @@ export class VehicleFacade extends Sandbox {
     this.routeTo({ path: ['vehicleUseTypes', 'list'] });
   }
 
-  public removeDetail(vehicleUseType: VehicleUseType) {
+  public removeDetail(vehicleUseType: Vehicle) {
     this.appState$.dispatch(
       fromVehicleUseTypes
         .ViewVehicleUseTypePageActions
         .removeVehicleUseType({ vehicleUseType }));
   }
 
-  createVehicleUseType() {
+  createVehicle() {
     this.routeTo({ path: ['vehicleUseTypes', 'create'] });
 
   }
 
-  updateVehicleUseType(vehicleUseType: VehicleUseType) {
-    const update: Update<VehicleUseType> =  { id: vehicleUseType.id, changes: vehicleUseType };
+  updateVehicleUseType(vehicleUseType: Vehicle) {
+    const update: Update<Vehicle> =  { id: vehicleUseType.id, changes: vehicleUseType };
     this.appState$.dispatch(
       fromVehicleUseTypes
         .ViewVehicleUseTypePageActions
@@ -94,7 +98,7 @@ export class VehicleFacade extends Sandbox {
     );
   }
 
-  addVehicleUseType(vehicleUseType: VehicleUseType) {
+  addVehicleUseType(vehicleUseType: Vehicle) {
     this.appState$.dispatch(
       fromVehicleUseTypes
         .NewVehicleUseTypePageActions

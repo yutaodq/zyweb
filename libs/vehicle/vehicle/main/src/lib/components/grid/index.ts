@@ -1,2 +1,2 @@
-export * from './vehicle-use-type-grid.module';
-export * from './vehicle-use-type-grid.component'
+export * from './vehicle-grid.module';
+export * from './vehicle-grid.component'

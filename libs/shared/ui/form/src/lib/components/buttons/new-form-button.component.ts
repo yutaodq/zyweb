@@ -9,7 +9,7 @@ import {
   Output
 } from '@angular/core';
 
-import { VehicleUseType } from '@zyweb/shared/data-access/model/lvms';
+import { Vehicle } from '@zyweb/shared/data-access/model/lvms';
 import { Observable, of } from 'rxjs';
 import { FormGroup } from '@angular/forms';
 

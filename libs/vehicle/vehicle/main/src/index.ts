@@ -1,1 +1,1 @@
-export * from './lib/vehicle-vehicle-main.module';
+export * from './lib/vehicle-main.module';

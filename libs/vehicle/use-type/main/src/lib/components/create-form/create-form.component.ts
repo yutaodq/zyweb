@@ -12,7 +12,7 @@ import {
 import { CreateFormPresenter } from './create-form.presenter';
 import { FormControl, FormGroup, ValidationErrors } from '@angular/forms';
 import { FormlyFieldConfig, FormlyFormBuilder, FormlyFormOptions } from '@ngx-formly/core';
-import { VehicleUseType } from '@zyweb/shared/data-access/model/lvms';
+import { Vehicle } from '@zyweb/shared/data-access/model/lvms';
 import { Observable, of, Subscription } from 'rxjs';
 import { VehicleUseTypesApiClient } from '@zyweb/shared/data-access/api/lvms';
 
@@ -26,7 +26,7 @@ import { VehicleUseTypesApiClient } from '@zyweb/shared/data-access/api/lvms';
 
 
 export class CreateFormComponent implements OnInit, OnDestroy {
-  @Output() addEvent: EventEmitter<VehicleUseType> = new EventEmitter();
+  @Output() addEvent: EventEmitter<Vehicle> = new EventEmitter();
   @Output() cancelEvent: EventEmitter<string> = new EventEmitter();
   @Output() resetEvent: EventEmitter<string> = new EventEmitter();
   private subscriptions: Array<Subscription> = [];

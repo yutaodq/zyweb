@@ -3,7 +3,7 @@ import { ChangeDetectionStrategy, ChangeDetectorRef, Component, OnDestroy, OnIni
 import { Observable, of, Subscription } from 'rxjs';
 
 import { DialogService, DynamicDialogRef } from 'primeng/dynamicdialog';
-import { VehicleUseType } from '@zyweb/shared/data-access/model/lvms';
+import { Vehicle } from '@zyweb/shared/data-access/model/lvms';
 import { VehicleUseTypesFacade } from '@zyweb/shared/data-access/facade/lvms';
 import { ActivatedRoute } from '@angular/router';
 import { map } from 'rxjs/operators';
@@ -20,8 +20,8 @@ import { UpdateNameFormComponent } from '../../components/update-form/update/upd
 
 export class DetailsComponent implements OnInit, OnDestroy {
 
-  public vehicleUseType$: Observable<VehicleUseType>;
-  public vehicleUseType: VehicleUseType;
+  public vehicleUseType$: Observable<Vehicle>;
+  public vehicleUseType: Vehicle;
   private _actionsSubscription: Subscription;
   private subscriptions: Array<Subscription> = [];
   private _ref: DynamicDialogRef | null = null;

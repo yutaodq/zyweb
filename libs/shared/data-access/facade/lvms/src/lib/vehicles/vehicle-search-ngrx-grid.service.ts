@@ -1,33 +1,28 @@
-// import { Injectable } from '@angular/core';
-// import { select, Store } from '@ngrx/store';
-//
-// import * as fromVehicles from '@zy/shared/vehicle/data-acces';
-// // import { SearchNgrxGridService } from '@zy/shared/locale-text';
-//
-// @Injectable()
-// export class VehicleSearchNgrxGridService extends  SearchNgrxGridService{
-//
-//   constructor(
-//     protected appState$: Store<fromVehicles.State>,
-//   ) {
-//     super();
-//     this.query$ = this.appState$.pipe(select(fromVehicles.selectCollectionQuery));
-//     this.registerEvents();
-//   }
-//
-//   search-rxjs(query: string) {
-//     this.appState$.dispatch(fromVehicles.CollectionPageActions.searchCollection({query}));
-//   }
-//
-//
-//   clearSearch() {
-//     this.appState$.dispatch(fromVehicles.CollectionPageActions.searchCollectionClear());
-//   }
-//
-//   /**
-//    * Subscribes to events
-//    */
-//   private registerEvents(): void {
-//   }
-//
-// }
+import { Injectable } from '@angular/core';
+import { select, Store } from '@ngrx/store';
+
+import * as fromVehicles from '@zyweb/vehicle/vehicle/data-access/store';
+import { SearchNgrxGridService } from '@zyweb/shared/grid/core';
+
+@Injectable()
+export class VehicleSearchNgrxGridService extends  SearchNgrxGridService{
+
+  constructor(
+    protected appState$: Store<fromVehicles.State>,
+  ) {
+    super();
+    this.query$ = this.appState$.pipe(select(fromVehicles.SearchSelectors.selectSearchQuery));
+    this.registerEvents();
+  }
+
+  search(query: string) {
+    this.appState$.dispatch(fromVehicles.CollectionPageActions.searchVehicles({query}));
+  }
+
+  /**
+   * Subscribes to events
+   */
+  private registerEvents(): void {
+  }
+
+}

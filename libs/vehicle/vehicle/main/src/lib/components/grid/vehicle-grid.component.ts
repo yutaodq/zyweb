@@ -5,32 +5,32 @@ import {
   Input, OnInit, Output
 } from '@angular/core';
 
-import { VehicleUseType } from '@zyweb/shared/data-access/model/lvms';
-import { VehicleUseTypeGridPresenter } from './vehicle-use-type-grid.presenter';
+import { Vehicle } from '@zyweb/shared/data-access/model/lvms';
+import { VehicleGridPresenter } from './vehicle-grid.presenter';
 import { IDataGridOptions } from '@zyweb/shared/grid/ui';
 import { VehicleUseTypeSearchNgrxGridService } from '@zyweb/shared/data-access/facade/lvms';
 import { map } from 'rxjs/operators';
 
 @Component({
   selector: 'zyweb-wehicle-use-type-grid',
-  templateUrl: './vehicle-use-type-grid.component.html',
+  templateUrl: './vehicle-grid.component.html',
   changeDetection: ChangeDetectionStrategy.OnPush
 })
 
-export class VehicleUseTypeGridComponent implements OnInit, AfterViewInit {
-  private _items: VehicleUseType[];
-  @Output() selectDataEvent = new EventEmitter<VehicleUseType>();
+export class VehicleGridComponent implements OnInit, AfterViewInit {
+  private _items: Vehicle[];
+  @Output() selectDataEvent = new EventEmitter<Vehicle>();
 
   public gridOptions: IDataGridOptions ;
   public columnDefs;
-  constructor(private _gridPresenter: VehicleUseTypeGridPresenter,
+  constructor(private _gridPresenter: VehicleGridPresenter,
               private _searchNgrxGridService: VehicleUseTypeSearchNgrxGridService,
   ) {
   }
 
   ngOnInit() {
     this.gridOptions = this._gridPresenter.gridOptions;
-    this.columnDefs = [... require('./vehicle-use-type-grid.json'), {
+    this.columnDefs = [... require('./vehicle-grid.json'), {
       headerName: '',
       editable: false,
       sortable: false,
@@ -68,11 +68,11 @@ export class VehicleUseTypeGridComponent implements OnInit, AfterViewInit {
   }
 
   @Input()
-  public set items(value: VehicleUseType[]) {
+  public set items(value: Vehicle[]) {
     this._items = value;
   }
 
-  public get items(): VehicleUseType[] {
+  public get items(): Vehicle[] {
     return this._items;
   }
 }

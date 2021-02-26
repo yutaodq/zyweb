@@ -2,7 +2,7 @@ import { createSelector } from '@ngrx/store';
 import * as fromFeatureState from '../reducers';
 import * as fromCollectionReducer from '../reducers/collection.reducer';
 import * as fromVehicleUseTypeSelectors from './vehicle-use-type.selectors';
-import { VehicleUseType } from '@zyweb/shared/data-access/model/lvms';
+import { Vehicle } from '@zyweb/shared/data-access/model/lvms';
 
 export const selectCollectionLoaded = createSelector(
   fromFeatureState.selectCollectionState,
@@ -23,7 +23,7 @@ export const selectVehicleUseTypeCollection = createSelector(
   (entities, ids) => {
     return ids
       .map((id) => entities[id])
-      .filter((vehicleUseType): vehicleUseType is VehicleUseType => vehicleUseType != null);
+      .filter((vehicleUseType): vehicleUseType is Vehicle => vehicleUseType != null);
   }
 );
 

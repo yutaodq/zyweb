@@ -1,6 +1,6 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { VehicleUseTypeGridModule } from './grid';
+import { VehicleGridModule } from './grid';
 import { VehicleUseTypeMainComponentDetailFormModule } from './details-form';
 import { VehicleUseTypeMainComponentCreateFormModule } from './create-form';
 import { VehicleUseTypeMainComponentDetailButtonModule } from './details-button';
@@ -16,7 +16,7 @@ export const COMPONENTS_EXPORTS : Array<any> = [
   declarations: [
   ],
   exports: [...COMPONENTS_EXPORTS,
-    VehicleUseTypeGridModule,
+    VehicleGridModule,
     VehicleUseTypeMainComponentDetailFormModule,
     VehicleUseTypeMainComponentUpdateFormModule,
     VehicleUseTypeMainComponentCreateFormModule,

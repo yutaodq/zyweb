@@ -2,7 +2,7 @@ import { ChangeDetectionStrategy, ChangeDetectorRef, Component, OnDestroy, OnIni
 import { ActivatedRoute } from '@angular/router';
 
 import { Subscription } from 'rxjs';
-import { VehicleUseType } from '@zyweb/shared/data-access/model/lvms';
+import { Vehicle } from '@zyweb/shared/data-access/model/lvms';
 import { VehicleUseTypesFacade } from '@zyweb/shared/data-access/facade/lvms';
 
 /*
@@ -18,7 +18,7 @@ D:\学习案例\druo-dashboard\src\app\content\pages\components\invoices\invoice
 
 export class CreateComponent implements OnInit, OnDestroy {
 
-  public vehicleUseType:        VehicleUseType;
+  public vehicleUseType:        Vehicle;
   private subscriptions: Array<Subscription> = [];
 
   constructor(
@@ -37,7 +37,7 @@ export class CreateComponent implements OnInit, OnDestroy {
     this._facade.cancelCreate()
   }
 
-  onAdd(vehicleUseType: VehicleUseType) {
+  onAdd(vehicleUseType: Vehicle) {
     this._facade.addVehicleUseType(vehicleUseType)
  }
 

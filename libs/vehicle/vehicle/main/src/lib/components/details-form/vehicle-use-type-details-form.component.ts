@@ -8,7 +8,7 @@ import {
   OnInit,
   Output
 } from '@angular/core';
-import { VehicleUseType } from '@zyweb/shared/data-access/model/lvms';
+import { Vehicle } from '@zyweb/shared/data-access/model/lvms';
 
 @Component({
   selector: 'zyweb-vehicle-use-type-details-form',
@@ -19,7 +19,7 @@ import { VehicleUseType } from '@zyweb/shared/data-access/model/lvms';
 })
 
 export class VehicleUseTypeDetailsFormComponent  {
-  @Input()   public vehicleUseType:        VehicleUseType;
+  @Input()   public vehicleUseType:        Vehicle;
   constructor() {
   }
 

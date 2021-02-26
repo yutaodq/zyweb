@@ -3,15 +3,15 @@ import { AsyncValidatorFn, FormGroup } from '@angular/forms';
 import { Observable, of, Subject, timer } from 'rxjs';
 import { FormlyFormOptions } from '@ngx-formly/core';
 import { v4 as uuidv4 } from 'uuid';
-import { VehicleUseType } from '@zyweb/shared/data-access/model/lvms';
+import { Vehicle } from '@zyweb/shared/data-access/model/lvms';
 import { VehicleUseTypesApiClient } from '@zyweb/shared/data-access/api/lvms';
 import { ExistsService } from '@zyweb/shared/ui/form';
 
 
 @Injectable()
 export class CreateFormPresenter {
-  private _add: Subject<VehicleUseType> = new Subject();
-  add$: Observable<VehicleUseType> = this._add.asObservable();
+  private _add: Subject<Vehicle> = new Subject();
+  add$: Observable<Vehicle> = this._add.asObservable();
 
   private _cancel: Subject<string> = new Subject();
   cancel$: Observable<string> = this._cancel.asObservable();
@@ -57,7 +57,7 @@ export class CreateFormPresenter {
     if (!this.isFormValid()) {
       return;
     }
-    const vehicleUseType: VehicleUseType = this.model as VehicleUseType;
+    const vehicleUseType: Vehicle = this.model as Vehicle;
     /*
       可写成 ( this.isEmpty(vehicleUseType.id) ) && (vehicleUseType.id = uuidv4());
       但 tslint.json出现报警信息

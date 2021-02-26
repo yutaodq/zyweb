@@ -5,7 +5,7 @@ import {
 
 import { FormGroup } from '@angular/forms';
 import { FormlyFieldConfig, FormlyFormOptions } from '@ngx-formly/core';
-import { VehicleUseType } from '@zyweb/shared/data-access/model/lvms';
+import { Vehicle } from '@zyweb/shared/data-access/model/lvms';
 import { DynamicDialogConfig, DynamicDialogRef } from 'primeng/dynamicdialog';
 @Component({
   selector: 'zyweb-vehicle-use-type-update-name-form',
@@ -20,7 +20,7 @@ export class UpdateNameFormComponent {
   private _model: any = {};
   private _options: FormlyFormOptions = {};
 
-  vehicleUseType: VehicleUseType;
+  vehicleUseType: Vehicle;
   public fields: FormlyFieldConfig[] =
     [
       {
@@ -73,7 +73,7 @@ export class UpdateNameFormComponent {
   }
 
   onSubmit(model: any) {
-    const useType: VehicleUseType = model as VehicleUseType;
+    const useType: Vehicle = model as Vehicle;
     this._ref.close(useType)
   }
 
