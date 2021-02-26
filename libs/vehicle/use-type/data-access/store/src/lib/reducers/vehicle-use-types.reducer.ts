@@ -6,18 +6,18 @@ import {
   CollectionApiActions,
   CollectionPageActions,
 } from '../actions';
-import { Vehicle } from '@zyweb/shared/data-access/model/lvms';
+import { VehicleUseType } from '@zyweb/shared/data-access/model/lvms';
 
 export const vehicleUseTypesFeatureKey = 'vehicleUseTypes';
 
 
-export interface State extends EntityState<Vehicle> {
+export interface State extends EntityState<VehicleUseType> {
   selectedVehicleUseTypeId: string | null;
 }
 
 
-export const adapter: EntityAdapter<Vehicle> = createEntityAdapter<Vehicle>({
-  selectId: (vehicleUseType: Vehicle) => vehicleUseType.id,
+export const adapter: EntityAdapter<VehicleUseType> = createEntityAdapter<VehicleUseType>({
+  selectId: (vehicleUseType: VehicleUseType) => vehicleUseType.id,
   sortComparer: false,
 });
 
