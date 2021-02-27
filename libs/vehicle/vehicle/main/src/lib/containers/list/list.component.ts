@@ -25,8 +25,8 @@ export class ListComponent implements OnInit {
     this._logger.debug('日志功能：ListComponent');
   }
 
-  onSelectData(vehicleUseType: Vehicle) {
-    this._facade.showDetail(vehicleUseType);
+  onSelectData(vehicle: Vehicle) {
+    this._facade.showDetail(vehicle);
     this._notification.showMessage({severity: 'success', summary: '提示信息：', detail: '您选择了一台车辆信息' });
   }
 

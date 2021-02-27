@@ -2,9 +2,14 @@ import { ModuleWithProviders, NgModule, Optional, SkipSelf } from '@angular/core
 import { EffectsModule } from '@ngrx/effects';
 import { StoreModule } from '@ngrx/store';
 import { StoreDevtoolsModule } from '@ngrx/store-devtools';
-import { EntityDataModule } from '@ngrx/data';
+import { DefaultDataServiceConfig, EntityDataModule } from '@ngrx/data';
 import { entityConfig } from './data';
+import { environment } from '@zyweb/shared/util/environments';
 
+const defaultDataServiceConfig: DefaultDataServiceConfig = {
+  root: environment.clientApiUrl,
+  timeout: 3000, // request timeout
+}
 @NgModule({
   imports: [
     StoreModule.forRoot({}),
@@ -16,7 +21,9 @@ import { entityConfig } from './data';
     EffectsModule.forRoot(),
   EntityDataModule.forRoot(entityConfig),
   ],
+  providers: [{ provide: DefaultDataServiceConfig, useValue: defaultDataServiceConfig }]
 })
+
 export class SharedDataAccessStoreLvmsRootModule {
   static forRoot(): ModuleWithProviders<any> {
     return {

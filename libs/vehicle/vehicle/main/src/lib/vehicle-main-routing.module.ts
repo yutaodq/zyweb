@@ -1,27 +1,23 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import { ListComponent as VehicleUseTypeListComponent } from './containers/list/list.component';
-import { DetailsComponent as VehicleUseTypeDetailsComponent } from './containers/details/details.component';
-import { CreateComponent as VehicleUseTypeCreateComponent } from './containers/create/create.component';
-
-import { VehicleUseTypeExistsGuard } from './guards/vehicle-use-type-exists.guard';
+import { ListComponent as VehicleListComponent } from './containers/list/list.component';
 
 const routes: Routes = [
   { path: '', redirectTo: 'list', pathMatch: 'full' },
   {
     path: 'list',
-    component: VehicleUseTypeListComponent,
+    component: VehicleListComponent,
   },
-  {
-    path: ':id/detail',
-    component: VehicleUseTypeDetailsComponent,
-    canActivate: [VehicleUseTypeExistsGuard],
-    data: { title: 'Book details' },
-  },
-  {
-    path: 'create',
-    component: VehicleUseTypeCreateComponent,
-  },
+  // {
+  //   path: ':id/detail',
+  //   component: VehicleUseTypeDetailsComponent,
+  //   canActivate: [VehicleUseTypeExistsGuard],
+  //   data: { title: 'Book details' },
+  // },
+  // {
+  //   path: 'create',
+  //   component: VehicleUseTypeCreateComponent,
+  // },
 
 ];
 
