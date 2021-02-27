@@ -39,5 +39,6 @@ module.exports = {
     '<rootDir>/libs/shared/ui/directive',
     '<rootDir>/libs/vehicle/vehicle/main',
     '<rootDir>/libs/vehicle/vehicle/data-access/store',
+    '<rootDir>/libs/shared/util/utility',
   ],
 };

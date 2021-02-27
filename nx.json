@@ -113,6 +113,9 @@
     },
     "vehicle-vehicle-data-access-store": {
       "tags": ["scope:shared", "type:data-access"]
+    },
+    "shared-util-utility": {
+      "tags": ["scope:shared", "type:util"]
     }
   }
 }

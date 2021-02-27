@@ -13,32 +13,25 @@ import { VehicleCollectionService } from './vehicle-collection.service';
 
 @Injectable()
 export class VehicleFacade extends Sandbox{
-  vehicles$: Observable<Vehicle[]>;
-  _collectionService: EntityCollectionService<Vehicle>
+  private _collectionService: EntityCollectionService<Vehicle>
   private subscriptions: Array<Subscription> = [];
 
   constructor(
-    protected appState$: Store<fromVehicle.State>,
-    private _router: Router,
-    private entityServices: EntityServices
+    private _appState$: Store<fromVehicle.State>,
+    entityServices: EntityServices
   ) {
-    super(appState$);
+    super(_appState$);
     this._collectionService = entityServices.getEntityCollectionService('Vehicle');
-  this.vehicles$ = this._collectionService.entities$;
-    this.getVehicles();
 
     this.registerEvents();
   }
 
-  getVehicles() {
-    this._collectionService.getAll();
-  }
   get loading$() {
     return this._collectionService.loading$;
   }
-  // get vehicles$(): Observable<Vehicle[]> {
-  //   return this._collectionService.entities$;
-  // }
+  get vehicles$(): Observable<Vehicle[]> {
+    return this._collectionService.entities$;
+  }
 
   /**
    * Loads vehicles from the server
@@ -52,10 +45,11 @@ export class VehicleFacade extends Sandbox{
    * Subscribes to events
    */
   private registerEvents(): void {
+    this._collectionService.getAll();
   }
 
   private routeTo(param: { path: (string)[] }) {
-    this.appState$.dispatch(go({ to: param }));
+    this._appState$.dispatch(go({ to: param }));
   }
 
   showDetail(vehicleUseType: Vehicle) {
@@ -75,6 +69,6 @@ export class VehicleFacade extends Sandbox{
 
 
   cancelCreate() {
-    this.appState$.dispatch(back());
+    this._appState$.dispatch(back());
   }
 }
