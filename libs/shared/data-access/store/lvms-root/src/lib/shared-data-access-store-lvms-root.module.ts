@@ -3,13 +3,8 @@ import { EffectsModule } from '@ngrx/effects';
 import { StoreModule } from '@ngrx/store';
 import { StoreDevtoolsModule } from '@ngrx/store-devtools';
 import { DefaultDataServiceConfig, EntityDataModule } from '@ngrx/data';
-import { entityConfig } from './data';
-import { environment } from '@zyweb/shared/util/environments';
+import { defaultDataServiceConfig, entityConfig } from './data';
 
-const defaultDataServiceConfig: DefaultDataServiceConfig = {
-  root: environment.clientApiUrl,
-  timeout: 3000, // request timeout
-}
 @NgModule({
   imports: [
     StoreModule.forRoot({}),
