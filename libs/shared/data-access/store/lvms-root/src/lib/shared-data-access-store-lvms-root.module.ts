@@ -2,8 +2,9 @@ import { ModuleWithProviders, NgModule, Optional, SkipSelf } from '@angular/core
 import { EffectsModule } from '@ngrx/effects';
 import { StoreModule } from '@ngrx/store';
 import { StoreDevtoolsModule } from '@ngrx/store-devtools';
-import { DefaultDataServiceConfig, EntityDataModule } from '@ngrx/data';
+import { DefaultDataServiceConfig, EntityDataModule, EntityServices } from '@ngrx/data';
 import { defaultDataServiceConfig, entityConfig } from './data';
+import { AppEntityServices } from './data/app-entities.service';
 
 @NgModule({
   imports: [
@@ -16,7 +17,11 @@ import { defaultDataServiceConfig, entityConfig } from './data';
     EffectsModule.forRoot(),
   EntityDataModule.forRoot(entityConfig),
   ],
-  providers: [{ provide: DefaultDataServiceConfig, useValue: defaultDataServiceConfig }]
+  providers: [
+    AppEntityServices,
+    { provide: EntityServices, useExisting: AppEntityServices },
+    { provide: DefaultDataServiceConfig, useValue: defaultDataServiceConfig }
+    ]
 })
 
 export class SharedDataAccessStoreLvmsRootModule {

@@ -10,13 +10,6 @@ import { Vehicle} from '@zyweb/shared/data-access/model/lvms';
 import { Update } from '@ngrx/entity';
 import { VehicleCollectionService } from './vehicle-collection.service';
 
-// import { EntityCollectionServiceBase, EntityCollectionServiceElementsFactory } from '@ngrx/data';
-// export class VehicleCollectionService extends EntityCollectionServiceBase<Vehicle> {
-//   constructor(serviceElementsFactory: EntityCollectionServiceElementsFactory) {
-//     super('Vehicle', serviceElementsFactory);
-//   }
-// }
-
 @Injectable()
 export class VehicleFacade extends Sandbox{
   loading$: Observable<boolean>;
