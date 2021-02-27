@@ -1,6 +1,7 @@
 import { Injectable, OnInit } from '@angular/core';
 import { select, Store } from '@ngrx/store';
 import { Observable, Subscription } from 'rxjs';
+import { EntityCollectionService, EntityServices } from '@ngrx/data';
 
 import * as fromVehicle from '@zyweb/vehicle/vehicle/data-access/store';
 import { Router } from '@angular/router';
@@ -12,20 +13,18 @@ import { VehicleCollectionService } from './vehicle-collection.service';
 
 @Injectable()
 export class VehicleFacade extends Sandbox{
-  loading$: Observable<boolean>;
   vehicles$: Observable<Vehicle[]>;
-
+  _collectionService: EntityCollectionService<Vehicle>
   private subscriptions: Array<Subscription> = [];
 
   constructor(
     protected appState$: Store<fromVehicle.State>,
     private _router: Router,
-    private _collectionService: VehicleCollectionService
+    private entityServices: EntityServices
   ) {
     super(appState$);
-  this.vehicles$ = _collectionService.entities$;
-    this.loading$ = _collectionService.loading$
-    console.log('ddddddddddddddddngOnInitngOnInit');
+    this._collectionService = entityServices.getEntityCollectionService('Vehicle');
+  this.vehicles$ = this._collectionService.entities$;
     this.getVehicles();
 
     this.registerEvents();
@@ -34,6 +33,13 @@ export class VehicleFacade extends Sandbox{
   getVehicles() {
     this._collectionService.getAll();
   }
+  get loading$() {
+    return this._collectionService.loading$;
+  }
+  // get vehicles$(): Observable<Vehicle[]> {
+  //   return this._collectionService.entities$;
+  // }
+
   /**
    * Loads vehicles from the server
    */
