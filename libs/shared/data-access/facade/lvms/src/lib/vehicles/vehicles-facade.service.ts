@@ -10,6 +10,7 @@ import { go, back } from '@zyweb/shared/data-access/store/ngrx-router';
 import { Vehicle} from '@zyweb/shared/data-access/model/lvms';
 import { Update } from '@ngrx/entity';
 import { VehicleCollectionService } from './vehicle-collection.service';
+import { take } from 'rxjs/operators';
 
 @Injectable()
 export class VehicleFacade extends Sandbox{
@@ -33,6 +34,12 @@ export class VehicleFacade extends Sandbox{
     return this._collectionService.entities$;
   }
 
+  get vehiclesDetail$(): Observable<Vehicle> {
+    return this._collectionService.selected$.pipe(
+      take(1),
+    )
+  }
+
   /**
    * Loads vehicles from the server
    */
@@ -52,8 +59,8 @@ export class VehicleFacade extends Sandbox{
     this._appState$.dispatch(go({ to: param }));
   }
 
-  showDetail(vehicleUseType: Vehicle) {
-    this.routeTo({ path: ['vehicleUseTypes', vehicleUseType.id, 'detail'] });
+  showDetail(vehicle: Vehicle) {
+    this.routeTo({ path: ['vehicles', vehicle.id, 'detail'] });
 
   }
 

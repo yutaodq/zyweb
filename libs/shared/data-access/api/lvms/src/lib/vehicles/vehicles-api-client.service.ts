@@ -1,7 +1,6 @@
 import { Injectable } from '@angular/core';
 
 // import { Adapter, GET, HttpService, Path, DELETE, POST, Body } from '@zy/shared/data-access-http';
-import { VehiclesService } from './vehicles.service';
 import { Observable } from 'rxjs';
 import { Vehicle } from '@zyweb/shared/data-access/model/lvms';
 import { DELETE, GET, HttpService, Path } from '@zyweb/shared/data-access/api/http-service';
@@ -19,7 +18,7 @@ export class VehiclesApiClient extends HttpService {
   }
 
   /**
-   * Retrieves product details-form by a given id
+   * Retrieves product detail-form by a given id
    *
    * @param id
    */

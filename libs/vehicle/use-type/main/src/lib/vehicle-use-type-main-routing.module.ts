@@ -16,7 +16,7 @@ const routes: Routes = [
     path: ':id/detail',
     component: VehicleUseTypeDetailsComponent,
     canActivate: [VehicleUseTypeExistsGuard],
-    data: { title: 'Book details' },
+    data: { title: 'Book detail' },
   },
   {
     path: 'create',

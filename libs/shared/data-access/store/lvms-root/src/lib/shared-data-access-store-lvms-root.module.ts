@@ -3,25 +3,25 @@ import { EffectsModule } from '@ngrx/effects';
 import { StoreModule } from '@ngrx/store';
 import { StoreDevtoolsModule } from '@ngrx/store-devtools';
 import { DefaultDataServiceConfig, EntityDataModule, EntityServices } from '@ngrx/data';
-import { defaultDataServiceConfig, entityConfig } from './data';
-import { AppEntityServices } from './data/app-entities.service';
+import {  entityConfig } from './data';
+import { SharedDataAccessFacadeLvmsModule } from '@zyweb/shared/data-access/facade/lvms';
+import { SharedDataAccessApiLvmsModule } from '@zyweb/shared/data-access/api/lvms';
 
 @NgModule({
   imports: [
     StoreModule.forRoot({}),
 
     StoreDevtoolsModule.instrument({
-      name: '作业大队应用程序',
+      name: '作业大队应用程序'
 
     }),
     EffectsModule.forRoot(),
-  EntityDataModule.forRoot(entityConfig),
+    EntityDataModule.forRoot(entityConfig),
+    SharedDataAccessFacadeLvmsModule,
+    SharedDataAccessApiLvmsModule
   ],
   providers: [
-    AppEntityServices,
-    { provide: EntityServices, useExisting: AppEntityServices },
-    { provide: DefaultDataServiceConfig, useValue: defaultDataServiceConfig }
-    ]
+  ]
 })
 
 export class SharedDataAccessStoreLvmsRootModule {

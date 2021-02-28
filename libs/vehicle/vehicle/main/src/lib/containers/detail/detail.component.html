@@ -9,8 +9,8 @@
     (onRemoveEvent)="delete()"
     (onCreateEvent)="create()"
   >
-    <zyweb-vehicle-use-type-detail-button (onEditOtherEvent)="updateName()">
-    </zyweb-vehicle-use-type-detail-button>
+<!--    <zyweb-vehicle-use-type-detail-button (onEditOtherEvent)="updateName()">-->
+<!--    </zyweb-vehicle-use-type-detail-button>-->
 
   </zyweb-ui-base-details-toolbar>
   <!--  <zyweb-vehicle-use-type-detail-toolbar-->
@@ -31,8 +31,8 @@
   <!--  </zyweb-vehicle-use-type-detail-toolbar>-->
   <div class="card">
 
-    <zyweb-vehicle-use-type-details-form [vehicleUseType]="vehicleUseType$| async">
-    </zyweb-vehicle-use-type-details-form>
+    <zyweb-vehicle-detail-form [vehicle]="vehicle$| async">
+    </zyweb-vehicle-detail-form>
   </div>
 
 </div>

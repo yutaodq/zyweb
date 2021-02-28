@@ -2,20 +2,21 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 
 
-// import { VehicleUseTypeExistsGuard } from './guards/vehicle-use-type-exists.guard';
-// import { VehicleUseTypesExistsService } from '@zyweb/shared/data-access/facade/lvms';
-
 import { VehicleMainRouting } from './vehicle-main-routing.module';
 import { VehicleDataAccessStoreModule } from '@zyweb/vehicle/vehicle/data-access/store';
-import { VehicleMainListModule } from './containers/list/vehicle-main-list.module';
+import { VehicleMainContainersListModule } from './containers/list/vehicle-main-containers-list.module';
+import { VehicleMainContainersDetailModule } from './containers/detail/vehicle-main-containers-detail.module';
+import { VehicleExistsGuard } from './guards/vehicle-exists.guard';
+import { VehicleExistsService } from '@zyweb/shared/data-access/facade/lvms';
 
 @NgModule({
   imports: [
     CommonModule,
     VehicleDataAccessStoreModule,  // store
     VehicleMainRouting,  // route
-    VehicleMainListModule,
+    VehicleMainContainersListModule,
+    VehicleMainContainersDetailModule
   ],
-  // providers: [VehicleUseTypeExistsGuard, VehicleUseTypesExistsService]
+  providers: [VehicleExistsGuard, VehicleExistsService]
 })
 export class VehicleMainModule {}

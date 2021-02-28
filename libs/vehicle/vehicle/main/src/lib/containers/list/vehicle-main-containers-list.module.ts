@@ -22,4 +22,4 @@ import { ListComponent } from './list.component';
   ],
   providers: [ VehicleFacade, {provide:SearchNgrxGridService, useClass:VehicleSearchNgrxGridService}],
 })
-export class VehicleMainListModule {}
+export class VehicleMainContainersListModule {}

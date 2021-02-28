@@ -4,20 +4,19 @@ D:\学习案例\ngrx-master\projects\example-app\src\app\books\guards\book-exist
  */
 import { Injectable } from '@angular/core';
 import { ActivatedRouteSnapshot, CanActivate, Router } from '@angular/router';
-import { select, Store } from '@ngrx/store';
-import { Observable, of } from 'rxjs';
-import { catchError, filter, map, switchMap, take, tap } from 'rxjs/operators';
+import { Observable  } from 'rxjs';
 
-import { VehicleUseTypesExistsService, VehicleUseTypesFacade } from '@zyweb/shared/data-access/facade/lvms';
-import * as fromVehicleUseTypes from '@zyweb/vehicle/use-type/data-access/store';
+import { VehicleExistsService,  } from '@zyweb/shared/data-access/facade/lvms';
 
 
-@Injectable({
-  providedIn: 'root',
-})
-export class VehicleUseTypeExistsGuard implements CanActivate {
+// @Injectable({
+//   providedIn: 'root',
+// })
+@Injectable()
+
+export class VehicleExistsGuard implements CanActivate {
   constructor(
-    private vehicleUseTypesExistsService: VehicleUseTypesExistsService,
+    private vehicleExistsService: VehicleExistsService,
     private router: Router
   ) {}
 
@@ -35,6 +34,6 @@ export class VehicleUseTypeExistsGuard implements CanActivate {
    * to the 404 page.
    */
   canActivate(route: ActivatedRouteSnapshot): Observable<boolean> {
-    return this.vehicleUseTypesExistsService.canActivate(route.params['id']);
+    return this.vehicleExistsService.canActivate(route.params['id']);
   }
 }
