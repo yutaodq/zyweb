@@ -3,12 +3,13 @@ import { CommonModule } from '@angular/common';
 import { ApiModule } from './api';
 import { VehicleDataService } from './vehicles/vehicle-data-service';
 import { DefaultDataServiceConfig, ENTITY_METADATA_TOKEN, EntityDataService } from '@ngrx/data';
-import { defaultDataServiceConfig } from './data-service.config';
+import { defaultDataServiceConfig } from './data/data-service.config';
+import { entityMetadata } from './data/app-entity-metadata.config';
 
 @NgModule({
   imports: [CommonModule, ApiModule],
   providers: [
-    // { provide: ENTITY_METADATA_TOKEN, multi: true, useValue: vehicleEntityMetadata },
+    { provide: ENTITY_METADATA_TOKEN, multi: true, useValue: entityMetadata },
     { provide: DefaultDataServiceConfig, useValue: defaultDataServiceConfig },
     VehicleDataService
   ]

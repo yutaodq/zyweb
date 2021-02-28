@@ -8,4 +8,5 @@ export class VehicleDataService extends DefaultDataService<Vehicle> {
   constructor(http: HttpClient, httpUrlGenerator: HttpUrlGenerator, defaultDataServiceConfig: DefaultDataServiceConfig) {
     super('Vehicle', http, httpUrlGenerator, defaultDataServiceConfig);
   }
+
 }

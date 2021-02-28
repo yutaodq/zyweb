@@ -2,12 +2,12 @@ import { EntityMetadataMap } from '@ngrx/data';
 
 
 const entityMetadata: EntityMetadataMap = {
-  Vehicle: {},
+  // Vehicle: {},
   // VehicleUseType: {},
 };
 
 const pluralNames = {
-  Vehicle: 'Vehicles',
+  // Vehicle: 'Vehicles',
 };
 
 export const entityConfig = {
