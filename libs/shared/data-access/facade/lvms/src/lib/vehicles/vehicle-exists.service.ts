@@ -28,7 +28,6 @@ export class VehicleExistsService  {
   }
 
   canActivate(id: string): Observable<boolean> {
- console.log('aaaaaaaaaaaaaaaaaaaa');
     return this.waitForCollectionToLoad().pipe(
       switchMap(() => this.hasEntity(id))
     );

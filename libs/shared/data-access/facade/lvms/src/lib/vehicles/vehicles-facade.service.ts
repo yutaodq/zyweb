@@ -6,11 +6,11 @@ import { EntityCollectionService, EntityServices } from '@ngrx/data';
 import * as fromVehicle from '@zyweb/vehicle/vehicle/data-access/store';
 import { Router } from '@angular/router';
 import { Sandbox } from '@zyweb/shared/data-access/facade/base';
-import { go, back } from '@zyweb/shared/data-access/store/ngrx-router';
 import { Vehicle} from '@zyweb/shared/data-access/model/lvms';
 import { Update } from '@ngrx/entity';
 import { VehicleCollectionService } from './vehicle-collection.service';
 import { take } from 'rxjs/operators';
+import { RouteActions } from '@zyweb/shared/data-access/store/ngrx-router';
 
 @Injectable()
 export class VehicleFacade extends Sandbox{
@@ -56,7 +56,7 @@ export class VehicleFacade extends Sandbox{
   }
 
   private routeTo(param: { path: (string)[] }) {
-    this._appState$.dispatch(go({ to: param }));
+    this._appState$.dispatch(RouteActions.go({ to: param }));
   }
 
   showDetail(vehicle: Vehicle) {
@@ -76,6 +76,6 @@ export class VehicleFacade extends Sandbox{
 
 
   cancelCreate() {
-    this._appState$.dispatch(back());
+    this._appState$.dispatch(RouteActions.back());
   }
 }

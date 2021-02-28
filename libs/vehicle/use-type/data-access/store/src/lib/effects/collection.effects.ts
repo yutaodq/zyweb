@@ -13,7 +13,8 @@ import {
 
 import { VehicleUseTypesApiClient } from '@zyweb/shared/data-access/api/lvms';
 import { VehicleUseType } from '@zyweb/shared/data-access/model/lvms';
-import * as RouterAction from '@zyweb/shared/data-access/store/ngrx-router';
+import { RouteActions } from '@zyweb/shared/data-access/store/ngrx-router';
+// import RouterActions from '@zyweb/shared/data-access/store/ngrx-router';
 
 @Injectable()
 export class CollectionEffects {
@@ -67,7 +68,7 @@ export class CollectionEffects {
     this.actions$.pipe(
       ofType(CollectionApiActions.addVehicleUseTypeSuccess),
       map(( {vehicleUseType: vehicleUseType}) =>
-         RouterAction.go({ to: { path: ['vehicleUseTypes', vehicleUseType.id, 'detail'] } })
+        RouteActions.go({ to: { path: ['vehicleUseTypes', vehicleUseType.id, 'detail'] } })
       )
     )
   );
@@ -87,7 +88,7 @@ export class CollectionEffects {
   removeVehicleUseTypeSuccess$ = createEffect(() =>
     this.actions$.pipe(
       ofType(CollectionApiActions.removeVehicleUseTypeSuccess),
-      map(() => RouterAction.go({ to: { path: ['vehicleUseTypes', 'list'] } }
+      map(() => RouteActions.go({ to: { path: ['vehicleUseTypes', 'list'] } }
         )
       )
     )

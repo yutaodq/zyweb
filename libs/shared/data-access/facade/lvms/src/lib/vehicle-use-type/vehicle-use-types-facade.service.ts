@@ -5,9 +5,10 @@ import { Subscription } from 'rxjs';
 import * as fromVehicleUseTypes from '@zyweb/vehicle/use-type/data-access/store';
 import { Router } from '@angular/router';
 import { Sandbox } from '@zyweb/shared/data-access/facade/base';
-import { go, back } from '@zyweb/shared/data-access/store/ngrx-router';
+// import { go, back } from '@zyweb/shared/data-access/store/ngrx-router';
 import { VehicleUseType } from '@zyweb/shared/data-access/model/lvms';
 import { Update } from '@ngrx/entity';
+import { RouteActions } from '@zyweb/shared/data-access/store/ngrx-router';
 
 @Injectable()
 export class VehicleUseTypesFacade extends Sandbox {
@@ -60,7 +61,7 @@ export class VehicleUseTypesFacade extends Sandbox {
   }
 
   private routeTo(param: { path: (string)[] }) {
-    this.appState$.dispatch(go({ to: param }));
+    this.appState$.dispatch(RouteActions.go({ to: param }));
   }
 
   showDetail(vehicleUseType: VehicleUseType) {
@@ -102,6 +103,6 @@ export class VehicleUseTypesFacade extends Sandbox {
   }
 
   cancelCreate() {
-    this.appState$.dispatch(back());
+    this.appState$.dispatch(RouteActions.back());
   }
 }
