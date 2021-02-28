@@ -2,24 +2,28 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { ApiModule } from './api';
 import { VehicleDataService } from './vehicles/vehicle-data-service';
-import { DefaultDataServiceConfig, ENTITY_METADATA_TOKEN, EntityDataService } from '@ngrx/data';
+import { DefaultDataServiceConfig,
+  ENTITY_METADATA_TOKEN,
+  EntityDataService,
+  PLURAL_NAMES_TOKEN } from '@ngrx/data';
 import { defaultDataServiceConfig } from './data/data-service.config';
-import { entityMetadata } from './data/app-entity-metadata.config';
+import { entityMetadata, pluralNames } from './data/app-entity-metadata.config';
 
 @NgModule({
   imports: [CommonModule, ApiModule],
   providers: [
+    // { provide: PLURAL_NAMES_TOKEN, multi: true, useValue: pluralNames },
     { provide: ENTITY_METADATA_TOKEN, multi: true, useValue: entityMetadata },
     { provide: DefaultDataServiceConfig, useValue: defaultDataServiceConfig },
-    VehicleDataService
+    // VehicleDataService
   ]
 })
 export class SharedDataAccessApiLvmsModule {
   constructor(
-    entityDataService: EntityDataService,
-    vehicleDataService: VehicleDataService
+    // entityDataService: EntityDataService,
+    // vehicleDataService: VehicleDataService
   ) {
-    entityDataService.registerService('Vehicle', vehicleDataService);
+    // entityDataService.registerService('Vehicle', vehicleDataService);
   }
 
 }

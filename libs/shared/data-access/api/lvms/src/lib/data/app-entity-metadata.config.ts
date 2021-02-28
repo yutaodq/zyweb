@@ -6,7 +6,7 @@ export const entityMetadata: EntityMetadataMap = {
   // VehicleUseType: {},
 };
 
-const pluralNames = {
+export const pluralNames = {
   Vehicle: 'Vehicles',
 };
 

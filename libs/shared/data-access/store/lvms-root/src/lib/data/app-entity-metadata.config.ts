@@ -7,7 +7,7 @@ const entityMetadata: EntityMetadataMap = {
 };
 
 const pluralNames = {
-  // Vehicle: 'Vehicles',
+  Vehicle: 'Vehicles',
 };
 
 export const entityConfig = {
