@@ -16,7 +16,7 @@ import { VehicleExistsService,  } from '@zyweb/shared/data-access/facade/lvms';
 
 export class VehicleExistsGuard implements CanActivate {
   constructor(
-    private vehicleExistsService: VehicleExistsService,
+    private existsService: VehicleExistsService,
     private router: Router
   ) {}
 
@@ -34,6 +34,6 @@ export class VehicleExistsGuard implements CanActivate {
    * to the 404 page.
    */
   canActivate(route: ActivatedRouteSnapshot): Observable<boolean> {
-    return this.vehicleExistsService.canActivate(route.params['id']);
+    return this.existsService.canActivate(route.params['id']);
   }
 }

@@ -7,11 +7,7 @@ import { select, Store } from '@ngrx/store';
 import { Observable, of, Subscription } from 'rxjs';
 import { catchError, filter, first, map, switchMap, take, tap } from 'rxjs/operators';
 import { EntityCollectionService, EntityServices } from '@ngrx/data';
-
-import * as fromVehicleUseTypes from '@zyweb/vehicle/use-type/data-access/store';
 import {  Router } from '@angular/router';
-import { VehicleUseTypesApiClient } from '@zyweb/shared/data-access/api/lvms';
-// import { Vehicle } from '@zyweb/shared/data-access/model';
 import { Vehicle } from '@zyweb/shared/data-access/model/lvms';
 
 @Injectable()
@@ -19,14 +15,15 @@ export class VehicleExistsService  {
   private _collectionService: EntityCollectionService<Vehicle>
   constructor(
     entityServices: EntityServices,
-    protected appState$: Store<fromVehicleUseTypes.State>,
-    private  _vehicleUseTypesApiClient: VehicleUseTypesApiClient,
     private _router: Router,
   ) {
-    this._collectionService = entityServices.getEntityCollectionService('Vehicle');
+    this._collectionService = entityServices.getEntityCollectionService(this.entityName);
 
   }
 
+get entityName() {
+    return 'Vehicle'
+}
   canActivate(id: string): Observable<boolean> {
     return this.waitForCollectionToLoad().pipe(
       switchMap(() => this.hasEntity(id))
@@ -38,7 +35,6 @@ export class VehicleExistsService  {
    * 在加载完成后发出一次响应.
    */
   waitForCollectionToLoad(): Observable<boolean> {
-    console.log('bbbbbbbbbbbbbbbbbb');
     return this._collectionService.loaded$.pipe(
       tap(loaded => {
         if (!loaded) {
@@ -54,7 +50,6 @@ export class VehicleExistsService  {
    * 它首先检查图书是否在存储中，如果没有，则检查它是否在API中。
    */
   hasEntity(id: string): Observable<boolean> {
-    console.log('cccccccccccccccccccc');
     return this.hasEntityInStore(id).pipe(
       switchMap((inStore) => {
         if (inStore) {
@@ -68,7 +63,6 @@ export class VehicleExistsService  {
    * 该方法检查具有给定ID的图书是否已经在存储中注册
    */
   hasEntityInStore(id: string): Observable<boolean> {
-    console.log('dddddddddddddddddddddddd');
     return this._collectionService.keys$.pipe(
       map((entities) => !!entities[id]),
       take(1)
@@ -81,9 +75,8 @@ export class VehicleExistsService  {
    */
 
   hasEntityInApi(id: string): Observable<boolean> {
-    console.log('eeeeeeeeeeeeeeeeeeeeeee');
     return this._collectionService.getByKey(id).pipe(
-      map(vehicle => !!vehicle),
+      map(entity => !!entity),
       catchError(() => {
         this._router.navigate(['/404']);
         return of(false)

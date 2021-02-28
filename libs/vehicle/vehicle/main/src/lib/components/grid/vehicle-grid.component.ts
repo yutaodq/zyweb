@@ -30,22 +30,25 @@ export class VehicleGridComponent implements OnInit, AfterViewInit {
 
   ngOnInit() {
     this.gridOptions = this._gridPresenter.gridOptions;
-    this.columnDefs = [... require('./vehicle-grid.json'), {
-      headerName: '',
-      editable: false,
-      sortable: false,
-      filter: false,
-      width: 65,
-      fixedWidth: true,
-      lockPinned: true,
-      pinned: 'right',
-      cellRenderer: 'actionsColRendered',
-      cellRendererParams: {
-        onClick: this.onSelectData.bind(this),
-        fa: 'fa fa-info-circle',
-        iconClass: 'detail-icon'
-      }
-    }];
+    this.columnDefs = [...this._gridPresenter.columnDefs()]
+    // this.columnDefs = [...this._gridPresenter.columnDefs(), {
+    //   headerName: '',
+    //   editable: false,
+    //   sortable: false,
+    //   filter: false,
+    //   width: 65,
+    //   fixedWidth: true,
+    //   lockPinned: true,
+    //   pinned: 'right',
+    //   cellRenderer: 'actionsColRendered',
+    //   cellRendererParams: {
+    //     onClick: this.onSelectData.bind(this),
+    //     fa: 'fa fa-info-circle',
+    //     iconClass: 'detail-icon'
+    //   }
+    // }];
+
+
   }
 
   public ngAfterViewInit(): void {

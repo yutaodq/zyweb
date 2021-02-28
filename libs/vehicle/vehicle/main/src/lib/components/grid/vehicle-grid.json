@@ -6,6 +6,22 @@
   {
     "field": "description",
     "headerName": "备注"
+  },
+  {
+    "headerName": "",
+    "editable": false,
+    "sortable": false,
+    "filter": false,
+    "width": 65,
+    "fixedWidth": true,
+    "lockPinned": true,
+    "pinned": "right",
+    "cellRenderer": "actionsColRendered",
+    "cellRendererParams": {
+      "onClick": this.onSelectData.bind(this),
+      "fa": "fa fa-info-circle",
+      "iconClass": "detail-icon"
+    }
   }
 
 ]
