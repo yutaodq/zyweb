@@ -40,7 +40,6 @@ export class CreateFormPresenter {
   }
 
   public reset(): void {
-    console.log('ddddddddddddddddddddd');
     this.options.resetModel();
     // this.options.updateInitialValue();
     // this._reset.next('reset');

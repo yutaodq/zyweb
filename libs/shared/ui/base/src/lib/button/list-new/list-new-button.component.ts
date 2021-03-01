@@ -12,7 +12,7 @@ import {
 })
 export class ListNewButtonComponent  {
   @Output()
-  public onClick: EventEmitter<any> = new EventEmitter();
+  public click: EventEmitter<any> = new EventEmitter();
 
   constructor() {}
 
@@ -20,7 +20,7 @@ export class ListNewButtonComponent  {
 
   public onButtonClick(event: Event): void {
     // event.stopPropagation();
-    this.onClick.emit(event);
+    this.click.emit(event);
   }
 
 }

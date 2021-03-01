@@ -5,7 +5,7 @@ import { VehicleFacade } from '@zyweb/shared/data-access/facade/lvms';
 import { NotificationService } from '@zyweb/shared/util/message';
 
 @Component({
-  selector: 'zyweb-vehicle-use-type-list',
+  selector: 'zyweb-vehicle-list',
   templateUrl: './list.component.html',
   styleUrls: ['./list.component.scss'],
   changeDetection: ChangeDetectionStrategy.OnPush,
@@ -34,8 +34,9 @@ export class ListComponent implements OnInit {
     return this._facade;
   }
 
-  create() {
+  onCreate() {
     this._facade.createVehicle();
+    this._notification.showMessage({severity: 'success', summary: '提示信息：', detail: '新建一台车辆信息' });
   }
 
 

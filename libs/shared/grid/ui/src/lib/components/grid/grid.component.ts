@@ -11,8 +11,8 @@ import {
 
 @Component({
   selector: 'zyweb-shared-grid',
-  templateUrl: './grid.html',
-  styleUrls: ['./grid.scss'],
+  templateUrl: './grid.component.html',
+  styleUrls: ['./grid.component.scss'],
   providers: [],
   changeDetection: ChangeDetectionStrategy.OnPush
 })

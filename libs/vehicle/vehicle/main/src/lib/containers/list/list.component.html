@@ -9,7 +9,7 @@
   <div class="card  ">
     <div class="row justify-content-between">
       <div class="col-md-3">
-        <zyweb-ui-base-button-list-new (onClick)="create()">
+        <zyweb-ui-base-button-list-new (click)="onCreate()">
         </zyweb-ui-base-button-list-new>
       </div>
 
@@ -22,11 +22,11 @@
 
     <div class="row">
       <div class="col">
-        <zyweb-wehicle-use-type-grid
+        <zyweb-wehicle-grid
           [items]="facade.vehicles$ | async"
             (selectDataEvent)="onSelectData($event)"
         >
-        </zyweb-wehicle-use-type-grid>
+        </zyweb-wehicle-grid>
       </div>
     </div>
 

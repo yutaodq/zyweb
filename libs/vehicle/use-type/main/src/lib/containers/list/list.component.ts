@@ -34,7 +34,7 @@ export class ListComponent implements OnInit {
     return this._facade;
   }
 
-  create() {
+  onCreate() {
     this._facade.createVehicleUseType();
   }
 

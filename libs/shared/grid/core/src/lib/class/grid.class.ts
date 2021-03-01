@@ -5,30 +5,33 @@ import {
   Input, OnDestroy, OnInit, Output
 } from '@angular/core';
 
-import { Vehicle } from '@zyweb/shared/data-access/model/lvms';
-import { VehicleGridPresenter } from './vehicle-grid.presenter';
-import { IDataGridOptions } from '@zyweb/shared/grid/ui';
-import { VehicleUseTypeSearchNgrxGridService } from '@zyweb/shared/data-access/facade/lvms';
+import { GridOptionsModel, IDataGridOptions } from '@zyweb/shared/grid/ui';
 import { map } from 'rxjs/operators';
 import { Subscription } from 'rxjs';
+import { SearchNgrxGridService } from '@zyweb/shared/grid/core';
+
+// @Component({
+//   selector: 'zyweb-wehicle-grid',
+//   templateUrl: './vehicle-grid.component.html',
+//   changeDetection: ChangeDetectionStrategy.OnPush
+// })
 
 @Component({
-  selector: 'zyweb-wehicle-grid',
-  templateUrl: './vehicle-grid.component.html',
-  changeDetection: ChangeDetectionStrategy.OnPush
+  template: ''
 })
 
-export class VehicleGridComponent implements OnInit, AfterViewInit, OnDestroy {
-  @Output() selectDataEvent = new EventEmitter<Vehicle>();
-  private _items: Vehicle[];
+export abstract class GridClass<T> implements OnInit, AfterViewInit, OnDestroy {
+  @Output() selectDataEvent = new EventEmitter<T>();
+
+  private _items: T[];
 
   private subscriptions: Array<Subscription> = [];
 
   public gridOptions: IDataGridOptions;
   public columnDefs;
 
-  constructor(private _gridPresenter: VehicleGridPresenter,
-              private _searchNgrxGridService: VehicleUseTypeSearchNgrxGridService
+  constructor(private _gridPresenter: GridOptionsModel<T>,
+              private _searchNgrxGridService: SearchNgrxGridService
   ) {
   }
 
@@ -47,7 +50,7 @@ export class VehicleGridComponent implements OnInit, AfterViewInit, OnDestroy {
   private registerEvents(): void {
     // 订阅车辆详情
     this.subscriptions.push(
-      this._gridPresenter.select$.subscribe(vehicle => this.selectDataEvent.emit(vehicle))
+      this._gridPresenter.select$.subscribe(entity => this.selectDataEvent.emit(entity))
     );
   }
 
@@ -67,11 +70,11 @@ export class VehicleGridComponent implements OnInit, AfterViewInit, OnDestroy {
 
 
   @Input()
-  public set items(value: Vehicle[]) {
+  public set items(value: T[]) {
     this._items = value;
   }
 
-  public get items(): Vehicle[] {
+  public get items(): T[] {
     return this._items;
   }
 }
