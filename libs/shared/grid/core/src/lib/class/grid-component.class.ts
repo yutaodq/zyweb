@@ -15,7 +15,7 @@ import { IGridOptionsModel } from '../view-model';
   template: ''
 })
 
-export abstract class GridClass<T> implements OnInit, AfterViewInit, OnDestroy {
+export abstract class GridComponentClass<T> implements OnInit, AfterViewInit, OnDestroy {
   @Output() selectDataEvent = new EventEmitter<T>();
 
   private _items: T[];
@@ -24,18 +24,16 @@ export abstract class GridClass<T> implements OnInit, AfterViewInit, OnDestroy {
 
   public gridOptions: IDataGridOptions;
   public columnDefs;
+  protected gridPresenter: IGridOptionsModel<T>
 
-  constructor(private _gridPresenter: IGridOptionsModel<T>,
-              private _searchNgrxGridService: SearchNgrxGridService
+  constructor( private _searchNgrxGridService: SearchNgrxGridService
   ) {
   }
 
   ngOnInit() {
-    this.gridOptions = this._gridPresenter.gridOptions();
-    this.columnDefs = [...this._gridPresenter.columnDefs()];
+    this.gridOptions = this.gridPresenter.gridOptions();
+    this.columnDefs = [...this.gridPresenter.columnDefs()];
     this.registerEvents();
-
-
   }
 
   ngOnDestroy() {
@@ -45,7 +43,7 @@ export abstract class GridClass<T> implements OnInit, AfterViewInit, OnDestroy {
   private registerEvents(): void {
     // 订阅车辆详情
     this.subscriptions.push(
-      this._gridPresenter.select$.subscribe(entity => this.selectDataEvent.emit(entity))
+      this.gridPresenter.select$.subscribe(entity => this.selectDataEvent.emit(entity))
     );
   }
 

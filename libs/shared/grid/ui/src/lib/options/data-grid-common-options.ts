@@ -10,7 +10,7 @@ export interface IDataGridCommonOptions {
     rowHeight?: number; // 可以改变除了表头所有的行高
 }
 
-// const GridClass = 'ag-theme-blue';
+// const GridComponentClass = 'ag-theme-blue';
 const GridClass = 'ag-theme-alpine';
 
 export const DataGridCommonOptions: IDataGridCommonOptions = {

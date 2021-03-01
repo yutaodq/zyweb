@@ -20,6 +20,8 @@ import { ListComponent } from './list.component';
   declarations: [
     ListComponent,
   ],
-  providers: [ VehicleFacade, {provide:SearchNgrxGridService, useClass:VehicleSearchNgrxGridService}],
+  providers: [ VehicleFacade,
+    {provide:SearchNgrxGridService, useClass:VehicleSearchNgrxGridService}
+    ],
 })
 export class VehicleMainContainersListModule {}
