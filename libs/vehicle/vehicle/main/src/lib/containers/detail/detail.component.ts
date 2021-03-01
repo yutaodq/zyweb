@@ -31,7 +31,7 @@ export class DetailComponent implements OnInit, OnDestroy {
     private _route: ActivatedRoute,
     private notification: NotificationService
   ) {
-    this.vehicle$ = this._facade.vehiclesDetail$;
+    this.vehicle$ = this._facade.vehicleDetail$;
   }
 
   public returnList(): void {

@@ -34,7 +34,7 @@ export class VehicleFacade extends Sandbox{
     return this._collectionService.entities$;
   }
 
-  get vehiclesDetail$(): Observable<Vehicle> {
+  get vehicleDetail$(): Observable<Vehicle> {
     return this._collectionService.selected$.pipe(
       take(1),
     )
@@ -65,7 +65,7 @@ export class VehicleFacade extends Sandbox{
   }
 
   returnToList() {
-    this.routeTo({ path: ['vehicleUseTypes', 'list'] });
+    this.routeTo({ path: ['vehicles', 'list'] });
   }
 
 
