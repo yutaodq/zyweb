@@ -5,16 +5,11 @@ import {
   Input, OnDestroy, OnInit, Output
 } from '@angular/core';
 
-import { GridOptionsModel, IDataGridOptions } from '@zyweb/shared/grid/ui';
 import { map } from 'rxjs/operators';
 import { Subscription } from 'rxjs';
-import { SearchNgrxGridService } from '@zyweb/shared/grid/core';
-
-// @Component({
-//   selector: 'zyweb-wehicle-grid',
-//   templateUrl: './vehicle-grid.component.html',
-//   changeDetection: ChangeDetectionStrategy.OnPush
-// })
+import { SearchNgrxGridService } from '../services';
+import { IDataGridOptions } from '../options';
+import { IGridOptionsModel } from '../view-model';
 
 @Component({
   template: ''
@@ -30,13 +25,13 @@ export abstract class GridClass<T> implements OnInit, AfterViewInit, OnDestroy {
   public gridOptions: IDataGridOptions;
   public columnDefs;
 
-  constructor(private _gridPresenter: GridOptionsModel<T>,
+  constructor(private _gridPresenter: IGridOptionsModel<T>,
               private _searchNgrxGridService: SearchNgrxGridService
   ) {
   }
 
   ngOnInit() {
-    this.gridOptions = this._gridPresenter.gridOptions;
+    this.gridOptions = this._gridPresenter.gridOptions();
     this.columnDefs = [...this._gridPresenter.columnDefs()];
     this.registerEvents();
 

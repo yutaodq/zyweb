@@ -1,12 +1,17 @@
 import { Observable, Subject } from 'rxjs';
 
 import { DataGridCommonOptions, DataGridOptionsUtil, IDataGridOptions } from '../options';
-import { IGridColumnsBuilder, LOCALE_TEXT_GRID, SearchNgrxGridService } from '@zyweb/shared/grid/core';
+import {
+  IGridColumnsBuilder,
+  IGridOptionsModel,
+  LOCALE_TEXT_GRID,
+  SearchNgrxGridService
+} from '@zyweb/shared/grid/core';
 import { COLUMN_DEFAULT_VALUE, ROW_HEIGHT } from '../options/column-default-value';
 import { ActionsColumnRendererComponent, ButtonRenderedComponent } from '../components/renderer';
 import { Vehicle } from '@zyweb/shared/data-access/model/lvms';
 
-export abstract class GridOptionsModel<T> {
+export abstract class GridOptionsModel<T> implements IGridOptionsModel<T>{
   private select: Subject<T> = new Subject();
   select$: Observable<T> = this.select.asObservable();
 
@@ -18,7 +23,7 @@ export abstract class GridOptionsModel<T> {
   protected constructor() {
   }
 
-  public get gridOptions(): IDataGridOptions {
+  public gridOptions(): IDataGridOptions {
     const gridOptions = DataGridOptionsUtil.getGridOptions(
       {
         defaultColDef: COLUMN_DEFAULT_VALUE,

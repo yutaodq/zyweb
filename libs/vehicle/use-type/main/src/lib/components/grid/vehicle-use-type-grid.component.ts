@@ -29,7 +29,7 @@ export class VehicleUseTypeGridComponent implements OnInit, AfterViewInit {
   }
 
   ngOnInit() {
-    this.gridOptions = this._gridPresenter.gridOptions;
+    this.gridOptions = this._gridPresenter.gridOptions();
     this.columnDefs = [... require('./vehicle-use-type-grid.json'), {
       headerName: '',
       editable: false,

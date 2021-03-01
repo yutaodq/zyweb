@@ -33,7 +33,7 @@ export class VehicleGridComponent implements OnInit, AfterViewInit, OnDestroy {
   }
 
   ngOnInit() {
-    this.gridOptions = this._gridPresenter.gridOptions;
+    this.gridOptions = this._gridPresenter.gridOptions();
     this.columnDefs = [...this._gridPresenter.columnDefs()];
     this.registerEvents();
 
