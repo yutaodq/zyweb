@@ -1,0 +1,22 @@
+<div *ngIf="header"
+     fxLayout="row"
+     fxLayoutAlign="space-between end" class="pb-8">
+
+  <div>
+    <ng-content select="[breadcrumb]"></ng-content>
+    <div fxLayout="row"
+         fxLayoutAlign="start center">
+      <ng-content select="[back]"></ng-content>
+      <ng-content select="[title]"></ng-content>
+    </div>
+  </div>
+
+  <div>
+    <ng-content select="[action]"></ng-content>
+  </div>
+
+</div>
+
+<div>
+  <ng-content select="[body]"></ng-content>
+</div>

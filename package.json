@@ -66,6 +66,7 @@
     "font-awesome": "^4.7.0",
     "lodash": "^4.17.20",
     "ngx-logger": "^4.1.9",
+    "ngx-toastr": "^13.2.0",
     "primeflex": "^2.0.0",
     "primeicons": "^4.1.0",
     "primeng": "^11.0.0",
@@ -82,12 +83,14 @@
     "@ngrx/schematics": "10.0.0",
     "@ngrx/store-devtools": "10.0.0",
     "@nrwl/cli": "10.4.4",
+    "@nrwl/cypress": "10.4.4",
     "@nrwl/jest": "10.4.4",
     "@nrwl/tao": "10.4.4",
     "@nrwl/workspace": "10.4.4",
     "@types/jest": "26.0.8",
     "@types/node": "~8.9.4",
     "codelyzer": "~5.0.1",
+    "cypress": "^5.5.0",
     "dotenv": "6.2.0",
     "eslint": "7.10.0",
     "jest": "26.2.2",
@@ -97,8 +100,6 @@
     "ts-jest": "26.4.0",
     "ts-node": "~7.0.0",
     "tslint": "~6.0.0",
-    "typescript": "~4.0.3",
-    "cypress": "^5.5.0",
-    "@nrwl/cypress": "10.4.4"
+    "typescript": "~4.0.3"
   }
 }

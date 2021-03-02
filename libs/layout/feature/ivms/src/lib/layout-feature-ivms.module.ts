@@ -11,6 +11,7 @@ import { SharedUtilLog4Module } from '@zyweb/shared/util/log4';
 import { SharedDataAccessStoreNgrxErrorModule } from '@zyweb/shared/data-access/store/ngrx-error';
 import { SharedDataAccessApiLvmsModule } from '@zyweb/shared/data-access/api/lvms';
 import { SharedUiFormModule } from '@zyweb/shared/ui/form';
+import { SharedUtilMessageModule } from '@zyweb/shared/util/message';
 
 @NgModule({
   imports: [CommonModule,
@@ -22,6 +23,8 @@ import { SharedUiFormModule } from '@zyweb/shared/ui/form';
     SharedUiFormModule.forRoot(),
     SharedUtilI18nModule,
     SharedUtilLog4Module,
+    SharedUtilMessageModule,
+
   ],
   exports: [MainModule],
   providers: [MessageService]

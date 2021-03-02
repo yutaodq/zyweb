@@ -6,6 +6,7 @@ import { AppComponent } from './app.component';
 
 import { AppRoutingModule } from './app-routing.module';
 import { LayoutFeatureIvmsModule } from '@zyweb/layout/feature/ivms';
+import { SharedUtilMessageModule } from '@zyweb/shared/util/message';
 
 
 @NgModule({

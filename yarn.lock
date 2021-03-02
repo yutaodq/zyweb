@@ -8231,6 +8231,13 @@ ngx-logger@^4.1.9:
     tslib "^1.9.0"
     vlq "^1.0.0"
 
+ngx-toastr@^13.2.0:
+  version "13.2.0"
+  resolved "https://registry.npm.taobao.org/ngx-toastr/download/ngx-toastr-13.2.0.tgz#3ef047c977a7d0fb67fed9338b8f5add3c87b356"
+  integrity sha1-PvBHyXen0Ptn/tkzi49a3TyHs1Y=
+  dependencies:
+    tslib "^2.0.0"
+
 nice-try@^1.0.4:
   version "1.0.5"
   resolved "https://registry.npm.taobao.org/nice-try/download/nice-try-1.0.5.tgz?cache=0&sync_timestamp=1602353679182&other_urls=https%3A%2F%2Fregistry.npm.taobao.org%2Fnice-try%2Fdownload%2Fnice-try-1.0.5.tgz#a3378a7696ce7d223e88fc9b764bd7ef1089e366"

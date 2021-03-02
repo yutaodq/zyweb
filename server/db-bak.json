@@ -24,23 +24,6 @@
       "id": 4
     }
   ],
-  "profiles": [
-    {
-      "id": 1,
-      "userId": 1,
-      "job": "Plumber"
-    },
-    {
-      "id": 2,
-      "userId": 2,
-      "job": "developer"
-    },
-    {
-      "id": 3,
-      "userId": 3,
-      "job": "Manager"
-    }
-  ],
   "products": [
     {
       "id": 1,
@@ -75,104 +58,120 @@
   ],
   "vehicles": [
     {
-      "id": 5,
-      "name": "汽车",
-      "pz": "ky75",
-      "nbpz": "作业12345",
-      "type": "锅炉车",
-      "zt": "在用"
-    },
-    {
-      "id": 6,
-      "name": "卡车",
-      "pz": "7777889999",
-      "nbpz": "作业7777889999",
-      "type": "吊车",
-      "zt": "停用"
-    },
-    {
-      "id": 11,
-      "name": "汽车",
-      "pz": "12345",
-      "nbpz": "作业12345",
-      "type": "锅炉车",
-      "zt": "在用"
-    },
-    {
-      "id": 12,
-      "name": "卡车",
-      "pz": "7777889999",
-      "nbpz": "作业7777889999",
-      "type": "吊车",
-      "zt": "停用"
-    },
-    {
       "id": 13,
-      "name": "汽车",
+      "name": "ERERERT汽车3",
       "pz": "5fg",
       "nbpz": "作业12345",
       "type": "锅炉车",
-      "zt": "在用"
+      "zt": "在用",
+      "description": "返回"
     },
     {
-      "id": 14,
-      "name": "卡车",
-      "pz": "fdwe333",
-      "nbpz": "作业7777889999",
-      "type": "吊车",
-      "zt": "停用"
-    },
-    {
-      "id": 15,
-      "name": "汽车",
-      "pz": "ky75",
+      "id": 45,
+      "name": "WFS汽车3",
+      "pz": "5fg",
       "nbpz": "作业12345",
       "type": "锅炉车",
-      "zt": "在用"
+      "zt": "在用",
+      "description": "返回"
     },
     {
-      "id": 16,
-      "name": "卡车",
-      "pz": "7777889999",
-      "nbpz": "作业7777889999",
-      "type": "吊车",
-      "zt": "停用"
+      "id": 67,
+      "name": "GFS汽车3",
+      "pz": "5fg",
+      "nbpz": "作业12345",
+      "type": "锅炉车",
+      "zt": "在用",
+      "description": "返回"
     },
     {
-      "name": "uuuuu",
-      "id": 17
+      "id": 89,
+      "name": "EQQQ汽车3",
+      "pz": "5fg",
+      "nbpz": "作业12345",
+      "type": "锅炉车",
+      "zt": "在用",
+      "description": "返回"
+    },
+    {
+      "id": 98,
+      "name": "DAS汽车3",
+      "pz": "5fg",
+      "nbpz": "作业12345",
+      "type": "锅炉车",
+      "zt": "在用",
+      "description": "返回"
     }
   ],
   "vehicle_use_types": [
     {
-      "id": 1,
-      "name": "吊车",
-      "description": "12345"
+      "id": "ecd49108-ca00-4d44-b801-458ec5303930",
+      "description": "dfs",
+      "name": "近一点哦哦哦哦哦"
     },
     {
-      "id": 2,
-      "name": "锅炉车",
-      "description": "7777889999"
+      "id": "230f9127-9822-4f43-b85b-e0409072c17a",
+      "description": "rrrrrrrrrrr返回",
+      "name": "rrrrrrrrfgdd集合集合管"
     },
     {
-      "id": 3,
-      "name": "水泥车",
-      "description": "5fg"
+      "name": "124564ddddd",
+      "description": "fd",
+      "id": "f8b54680-28c8-41cc-8ef1-0a5d150d6255"
     },
     {
-      "id": 4,
-      "name": "清水罐车",
-      "description": "fdwe333"
+      "name": "556777",
+      "description": "44",
+      "id": "57d594b2-2765-44b9-bb0d-4df93dab315c"
     },
     {
-      "id": 5,
-      "name": "污水罐车",
-      "description": "5fg"
+      "id": "71f6f845-2b8b-4225-a47d-c8a3e489cf94",
+      "description": "ppppppp",
+      "name": "12pp3333333333333"
     },
     {
-      "id": 6,
-      "name": "污油罐车",
-      "description": "fdwe333"
+      "name": "12567ppp",
+      "description": "pppjj",
+      "id": "4ef4a36d-c2be-44ac-abc9-2d3964c5cfda"
+    },
+    {
+      "name": "456",
+      "description": "456",
+      "id": "3897d93c-b400-499d-91e9-a35d0670e409"
+    },
+    {
+      "name": "柔柔弱弱无无无sd",
+      "description": "答 十大",
+      "id": "4d7000ea-e644-4116-a318-34e4b3426e62"
+    },
+    {
+      "name": "个阿道夫鼎折覆餗",
+      "description": "都是分散",
+      "id": "6f62ba01-9a7a-43a1-8c28-551ed03ef2c4"
+    },
+    {
+      "name": "66677775555",
+      "id": "3cca8e52-dbe0-43ab-9599-3eae1a0600f6"
+    },
+    {
+      "name": "56嗯嗯嗯方法",
+      "description": "方法规范化",
+      "id": "1b5ff7da-8c9c-4a69-8a78-feb8c35e2f39"
+    },
+    {
+      "name": "十多个发",
+      "description": "返回",
+      "id": "0ee833c2-a27d-4bb8-ac0e-8c9c29852ffc"
+    },
+    {
+      "id": "93f9b5d6-2830-4a9a-86e1-0b6c892091bd",
+      "description": "在",
+      "name": "㐋是想方法"
+    },
+    {
+      "name": "gfdgfdgfd",
+      "description": "gfddf ",
+      "id": "9983c8f9-4fcf-4af4-b715-09e43902c759"
     }
   ]
 }

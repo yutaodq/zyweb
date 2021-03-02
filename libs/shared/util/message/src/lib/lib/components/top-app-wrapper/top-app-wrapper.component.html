@@ -1,0 +1,48 @@
+<div class="products-store-ui-app-wrapper__body"
+     [ngSwitch]="ready && !error">
+
+  <div *ngSwitchCase="true"
+       class="products-store-ui-app-wrapper__body__content"
+       [@fadeInOut]="'in'">
+
+    <ng-content></ng-content>
+
+  </div>
+
+  <div *ngSwitchDefault
+       class="products-store-ui-app-wrapper__body__loader"
+       fxLayout="column"
+       fxLayoutAlign="center center"
+       [@fadeInOut]="'in'">
+
+    <div class="products-store-ui-app-wrapper__body__loader__logo">
+
+      <h1>{{ title }}</h1>
+
+    </div>
+
+    <div *ngIf="!error"
+         class="products-store-ui-app-wrapper__body__loader__progress">
+
+      <products-store-ui-loader></products-store-ui-loader>
+
+    </div>
+
+    <div *ngIf="error"
+         class="products-store-ui-app-wrapper__body__loader__error">
+
+      <products-store-ui-error-placeholder [error]="error"></products-store-ui-error-placeholder>
+
+    </div>
+
+  </div>
+
+</div>
+
+<div *ngIf="pending$ | async"
+     class="products-store-ui-app-wrapper__pending"
+     [@fadeInOut]="'in'">
+
+  <mat-progress-bar mode="indeterminate"></mat-progress-bar>
+
+</div>
