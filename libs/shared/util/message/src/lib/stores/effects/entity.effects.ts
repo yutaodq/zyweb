@@ -5,19 +5,19 @@ import { defer, of } from 'rxjs';
 import {  switchMap} from 'rxjs/operators';
 
 
-import { EntityOp, ofEntityOp, ofEntityType } from '@ngrx/data';
+import { EntityAction, EntityOp, ofEntityOp, ofEntityType } from '@ngrx/data';
 import { NotificationActions } from '../actions';
 // const ENTITY_NAME = 'Vehicle'
 @Injectable()
 export class EntityEffects {
 
+
   handleDeleteSuccess$ = createEffect(() =>
     this.actions$.pipe(
-      ofEntityType(),
       ofEntityOp(EntityOp.SAVE_DELETE_ONE_SUCCESS),
-      switchMap(() => ([
+      switchMap((action: EntityAction) => ([
           NotificationActions.success({
-            message: '你成功地删除了一条记录 ',
+            message: '你成功地删除了一条记录 ' + action.payload.entityName,
           }),
         ])
       )

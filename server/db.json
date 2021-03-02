@@ -58,15 +58,6 @@
   ],
   "vehicles": [
     {
-      "id": 67,
-      "name": "GFS汽车3",
-      "pz": "5fg",
-      "nbpz": "作业12345",
-      "type": "锅炉车",
-      "zt": "在用",
-      "description": "返回"
-    },
-    {
       "id": 98,
       "name": "DAS汽车3",
       "pz": "5fg",
