@@ -9,7 +9,7 @@ import { VehicleUseTypesApiClient } from '@zyweb/shared/data-access/api/lvms';
 @NgModule({
   imports: [
     CommonModule,
-    StoreModule.forFeature(fromVehicles.vehicleUseTypesFeatureKey, fromVehicles.reducers),
+    StoreModule.forFeature(fromVehicles.vehiclesFeatureKey, fromVehicles.reducers),
     // EffectsModule.forFeature([CollectionEffects ]),
   ],
   providers: [VehicleUseTypesApiClient]

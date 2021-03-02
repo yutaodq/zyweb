@@ -10,14 +10,14 @@ import * as fromRoot from '@zyweb/shared/data-access/store/lvms-root';
 
 import * as fromSearch from './search.reducer';
 
-export const vehicleUseTypesFeatureKey = ' vehicleUseTypes';
+export const vehiclesFeatureKey = ' vehicles';
 
 export interface VehiclesState {
   [fromSearch.searchFeatureKey]: fromSearch.State;
 }
 
 export interface State extends fromRoot.AppState {
-  [vehicleUseTypesFeatureKey]: VehiclesState;
+  [vehiclesFeatureKey]: VehiclesState;
 }
 
 /** Provide reducer in AoT-compilation happy way */
@@ -27,7 +27,7 @@ export function reducers(state: VehiclesState | undefined, action: Action) {
   })(state, action);
 }
 export const selectVehicleUseTypesState = createFeatureSelector<State, VehiclesState>(
-  vehicleUseTypesFeatureKey
+  vehiclesFeatureKey
 );
 
 export const selectSearchState = createSelector(
