@@ -8,6 +8,7 @@ import {
   OnInit,
   Output
 } from '@angular/core';
+import { MasterDetailCommand } from '@zyweb/shared/util/utility';
 
 @Component({
   selector: 'zyweb-ui-base-details-toolbar',
@@ -24,6 +25,8 @@ export class DetailsToolbarComponent  {
   @Output()
   public onCreateEvent: EventEmitter<any> = new EventEmitter();
 
+  @Input() commands: MasterDetailCommand<any>;
+
   constructor(  ) {  }
 
   public delete(event: Event): void {
@@ -31,6 +34,7 @@ export class DetailsToolbarComponent  {
   }
 
   public list(event: Event): void {
+    this.commands.toList();
     this.onListEvent.emit();
   }
   public create(event: Event): void {

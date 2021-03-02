@@ -5,30 +5,11 @@
 
 <div class="container content-section implementation">
   <zyweb-ui-base-details-toolbar
-    (onListEvent)="returnList()"
-    (onRemoveEvent)="delete()"
-    (onCreateEvent)="create()"
-  >
-<!--    <zyweb-vehicle-use-type-detail-button (onEditOtherEvent)="updateName()">-->
-<!--    </zyweb-vehicle-use-type-detail-button>-->
-
+    [commands]="commands">
+    <zyweb-vehicle-detail-button [updateCommand]="commands">
+    </zyweb-vehicle-detail-button>
   </zyweb-ui-base-details-toolbar>
-  <!--  <zyweb-vehicle-use-type-detail-toolbar-->
-  <!--    (onListEvent)="returnList()"-->
-  <!--    (onRemoveEvent)="delete()"-->
-  <!--    (onCreateEvent)="create()"-->
-  <!--  >-->
-  <!--    <zyweb-vehicle-use-type-detail-button>-->
-  <!--    </zyweb-vehicle-use-type-detail-button>-->
 
-  <!--    &lt;!&ndash;    <p-splitButton label="Save"&ndash;&gt;-->
-  <!--    &lt;!&ndash;                   clase="fa flaticon-plus"&ndash;&gt;-->
-  <!--    &lt;!&ndash;                   class="mr-md-1"&ndash;&gt;-->
-  <!--    &lt;!&ndash;                   styleClass="p-button-warning">&ndash;&gt;-->
-
-  <!--    &lt;!&ndash;    </p-splitButton>&ndash;&gt;-->
-
-  <!--  </zyweb-vehicle-use-type-detail-toolbar>-->
   <div class="card">
 
     <zyweb-vehicle-detail-form [vehicle]="vehicle$| async">

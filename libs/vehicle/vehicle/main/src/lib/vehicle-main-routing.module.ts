@@ -3,6 +3,7 @@ import { RouterModule, Routes } from '@angular/router';
 import { ListComponent as VehicleListComponent } from './containers/list/list.component';
 import { DetailComponent as VehicleDetailComponent } from './containers/detail/detail.component';
 import { VehicleExistsGuard } from './guards/vehicle-exists.guard';
+import { CreateComponent as VehicleCreateComponent } from './containers/create/create.component';
 
 const routes: Routes = [
   { path: '', redirectTo: 'list', pathMatch: 'full' },
@@ -16,10 +17,10 @@ const routes: Routes = [
     canActivate: [VehicleExistsGuard],
     data: { title: 'Book detail' },
   },
-  // {
-  //   path: 'create',
-  //   component: VehicleUseTypeCreateComponent,
-  // },
+  {
+    path: 'create',
+    component: VehicleCreateComponent,
+  },
 
 ];
 
