@@ -2,8 +2,6 @@ import { ChangeDetectionStrategy, Component, OnInit } from '@angular/core';
 import { NGXLogger } from 'ngx-logger';
 import { VehicleUseType } from '@zyweb/shared/data-access/model/lvms';
 import { VehicleUseTypesFacade } from '@zyweb/shared/data-access/facade/lvms';
-import { NotificationService } from '@zyweb/shared/util/message';
-import { ToastrService } from 'ngx-toastr';
 
 @Component({
   selector: 'zyweb-vehicle-use-type-list',
@@ -16,7 +14,6 @@ export class ListComponent implements OnInit {
   constructor(
     private _facade: VehicleUseTypesFacade,
     private _logger: NGXLogger,
-    private _notification: NotificationService,
   ) {
 
   }

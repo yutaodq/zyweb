@@ -5,9 +5,8 @@ import { defer, of } from 'rxjs';
 import {  switchMap} from 'rxjs/operators';
 
 
-// import { Vehicle } from '@zyweb/shared/data-access/model/lvms';
 import { EntityOp, ofEntityOp, ofEntityType } from '@ngrx/data';
-import { NotificationActions } from '../../lib/stores/actions';
+import { NotificationActions } from '../actions';
 // const ENTITY_NAME = 'Vehicle'
 @Injectable()
 export class EntityEffects {

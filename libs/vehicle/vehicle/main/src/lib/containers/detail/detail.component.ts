@@ -6,7 +6,6 @@ import { DialogService, DynamicDialogRef } from 'primeng/dynamicdialog';
 
 import { Vehicle } from '@zyweb/shared/data-access/model/lvms';
 import { VehicleFacade } from '@zyweb/shared/data-access/facade/lvms';
-import { NotificationService } from '@zyweb/shared/util/message';
 import { DialogDeleteComponent } from '@zyweb/shared/ui/base';
 import { MasterDetailCommand } from '@zyweb/shared/util/utility';
 
@@ -32,7 +31,6 @@ export class DetailComponent implements MasterDetailCommand<Vehicle>, OnInit, On
     private changeDetector: ChangeDetectorRef,
     private _dialogService: DialogService,
     private _route: ActivatedRoute,
-    private notification: NotificationService
   ) {
     this.vehicle$ = this._facade.vehicleDetail$;
   }
@@ -50,7 +48,6 @@ export class DetailComponent implements MasterDetailCommand<Vehicle>, OnInit, On
   }
 
   public delete(): void {
-    this.notification.showMessage({ severity: 'success', summary: '提示信息：', detail: '您已经删除了一台车辆信息' });
     this._ref = this._dialogService.open(DialogDeleteComponent, {
       header: '删除车辆信息档案',
       width: '70%',

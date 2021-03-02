@@ -7,7 +7,6 @@ import { VehicleUseType } from '@zyweb/shared/data-access/model/lvms';
 import { VehicleUseTypesFacade } from '@zyweb/shared/data-access/facade/lvms';
 import { ActivatedRoute } from '@angular/router';
 import { map } from 'rxjs/operators';
-import { NotificationService } from '@zyweb/shared/util/message';
 import { DialogDeleteComponent } from '@zyweb/shared/ui/base';
 import { UpdateNameFormComponent } from '../../components/update-form/update/update-name-form.component';
 
@@ -31,7 +30,6 @@ export class DetailsComponent implements OnInit, OnDestroy {
     private changeDetector: ChangeDetectorRef,
     private _dialogService: DialogService,
     private _route: ActivatedRoute,
-    private notification: NotificationService
   ) {
 
   }
@@ -45,7 +43,6 @@ export class DetailsComponent implements OnInit, OnDestroy {
   }
 
   public delete(): void {
-    this.notification.showMessage({severity: 'success', summary: '提示信息：', detail: '您已经删除了一台车辆信息' });
     this._ref = this._dialogService.open(DialogDeleteComponent, {
       header: '删除车辆信息档案',
       width: '70%',
@@ -62,7 +59,6 @@ export class DetailsComponent implements OnInit, OnDestroy {
   }
 
   public updateName(): void {
-    this.notification.showMessage({severity: 'success', summary: '提示信息：', detail: '修改记录' });
     this._ref = this._dialogService.open(UpdateNameFormComponent, {
       header: '删除车辆信息档案',
       width: '70%',
