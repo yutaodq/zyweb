@@ -78,4 +78,8 @@ export class VehicleFacade extends Sandbox{
   cancelCreate() {
     this._appState$.dispatch(RouteActions.back());
   }
+
+  removeDetail(vehicle: Vehicle) {
+    return this._collectionService.delete(vehicle);
+  }
 }

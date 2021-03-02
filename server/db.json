@@ -58,17 +58,8 @@
   ],
   "vehicles": [
     {
-      "id": 5,
-      "name": "汽车",
-      "pz": "ky75",
-      "nbpz": "作业12345",
-      "type": "锅炉车",
-      "zt": "在用",
-      "description": "返回"
-    },
-    {
       "id": 6,
-      "name": "卡车",
+      "name": "卡车1",
       "pz": "7777889999",
       "nbpz": "作业7777889999",
       "type": "吊车",
@@ -77,7 +68,7 @@
     },
     {
       "id": 11,
-      "name": "汽车",
+      "name": "汽车2",
       "pz": "12345",
       "nbpz": "作业12345",
       "type": "锅炉车",
@@ -86,7 +77,7 @@
     },
     {
       "id": 12,
-      "name": "卡车",
+      "name": "卡车2",
       "pz": "7777889999",
       "nbpz": "作业7777889999",
       "type": "吊车",
@@ -95,7 +86,7 @@
     },
     {
       "id": 13,
-      "name": "汽车",
+      "name": "汽车3",
       "pz": "5fg",
       "nbpz": "作业12345",
       "type": "锅炉车",
@@ -105,19 +96,14 @@
   ],
   "vehicle_use_types": [
     {
-      "name": "12763",
-      "description": "dssssssssssssssssssss",
-      "id": "fb9c8631-547d-49a6-9c52-3d184b1e49dd"
-    },
-    {
       "id": "ecd49108-ca00-4d44-b801-458ec5303930",
       "description": "dfs",
       "name": "近一点哦哦哦哦哦"
     },
     {
-      "name": "fgdd集合集合管",
-      "description": "返回",
-      "id": "230f9127-9822-4f43-b85b-e0409072c17a"
+      "id": "230f9127-9822-4f43-b85b-e0409072c17a",
+      "description": "rrrrrrrrrrr返回",
+      "name": "rrrrrrrrfgdd集合集合管"
     },
     {
       "name": "124564ddddd",

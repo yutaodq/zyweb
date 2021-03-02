@@ -30,14 +30,20 @@ export class DetailsToolbarComponent  {
   constructor(  ) {  }
 
   public delete(event: Event): void {
+    if (this.commands)
+    this.commands.delete();
+
       this.onRemoveEvent.emit();
   }
 
   public list(event: Event): void {
-    this.commands.toList();
+    if (this.commands)
+      this.commands.toList();
     this.onListEvent.emit();
   }
   public create(event: Event): void {
+    if (this.commands)
+      this.commands.create();
     this.onCreateEvent.emit();
   }
 

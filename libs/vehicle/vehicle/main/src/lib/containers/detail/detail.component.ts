@@ -61,7 +61,7 @@ export class DetailComponent implements MasterDetailCommand<Vehicle>, OnInit, On
     this._ref.onClose.subscribe((isDelete) => {
 
       if (isDelete) {
-        // this._facade.removeDetail(this.vehicle);
+        this._facade.removeDetail(this.vehicle);
       }
     });
   }
