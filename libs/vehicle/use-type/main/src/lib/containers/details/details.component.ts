@@ -14,7 +14,7 @@ import { UpdateNameFormComponent } from '../../components/update-form/update/upd
   selector: 'zyweb-vehicle-use-type-details',
   templateUrl: './details.component.html',
   styleUrls: ['./details.component.scss'],
-  changeDetection: ChangeDetectionStrategy.OnPush,
+  changeDetection: ChangeDetectionStrategy.OnPush
 })
 
 export class DetailsComponent implements OnInit, OnDestroy {
@@ -29,14 +29,14 @@ export class DetailsComponent implements OnInit, OnDestroy {
     public _facade: VehicleUseTypesFacade,
     private changeDetector: ChangeDetectorRef,
     private _dialogService: DialogService,
-    private _route: ActivatedRoute,
+    private _route: ActivatedRoute
   ) {
 
   }
 
   public returnList(): void {
     this._facade.returnToList();
-   }
+  }
 
   public create(): void {
     this._facade.createVehicleUseType();
@@ -47,7 +47,7 @@ export class DetailsComponent implements OnInit, OnDestroy {
       header: '删除车辆信息档案',
       width: '70%',
       contentStyle: { 'max-height': '500px', 'overflow': 'auto' },
-      baseZIndex: 10000,
+      baseZIndex: 10000
     });
 
     this._ref.onClose.subscribe((isDelete) => {
@@ -64,7 +64,7 @@ export class DetailsComponent implements OnInit, OnDestroy {
       width: '70%',
       contentStyle: { 'max-height': '500px', 'overflow': 'auto' },
       baseZIndex: 10000,
-      data: this.vehicleUseType,
+      data: this.vehicleUseType
     });
 
     this._ref.onClose.subscribe((vehicleUseType) => {
@@ -85,11 +85,15 @@ export class DetailsComponent implements OnInit, OnDestroy {
           this.changeDetector.markForCheck();
           this.vehicleUseType = vehicleUseType;
           this.vehicleUseType$ = of(vehicleUseType);
+          console.log('asdffffffffffffffff');
         }
       }),
       this._actionsSubscription = this._route.params
-        .pipe(map((params) =>  params.id))
-        .subscribe((id) => this._facade.dispatchSelectVehicleUseType(id)),
+        .pipe(map((params) => params.id))
+        .subscribe((id) => {
+          console.log('iiiiiiiiiiiii' + id)
+          this._facade.dispatchSelectVehicleUseType(id);
+        })
     );
   }
 

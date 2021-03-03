@@ -31,8 +31,9 @@ export class DetailComponent implements MasterDetailCommand<Vehicle>, OnInit, On
     public _facade: VehicleFacade,
     private changeDetector: ChangeDetectorRef,
     private _dialogService: DialogService,
+    private _route: ActivatedRoute
   ) {
-    this.vehicle$ = this._facade.vehicleDetail$;
+    // this.vehicle$ = this._facade.vehicleDetail$;
   }
 
   public toList(): void {
@@ -69,7 +70,7 @@ export class DetailComponent implements MasterDetailCommand<Vehicle>, OnInit, On
       width: '70%',
       contentStyle: { 'max-height': '500px', 'overflow': 'auto' },
       baseZIndex: 10000,
-      data: this.vehicle,
+      data: this.vehicle
     });
 
     this._ref.onClose.subscribe((vehicle) => {
@@ -85,11 +86,18 @@ export class DetailComponent implements MasterDetailCommand<Vehicle>, OnInit, On
   private registerEvents(): void {
     // 订阅车辆详情
     this.subscriptions.push(
-      this.vehicle$.subscribe((vehicle: any) => {
+      this._facade.vehicleDetail$.subscribe((vehicle: any) => {
         if (vehicle) {
+          this.changeDetector.markForCheck();
           this.vehicle = vehicle;
+          this.vehicle$ = of(vehicle);
+          console.log('asdffffffffffffffff');
         }
-      }));
+      }),
+      this._actionsSubscription = this._route.params
+        .pipe(map((params) => params.id))
+        .subscribe((id) => console.log('iiiiiiiiiiiii' + id))
+    );
   }
 
   /*
