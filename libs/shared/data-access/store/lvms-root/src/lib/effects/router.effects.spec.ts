@@ -31,7 +31,7 @@ describe('RouterEffects', () => {
   });
 
   describe('updateTitle$', () => {
-    it('should update the title on router navigation', () => {
+    it('should zt the title on router navigation', () => {
       effects.updateTitle$.subscribe();
       expect(titleService.setTitle).toHaveBeenCalledWith(
         'Book Collection - Search'

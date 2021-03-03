@@ -87,4 +87,9 @@ export class VehicleFacade extends Sandbox{
     return this._collectionService.add(vehicle);
 
   }
+
+  updateVehicle(vehicle: Vehicle) {
+    return this._collectionService.update(vehicle);
+
+  }
 }

@@ -9,5 +9,5 @@ export interface MasterDetailCommand<T> {
   // /** "Select" an entity */
   // select: (entity: T) => void;
   // /** Update an entity */
-  // update: (entity: T) => void;
+  // zt: (entity: T) => void;
 }

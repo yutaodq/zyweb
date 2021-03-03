@@ -8,6 +8,7 @@ import { Vehicle } from '@zyweb/shared/data-access/model/lvms';
 import { VehicleFacade } from '@zyweb/shared/data-access/facade/lvms';
 import { DialogDeleteComponent } from '@zyweb/shared/ui/base';
 import { MasterDetailCommand } from '@zyweb/shared/util/utility';
+import { UpdateZtFormComponent } from '../../components/update-form/zt/update-zt-form.component';
 
 @Component({
   selector: 'zyweb-vehicle-detail',
@@ -58,6 +59,22 @@ export class DetailComponent implements MasterDetailCommand<Vehicle>, OnInit, On
 
       if (isDelete) {
         this._facade.removeDetail(this.vehicle);
+      }
+    });
+  }
+
+  public updateZt(): void {
+    this._ref = this._dialogService.open(UpdateZtFormComponent, {
+      header: '删除车辆信息档案',
+      width: '70%',
+      contentStyle: { 'max-height': '500px', 'overflow': 'auto' },
+      baseZIndex: 10000,
+      data: this.vehicle,
+    });
+
+    this._ref.onClose.subscribe((vehicle) => {
+      if (vehicle) {
+        this._facade.updateVehicle(vehicle);
       }
     });
   }

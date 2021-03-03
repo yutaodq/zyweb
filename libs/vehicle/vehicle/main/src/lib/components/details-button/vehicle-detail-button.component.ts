@@ -23,10 +23,6 @@ import { DetailComponent } from '../../containers/detail/detail.component';
 export class VehicleDetailButtonComponent  implements OnInit {
   @Input()
   updateCommand: DetailComponent;
-  @Output()
-  public onChangeUseTypeEvent: EventEmitter<any> = new EventEmitter();
-  @Output()
-  public onEditOtherEvent: EventEmitter<any> = new EventEmitter();
 
   items: MenuItem[];
 
@@ -36,19 +32,18 @@ export class VehicleDetailButtonComponent  implements OnInit {
       //     this.editOther();
       //   }},
       {separator:true},
-      {label: '用途变更', icon: 'pi pi-times', command: () => {
-          this.changeUseType();
+      {label: '改变车辆使用状态', icon: 'pi pi-times', command: () => {
+          this.changeVehicleZt();
         }},
     ];
   }
 
-  public changeUseType(): void {
-    this.onChangeUseTypeEvent.emit();
+  public change(): void {
+    this.updateCommand.update();
   }
 
-  public editOther(): void {
-    this.updateCommand.update();
-    this.onEditOtherEvent.emit();
+  public changeVehicleZt(): void {
+    this.updateCommand.updateZt();
   }
 }
 
