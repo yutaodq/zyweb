@@ -5,7 +5,7 @@ import {
   Input, OnInit, Output
 } from '@angular/core';
 
-import { Vehicle } from '@zyweb/shared/data-access/model/lvms';
+import { VehicleUseType } from '@zyweb/shared/data-access/model/lvms';
 import { VehicleUseTypeGridPresenter } from './vehicle-use-type-grid.presenter';
 import { IDataGridOptions } from '@zyweb/shared/grid/ui';
 import { VehicleUseTypeSearchNgrxGridService } from '@zyweb/shared/data-access/facade/lvms';
@@ -18,8 +18,8 @@ import { map } from 'rxjs/operators';
 })
 
 export class VehicleUseTypeGridComponent implements OnInit, AfterViewInit {
-  private _items: Vehicle[];
-  @Output() selectDataEvent = new EventEmitter<Vehicle>();
+  private _items: VehicleUseType[];
+  @Output() selectDataEvent = new EventEmitter<VehicleUseType>();
 
   public gridOptions: IDataGridOptions ;
   public columnDefs;
@@ -68,11 +68,11 @@ export class VehicleUseTypeGridComponent implements OnInit, AfterViewInit {
   }
 
   @Input()
-  public set items(value: Vehicle[]) {
+  public set items(value: VehicleUseType[]) {
     this._items = value;
   }
 
-  public get items(): Vehicle[] {
+  public get items(): VehicleUseType[] {
     return this._items;
   }
 }

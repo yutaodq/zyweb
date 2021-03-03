@@ -8,7 +8,6 @@ import {
   OnInit,
   Output
 } from '@angular/core';
-import { Vehicle } from '@zyweb/shared/data-access/model/lvms';
 import { MenuItem } from 'primeng/api';
 
 @Component({

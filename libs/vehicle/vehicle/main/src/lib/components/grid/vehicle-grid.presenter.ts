@@ -14,7 +14,23 @@ export class VehicleGridPresenter extends GridOptionsModel<Vehicle> {
     [
       {
         field: 'name',
-        headerName: '车辆用途'
+        headerName: '车辆名称'
+      },
+      {
+        field: 'zt',
+        headerName: '使用状态'
+      },
+      {
+        field: 'type',
+        headerName: '车辆类型'
+      },
+      {
+        field: 'pz',
+        headerName: '外部牌照'
+      },
+      {
+        field: 'nbpz',
+        headerName: '内部牌照'
       },
       {
         field: 'description',

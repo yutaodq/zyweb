@@ -30,7 +30,6 @@ export class DetailComponent implements MasterDetailCommand<Vehicle>, OnInit, On
     public _facade: VehicleFacade,
     private changeDetector: ChangeDetectorRef,
     private _dialogService: DialogService,
-    private _route: ActivatedRoute,
   ) {
     this.vehicle$ = this._facade.vehicleDetail$;
   }

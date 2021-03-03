@@ -1,7 +1,7 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { ApiModule } from './api';
-import { VehicleDataService } from './vehicles/vehicle-data-service';
+import { VehicleDataService } from './vehicle/vehicle-data-service';
 import { DefaultDataServiceConfig,
   ENTITY_METADATA_TOKEN,
   EntityDataService,

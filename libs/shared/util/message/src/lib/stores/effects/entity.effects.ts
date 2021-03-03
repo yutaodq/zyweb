@@ -7,11 +7,8 @@ import {  switchMap} from 'rxjs/operators';
 
 import { EntityAction, EntityOp, ofEntityOp, ofEntityType } from '@ngrx/data';
 import { NotificationActions } from '../actions';
-// const ENTITY_NAME = 'Vehicle'
 @Injectable()
 export class EntityEffects {
-
-
   handleDeleteSuccess$ = createEffect(() =>
     this.actions$.pipe(
       ofEntityOp(EntityOp.SAVE_DELETE_ONE_SUCCESS),
@@ -25,7 +22,6 @@ export class EntityEffects {
   );
   handleNewSaveSuccess$ = createEffect(() =>
     this.actions$.pipe(
-      ofEntityType(),
       ofEntityOp(EntityOp.SAVE_ADD_ONE_SUCCESS),
       switchMap(() => ([
           NotificationActions.success({

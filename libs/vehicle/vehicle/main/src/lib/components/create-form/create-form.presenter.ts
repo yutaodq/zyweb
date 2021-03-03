@@ -3,15 +3,15 @@ import { AsyncValidatorFn, FormGroup } from '@angular/forms';
 import { Observable, of, Subject, timer } from 'rxjs';
 import { FormlyFormOptions } from '@ngx-formly/core';
 import { v4 as uuidv4 } from 'uuid';
-import { VehicleUseType } from '@zyweb/shared/data-access/model/lvms';
-import { VehicleUseTypesApiClient } from '@zyweb/shared/data-access/api/lvms';
+import { Vehicle } from '@zyweb/shared/data-access/model/lvms';
+import { VehicleApiClient } from '@zyweb/shared/data-access/api/lvms';
 import { ExistsService } from '@zyweb/shared/ui/form';
 
 
 @Injectable()
 export class CreateFormPresenter {
-  private _add: Subject<VehicleUseType> = new Subject();
-  add$: Observable<VehicleUseType> = this._add.asObservable();
+  private _add: Subject<Vehicle> = new Subject();
+  add$: Observable<Vehicle> = this._add.asObservable();
 
   private _cancel: Subject<string> = new Subject();
   cancel$: Observable<string> = this._cancel.asObservable();
@@ -24,7 +24,7 @@ export class CreateFormPresenter {
   private _model: any = {};
   private _options: FormlyFormOptions = {};
 
-  constructor(private _vehicleUseTypesApiClient: VehicleUseTypesApiClient,
+  constructor(private _vehiclesApiClient: VehicleApiClient,
               private _existsService: ExistsService) {
   }
   // this.subscription = this.form.valueChanges.subscribe(value =>
@@ -32,7 +32,7 @@ export class CreateFormPresenter {
   // );
 
   exists(): AsyncValidatorFn {
-      return this._existsService.exists(this._vehicleUseTypesApiClient);
+    return this._existsService.exists(this._vehiclesApiClient);
   }
 
   public cancel(): void {
@@ -41,8 +41,6 @@ export class CreateFormPresenter {
 
   public reset(): void {
     this.options.resetModel();
-    // this.options.updateInitialValue();
-    // this._reset.next('reset');
   }
 
   public isFormValid() {
@@ -56,19 +54,19 @@ export class CreateFormPresenter {
     if (!this.isFormValid()) {
       return;
     }
-    const vehicleUseType: VehicleUseType = this.model as VehicleUseType;
+    const vehicle: Vehicle = this.model as Vehicle;
     /*
-      可写成 ( this.isEmpty(vehicleUseType.id) ) && (vehicleUseType.id = uuidv4());
+      可写成 ( this.isEmpty(vehicle.id) ) && (vehicle.id = uuidv4());
       但 tslint.json出现报警信息
      */
-    if (this.isEmpty(vehicleUseType.id)) {
-      vehicleUseType.id = uuidv4();
+    if (this.isEmpty(vehicle.id)) {
+      vehicle.id = uuidv4();
     }
 
-    Object.keys(vehicleUseType).forEach(
-      (key) => (vehicleUseType[key] === null || vehicleUseType[key] === '') && delete vehicleUseType[key]);
+    Object.keys(vehicle).forEach(
+      (key) => (vehicle[key] === null || vehicle[key] === '') && delete vehicle[key]);
 
-    this._add.next(vehicleUseType);
+    this._add.next(vehicle);
   }
 
   private isEmpty(id: string) {

@@ -10,7 +10,7 @@ import * as fromRoot from '@zyweb/shared/data-access/store/lvms-root';
 
 import * as fromSearch from './search.reducer';
 
-export const vehiclesFeatureKey = ' vehicles';
+export const vehiclesFeatureKey = ' vehicle';
 
 export interface VehiclesState {
   [fromSearch.searchFeatureKey]: fromSearch.State;

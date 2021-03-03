@@ -3,13 +3,13 @@ import { FormControl, FormGroup } from '@angular/forms';
 import { Observable, Subject } from 'rxjs';
 import { FormlyFieldConfig, FormlyFormOptions } from '@ngx-formly/core';
 import { v4 as uuidv4 } from 'uuid';
-import { Vehicle } from '@zyweb/shared/data-access/model/lvms';
+import { VehicleUseType } from '@zyweb/shared/data-access/model/lvms';
 
 const FIELDS = require('./update-name-form.json');
 
 export class UpdateNameFormPresenter {
-  private _add: Subject<Vehicle> = new Subject();
-  add$: Observable<Vehicle> = this._add.asObservable();
+  private _add: Subject<VehicleUseType> = new Subject();
+  add$: Observable<VehicleUseType> = this._add.asObservable();
 
   private _cancel: Subject<string> = new Subject();
   cancel$: Observable<string> = this._cancel.asObservable();
@@ -30,7 +30,7 @@ public get model() {
     if (!this.form.valid) {
       return;
     }
-    const vehicleUseType: Vehicle = this.model as Vehicle;
+    const vehicleUseType: VehicleUseType = this.model as VehicleUseType;
 
     if (vehicleUseType.id === undefined || vehicleUseType.id === null || vehicleUseType.id === '') {
       vehicleUseType.id = uuidv4();

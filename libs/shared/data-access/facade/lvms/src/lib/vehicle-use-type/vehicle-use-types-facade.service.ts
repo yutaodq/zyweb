@@ -34,7 +34,7 @@ export class VehicleUseTypesFacade extends Sandbox {
   }
 
   /**
-   * Loads vehicles from the server
+   * Loads vehicle from the server
    */
   public dispatchLoadVehicleUseTypes(): void {
     this.appState$.dispatch(

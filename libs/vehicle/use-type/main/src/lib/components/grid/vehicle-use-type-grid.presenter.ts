@@ -4,11 +4,11 @@ import {
   Input
 } from '@angular/core';
 
-import { Vehicle } from '@zyweb/shared/data-access/model/lvms';
+import { VehicleUseType } from '@zyweb/shared/data-access/model/lvms';
 import {  GridOptionsModel } from '@zyweb/shared/grid/ui';
 
 @Injectable()
-export class VehicleUseTypeGridPresenter extends GridOptionsModel<Vehicle> {
+export class VehicleUseTypeGridPresenter extends GridOptionsModel<VehicleUseType> {
 
   constructor(
   ) {

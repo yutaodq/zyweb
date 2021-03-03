@@ -1,11 +1,12 @@
 import { Injectable } from '@angular/core';
 
-import { Actions, createEffect } from '@ngrx/effects';
-import { switchMap } from 'rxjs/operators';
+import { Actions, createEffect, ofType } from '@ngrx/effects';
+import { map, switchMap } from 'rxjs/operators';
 
 
-import { EntityOp, ofEntityOp, ofEntityType } from '@ngrx/data';
+import { EntityAction, EntityOp, ofEntityOp, ofEntityType } from '@ngrx/data';
 import { RouteActions } from '@zyweb/shared/data-access/store/ngrx-router';
+import { CollectionApiActions } from '@zyweb/vehicle/use-type/data-access/store';
 const ENTITY_NAME = 'Vehicle'
 @Injectable()
 export class CollectionEffects {
@@ -15,7 +16,17 @@ export class CollectionEffects {
       ofEntityType(ENTITY_NAME),
       ofEntityOp(EntityOp.SAVE_DELETE_ONE_SUCCESS),
       switchMap(() => ([
-        RouteActions.go({ to: { path: ['vehicles', 'list'] } } ),
+        RouteActions.go({ to: { path: ['vehicle', 'list'] } } ),
+        ])
+      )
+    )
+  );
+  handleaddTypeSuccess$ = createEffect(() =>
+    this.actions$.pipe(
+      ofEntityType(ENTITY_NAME),
+      ofEntityOp(EntityOp.SAVE_ADD_ONE_SUCCESS),
+      switchMap((action: EntityAction) => ([
+        RouteActions.go({ to: { path: ['vehicle', action.payload.data.id, 'detail'] } })
         ])
       )
     )

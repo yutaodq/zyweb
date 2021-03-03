@@ -65,6 +65,32 @@
       "type": "锅炉车",
       "zt": "在用",
       "description": "返回"
+    },
+    {
+      "name": "12345",
+      "zt": "3333",
+      "type": "2",
+      "pz": "345",
+      "description": "3333",
+      "id": "13c35db8-177d-43ba-b638-64443f4dd041"
+    },
+    {
+      "name": "a12",
+      "zt": "23",
+      "type": "1",
+      "pz": "123",
+      "nbpz": "456",
+      "description": "789",
+      "id": "46529bd5-c936-43c1-a841-64b3edc45d57"
+    },
+    {
+      "name": "A322",
+      "zt": "RRRRR",
+      "type": "YYYYY",
+      "pz": "TTT",
+      "nbpz": "RRRR",
+      "description": "FGHGHGHHFG",
+      "id": "c99d6842-cba7-486e-a004-6d72a86efda7"
     }
   ],
   "vehicle_use_types": [

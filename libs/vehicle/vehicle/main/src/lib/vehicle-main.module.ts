@@ -8,6 +8,7 @@ import { VehicleMainContainersListModule } from './containers/list/vehicle-main-
 import { VehicleMainContainersDetailModule } from './containers/detail/vehicle-main-containers-detail.module';
 import { VehicleExistsGuard } from './guards/vehicle-exists.guard';
 import { VehicleExistsService } from '@zyweb/shared/data-access/facade/lvms';
+import { VehicleMainContainersCreateModule } from './containers/create/vehicle-main-containers-create.module';
 
 @NgModule({
   imports: [
@@ -15,7 +16,8 @@ import { VehicleExistsService } from '@zyweb/shared/data-access/facade/lvms';
     VehicleDataAccessStoreModule,  // store
     VehicleMainRouting,  // route
     VehicleMainContainersListModule,
-    VehicleMainContainersDetailModule
+    VehicleMainContainersDetailModule,
+    VehicleMainContainersCreateModule,
   ],
   providers: [VehicleExistsGuard, VehicleExistsService]
 })

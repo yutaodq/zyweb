@@ -18,8 +18,9 @@ D:\学习案例\druo-dashboard\src\app\content\pages\components\invoices\invoice
 
 export class CreateComponent implements OnInit, OnDestroy {
 
-  public vehicle:        Vehicle;
   private subscriptions: Array<Subscription> = [];
+  public vehicle:        Vehicle;
+  public commands = this;
 
   constructor(
     private _facade: VehicleFacade,
@@ -38,19 +39,12 @@ export class CreateComponent implements OnInit, OnDestroy {
   }
 
   onAdd(vehicle: Vehicle) {
-    // this._facade.addVehicle(vehicle)
+    this._facade.addVehicle(vehicle)
  }
 
   /**
    * Registers events
    */
   private registerEvents(): void {
-    // 订阅车辆详情
-    // this.subscriptions.push(this.vehicleUseTypesSandbox.vehicleUseTypeDetails$.subscribe((vehicleUseType: any) => {
-    //   if (vehicleUseType) {
-    //     this.changeDetector.markForCheck();
-    //     this.vehicleUseType = vehicleUseType;
-    //   }
-    // }));
   }
 }

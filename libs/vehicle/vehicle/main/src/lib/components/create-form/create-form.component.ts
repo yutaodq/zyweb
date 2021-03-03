@@ -12,21 +12,21 @@ import {
 import { CreateFormPresenter } from './create-form.presenter';
 import { FormControl, FormGroup, ValidationErrors } from '@angular/forms';
 import { FormlyFieldConfig, FormlyFormBuilder, FormlyFormOptions } from '@ngx-formly/core';
-import { VehicleUseType } from '@zyweb/shared/data-access/model/lvms';
+import { Vehicle } from '@zyweb/shared/data-access/model/lvms';
 import { Observable, of, Subscription } from 'rxjs';
-import { VehicleUseTypesApiClient } from '@zyweb/shared/data-access/api/lvms';
+import { VehicleApiClient } from '@zyweb/shared/data-access/api/lvms';
 
 @Component({
-  selector: 'zyweb-vehicle-use-type-create-form',
+  selector: 'zyweb-vehicle-create-form',
   templateUrl: './create-form.component.html',
   styleUrls: ['./create-form.component.scss'],
-  providers: [CreateFormPresenter, VehicleUseTypesApiClient]
+  providers: [CreateFormPresenter, VehicleApiClient]
   // changeDetection: ChangeDetectionStrategy.OnPush
 })
 
 
 export class CreateFormComponent implements OnInit, OnDestroy {
-  @Output() addEvent: EventEmitter<VehicleUseType> = new EventEmitter();
+  @Output() addEvent: EventEmitter<Vehicle> = new EventEmitter();
   @Output() cancelEvent: EventEmitter<string> = new EventEmitter();
   @Output() resetEvent: EventEmitter<string> = new EventEmitter();
   private subscriptions: Array<Subscription> = [];
@@ -40,15 +40,15 @@ export class CreateFormComponent implements OnInit, OnDestroy {
           {
             className: 'col-md-6',
             key: 'name',
-            type: 'inputLx',
+            type: 'input',
             focus: true,
             templateOptions: {
-              label: '车辆用途',
+              label: '车辆名称',
               description: 'dfffffffffffffffffffffffffff',
-              placeholder: '车辆用途',
+              // placeholder: '车辆名称',
               required: true,
               minLength: 2,
-              attributes: { zywebOnlyNumbers: null },
+              attributes: { zywebOnlyNumbers: null }
             },
             modelOptions: {
               updateOn: 'blur' //失去焦点后验证
@@ -56,18 +56,60 @@ export class CreateFormComponent implements OnInit, OnDestroy {
             asyncValidators: {
               uniqueName: this._formPresenter.exists()
             }
+          },
+          {
+            className: 'col-md-6',
+            key: 'zt',
+            type: 'input',
+            templateOptions: {
+              label: '使用状态',
+              required: true,
+              minLength: 2
+            }
           }
         ]
       },
       { template: '<hr /> ' },
       {
-        key: 'description',
-        type: 'inputLx',
-        templateOptions: {
-          label: '用途描述',
-          placeholder: ''
-        }
+        fieldGroupClassName: 'row',
+        fieldGroup: [
+          {
+            className: 'col-md-4',
+            key: 'type',
+            type: 'input',
+            templateOptions: {
+              label: '车辆用途',
+            }
+          },
+          {
+            className: 'col-md-4',
+            key: 'pz',
+            type: 'input',
+            templateOptions: {
+              label: '外部牌照',
+              minLength: 2
+            }
+          },
+          {
+            className: 'col-md-4',
+            key: 'nbpz',
+            type: 'input',
+            templateOptions: {
+              label: '内部牌照',
+              minLength: 2
+            }
+          }
+        ]
+      },
+      { template: '<hr /> ' }, {
+      key: 'description',
+      type: 'textarea',
+      templateOptions: {
+        label: '车辆备注',
+        rows: 4,
+        placeholder: ''
       }
+    }
     ];
 
   constructor(private _formPresenter: CreateFormPresenter) {
@@ -80,7 +122,7 @@ export class CreateFormComponent implements OnInit, OnDestroy {
   private registerEvents(): void {
     // 订阅车辆详情
     this.subscriptions.push(
-      this._formPresenter.add$.subscribe(vehicleUseType => this.addEvent.emit(vehicleUseType)),
+      this._formPresenter.add$.subscribe(vehicle => this.addEvent.emit(vehicle)),
       this._formPresenter.cancel$.subscribe(name => this.cancelEvent.emit(name)),
       this._formPresenter.reset$.subscribe(name => this.resetEvent.emit(name))
     );

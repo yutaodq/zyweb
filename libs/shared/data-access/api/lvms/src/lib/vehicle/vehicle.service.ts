@@ -9,8 +9,8 @@
 //   //  *
 //   //  * @param products
 //   //  */
-//   // static gridAdapter(vehicles: any): Array<Vehicle> {
-//   //   return vehicles.map((vehicle) => new Vehicle(vehicle));
+//   // static gridAdapter(vehicle: any): Array<Vehicle> {
+//   //   return vehicle.map((vehicle) => new Vehicle(vehicle));
 //   // }
 //   //
 //   // /**
@@ -18,7 +18,7 @@
 //   //  *
 //   //  * @param product
 //   //  */
-//   // static vehicleDetailsAdapter(vehicles: any): Vehicle {
-//   //   return new Vehicle(vehicles);
+//   // static vehicleDetailsAdapter(vehicle: any): Vehicle {
+//   //   return new Vehicle(vehicle);
 //   // }
 // }

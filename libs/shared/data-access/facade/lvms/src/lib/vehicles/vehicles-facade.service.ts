@@ -41,7 +41,7 @@ export class VehicleFacade extends Sandbox{
   }
 
   /**
-   * Loads vehicles from the server
+   * Loads vehicle from the server
    */
 
   public unregisterEvents() {
@@ -60,17 +60,17 @@ export class VehicleFacade extends Sandbox{
   }
 
   showDetail(vehicle: Vehicle) {
-    this.routeTo({ path: ['vehicles', vehicle.id, 'detail'] });
+    this.routeTo({ path: ['vehicle', vehicle.id, 'detail'] });
 
   }
 
   returnToList() {
-    this.routeTo({ path: ['vehicles', 'list'] });
+    this.routeTo({ path: ['vehicle', 'list'] });
   }
 
 
   createVehicle() {
-    this.routeTo({ path: ['vehicles', 'create'] });
+    this.routeTo({ path: ['vehicle', 'create'] });
 
   }
 
@@ -81,5 +81,10 @@ export class VehicleFacade extends Sandbox{
 
   removeDetail(vehicle: Vehicle) {
     return this._collectionService.delete(vehicle);
+  }
+
+  addVehicle(vehicle: Vehicle) {
+    return this._collectionService.add(vehicle);
+
   }
 }
