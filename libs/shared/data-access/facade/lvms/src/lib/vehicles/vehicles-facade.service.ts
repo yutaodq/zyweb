@@ -35,9 +35,7 @@ export class VehicleFacade extends Sandbox{
   }
 
   get vehicleDetail$(): Observable<Vehicle> {
-    return this._collectionService.selected$.pipe(
-      take(1),
-    )
+    return this._collectionService.selected$;
   }
 
   /**

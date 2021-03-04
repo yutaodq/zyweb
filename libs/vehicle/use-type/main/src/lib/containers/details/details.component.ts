@@ -85,13 +85,11 @@ export class DetailsComponent implements OnInit, OnDestroy {
           this.changeDetector.markForCheck();
           this.vehicleUseType = vehicleUseType;
           this.vehicleUseType$ = of(vehicleUseType);
-          console.log('asdffffffffffffffff');
         }
       }),
       this._actionsSubscription = this._route.params
         .pipe(map((params) => params.id))
         .subscribe((id) => {
-          console.log('iiiiiiiiiiiii' + id)
           this._facade.dispatchSelectVehicleUseType(id);
         })
     );
