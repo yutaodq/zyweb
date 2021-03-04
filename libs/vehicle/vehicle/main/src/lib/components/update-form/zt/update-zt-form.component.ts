@@ -17,7 +17,7 @@ import { DynamicDialogConfig, DynamicDialogRef } from 'primeng/dynamicdialog';
 export class UpdateZtFormComponent {
   private _form = new FormGroup({});
 
-  private _model: any = {};
+  private _model : {id: string, zt: string};
   private _options: FormlyFormOptions = {};
 
   vehicle: Vehicle;
@@ -45,9 +45,12 @@ export class UpdateZtFormComponent {
                private _config: DynamicDialogConfig,
   ) {
     this.vehicle = this._config.data;
-    this._model = {id: this.vehicle.id,
-      zt: this.vehicle.zt,
-      name: this.vehicle.name}
+    this._model = {...this._config.data}
+
+    // this._model = {id: this.vehicle.id,
+    //   zt: this.vehicle.zt,
+    //   name: this.vehicle.name}
+
     // this._model =  this.vehicle
 
   }
@@ -56,8 +59,10 @@ export class UpdateZtFormComponent {
   }
 
   onSubmit(model: any) {
-    const useType: Vehicle = model as Vehicle;
-    this._ref.close(useType)
+    // const useType: Vehicle = model as Vehicle;
+    // this._ref.close(useType)
+    this._ref.close(model)
+
   }
 
   get form(): FormGroup {
