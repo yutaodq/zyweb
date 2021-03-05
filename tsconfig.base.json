@@ -72,7 +72,13 @@
       "@zyweb/vehicle/vehicle/data-access/store": [
         "libs/vehicle/vehicle/data-access/store/src/index.ts"
       ],
-      "@zyweb/shared/util/utility": ["libs/shared/util/utility/src/index.ts"]
+      "@zyweb/shared/util/utility": ["libs/shared/util/utility/src/index.ts"],
+      "@zyweb/vehicle/use-state/data-access/store": [
+        "libs/vehicle/use-state/data-access/store/src/index.ts"
+      ],
+      "@zyweb/vehicle/use-state/main": [
+        "libs/vehicle/use-state/main/src/index.ts"
+      ]
     }
   },
   "exclude": ["node_modules", "tmp"]

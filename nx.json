@@ -116,6 +116,12 @@
     },
     "shared-util-utility": {
       "tags": ["scope:shared", "type:util"]
+    },
+    "vehicle-use-state-data-access-store": {
+      "tags": ["scope:shared", "type:data-access"]
+    },
+    "vehicle-use-state-main": {
+      "tags": ["scope:main", "type:feature"]
     }
   }
 }

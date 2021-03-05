@@ -40,5 +40,7 @@ module.exports = {
     '<rootDir>/libs/vehicle/vehicle/main',
     '<rootDir>/libs/vehicle/vehicle/data-access/store',
     '<rootDir>/libs/shared/util/utility',
+    '<rootDir>/libs/vehicle/use-state/data-access/store',
+    '<rootDir>/libs/vehicle/use-state/main',
   ],
 };
