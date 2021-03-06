@@ -4,6 +4,7 @@ import { ActivatedRoute } from '@angular/router';
 import { Subscription } from 'rxjs';
 import { VehicleUseState } from '@zyweb/shared/data-access/model/lvms';
 import { VehicleUseStateFacade } from '@zyweb/vehicle/use-state/data-access/store';
+import { MasterCreateCommand } from '@zyweb/shared/util/utility';
 
 /*
 https://github.com/vladeye/druo-dashboard-app/tree/master/src/app/content/pages
@@ -16,7 +17,7 @@ D:\学习案例\druo-dashboard\src\app\content\pages\components\invoices\invoice
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 
-export class CreateComponent implements OnInit, OnDestroy {
+export class CreateComponent implements MasterCreateCommand<VehicleUseState>, OnInit, OnDestroy {
 
   private subscriptions: Array<Subscription> = [];
   public vehicleUseState:        VehicleUseState;

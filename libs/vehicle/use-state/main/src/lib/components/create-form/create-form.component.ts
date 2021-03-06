@@ -15,6 +15,8 @@ import { FormlyFieldConfig, FormlyFormBuilder, FormlyFormOptions } from '@ngx-fo
 import { VehicleUseState } from '@zyweb/shared/data-access/model/lvms';
 import { Observable, of, Subscription } from 'rxjs';
 import { VehicleUseStateApiClient } from '@zyweb/shared/data-access/api/lvms';
+import { MasterCreateCommand } from '@zyweb/shared/util/utility';
+import { DetailComponent } from '../../containers/detail/detail.component';
 
 @Component({
   selector: 'zyweb-vehicle-use-state-create-form',
@@ -26,9 +28,9 @@ import { VehicleUseStateApiClient } from '@zyweb/shared/data-access/api/lvms';
 
 
 export class CreateFormComponent implements OnInit, OnDestroy {
-  @Output() addEvent: EventEmitter<VehicleUseState> = new EventEmitter();
-  @Output() cancelEvent: EventEmitter<string> = new EventEmitter();
-  @Output() resetEvent: EventEmitter<string> = new EventEmitter();
+  @Input()
+  private _command: MasterCreateCommand<VehicleUseState>;
+
   private subscriptions: Array<Subscription> = [];
 
 
@@ -78,8 +80,8 @@ export class CreateFormComponent implements OnInit, OnDestroy {
   private registerEvents(): void {
     // 订阅车辆详情
     this.subscriptions.push(
-      this._formPresenter.add$.subscribe(vehicle => this.addEvent.emit(vehicle)),
-      this._formPresenter.cancel$.subscribe(name => this.cancelEvent.emit(name)),
+      this._formPresenter.add$.subscribe(vehicleUseState => this._command.onAdd(vehicleUseState)),
+      this._formPresenter.cancel$.subscribe(_ => this._command.onCancel),
     );
   }
 
