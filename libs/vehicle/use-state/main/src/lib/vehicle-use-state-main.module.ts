@@ -7,7 +7,7 @@ import { VehicleUseStateMainRouting } from './vehicle-use-state-main-routing.mod
 import { VehicleUseStateMainContainersListModule } from './containers/list/vehicle-use-state-main-containers-list.module';
 // import { VehicleMainContainersDetailModule } from './containers/detail/vehicle-main-containers-detail.module';
 // import { VehicleExistsGuard } from './guards/vehicle-exists.guard';
-// import { VehicleUseStateExistsService } from '@zyweb/shared/data-access/facade/lvms';
+// import { VehicleUseStateExistsService } from '@zyweb/shared/data-access/facades/lvms';
 // import { VehicleMainContainersCreateModule } from './containers/create/vehicle-main-containers-create.module';
 
 @NgModule({

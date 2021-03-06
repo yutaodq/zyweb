@@ -5,12 +5,10 @@ import { FormlyModule } from '@ngx-formly/core';
 
 import { SharedUiCommonModule } from '@zyweb/shared/ui/common';
 import { SharedGridUiModule } from '@zyweb/shared/grid/ui';
-import {
-  VehicleUseStateSearchNgrxGridService
-} from '@zyweb/shared/data-access/facade/lvms';
 
 import { VehicleUseStateGridComponent } from './vehicle-use-state-grid.component';
 import { VehicleUseStateGridPresenter } from './vehicle-use-state-grid.presenter';
+import { VehicleUseStateSearchNgrxGridService } from '@zyweb/vehicle/use-state/data-access/store';
 
 
 export const COMPONENTS_EXPORTS: Array<any> = [

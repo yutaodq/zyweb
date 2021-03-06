@@ -1,5 +1,5 @@
 module.exports = {
-  displayName: 'shared-data-access-facade-lvms',
+  displayName: 'shared-data-access-facades-lvms',
   preset: '../../../../../jest.preset.js',
   setupFilesAfterEnv: ['<rootDir>/src/test-setup.ts'],
   globals: {
@@ -15,7 +15,7 @@ module.exports = {
     },
   },
   coverageDirectory:
-    '../../../../../coverage/libs/shared/data-access/facade/lvms',
+    '../../../../../coverage/libs/shared/data-access/facades/lvms',
   snapshotSerializers: [
     'jest-preset-angular/build/AngularNoNgAttributesSnapshotSerializer.js',
     'jest-preset-angular/build/AngularSnapshotSerializer.js',

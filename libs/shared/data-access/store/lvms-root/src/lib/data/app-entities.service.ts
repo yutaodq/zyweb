@@ -1,7 +1,7 @@
 // import { Injectable } from '@angular/core';
 // import { Store } from '@ngrx/store';
 // import { EntityCache, EntityCollectionServiceFactory, EntityServicesBase, EntityServicesElements } from '@ngrx/data';
-// import { VehicleUseStateCollectionService } from '@zyweb/shared/data-access/facade/lvms';
+// import { VehicleUseStateCollectionService } from '@zyweb/shared/data-access/facades/lvms';
 //
 // @Injectable()
 //

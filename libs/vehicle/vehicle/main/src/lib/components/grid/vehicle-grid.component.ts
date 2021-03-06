@@ -11,7 +11,7 @@ import { VehicleSearchNgrxGridService } from '@zyweb/shared/data-access/facade/l
 import { GridComponentClass,  } from '@zyweb/shared/grid/core';
 
 @Component({
-  selector: 'zyweb-wehicle-grid',
+  selector: 'zyweb-vehicle-grid',
   templateUrl: './vehicle-grid.component.html',
   changeDetection: ChangeDetectionStrategy.OnPush
 })
