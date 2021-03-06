@@ -12,21 +12,21 @@ import {
 import { CreateFormPresenter } from './create-form.presenter';
 import { FormControl, FormGroup, ValidationErrors } from '@angular/forms';
 import { FormlyFieldConfig, FormlyFormBuilder, FormlyFormOptions } from '@ngx-formly/core';
-import { Vehicle } from '@zyweb/shared/data-access/model/lvms';
+import { VehicleUseState } from '@zyweb/shared/data-access/model/lvms';
 import { Observable, of, Subscription } from 'rxjs';
-import { VehicleApiClient } from '@zyweb/shared/data-access/api/lvms';
+import { VehicleUseStateApiClient } from '@zyweb/shared/data-access/api/lvms';
 
 @Component({
   selector: 'zyweb-vehicle-use-state-create-form',
   templateUrl: './create-form.component.html',
   styleUrls: ['./create-form.component.scss'],
-  providers: [CreateFormPresenter, VehicleApiClient]
-  // changeDetection: ChangeDetectionStrategy.OnPush
+  providers: [CreateFormPresenter, VehicleUseStateApiClient],
+  changeDetection: ChangeDetectionStrategy.OnPush
 })
 
 
 export class CreateFormComponent implements OnInit, OnDestroy {
-  @Output() addEvent: EventEmitter<Vehicle> = new EventEmitter();
+  @Output() addEvent: EventEmitter<VehicleUseState> = new EventEmitter();
   @Output() cancelEvent: EventEmitter<string> = new EventEmitter();
   @Output() resetEvent: EventEmitter<string> = new EventEmitter();
   private subscriptions: Array<Subscription> = [];
@@ -43,12 +43,9 @@ export class CreateFormComponent implements OnInit, OnDestroy {
             type: 'input',
             focus: true,
             templateOptions: {
-              label: '车辆名称',
-              description: 'dfffffffffffffffffffffffffff',
-              // placeholder: '车辆名称',
+              label: '状态名称',
               required: true,
               minLength: 2,
-              attributes: { zywebOnlyNumbers: null }
             },
             modelOptions: {
               updateOn: 'blur' //失去焦点后验证
@@ -57,51 +54,10 @@ export class CreateFormComponent implements OnInit, OnDestroy {
               uniqueName: this._formPresenter.exists()
             }
           },
-          {
-            className: 'col-md-6',
-            key: 'zt',
-            type: 'input',
-            templateOptions: {
-              label: '使用状态',
-              required: true,
-              minLength: 2
-            }
-          }
         ]
       },
       { template: '<hr /> ' },
       {
-        fieldGroupClassName: 'row',
-        fieldGroup: [
-          {
-            className: 'col-md-4',
-            key: 'type',
-            type: 'input',
-            templateOptions: {
-              label: '车辆用途',
-            }
-          },
-          {
-            className: 'col-md-4',
-            key: 'pz',
-            type: 'input',
-            templateOptions: {
-              label: '外部牌照',
-              minLength: 2
-            }
-          },
-          {
-            className: 'col-md-4',
-            key: 'nbpz',
-            type: 'input',
-            templateOptions: {
-              label: '内部牌照',
-              minLength: 2
-            }
-          }
-        ]
-      },
-      { template: '<hr /> ' }, {
       key: 'description',
       type: 'textarea',
       templateOptions: {
@@ -124,7 +80,6 @@ export class CreateFormComponent implements OnInit, OnDestroy {
     this.subscriptions.push(
       this._formPresenter.add$.subscribe(vehicle => this.addEvent.emit(vehicle)),
       this._formPresenter.cancel$.subscribe(name => this.cancelEvent.emit(name)),
-      this._formPresenter.reset$.subscribe(name => this.resetEvent.emit(name))
     );
   }
 

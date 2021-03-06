@@ -9,7 +9,7 @@ import { environment } from '@zyweb/shared/util/environments';
 import { ApiService } from '../api';
 import { FindByNameApi } from '../..';
 
-const FEATURE_URL = '/vehicleUseState-use-states';
+const FEATURE_URL = '/vehicle_use_states';
 const FEATURE_URL_FULL = FEATURE_URL + '/';
 
 @Injectable()

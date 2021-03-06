@@ -3,6 +3,7 @@ import { CommonModule } from '@angular/common';
 import { VehicleUseStateGridModule } from './grid';
 import { VehicleUseStateDetailFormModule } from './details-form';
 import { VehicleUseSataeDetailButtonModule } from './details-button';
+import { VehicleUseStateCreateFormModule } from './create-form';
 
 export const COMPONENTS_EXPORTS : Array<any> = [
 ];
@@ -17,6 +18,7 @@ export const COMPONENTS_EXPORTS : Array<any> = [
     VehicleUseStateGridModule,
     VehicleUseStateDetailFormModule,
     VehicleUseSataeDetailButtonModule,
+    VehicleUseStateCreateFormModule,
   ],
 
   entryComponents: [

@@ -10,7 +10,7 @@ import { VehicleUseStateMainRouting } from './vehicle-use-state-main-routing.mod
 import { VehicleUseStateMainContainersListModule } from './containers/list/vehicle-use-state-main-containers-list.module';
 import { VehicleUseStateExistsGuard } from './guards/vehicle-use-state-exists.guard';
 import { VehicleUseStateMainContainersDetailModule } from './containers/detail/vehicle-use-state-main-containers-detail.module';
-// import { VehicleMainContainersCreateModule } from './containers/create/vehicle-main-containers-create.module';
+import { VehicleUseStateMainContainersCreateModule } from './containers/create/vehicle-use-state-main-containers-create.module';
 
 @NgModule({
   imports: [
@@ -19,7 +19,7 @@ import { VehicleUseStateMainContainersDetailModule } from './containers/detail/v
     VehicleUseStateMainRouting,  // route
     VehicleUseStateMainContainersListModule,
     VehicleUseStateMainContainersDetailModule,
-    // VehicleMainContainersCreateModule,
+    VehicleUseStateMainContainersCreateModule,
   ],
   providers: [VehicleUseStateExistsGuard, VehicleUseStateExistsService]
 })
