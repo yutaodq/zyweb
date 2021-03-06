@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { AsyncValidatorFn, FormGroup } from '@angular/forms';
 import { Observable, of, Subject, timer } from 'rxjs';
-import { FormlyFormOptions } from '@ngx-formly/core';
+import { FormlyFieldConfig, FormlyFormOptions } from '@ngx-formly/core';
 import { v4 as uuidv4 } from 'uuid';
 import { VehicleUseState } from '@zyweb/shared/data-access/model/lvms';
 import { VehicleUseStateApiClient } from '@zyweb/shared/data-access/api/lvms';
@@ -24,11 +24,47 @@ export class CreateFormPresenter {
   private _model: any = {};
   private _options: FormlyFormOptions = {};
 
+  public fields: FormlyFieldConfig[] =
+    [
+      {
+        fieldGroupClassName: 'row',
+        fieldGroup: [
+          {
+            className: 'col-md-6',
+            key: 'name',
+            type: 'input',
+            focus: true,
+            templateOptions: {
+              label: '状态名称',
+              required: true,
+              minLength: 2,
+            },
+            modelOptions: {
+              updateOn: 'blur' //失去焦点后验证
+            },
+            asyncValidators: {
+              uniqueName: this.exists.bind(CreateFormPresenter)
+            }
+          },
+        ]
+      },
+      { template: '<hr /> ' },
+      {
+        key: 'description',
+        type: 'textarea',
+        templateOptions: {
+          label: '车辆备注',
+          rows: 4,
+          placeholder: ''
+        }
+      }
+    ];
+
   constructor(private _apiClient: VehicleUseStateApiClient,
               private _existsService: ExistsService) {
   }
 
-  exists(): AsyncValidatorFn {
+  public exists(): AsyncValidatorFn {
     return this._existsService.exists(this._apiClient);
   }
 

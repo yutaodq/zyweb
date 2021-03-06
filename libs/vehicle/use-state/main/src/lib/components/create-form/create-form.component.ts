@@ -109,6 +109,10 @@ export class CreateFormComponent implements OnInit, OnDestroy {
     return this.form.valid && this.form.pristine;
   }
 
+  // get fields(): FormlyFieldConfig[] {
+  //   return [...this._formPresenter.fields];
+  // }
+
   get form(): FormGroup {
     return this._formPresenter.form;
   }
