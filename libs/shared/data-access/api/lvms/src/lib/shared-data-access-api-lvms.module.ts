@@ -15,13 +15,13 @@ import { entityMetadata, pluralNames } from './data/app-entity-metadata.config';
     // { provide: PLURAL_NAMES_TOKEN, multi: true, useValue: pluralNames },
     { provide: ENTITY_METADATA_TOKEN, multi: true, useValue: entityMetadata },
     { provide: DefaultDataServiceConfig, useValue: defaultDataServiceConfig },
-    // VehicleDataService
+    // VehicleUseStateDataService
   ]
 })
 export class SharedDataAccessApiLvmsModule {
   constructor(
     // entityDataService: EntityDataService,
-    // vehicleDataService: VehicleDataService
+    // vehicleDataService: VehicleUseStateDataService
   ) {
     // entityDataService.registerService('Vehicle', vehicleDataService);
   }

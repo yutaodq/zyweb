@@ -26,7 +26,7 @@ export class VehicleGridComponent extends GridComponentClass<Vehicle> {
 }
 
 
-// export class VehicleGridComponent implements OnInit, AfterViewInit, OnDestroy {
+// export class VehicleUseStateGridComponent implements OnInit, AfterViewInit, OnDestroy {
 //   @Output() selectDataEvent = new EventEmitter<Vehicle>();
 //   private _items: Vehicle[];
 //
@@ -35,7 +35,7 @@ export class VehicleGridComponent extends GridComponentClass<Vehicle> {
 //   public gridOptions: IDataGridOptions;
 //   public columnDefs;
 //
-//   constructor(private _gridPresenter: VehicleGridPresenter,
+//   constructor(private _gridPresenter: VehicleUseStateGridPresenter,
 //               private _searchNgrxGridService: VehicleUseTypeSearchNgrxGridService
 //   ) {
 //   }

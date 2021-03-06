@@ -1,7 +1,7 @@
 // import { Injectable } from '@angular/core';
 // import { Store } from '@ngrx/store';
 // import { EntityCache, EntityCollectionServiceFactory, EntityServicesBase, EntityServicesElements } from '@ngrx/data';
-// import { VehicleCollectionService } from '@zyweb/shared/data-access/facade/lvms';
+// import { VehicleUseStateCollectionService } from '@zyweb/shared/data-access/facade/lvms';
 //
 // @Injectable()
 //
@@ -9,7 +9,7 @@
 //   constructor(
 //     elements: EntityServicesElements,
 //     // 注入自定义服务，在EntityServices中注册它们，并在API中公开.
-//     readonly vehicleCollectionService: VehicleCollectionService
+//     readonly vehicleCollectionService: VehicleUseStateCollectionService
 //   ) {
 //     super(elements);
 //     this.registerEntityCollectionServices([
