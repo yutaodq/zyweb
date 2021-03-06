@@ -15,7 +15,7 @@ export class CollectionEffects {
       ofEntityType(ENTITY_NAME),
       ofEntityOp(EntityOp.SAVE_DELETE_ONE_SUCCESS),
       switchMap(() => ([
-        RouteActions.go({ to: { path: ['vehicle-use-state', 'list'] } } ),
+        RouteActions.go({ to: { path: ['vehicleUseState', 'list'] } } ),
         ])
       )
     )
@@ -25,7 +25,7 @@ export class CollectionEffects {
       ofEntityType(ENTITY_NAME),
       ofEntityOp(EntityOp.SAVE_ADD_ONE_SUCCESS),
       switchMap((action: EntityAction) => ([
-        RouteActions.go({ to: { path: ['vehicle-use-state', action.payload.data.id, 'detail'] } })
+        RouteActions.go({ to: { path: ['vehicleUseState', action.payload.data.id, 'detail'] } })
         ])
       )
     )

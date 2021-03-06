@@ -1,8 +1,8 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { ListComponent as VehicleUseStateListComponent } from './containers/list/list.component';
-// import { DetailComponent as VehicleDetailComponent } from './containers/detail/detail.component';
-// import { VehicleExistsGuard } from './guards/vehicle-exists.guard';
+import { VehicleUseStateExistsGuard } from './guards/vehicle-use-state-exists.guard';
+import { DetailComponent as VehicleUseStateDetailComponent } from './containers/detail/detail.component';
 // import { CreateComponent as VehicleCreateComponent } from './containers/create/create.component';
 
 const routes: Routes = [
@@ -11,12 +11,12 @@ const routes: Routes = [
     path: 'list',
     component: VehicleUseStateListComponent,
   },
-  // {
-  //   path: ':id/detail',
-  //   component: VehicleDetailComponent,
-  //   canActivate: [VehicleExistsGuard],
-  //   data: { title: 'Book detail' },
-  // },
+  {
+    path: ':id/detail',
+    component: VehicleUseStateDetailComponent,
+    canActivate: [VehicleUseStateExistsGuard],
+    data: { title: 'Book detail' },
+  },
   // {
   //   path: 'create',
   //   component: VehicleCreateComponent,

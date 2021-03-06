@@ -3,16 +3,15 @@
 D:\学习案例\ngrx-master\projects\example-app\src\app\books\guards\book-exists.guard.ts
  */
 import { Injectable } from '@angular/core';
-import { select, Store } from '@ngrx/store';
 import { Observable, of, Subscription } from 'rxjs';
 import { catchError, filter, first, map, switchMap, take, tap } from 'rxjs/operators';
 import { EntityCollectionService, EntityServices } from '@ngrx/data';
 import {  Router } from '@angular/router';
-import { Vehicle } from '@zyweb/shared/data-access/model/lvms';
+import { VehicleUseState } from '@zyweb/shared/data-access/model/lvms';
 
 @Injectable()
 export class VehicleUseStateExistsService  {
-  private _collectionService: EntityCollectionService<Vehicle>
+  private _collectionService: EntityCollectionService<VehicleUseState>
   constructor(
     entityServices: EntityServices,
     private _router: Router,
@@ -22,7 +21,7 @@ export class VehicleUseStateExistsService  {
   }
 
 get entityName() {
-    return 'Vehicle'
+    return 'VehicleUseState'
 }
   canActivate(id: string): Observable<boolean> {
     return this.waitForCollectionToLoad().pipe(

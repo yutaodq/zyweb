@@ -23,7 +23,7 @@
     <div class="row">
       <div class="col">
         <zyweb-vehicle-use-state-grid
-          [items]="facade.vehicles$ | async"
+          [items]="facade.vehicleUseStates$ | async"
             (selectDataEvent)="onSelectData($event)"
         >
         </zyweb-vehicle-use-state-grid>
