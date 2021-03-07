@@ -7,6 +7,8 @@ import { MasterDetailCommand } from '@zyweb/shared/util/utility';
 
 import { VehicleUseState } from '@zyweb/shared/data-access/model/lvms';
 import { VehicleUseStateFacade } from '@zyweb/vehicle/use-state/data-access/store';
+import { UpdateNameFormComponent } from '../../components/update-form/name/update-name-form.component';
+import { UpdateMainFormComponent } from '../../components/update-form/main/update-main-form.component';
 
 @Component({
   selector: 'zyweb-vehicle-use-state-detail',
@@ -56,21 +58,36 @@ export class DetailComponent implements MasterDetailCommand<VehicleUseState>, On
     });
   }
 
-  // public updateZt(): void {
-  //   this._ref = this._dialogService.open(UpdateZtFormComponent, {
-  //     header: '删除车辆信息档案',
-  //     width: '70%',
-  //     contentStyle: { 'max-height': '500px', 'overflow': 'auto' },
-  //     baseZIndex: 10000,
-  //     data: this.vehicle
-  //   });
-  //
-  //   this._ref.onClose.subscribe((vehicle) => {
-  //     if (vehicle) {
-  //       this._facade.updateVehicle(vehicle);
-  //     }
-  //   });
-  // }
+  public update(): void {
+    this._ref = this._dialogService.open(UpdateMainFormComponent, {
+      header: '修改车辆使用状态说明',
+      width: '70%',
+      contentStyle: { 'max-height': '500px', 'overflow': 'auto' },
+      baseZIndex: 10000,
+      data: this.vehicleUseState
+    });
+
+    this._ref.onClose.subscribe((vehicle) => {
+      if (vehicle) {
+        this._facade.updateVehicle(vehicle);
+      }
+    });
+  }
+  public updateName(): void {
+    this._ref = this._dialogService.open(UpdateNameFormComponent, {
+      header: '修改车辆使用状态',
+      width: '70%',
+      contentStyle: { 'max-height': '500px', 'overflow': 'auto' },
+      baseZIndex: 10000,
+      data: this.vehicleUseState
+    });
+
+    this._ref.onClose.subscribe((vehicle) => {
+      if (vehicle) {
+        this._facade.updateVehicle(vehicle);
+      }
+    });
+  }
 
   /**
    * Registers events

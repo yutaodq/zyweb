@@ -31,18 +31,18 @@ export class DetailButtonComponent  implements OnInit {
       //     this.editOther();
       //   }},
       {separator:true},
-      {label: '改变车辆使用状态', icon: 'pi pi-times', command: () => {
-          this.changeVehicleZt();
+      {label: '修改状态名称', icon: 'pi pi-times', command: () => {
+          this.changeName();
         }},
     ];
   }
 
   public change(): void {
-    // this.updateCommand.update();
+    this.updateCommand.update();
   }
 
-  public changeVehicleZt(): void {
-    // this.updateCommand.updateZt();
+  public changeName(): void {
+    this.updateCommand.updateName();
   }
 }
 

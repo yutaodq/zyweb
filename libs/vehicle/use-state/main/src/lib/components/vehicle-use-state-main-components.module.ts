@@ -4,6 +4,7 @@ import { VehicleUseStateGridModule } from './grid';
 import { VehicleUseStateDetailFormModule } from './details-form';
 import { VehicleUseSataeDetailButtonModule } from './details-button';
 import { VehicleUseStateCreateFormModule } from './create-form';
+import { VehicleUseStateUpdateFormModule } from './update-form';
 
 export const COMPONENTS_EXPORTS : Array<any> = [
 ];
@@ -19,6 +20,7 @@ export const COMPONENTS_EXPORTS : Array<any> = [
     VehicleUseStateDetailFormModule,
     VehicleUseSataeDetailButtonModule,
     VehicleUseStateCreateFormModule,
+    VehicleUseStateUpdateFormModule,
   ],
 
   entryComponents: [
