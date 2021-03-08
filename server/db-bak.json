@@ -58,49 +58,32 @@
   ],
   "vehicles": [
     {
-      "id": 13,
-      "name": "ERERERT汽车3",
-      "pz": "5fg",
-      "nbpz": "作业12345",
-      "type": "锅炉车",
-      "zt": "在用",
-      "description": "返回"
-    },
-    {
-      "id": 45,
-      "name": "WFS汽车3",
-      "pz": "5fg",
-      "nbpz": "作业12345",
-      "type": "锅炉车",
-      "zt": "在用",
-      "description": "返回"
-    },
-    {
-      "id": 67,
-      "name": "GFS汽车3",
-      "pz": "5fg",
-      "nbpz": "作业12345",
-      "type": "锅炉车",
-      "zt": "在用",
-      "description": "返回"
-    },
-    {
-      "id": 89,
-      "name": "EQQQ汽车3",
-      "pz": "5fg",
-      "nbpz": "作业12345",
-      "type": "锅炉车",
-      "zt": "在用",
-      "description": "返回"
-    },
-    {
       "id": 98,
-      "name": "DAS汽车3",
-      "pz": "5fg",
-      "nbpz": "作业12345",
-      "type": "锅炉车",
-      "zt": "在用",
-      "description": "返回"
+      "zt": "33333yuadddddtytrr",
+      "name": "DAS汽车3"
+    },
+    {
+      "id": "13c35db8-177d-43ba-b638-64443f4dd041",
+      "zt": "3333ggggqqqqqqqqqqqqqqqq",
+      "name": "12345"
+    },
+    {
+      "name": "a12",
+      "zt": "额鹅鹅鹅hhh23hhhhhh",
+      "type": "1",
+      "pz": "123",
+      "nbpz": "456",
+      "description": "789",
+      "id": "46529bd5-c936-43c1-a841-64b3edc45d57"
+    },
+    {
+      "name": "A322",
+      "zt": "112RR55555555555555RRR334",
+      "type": "YYYYY",
+      "pz": "TTT",
+      "nbpz": "RRRR",
+      "description": "FGHGHGHHFG",
+      "id": "c99d6842-cba7-486e-a004-6d72a86efda7"
     }
   ],
   "vehicle_use_types": [
@@ -112,7 +95,7 @@
     {
       "id": "230f9127-9822-4f43-b85b-e0409072c17a",
       "description": "rrrrrrrrrrr返回",
-      "name": "rrrrrrrrfgdd集合集合管"
+      "name": "rrrrrrrrfgdd集合集合管sssssssss"
     },
     {
       "name": "124564ddddd",
@@ -172,6 +155,18 @@
       "name": "gfdgfdgfd",
       "description": "gfddf ",
       "id": "9983c8f9-4fcf-4af4-b715-09e43902c759"
+    }
+  ],
+  "vehicle_use_states": [
+    {
+      "id": "71f6f845-2b8b-4225-a47d-c8a3e489cf94",
+      "description": "ppppppp发过的啊打发",
+      "name": "在用"
+    },
+    {
+      "name": "停用",
+      "description": "pppjj",
+      "id": "4ef4a36d-c2be-44ac-abc9-2d3964c5cfda"
     }
   ]
 }

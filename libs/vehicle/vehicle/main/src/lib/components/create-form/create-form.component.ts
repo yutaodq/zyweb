@@ -15,12 +15,15 @@ import { FormlyFieldConfig, FormlyFormBuilder, FormlyFormOptions } from '@ngx-fo
 import { Vehicle } from '@zyweb/shared/data-access/model/lvms';
 import { Observable, of, Subscription } from 'rxjs';
 import { VehicleApiClient } from '@zyweb/shared/data-access/api/lvms';
+import { VehicleFacade } from '@zyweb/shared/data-access/facade/lvms';
+import { CreateVehicleService } from '../../services/create-vehicle.service';
+import { VehicleUseStateFacade } from '@zyweb/vehicle/use-state/data-access/store';
 
 @Component({
   selector: 'zyweb-vehicle-use-state-create-form',
   templateUrl: './create-form.component.html',
   styleUrls: ['./create-form.component.scss'],
-  providers: [CreateFormPresenter, VehicleApiClient]
+  providers: [CreateFormPresenter, VehicleApiClient, VehicleFacade, VehicleUseStateFacade, CreateVehicleService]
   // changeDetection: ChangeDetectionStrategy.OnPush
 })
 
@@ -48,23 +51,24 @@ export class CreateFormComponent implements OnInit, OnDestroy {
               // placeholder: '车辆名称',
               required: true,
               minLength: 2,
-              attributes: { zywebOnlyNumbers: null }
             },
             modelOptions: {
               updateOn: 'blur' //失去焦点后验证
             },
             asyncValidators: {
-              uniqueName: this._formPresenter.exists()
+              uniqueName: this._createVehicleService.isNameExists()
             }
           },
           {
             className: 'col-md-6',
             key: 'zt',
-            type: 'input',
+            type: 'select',
             templateOptions: {
               label: '使用状态',
-              required: true,
-              minLength: 2
+              options: this._createVehicleService.vehiclesUseState$,
+              valueProp: 'id',
+              labelProp: 'name',
+
             }
           }
         ]
@@ -112,7 +116,8 @@ export class CreateFormComponent implements OnInit, OnDestroy {
     }
     ];
 
-  constructor(private _formPresenter: CreateFormPresenter) {
+  constructor(private _formPresenter: CreateFormPresenter,
+              private _createVehicleService: CreateVehicleService) {
   }
 
   ngOnInit(): void {

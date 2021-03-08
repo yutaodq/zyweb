@@ -8,7 +8,7 @@ import { FORMLY_UNIQUE_NAME } from '../formly-const';
 @Injectable({
   providedIn: 'root',
 })
-export class ExistsService {
+export class AsyncValidatorExistsService {
   public exists(api: FindByNameApi): AsyncValidatorFn {
     return (control: AbstractControl): Promise<ValidationErrors | null> | Observable<ValidationErrors | null> => {
       const name = control.value;

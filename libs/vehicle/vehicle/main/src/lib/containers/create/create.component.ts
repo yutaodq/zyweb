@@ -4,6 +4,7 @@ import { ActivatedRoute } from '@angular/router';
 import { Subscription } from 'rxjs';
 import { Vehicle } from '@zyweb/shared/data-access/model/lvms';
 import { VehicleFacade } from '@zyweb/shared/data-access/facade/lvms';
+import { CreateVehicleService } from '../../services/create-vehicle.service';
 
 /*
 https://github.com/vladeye/druo-dashboard-app/tree/master/src/app/content/pages
@@ -24,6 +25,7 @@ export class CreateComponent implements OnInit, OnDestroy {
 
   constructor(
     private _facade: VehicleFacade,
+    private _createService: CreateVehicleService,
     ) {}
 
   ngOnInit() {
@@ -35,10 +37,12 @@ export class CreateComponent implements OnInit, OnDestroy {
   }
 
   onCancel() {
-    this._facade.cancelCreate()
+    this._createService.cancel()
+    // this._facade.cancelCreate()
   }
 
   onAdd(vehicle: Vehicle) {
+    this._createService.add(vehicle)
     this._facade.addVehicle(vehicle)
  }
 
