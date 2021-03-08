@@ -2,9 +2,9 @@ import { ChangeDetectionStrategy, ChangeDetectorRef, Component, OnDestroy, OnIni
 import { ActivatedRoute } from '@angular/router';
 
 import { Subscription } from 'rxjs';
-import { Vehicle } from '@zyweb/shared/data-access/model/lvms';
-import { VehicleFacade } from '@zyweb/shared/data-access/facade/lvms';
+import { Vehicle, VehicleUseState } from '@zyweb/shared/data-access/model/lvms';
 import { CreateVehicleService } from '../../services/create-vehicle.service';
+import { MasterCreateCommand } from '@zyweb/shared/util/utility';
 
 /*
 https://github.com/vladeye/druo-dashboard-app/tree/master/src/app/content/pages
@@ -17,14 +17,13 @@ D:\学习案例\druo-dashboard\src\app\content\pages\components\invoices\invoice
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 
-export class CreateComponent implements OnInit, OnDestroy {
+export class CreateComponent implements  MasterCreateCommand<Vehicle>, OnInit, OnDestroy {
 
   private subscriptions: Array<Subscription> = [];
   public vehicle:        Vehicle;
   public commands = this;
 
   constructor(
-    private _facade: VehicleFacade,
     private _createService: CreateVehicleService,
     ) {}
 
@@ -38,12 +37,10 @@ export class CreateComponent implements OnInit, OnDestroy {
 
   onCancel() {
     this._createService.cancel()
-    // this._facade.cancelCreate()
   }
 
   onAdd(vehicle: Vehicle) {
     this._createService.add(vehicle)
-    this._facade.addVehicle(vehicle)
  }
 
   /**

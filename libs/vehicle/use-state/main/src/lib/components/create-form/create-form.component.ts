@@ -16,7 +16,6 @@ import { VehicleUseState } from '@zyweb/shared/data-access/model/lvms';
 import { Observable, of, Subscription } from 'rxjs';
 import { VehicleUseStateApiClient } from '@zyweb/shared/data-access/api/lvms';
 import { MasterCreateCommand } from '@zyweb/shared/util/utility';
-import { DetailComponent } from '../../containers/detail/detail.component';
 
 @Component({
   selector: 'zyweb-vehicle-use-state-create-form',

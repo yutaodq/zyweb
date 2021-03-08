@@ -9,6 +9,17 @@ export interface Vehicle {
 
 }
 
+export interface VehicleList {
+  id: string;
+  name: string;
+  pz: string;
+  nbpz: string;
+  type: string;
+  zt: string;
+  description: string;
+
+}
+
 export function generateMockVehicle(): Vehicle {
   return {
     id: '1',

@@ -7,7 +7,9 @@
 
 <div class="container content-section implementation">
 
-    <zyweb-vehicle-use-state-create-form (cancelEvent)="onCancel()" (addEvent)="onAdd($event)">
-    </zyweb-vehicle-use-state-create-form>
+<!--    <zyweb-vehicle-use-state-create-form (cancelEvent)="onCancel()" (addEvent)="onAdd($event)">-->
+      <zyweb-vehicle-create-form [_command]="commands">
+
+      </zyweb-vehicle-create-form>
 
 </div>

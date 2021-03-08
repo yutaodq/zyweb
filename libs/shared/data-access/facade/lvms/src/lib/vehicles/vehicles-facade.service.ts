@@ -15,7 +15,7 @@ import { RouteActions } from '@zyweb/shared/data-access/store/ngrx-router';
 @Injectable()
 export class VehicleFacade extends Sandbox{
   private _collectionService: EntityCollectionService<Vehicle>;
-  private _vehicleUseStatecollectionService: EntityCollectionService<VehicleUseState>;
+  // private _vehicleUseStatecollectionService: EntityCollectionService<VehicleUseState>;
 
   private subscriptions: Array<Subscription> = [];
 
@@ -25,7 +25,7 @@ export class VehicleFacade extends Sandbox{
   ) {
     super(_appState$);
     this._collectionService = entityServices.getEntityCollectionService('Vehicle');
-    this._vehicleUseStatecollectionService = entityServices.getEntityCollectionService('VehicleUseState')
+    // this._vehicleUseStatecollectionService = entityServices.getEntityCollectionService('VehicleUseState')
     this.registerEvents();
   }
 
@@ -36,9 +36,9 @@ export class VehicleFacade extends Sandbox{
     return this._collectionService.entities$;
   }
 
-  get vehiclesUseState$(): Observable<VehicleUseState[]> {
-    return this._vehicleUseStatecollectionService.entities$;
-  }
+  // get vehiclesUseState$(): Observable<VehicleUseState[]> {
+  //   return this._vehicleUseStatecollectionService.entities$;
+  // }
 
   get vehicleDetail$(): Observable<Vehicle> {
     return this._collectionService.selected$;
@@ -57,7 +57,6 @@ export class VehicleFacade extends Sandbox{
    */
   private registerEvents(): void {
     this._collectionService.getAll();
-    this._vehicleUseStatecollectionService.getAll();
   }
 
   private routeTo(param: { path: (string)[] }) {

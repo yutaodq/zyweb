@@ -10,28 +10,26 @@ import {
 } from '@angular/core';
 
 import { CreateFormPresenter } from './create-form.presenter';
-import { FormControl, FormGroup, ValidationErrors } from '@angular/forms';
-import { FormlyFieldConfig, FormlyFormBuilder, FormlyFormOptions } from '@ngx-formly/core';
+import {  FormGroup } from '@angular/forms';
+import { FormlyFieldConfig, FormlyFormOptions } from '@ngx-formly/core';
 import { Vehicle } from '@zyweb/shared/data-access/model/lvms';
-import { Observable, of, Subscription } from 'rxjs';
-import { VehicleApiClient } from '@zyweb/shared/data-access/api/lvms';
-import { VehicleFacade } from '@zyweb/shared/data-access/facade/lvms';
+import {  Subscription } from 'rxjs';
 import { CreateVehicleService } from '../../services/create-vehicle.service';
-import { VehicleUseStateFacade } from '@zyweb/vehicle/use-state/data-access/store';
+import { MasterCreateCommand } from '@zyweb/shared/util/utility';
 
 @Component({
-  selector: 'zyweb-vehicle-use-state-create-form',
+  selector: 'zyweb-vehicle-create-form',
   templateUrl: './create-form.component.html',
   styleUrls: ['./create-form.component.scss'],
-  providers: [CreateFormPresenter, VehicleApiClient, VehicleFacade, VehicleUseStateFacade, CreateVehicleService]
+  providers: [CreateFormPresenter]
   // changeDetection: ChangeDetectionStrategy.OnPush
 })
 
 
 export class CreateFormComponent implements OnInit, OnDestroy {
-  @Output() addEvent: EventEmitter<Vehicle> = new EventEmitter();
-  @Output() cancelEvent: EventEmitter<string> = new EventEmitter();
-  @Output() resetEvent: EventEmitter<string> = new EventEmitter();
+  @Input()
+  private _command: MasterCreateCommand<Vehicle>;
+
   private subscriptions: Array<Subscription> = [];
 
 
@@ -47,7 +45,6 @@ export class CreateFormComponent implements OnInit, OnDestroy {
             focus: true,
             templateOptions: {
               label: '车辆名称',
-              description: 'dfffffffffffffffffffffffffff',
               // placeholder: '车辆名称',
               required: true,
               minLength: 2,
@@ -65,7 +62,7 @@ export class CreateFormComponent implements OnInit, OnDestroy {
             type: 'select',
             templateOptions: {
               label: '使用状态',
-              options: this._createVehicleService.vehiclesUseState$,
+              options: this._createVehicleService.getVehiclesUseState(),
               valueProp: 'id',
               labelProp: 'name',
 
@@ -116,8 +113,10 @@ export class CreateFormComponent implements OnInit, OnDestroy {
     }
     ];
 
-  constructor(private _formPresenter: CreateFormPresenter,
-              private _createVehicleService: CreateVehicleService) {
+  constructor(
+    private _formPresenter: CreateFormPresenter,
+              private _createVehicleService: CreateVehicleService
+  ) {
   }
 
   ngOnInit(): void {
@@ -127,9 +126,9 @@ export class CreateFormComponent implements OnInit, OnDestroy {
   private registerEvents(): void {
     // 订阅车辆详情
     this.subscriptions.push(
-      this._formPresenter.add$.subscribe(vehicle => this.addEvent.emit(vehicle)),
-      this._formPresenter.cancel$.subscribe(name => this.cancelEvent.emit(name)),
-      this._formPresenter.reset$.subscribe(name => this.resetEvent.emit(name))
+      this._formPresenter.add$.subscribe(vehicle => this._command.onAdd(vehicle)),
+      this._formPresenter.cancel$.subscribe(name => this._command.onCancel()),
+      // this._formPresenter.reset$.subscribe(name => this.resetEvent.emit(name))
     );
   }
 

@@ -25,21 +25,20 @@ export class CreateFormPresenter {
   private _model: any = {};
   private _options: FormlyFormOptions = {};
 
-  constructor(private _vehiclesApiClient: VehicleApiClient,
-              private _existsService: AsyncValidatorExistsService,
-              private _vehicleFacade: VehicleFacade) {
+  constructor(
+    // private _vehiclesApiClient: VehicleApiClient,
+    //           private _existsService: AsyncValidatorExistsService,
+    //           private _vehicleFacade: VehicleFacade
+  ) {
   }
   // this.subscription = this.form.valueChanges.subscribe(value =>
   //   this.aplicar.emit(value)
   // );
 
-allVehicleUseStates() {
-    return this._vehicleFacade.vehiclesUseState$
-}
 
-  exists(): AsyncValidatorFn {
-    return this._existsService.exists(this._vehiclesApiClient);
-  }
+  // exists(): AsyncValidatorFn {
+  //   return this._existsService.exists(this._vehiclesApiClient);
+  // }
 
   public cancel(): void {
     this._cancel.next('cancelCreate');
