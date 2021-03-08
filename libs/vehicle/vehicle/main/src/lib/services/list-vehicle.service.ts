@@ -26,7 +26,7 @@ export class ListVehicleService {
   getVehiclesUseState(): VehicleUseState[] {
     let abc: VehicleUseState[];
     const def: VehicleUseState = {id: '',name: '不填写', description: ''};
-    this._vehicleFacade.vehicles$.pipe().subscribe()
+    this._vehicleFacade.vehicles$.pipe().subscribe();
     this._vehicleUseStateFacade.vehicleUseStates$.subscribe(vehicleUseState =>  abc= vehicleUseState)
     abc =[def, ...abc];
     return abc;
