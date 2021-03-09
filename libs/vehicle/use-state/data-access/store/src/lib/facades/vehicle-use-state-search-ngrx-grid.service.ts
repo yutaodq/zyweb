@@ -28,4 +28,7 @@ export class VehicleUseStateSearchNgrxGridService extends  SearchNgrxGridService
   private registerEvents(): void {
   }
 
+  clearAllFilters() {
+  }
+
 }

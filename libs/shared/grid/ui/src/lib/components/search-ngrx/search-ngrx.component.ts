@@ -13,6 +13,7 @@ import { SearchNgrxGridService } from '@zyweb/shared/grid/core';
   providers: []
 })
 export class SearchNgrxComponent implements OnInit {
+
   get filter(): string {
     return this._filter;
   }
