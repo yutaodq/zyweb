@@ -5,6 +5,8 @@ import { VehicleApiClient } from '@zyweb/shared/data-access/api/lvms';
 import { Vehicle, VehicleUseState } from '@zyweb/shared/data-access/model/lvms';
 import { AsyncValidatorExistsService } from '@zyweb/shared/ui/form';
 import { AsyncValidatorFn } from '@angular/forms';
+import { map, reduce } from 'rxjs/operators';
+import { Observable } from 'rxjs';
 
 @Injectable()
 export class CreateVehicleService {
@@ -24,14 +26,13 @@ export class CreateVehicleService {
   }
 
 
-  getVehiclesUseState(): VehicleUseState[] {
-  // getVehiclesUseState(): Observable<VehicleUseState[]> {
-    let abc: VehicleUseState[];
-    const def: VehicleUseState = {id: '',name: '不填写', description: ''};
-    this._vehicleUseStateFacade.vehicleUseStates$.subscribe(vehicleUseState =>  abc= vehicleUseState)
-    abc =[def, ...abc];
-    return abc;
-    // return this._vehicleUseStateFacade.vehicleUseStates$;
+  getVehiclesUseState(): Observable<VehicleUseState[]> {
+    const emptyState: VehicleUseState = { id: '', name: '不填写', description: '' };
+    return this._vehicleUseStateFacade.vehicleUseStates$
+      .pipe(map(vehicleUseStates =>
+          [emptyState, ...vehicleUseStates]
+        )
+      );
   }
 
   isNameExists(): AsyncValidatorFn {
