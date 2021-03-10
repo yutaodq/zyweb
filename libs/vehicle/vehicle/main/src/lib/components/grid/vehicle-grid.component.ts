@@ -8,7 +8,7 @@ import {
 import { Vehicle } from '@zyweb/shared/data-access/model/lvms';
 import { VehicleGridPresenter } from './vehicle-grid.presenter';
 import { VehicleSearchNgrxGridService } from '@zyweb/shared/data-access/facade/lvms';
-import { GridComponentClass,  } from '@zyweb/shared/grid/core';
+import { GridComponentClass, SearchNgrxGridService } from '@zyweb/shared/grid/core';
 
 @Component({
   selector: 'zyweb-vehicle-grid',
@@ -17,12 +17,20 @@ import { GridComponentClass,  } from '@zyweb/shared/grid/core';
 })
 export class VehicleGridComponent extends GridComponentClass<Vehicle> {
   constructor( vehicleGridPresenter: VehicleGridPresenter,
-               vehicleSearchNgrxGridService: VehicleSearchNgrxGridService
+               searchNgrxGridService: SearchNgrxGridService
   ) {
     super();
     this.gridPresenter = vehicleGridPresenter;
-    this.searchNgrxGridService = vehicleSearchNgrxGridService
+    this.searchNgrxGridService = searchNgrxGridService
   }
+
+  // constructor( vehicleGridPresenter: VehicleGridPresenter,
+  //              vehicleSearchNgrxGridService: VehicleSearchNgrxGridService
+  // ) {
+  //   super();
+  //   this.gridPresenter = vehicleGridPresenter;
+  //   this.searchNgrxGridService = vehicleSearchNgrxGridService
+  // }
 
 }
 

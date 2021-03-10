@@ -48,6 +48,6 @@ export class SearchNgrxComponent implements OnInit {
   }
 
   onClearAllFilters() {
-    console.log('aaaaaaaaaaaaaaaaaaaaaaaaa');
+    this.searchNgrxGridService.clearAllFilters();
   }
 }

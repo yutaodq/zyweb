@@ -1,14 +1,16 @@
 import { Injectable } from '@angular/core';
-import { Observable } from 'rxjs';
+import { Observable, Subject } from 'rxjs';
+import { Vehicle } from '@zyweb/shared/data-access/model/lvms';
 
 // @Injectable()
 export abstract class SearchNgrxGridService {
 
   private _query$: Observable<string>
+  clearAllFilters$: Subject<string> = new Subject();
+
   public constructor() {  }
 
-   search(query: string) {
-   }
+  abstract search(query: string)
 
   get query$(): Observable<string> {
     return this._query$;
@@ -17,5 +19,7 @@ export abstract class SearchNgrxGridService {
   set query$(value: Observable<string>) {
     this._query$ = value;
   }
-  abstract clearAllFilters()
+  clearAllFilters() {
+    this.clearAllFilters$.next('');
+  }
 }

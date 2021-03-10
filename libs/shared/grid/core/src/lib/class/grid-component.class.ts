@@ -24,10 +24,10 @@ export abstract class GridComponentClass<T> implements OnInit, AfterViewInit, On
 
   public gridOptions: IDataGridOptions;
   public columnDefs;
-  protected gridPresenter: IGridOptionsModel<T>
-  protected searchNgrxGridService: SearchNgrxGridService
-  constructor(
-  ) {
+  protected gridPresenter: IGridOptionsModel<T>;
+  protected searchNgrxGridService: SearchNgrxGridService;
+
+  constructor() {
   }
 
   ngOnInit() {
@@ -43,15 +43,15 @@ export abstract class GridComponentClass<T> implements OnInit, AfterViewInit, On
   private registerEvents(): void {
     // 订阅车辆详情
     this.subscriptions.push(
-      this.gridPresenter.select$.subscribe(entity => this.selectDataEvent.emit(entity))
+      this.gridPresenter.select$.subscribe(entity => this.selectDataEvent.emit(entity)),
+      this.searchNgrxGridService.clearAllFilters$
+        .subscribe(query => this.clearAllFilters())
     );
   }
 
   clearAllFilters() {
     this.gridOptions.api.setFilterModel(null);
     this.searchNgrxGridService.search('');
-    // this.filterString = null;
-    // this.gridOptions.api.setQuickFilter(null);
   }
 
   public ngAfterViewInit(): void {
@@ -59,6 +59,7 @@ export abstract class GridComponentClass<T> implements OnInit, AfterViewInit, On
     this.searchNgrxGridService.query$.pipe(
       map(query => vale = query))
       .subscribe(query => this.quickFilter(query));
+
     this.quickFilter(vale);
   }
 
