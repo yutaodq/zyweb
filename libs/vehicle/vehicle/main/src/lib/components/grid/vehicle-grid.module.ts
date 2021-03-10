@@ -28,7 +28,7 @@ export const COMPONENTS_EXPORTS: Array<any> = [
   ],
   exports: [...COMPONENTS_EXPORTS],
   providers: [
-    VehicleSearchNgrxGridService,
+    // VehicleSearchNgrxGridService,
     {
       provide: VehicleGridPresenter, useClass: VehicleGridPresenter
     }
