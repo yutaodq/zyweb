@@ -17,10 +17,11 @@ import { GridComponentClass,  } from '@zyweb/shared/grid/core';
 })
 export class VehicleGridComponent extends GridComponentClass<Vehicle> {
   constructor( vehicleGridPresenter: VehicleGridPresenter,
-              private vehicleSearchNgrxGridService: VehicleSearchNgrxGridService
+               vehicleSearchNgrxGridService: VehicleSearchNgrxGridService
   ) {
-    super(vehicleSearchNgrxGridService);
+    super();
     this.gridPresenter = vehicleGridPresenter;
+    this.searchNgrxGridService = vehicleSearchNgrxGridService
   }
 
 }

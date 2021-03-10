@@ -18,10 +18,11 @@ import { VehicleUseStateGridPresenter } from './vehicle-use-state-grid.presenter
 })
 export class VehicleUseStateGridComponent extends GridComponentClass<VehicleUseState> {
   constructor( vehicleUseStateGridPresenter: VehicleUseStateGridPresenter,
-              private vehicleUseStateSearchNgrxGridService: VehicleUseStateSearchNgrxGridService
+               vehicleUseStateSearchNgrxGridService: VehicleUseStateSearchNgrxGridService
   ) {
-    super(vehicleUseStateSearchNgrxGridService);
+    super();
     this.gridPresenter = vehicleUseStateGridPresenter;
+    this.searchNgrxGridService = vehicleUseStateSearchNgrxGridService
   }
 
 }

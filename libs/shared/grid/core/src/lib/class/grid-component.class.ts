@@ -25,8 +25,8 @@ export abstract class GridComponentClass<T> implements OnInit, AfterViewInit, On
   public gridOptions: IDataGridOptions;
   public columnDefs;
   protected gridPresenter: IGridOptionsModel<T>
-
-  constructor( private _searchNgrxGridService: SearchNgrxGridService
+  protected searchNgrxGridService: SearchNgrxGridService
+  constructor(
   ) {
   }
 
@@ -49,14 +49,14 @@ export abstract class GridComponentClass<T> implements OnInit, AfterViewInit, On
 
   clearAllFilters() {
     this.gridOptions.api.setFilterModel(null);
-    this._searchNgrxGridService.search('');
+    this.searchNgrxGridService.search('');
     // this.filterString = null;
     // this.gridOptions.api.setQuickFilter(null);
   }
 
   public ngAfterViewInit(): void {
     let vale;
-    this._searchNgrxGridService.query$.pipe(
+    this.searchNgrxGridService.query$.pipe(
       map(query => vale = query))
       .subscribe(query => this.quickFilter(query));
     this.quickFilter(vale);

@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 
-@Injectable()
+// @Injectable()
 export abstract class SearchNgrxGridService {
 
   private _query$: Observable<string>
