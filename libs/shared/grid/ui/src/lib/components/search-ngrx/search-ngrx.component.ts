@@ -47,4 +47,7 @@ export class SearchNgrxComponent implements OnInit {
     return !this.isShowSearchIcon();
   }
 
+  onClearAllFilters() {
+    console.log('aaaaaaaaaaaaaaaaaaaaaaaaa');
+  }
 }
