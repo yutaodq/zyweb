@@ -1,0 +1,18 @@
+<div class="container content-section introduction">
+  <h1>Form Layout</h1>
+  <p>Form layout is a CSS utility optimized for creating forms with </p>
+</div>
+
+<div class="container content-section implementation">
+  <zyweb-ui-base-details-toolbar
+    [commands]="commands">
+    <zyweb-vehicle-use-type-detail-button  [updateCommand]="commands">
+    </zyweb-vehicle-use-type-detail-button>
+
+  </zyweb-ui-base-details-toolbar>
+  <div class="card">
+    <zyweb-vehicle-use-type-details-form [vehicleUseType]="vehicleUseType$| async">
+    </zyweb-vehicle-use-type-details-form>
+  </div>
+
+</div>

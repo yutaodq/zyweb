@@ -3,21 +3,21 @@ import { select, Store } from '@ngrx/store';
 import { Observable, Subscription } from 'rxjs';
 import { EntityCollectionService, EntityServices } from '@ngrx/data';
 
-import { VehicleUseState} from '@zyweb/shared/data-access/model/lvms';
+import { VehicleUseType} from '@zyweb/shared/data-access/model/lvms';
 import { RouteActions } from '@zyweb/shared/data-access/store/ngrx-router';
 
 import * as fromStaes from '../reducers';
 
 @Injectable()
-export class VehicleUseStateFacade {
-  private _collectionService: EntityCollectionService<VehicleUseState>
+export class VehicleUseTypeFacade {
+  private _collectionService: EntityCollectionService<VehicleUseType>
   private subscriptions: Array<Subscription> = [];
 
   constructor(
     private _appState$: Store<fromStaes.State>,
     entityServices: EntityServices
   ) {
-    this._collectionService = entityServices.getEntityCollectionService('VehicleUseState');
+    this._collectionService = entityServices.getEntityCollectionService('VehicleUseType');
 
     this.registerEvents();
   }
@@ -25,16 +25,16 @@ export class VehicleUseStateFacade {
   get loading$() {
     return this._collectionService.loading$;
   }
-  get vehicleUseStates$(): Observable<VehicleUseState[]> {
+  get vehicleUseTypes$(): Observable<VehicleUseType[]> {
     return this._collectionService.entities$;
   }
 
-  get vehicleUseStateDetail$(): Observable<VehicleUseState> {
+  get vehicleUseTypeDetail$(): Observable<VehicleUseType> {
     return this._collectionService.selected$;
   }
 
   /**
-   * Loads vehicleUseState from the server
+   * Loads vehicleUseType from the server
    */
 
   public unregisterEvents() {
@@ -52,18 +52,18 @@ export class VehicleUseStateFacade {
     this._appState$.dispatch(RouteActions.go({ to: param }));
   }
 
-  showDetail(vehicleUseState: VehicleUseState) {
-    this.routeTo({ path: ['vehicleUseState', vehicleUseState.id, 'detail'] });
+  showDetail(vehicleUseType: VehicleUseType) {
+    this.routeTo({ path: ['vehicleUseType', vehicleUseType.id, 'detail'] });
 
   }
 
   returnToList() {
-    this.routeTo({ path: ['vehicleUseState', 'list'] });
+    this.routeTo({ path: ['vehicleUseType', 'list'] });
   }
 
 
-  createVehicle() {
-    this.routeTo({ path: ['vehicleUseState', 'create'] });
+  createVehicleUseType() {
+    this.routeTo({ path: ['vehicleUseType', 'create'] });
 
   }
 
@@ -72,17 +72,17 @@ export class VehicleUseStateFacade {
     this._appState$.dispatch(RouteActions.back());
   }
 
-  removeDetail(vehicleUseState: VehicleUseState) {
-    return this._collectionService.delete(vehicleUseState);
+  removeDetail(vehicleUseType: VehicleUseType) {
+    return this._collectionService.delete(vehicleUseType);
   }
 
-  addVehicle(vehicleUseState: VehicleUseState) {
-    return this._collectionService.add(vehicleUseState);
+  addVehicleUseType(vehicleUseType: VehicleUseType) {
+    return this._collectionService.add(vehicleUseType);
 
   }
 
-  updateVehicle(vehicleUseState: VehicleUseState) {
-    return this._collectionService.update(vehicleUseState);
+  updateVehicleUseType(vehicleUseType: VehicleUseType) {
+    return this._collectionService.update(vehicleUseType);
 
   }
 }

@@ -1,6 +1,6 @@
 import { createAction, props } from '@ngrx/store';
 
-export const searchVehicles = createAction(
+export const searchVehicleUseStates = createAction(
   '[Vehicle Use State] Collection Page Search',
   props<{ query: string }>()
 );

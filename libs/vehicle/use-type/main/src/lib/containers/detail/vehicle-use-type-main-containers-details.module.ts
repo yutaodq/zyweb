@@ -4,9 +4,9 @@ import {SplitButtonModule} from 'primeng/splitbutton';
 
 import { SharedUiBaseModule } from '@zyweb/shared/ui/base';
 import { VehicleUseTypeMainComponentsModule } from '../../components';
-import { DetailsComponent } from './details.component';
-import {  VehicleUseTypesFacade } from '@zyweb/shared/data-access/facade/lvms';
 import { DialogService } from 'primeng/dynamicdialog';
+import { VehicleUseTypeFacade } from '@zyweb/vehicle/use-type/data-access/store';
+import { DetailComponent } from './detail.component';
 
 @NgModule({
   imports: [
@@ -16,8 +16,8 @@ import { DialogService } from 'primeng/dynamicdialog';
     SplitButtonModule
   ],
   declarations: [
-    DetailsComponent,
+    DetailComponent,
   ],
-  providers: [ VehicleUseTypesFacade, DialogService],
+  providers: [ VehicleUseTypeFacade, DialogService],
 })
 export class VehicleUseTypeMainContainersDetailsModule {}

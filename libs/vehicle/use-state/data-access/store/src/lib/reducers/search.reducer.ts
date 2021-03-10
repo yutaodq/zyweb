@@ -18,7 +18,7 @@ const initialState: State = {
 
 export const reducer = createReducer(
   initialState,
-  on(CollectionPageActions.searchVehicles, (state, { query }) => ({
+  on(CollectionPageActions.searchVehicleUseStates, (state, { query }) => ({
     ...state,
     query: query
   })),

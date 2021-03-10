@@ -1,40 +1,38 @@
 import { ChangeDetectionStrategy, ChangeDetectorRef, Component, OnDestroy, OnInit } from '@angular/core';
-
 import { Observable, of, Subscription } from 'rxjs';
-
 import { DialogService, DynamicDialogRef } from 'primeng/dynamicdialog';
-import { VehicleUseType } from '@zyweb/shared/data-access/model/lvms';
-import { VehicleUseTypesFacade } from '@zyweb/shared/data-access/facade/lvms';
-import { ActivatedRoute } from '@angular/router';
-import { map } from 'rxjs/operators';
+
 import { DialogDeleteComponent } from '@zyweb/shared/ui/base';
+import { MasterDetailCommand } from '@zyweb/shared/util/utility';
+
+import { VehicleUseType } from '@zyweb/shared/data-access/model/lvms';
+import { VehicleUseTypeFacade } from '@zyweb/vehicle/use-type/data-access/store';
 import { UpdateNameFormComponent } from '../../components/update-form/update/update-name-form.component';
 
 @Component({
-  selector: 'zyweb-vehicle-use-type-details',
-  templateUrl: './details.component.html',
-  styleUrls: ['./details.component.scss'],
+  selector: 'zyweb-vehicle-use-type-detail',
+  templateUrl: './detail.component.html',
+  styleUrls: ['./detail.component.scss'],
   changeDetection: ChangeDetectionStrategy.OnPush
 })
 
-export class DetailsComponent implements OnInit, OnDestroy {
+export class DetailComponent implements MasterDetailCommand<VehicleUseType>, OnInit, OnDestroy {
 
-  public vehicleUseType$: Observable<VehicleUseType>;
-  public vehicleUseType: VehicleUseType;
-  private _actionsSubscription: Subscription;
   private subscriptions: Array<Subscription> = [];
   private _ref: DynamicDialogRef | null = null;
 
+  commands = this;
+  public vehicleUseType$: Observable<VehicleUseType>;
+  public vehicleUseType: VehicleUseType;
+
   constructor(
-    public _facade: VehicleUseTypesFacade,
+    public _facade: VehicleUseTypeFacade,
     private changeDetector: ChangeDetectorRef,
     private _dialogService: DialogService,
-    private _route: ActivatedRoute
   ) {
-
   }
 
-  public returnList(): void {
+  public toList(): void {
     this._facade.returnToList();
   }
 
@@ -42,9 +40,10 @@ export class DetailsComponent implements OnInit, OnDestroy {
     this._facade.createVehicleUseType();
   }
 
+
   public delete(): void {
     this._ref = this._dialogService.open(DialogDeleteComponent, {
-      header: '删除车辆信息档案',
+      header: '删除车辆使用状态',
       width: '70%',
       contentStyle: { 'max-height': '500px', 'overflow': 'auto' },
       baseZIndex: 10000
@@ -58,9 +57,24 @@ export class DetailsComponent implements OnInit, OnDestroy {
     });
   }
 
+  // public update(): void {
+  //   this._ref = this._dialogService.open(UpdateMainFormComponent, {
+  //     header: '修改车辆使用状态说明',
+  //     width: '70%',
+  //     contentStyle: { 'max-height': '500px', 'overflow': 'auto' },
+  //     baseZIndex: 10000,
+  //     data: this.vehicleUseType
+  //   });
+  //
+  //   this._ref.onClose.subscribe((vehicle) => {
+  //     if (vehicle) {
+  //       this._facade.updateVehicle(vehicle);
+  //     }
+  //   });
+  // }
   public updateName(): void {
     this._ref = this._dialogService.open(UpdateNameFormComponent, {
-      header: '删除车辆信息档案',
+      header: '修改车辆使用状态',
       width: '70%',
       contentStyle: { 'max-height': '500px', 'overflow': 'auto' },
       baseZIndex: 10000,
@@ -80,18 +94,13 @@ export class DetailsComponent implements OnInit, OnDestroy {
   private registerEvents(): void {
     // 订阅车辆详情
     this.subscriptions.push(
-      this._facade.vehicleUseTypeDetails$.subscribe((vehicleUseType: any) => {
+      this._facade.vehicleUseTypeDetail$.subscribe((vehicleUseType: any) => {
         if (vehicleUseType) {
           this.changeDetector.markForCheck();
           this.vehicleUseType = vehicleUseType;
           this.vehicleUseType$ = of(vehicleUseType);
         }
       }),
-      this._actionsSubscription = this._route.params
-        .pipe(map((params) => params.id))
-        .subscribe((id) => {
-          this._facade.dispatchSelectVehicleUseType(id);
-        })
     );
   }
 

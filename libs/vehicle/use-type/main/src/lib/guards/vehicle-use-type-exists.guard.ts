@@ -4,12 +4,9 @@ D:\学习案例\ngrx-master\projects\example-app\src\app\books\guards\book-exist
  */
 import { Injectable } from '@angular/core';
 import { ActivatedRouteSnapshot, CanActivate, Router } from '@angular/router';
-import { select, Store } from '@ngrx/store';
 import { Observable, of } from 'rxjs';
-import { catchError, filter, map, switchMap, take, tap } from 'rxjs/operators';
+import { VehicleUseTypesExistsService } from '@zyweb/vehicle/use-type/data-access/store';
 
-import { VehicleUseTypesExistsService, VehicleUseTypesFacade } from '@zyweb/shared/data-access/facade/lvms';
-import * as fromVehicleUseTypes from '@zyweb/vehicle/use-type/data-access/store';
 
 
 @Injectable({

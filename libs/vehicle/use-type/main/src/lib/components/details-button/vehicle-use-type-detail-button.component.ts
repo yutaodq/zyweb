@@ -9,6 +9,7 @@ import {
   Output
 } from '@angular/core';
 import { MenuItem } from 'primeng/api';
+import { DetailComponent } from '../../../../../../use-state/main/src/lib/containers/detail/detail.component';
 
 @Component({
   selector: 'zyweb-vehicle-use-type-detail-button',
@@ -19,12 +20,10 @@ import { MenuItem } from 'primeng/api';
 })
 
 export class VehicleUseTypeDetailButtonComponent  implements OnInit {
-  items: MenuItem[];
+  @Input()
+  updateCommand: DetailComponent;
 
-  @Output()
-  public onChangeUseTypeEvent: EventEmitter<any> = new EventEmitter();
-  @Output()
-  public onEditOtherEvent: EventEmitter<any> = new EventEmitter();
+  items: MenuItem[];
 
   ngOnInit() {
     this.items = [
@@ -33,17 +32,17 @@ export class VehicleUseTypeDetailButtonComponent  implements OnInit {
       //   }},
       {separator:true},
       {label: '用途变更', icon: 'pi pi-times', command: () => {
-          this.changeUseType();
+          this.changeName();
         }},
     ];
   }
 
-  public changeUseType(): void {
-    this.onChangeUseTypeEvent.emit();
+  public change(): void {
+    this.updateCommand.update();
   }
 
-  public editOther(): void {
-    this.onEditOtherEvent.emit();
+  public changeName(): void {
+    this.updateCommand.updateName();
   }
 }
 

@@ -6,9 +6,6 @@
 </div>
 
 <div class="container content-section implementation">
-<!--  <zy-detail-toolbar (onList)="returnList()" (onDelete)="delete()">-->
-
-    <zyweb-vehicle-use-type-create-form (cancelEvent)="onCancel()" (addEvent)="onAdd($event)">
+    <zyweb-vehicle-use-type-create-form [_command]="commands">
     </zyweb-vehicle-use-type-create-form>
-
 </div>

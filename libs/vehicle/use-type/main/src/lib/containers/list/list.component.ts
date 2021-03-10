@@ -1,7 +1,7 @@
 import { ChangeDetectionStrategy, Component, OnInit } from '@angular/core';
 import { NGXLogger } from 'ngx-logger';
 import { VehicleUseType } from '@zyweb/shared/data-access/model/lvms';
-import { VehicleUseTypesFacade } from '@zyweb/shared/data-access/facade/lvms';
+import { VehicleUseTypeFacade } from '@zyweb/vehicle/use-type/data-access/store';
 
 @Component({
   selector: 'zyweb-vehicle-use-type-list',
@@ -12,7 +12,7 @@ import { VehicleUseTypesFacade } from '@zyweb/shared/data-access/facade/lvms';
 
 export class ListComponent implements OnInit {
   constructor(
-    private _facade: VehicleUseTypesFacade,
+    private _facade: VehicleUseTypeFacade,
     private _logger: NGXLogger,
   ) {
 

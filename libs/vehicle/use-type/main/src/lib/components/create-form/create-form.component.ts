@@ -10,11 +10,12 @@ import {
 } from '@angular/core';
 
 import { CreateFormPresenter } from './create-form.presenter';
-import { FormControl, FormGroup, ValidationErrors } from '@angular/forms';
-import { FormlyFieldConfig, FormlyFormBuilder, FormlyFormOptions } from '@ngx-formly/core';
-import { VehicleUseType } from '@zyweb/shared/data-access/model/lvms';
-import { Observable, of, Subscription } from 'rxjs';
+import {  FormGroup,  } from '@angular/forms';
+import { FormlyFieldConfig,  FormlyFormOptions } from '@ngx-formly/core';
+import {  VehicleUseType } from '@zyweb/shared/data-access/model/lvms';
+import {  Subscription } from 'rxjs';
 import { VehicleUseTypesApiClient } from '@zyweb/shared/data-access/api/lvms';
+import { MasterCreateCommand } from '@zyweb/shared/util/utility';
 
 @Component({
   selector: 'zyweb-vehicle-use-type-create-form',
@@ -26,9 +27,8 @@ import { VehicleUseTypesApiClient } from '@zyweb/shared/data-access/api/lvms';
 
 
 export class CreateFormComponent implements OnInit, OnDestroy {
-  @Output() addEvent: EventEmitter<VehicleUseType> = new EventEmitter();
-  @Output() cancelEvent: EventEmitter<string> = new EventEmitter();
-  @Output() resetEvent: EventEmitter<string> = new EventEmitter();
+  @Input()
+  private _command: MasterCreateCommand<VehicleUseType>;
   private subscriptions: Array<Subscription> = [];
 
 
@@ -40,7 +40,7 @@ export class CreateFormComponent implements OnInit, OnDestroy {
           {
             className: 'col-md-6',
             key: 'name',
-            type: 'inputLx',
+            type: 'input',
             focus: true,
             templateOptions: {
               label: '车辆用途',
@@ -62,7 +62,7 @@ export class CreateFormComponent implements OnInit, OnDestroy {
       { template: '<hr /> ' },
       {
         key: 'description',
-        type: 'inputLx',
+        type: 'input',
         templateOptions: {
           label: '用途描述',
           placeholder: ''
@@ -80,9 +80,9 @@ export class CreateFormComponent implements OnInit, OnDestroy {
   private registerEvents(): void {
     // 订阅车辆详情
     this.subscriptions.push(
-      this._formPresenter.add$.subscribe(vehicleUseType => this.addEvent.emit(vehicleUseType)),
-      this._formPresenter.cancel$.subscribe(name => this.cancelEvent.emit(name)),
-      this._formPresenter.reset$.subscribe(name => this.resetEvent.emit(name))
+      this._formPresenter.add$.subscribe(vehicleUseType => this._command.onAdd(vehicleUseType)),
+      this._formPresenter.cancel$.subscribe(_ => this._command.onCancel),
+
     );
   }
 

@@ -6,7 +6,6 @@ import { map, switchMap } from 'rxjs/operators';
 
 import { EntityAction, EntityOp, ofEntityOp, ofEntityType } from '@ngrx/data';
 import { RouteActions } from '@zyweb/shared/data-access/store/ngrx-router';
-import { CollectionApiActions } from '@zyweb/vehicle/use-type/data-access/store';
 const ENTITY_NAME = 'Vehicle'
 @Injectable()
 export class CollectionEffects {

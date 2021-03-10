@@ -3,7 +3,8 @@ import { ActivatedRoute } from '@angular/router';
 
 import { Subscription } from 'rxjs';
 import { VehicleUseType } from '@zyweb/shared/data-access/model/lvms';
-import { VehicleUseTypesFacade } from '@zyweb/shared/data-access/facade/lvms';
+import { VehicleUseTypeFacade } from '@zyweb/vehicle/use-type/data-access/store';
+import { MasterCreateCommand } from '@zyweb/shared/util/utility';
 
 /*
 https://github.com/vladeye/druo-dashboard-app/tree/master/src/app/content/pages
@@ -16,17 +17,17 @@ D:\学习案例\druo-dashboard\src\app\content\pages\components\invoices\invoice
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 
-export class CreateComponent implements OnInit, OnDestroy {
+export class CreateComponent implements MasterCreateCommand<VehicleUseType>, OnInit, OnDestroy {
 
-  public vehicleUseType:        VehicleUseType;
   private subscriptions: Array<Subscription> = [];
+  public vehicleUseType:        VehicleUseType;
+  public commands = this;
 
   constructor(
-    private _facade: VehicleUseTypesFacade,
+    private _facade: VehicleUseTypeFacade,
     ) {}
 
   ngOnInit() {
-    this.registerEvents();
   }
 
   ngOnDestroy() {
@@ -41,16 +42,5 @@ export class CreateComponent implements OnInit, OnDestroy {
     this._facade.addVehicleUseType(vehicleUseType)
  }
 
-  /**
-   * Registers events
-   */
-  private registerEvents(): void {
-    // 订阅车辆详情
-    // this.subscriptions.push(this.vehicleUseTypesSandbox.vehicleUseTypeDetails$.subscribe((vehicleUseType: any) => {
-    //   if (vehicleUseType) {
-    //     this.changeDetector.markForCheck();
-    //     this.vehicleUseType = vehicleUseType;
-    //   }
-    // }));
-  }
+
 }

@@ -6,47 +6,30 @@ import {
 } from '@ngrx/store';
 
 import * as fromRoot from '@zyweb/shared/data-access/store/lvms-root';
-
-
 import * as fromSearch from './search.reducer';
-import * as fromVehicleUseTypes from './vehicle-use-types.reducer';
-import * as fromCollection from './collection.reducer';
 
-export const vehicleUseTypesFeatureKey = ' vehicleUseTypes';
+export const vehicleUseTypesFeatureKey = ' vehicleUseType';
 
-export interface VehicleUseTypesState {
+export interface VehicleUseType {
   [fromSearch.searchFeatureKey]: fromSearch.State;
-  [fromVehicleUseTypes.vehicleUseTypesFeatureKey]: fromVehicleUseTypes.State;
-  [fromCollection.collectionFeatureKey]: fromCollection.State;
 }
 
 export interface State extends fromRoot.AppState {
-  [vehicleUseTypesFeatureKey]: VehicleUseTypesState;
+  [vehicleUseTypesFeatureKey]: VehicleUseType;
 }
 
 /** Provide reducer in AoT-compilation happy way */
-export function reducers(state: VehicleUseTypesState | undefined, action: Action) {
+export function reducers(state: VehicleUseType | undefined, action: Action) {
   return combineReducers({
     [fromSearch.searchFeatureKey]: fromSearch.reducer,
-    [fromVehicleUseTypes.vehicleUseTypesFeatureKey]: fromVehicleUseTypes.reducer,
-    [fromCollection.collectionFeatureKey]: fromCollection.reducer,
   })(state, action);
 }
-export const selectVehicleUseTypesState = createFeatureSelector<State, VehicleUseTypesState>(
+export const selectVehicleUseStatesState = createFeatureSelector<State, VehicleUseType>(
   vehicleUseTypesFeatureKey
 );
 
-export const selectVehicleUseTypeEntitiesState = createSelector(
-  selectVehicleUseTypesState,
-  (state) => state.vehicleUseTypes
-);
-
 export const selectSearchState = createSelector(
-  selectVehicleUseTypesState,
+  selectVehicleUseStatesState,
   (state) => state.search
 );
 
-export const selectCollectionState = createSelector(
-  selectVehicleUseTypesState,
-  (state) => state.collection
-);

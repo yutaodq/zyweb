@@ -3,12 +3,13 @@ import { select, Store } from '@ngrx/store';
 
 import { SearchNgrxGridService } from '@zyweb/shared/grid/core';
 
+
 import * as fromStates from '../reducers';
 import * as fromActions from '../actions';
 import * as fromSelectors from '../selectors';
 
 @Injectable()
-export class VehicleUseStateSearchNgrxGridService extends  SearchNgrxGridService{
+export class VehicleUseTypeSearchNgrxGridService extends  SearchNgrxGridService{
 
   constructor(
     protected appState$: Store<fromStates.State>,
@@ -18,8 +19,7 @@ export class VehicleUseStateSearchNgrxGridService extends  SearchNgrxGridService
   }
 
   search(query: string) {
-    this.appState$.dispatch(fromActions.CollectionPageActions.searchVehicleUseStates({query}));
+    this.appState$.dispatch(fromActions.CollectionPageActions.searchVehicleUseTypes({query}));
   }
-
 
 }
