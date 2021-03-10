@@ -19,6 +19,8 @@ import { VehicleUseTypeSearchNgrxGridService, VehicleUseTypesFacade } from '@zyw
   declarations: [
     ListComponent,
   ],
-  providers: [ VehicleUseTypesFacade, {provide:SearchNgrxGridService, useClass:VehicleUseTypeSearchNgrxGridService}],
+  providers: [ VehicleUseTypesFacade,
+    {provide:SearchNgrxGridService, useClass:VehicleUseTypeSearchNgrxGridService}
+    ],
 })
 export class VehicleUseTypeMainContainersListModule {}

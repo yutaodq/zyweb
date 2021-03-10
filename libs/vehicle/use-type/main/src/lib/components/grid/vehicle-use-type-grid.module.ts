@@ -5,7 +5,6 @@ import { FormlyModule } from '@ngx-formly/core';
 import { SharedUiCommonModule } from '@zyweb/shared/ui/common';
 import { VehicleUseTypeGridComponent } from './vehicle-use-type-grid.component';
 import { SharedGridUiModule } from '@zyweb/shared/grid/ui';
-import { VehicleUseTypeSearchNgrxGridService } from '@zyweb/shared/data-access/facade/lvms';
 import { ReactiveFormsModule } from '@angular/forms';
 import { VehicleUseTypeGridPresenter } from './vehicle-use-type-grid.presenter';
 
@@ -24,7 +23,7 @@ export const COMPONENTS_EXPORTS : Array<any> = [
   declarations: [VehicleUseTypeGridComponent,
   ],
   exports: [...COMPONENTS_EXPORTS],
-providers: [VehicleUseTypeSearchNgrxGridService, VehicleUseTypeGridPresenter],
+providers: [VehicleUseTypeGridPresenter],
 
 })
 export class VehicleUseTypeGridModule {}

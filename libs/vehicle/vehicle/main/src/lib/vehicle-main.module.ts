@@ -20,10 +20,9 @@ import { SearchNgrxGridService } from '@zyweb/shared/grid/core';
     VehicleMainContainersDetailModule,
     VehicleMainContainersCreateModule,
   ],
-  providers: [VehicleExistsGuard, VehicleExistsService,
-    // {provide: VehicleSearchNgrxGridService, useClass:VehicleSearchNgrxGridService},
-    // {provide: SearchNgrxGridService, useClass:VehicleSearchNgrxGridService}
-
+  providers: [
+    VehicleExistsGuard,
+    VehicleExistsService,
   ]
 })
 export class VehicleMainModule {}

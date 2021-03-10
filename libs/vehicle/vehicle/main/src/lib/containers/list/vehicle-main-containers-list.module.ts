@@ -22,7 +22,6 @@ import { ListComponent } from './list.component';
   ],
   providers: [ VehicleFacade,
     {provide:SearchNgrxGridService, useClass:VehicleSearchNgrxGridService},
-    // {provide:VehicleSearchNgrxGridService, useClass:VehicleSearchNgrxGridService}
     ],
 })
 export class VehicleMainContainersListModule {}

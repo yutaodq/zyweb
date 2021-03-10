@@ -47,6 +47,11 @@ export class SearchNgrxComponent implements OnInit {
     return !this.isShowSearchIcon();
   }
 
+  // public isDisabledClearAllFilters(): boolean {
+  //   return !gridApi?.isAnyFilterPresent();
+  // }
+
+
   onClearAllFilters() {
     this.searchNgrxGridService.clearAllFilters();
   }

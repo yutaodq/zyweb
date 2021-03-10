@@ -24,14 +24,6 @@ export class VehicleGridComponent extends GridComponentClass<Vehicle> {
     this.searchNgrxGridService = searchNgrxGridService
   }
 
-  // constructor( vehicleGridPresenter: VehicleGridPresenter,
-  //              vehicleSearchNgrxGridService: VehicleSearchNgrxGridService
-  // ) {
-  //   super();
-  //   this.gridPresenter = vehicleGridPresenter;
-  //   this.searchNgrxGridService = vehicleSearchNgrxGridService
-  // }
-
 }
 
 
