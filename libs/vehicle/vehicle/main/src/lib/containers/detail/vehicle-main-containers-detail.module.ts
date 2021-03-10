@@ -6,7 +6,7 @@ import { DialogService } from 'primeng/dynamicdialog';
 import { SharedUiBaseModule } from '@zyweb/shared/ui/base';
 import { VehicleMainComponentsModule } from '../../components';
 import { DetailComponent } from './detail.component';
-import {  VehicleFacade } from '@zyweb/shared/data-access/facade/lvms';
+import { VehicleFacade } from '@zyweb/vehicle/vehicle/data-access/store';
 
 @NgModule({
   imports: [

@@ -1,5 +1,4 @@
 import { Injectable } from '@angular/core';
-import { VehicleFacade } from '@zyweb/shared/data-access/facade/lvms';
 import { VehicleUseStateFacade } from '@zyweb/vehicle/use-state/data-access/store';
 import { VehicleApiClient } from '@zyweb/shared/data-access/api/lvms';
 import { Vehicle, VehicleUseState } from '@zyweb/shared/data-access/model/lvms';
@@ -7,6 +6,7 @@ import { AsyncValidatorExistsService } from '@zyweb/shared/ui/form';
 import { AsyncValidatorFn } from '@angular/forms';
 import { map, reduce } from 'rxjs/operators';
 import { Observable } from 'rxjs';
+import { VehicleFacade } from '@zyweb/vehicle/vehicle/data-access/store';
 
 @Injectable()
 export class CreateVehicleService {

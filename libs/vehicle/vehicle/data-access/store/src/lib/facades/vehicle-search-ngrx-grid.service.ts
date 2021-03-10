@@ -8,7 +8,7 @@ import * as fromActions from '../actions';
 import * as fromSelectors from '../selectors';
 
 @Injectable()
-export class VehicleUseStateSearchNgrxGridService extends  SearchNgrxGridService{
+export class VehicleSearchNgrxGridService extends  SearchNgrxGridService{
 
   constructor(
     protected appState$: Store<fromStates.State>,
@@ -20,6 +20,5 @@ export class VehicleUseStateSearchNgrxGridService extends  SearchNgrxGridService
   search(query: string) {
     this.appState$.dispatch(fromActions.CollectionPageActions.searchVehicles({query}));
   }
-
 
 }

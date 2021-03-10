@@ -5,10 +5,10 @@ import { map } from 'rxjs/operators';
 import { DialogService, DynamicDialogRef } from 'primeng/dynamicdialog';
 
 import { Vehicle } from '@zyweb/shared/data-access/model/lvms';
-import { VehicleFacade } from '@zyweb/shared/data-access/facade/lvms';
 import { DialogDeleteComponent } from '@zyweb/shared/ui/base';
 import { MasterDetailCommand } from '@zyweb/shared/util/utility';
 import { UpdateZtFormComponent } from '../../components/update-form/zt/update-zt-form.component';
+import { VehicleFacade } from '@zyweb/vehicle/vehicle/data-access/store';
 
 @Component({
   selector: 'zyweb-vehicle-detail',

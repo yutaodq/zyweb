@@ -4,10 +4,6 @@ import { Observable, of, Subject, timer } from 'rxjs';
 import { FormlyFormOptions } from '@ngx-formly/core';
 import { v4 as uuidv4 } from 'uuid';
 import { Vehicle } from '@zyweb/shared/data-access/model/lvms';
-import { VehicleApiClient } from '@zyweb/shared/data-access/api/lvms';
-import { AsyncValidatorExistsService } from '@zyweb/shared/ui/form';
-import { VehicleFacade } from '@zyweb/shared/data-access/facade/lvms';
-
 
 @Injectable()
 export class CreateFormPresenter {

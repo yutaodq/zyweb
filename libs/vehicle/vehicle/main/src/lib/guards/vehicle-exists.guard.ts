@@ -5,15 +5,9 @@ D:\学习案例\ngrx-master\projects\example-app\src\app\books\guards\book-exist
 import { Injectable } from '@angular/core';
 import { ActivatedRouteSnapshot, CanActivate, Router } from '@angular/router';
 import { Observable  } from 'rxjs';
+import { VehicleExistsService } from '@zyweb/vehicle/vehicle/data-access/store';
 
-import { VehicleExistsService,  } from '@zyweb/shared/data-access/facade/lvms';
-
-
-// @Injectable({
-//   providedIn: 'root',
-// })
 @Injectable()
-
 export class VehicleExistsGuard implements CanActivate {
   constructor(
     private existsService: VehicleExistsService,

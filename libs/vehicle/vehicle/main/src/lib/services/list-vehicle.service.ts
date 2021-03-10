@@ -1,8 +1,8 @@
 import { Injectable } from '@angular/core';
-import { VehicleFacade } from '@zyweb/shared/data-access/facade/lvms';
 import { VehicleUseStateFacade } from '@zyweb/vehicle/use-state/data-access/store';
 import { VehicleApiClient } from '@zyweb/shared/data-access/api/lvms';
 import { Vehicle, VehicleUseState, VehicleList } from '@zyweb/shared/data-access/model/lvms';
+import { VehicleFacade } from '@zyweb/vehicle/vehicle/data-access/store';
 
 @Injectable()
 export class ListVehicleService {

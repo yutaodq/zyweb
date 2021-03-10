@@ -3,11 +3,11 @@
 D:\学习案例\ngrx-master\projects\example-app\src\app\books\guards\book-exists.guard.ts
  */
 import { Injectable, Injector } from '@angular/core';
-import { VehicleUseState } from '@zyweb/shared/data-access/model/lvms';
+import { Vehicle  } from '@zyweb/shared/data-access/model/lvms';
 import { StateExistsService } from '@zyweb/shared/util/utility';
 
 @Injectable()
-export class VehicleUseStateExistsService extends StateExistsService<VehicleUseState> {
+export class VehicleExistsService extends StateExistsService<Vehicle> {
   constructor(
     injector: Injector
   ) {
@@ -15,6 +15,7 @@ export class VehicleUseStateExistsService extends StateExistsService<VehicleUseS
   }
 
   entityName(): string {
-    return 'VehicleUseState';
+    return 'Vehicle';
   }
+
 }

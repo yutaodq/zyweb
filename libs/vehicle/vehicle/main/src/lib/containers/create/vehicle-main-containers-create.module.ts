@@ -5,17 +5,15 @@ import { SharedUiBaseModule } from '@zyweb/shared/ui/base';
 import { VehicleMainComponentsModule } from '../../components';
 import { CreateComponent } from './create.component';
 import { CreateVehicleService } from '../../services/create-vehicle.service';
-import { VehicleFacade } from '@zyweb/shared/data-access/facade/lvms';
 import { VehicleUseStateFacade } from '@zyweb/vehicle/use-state/data-access/store';
 import { VehicleApiClient } from '@zyweb/shared/data-access/api/lvms';
-import { VehicleUseStateCreateFormModule } from '../../../../../../use-state/main/src/lib/components/create-form';
+import { VehicleFacade } from '@zyweb/vehicle/vehicle/data-access/store';
 
 @NgModule({
   imports: [
     CommonModule,
     SharedUiBaseModule,
     VehicleMainComponentsModule,
-    VehicleUseStateCreateFormModule
 
   ],
   declarations: [
