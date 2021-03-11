@@ -59,7 +59,9 @@
   "vehicles": [
     {
       "name": "而我的说法的说法",
-      "useState": {"id": "71f6f845-2b8b-4225-a47d-c8a3e489cf94", "name": "在用",
+      "useState": {
+        "id": "71f6f845-2b8b-4225-a47d-c8a3e489cf94",
+        "name": "在用",
         "description": "在用备注"
       },
       "type": "第三方",
@@ -70,7 +72,9 @@
     },
     {
       "name": "a12cvxxcvcxvx",
-      "useState": {"id": "71f6f845-2b8b-4225-a47d-c8a3e489cf94", "name": "在用",
+      "useState": {
+        "id": "71f6f845-2b8b-4225-a47d-c8a3e489cf94",
+        "name": "在用",
         "description": "在用备注"
       },
       "type": "zxcxz",
@@ -80,7 +84,9 @@
     },
     {
       "name": "ghgfh",
-      "useState": {"id": "4ef4a36d-c2be-44ac-abc9-2d3964c5cfda", "name": "停用",
+      "useState": {
+        "id": "4ef4a36d-c2be-44ac-abc9-2d3964c5cfda",
+        "name": "停用",
         "description": "停用备注"
       },
       "type": "gffh",

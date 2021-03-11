@@ -36,6 +36,10 @@ export class VehicleFacade{
     return this._collectionService.selected$;
   }
 
+  get detail$(): Observable<Vehicle> {
+    return this._collectionService.selected$;
+  }
+
   /**
    * Loads vehicle from the server
    */
@@ -55,8 +59,10 @@ export class VehicleFacade{
     this._appState$.dispatch(RouteActions.go({ to: param }));
   }
 
-  showDetail(vehicle: Vehicle) {
-    this.routeTo({ path: ['vehicle', vehicle.id, 'detail'] });
+  showDetail(id: string) {
+    // showDetail(vehicle: Vehicle) {
+    // this.routeTo({ path: ['vehicle', vehicle.id, 'detail'] });
+    this.routeTo({ path: ['vehicle', id, 'detail'] });
 
   }
 

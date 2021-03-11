@@ -1,3 +1,4 @@
+// 学习 https://github.com/quarano/quarano-application
 export class DateFunctions {
   public static addDays(date: Date, numberOfDays: number): Date {
     const dateClone = new Date(date.valueOf());

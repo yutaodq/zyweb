@@ -8,7 +8,7 @@ import { Vehicle } from '@zyweb/shared/data-access/model/lvms';
 import { DialogDeleteComponent } from '@zyweb/shared/ui/base';
 import { MasterDetailCommand } from '@zyweb/shared/util/utility';
 import { UpdateZtFormComponent } from '../../components/update-form/zt/update-zt-form.component';
-import { VehicleFacade } from '@zyweb/vehicle/vehicle/data-access/store';
+import { DetailVehicleService } from '../../services/detail-vehicle.service';
 
 @Component({
   selector: 'zyweb-vehicle-detail',
@@ -28,20 +28,19 @@ export class DetailComponent implements MasterDetailCommand<Vehicle>, OnInit, On
   public vehicle: Vehicle;
 
   constructor(
-    public _facade: VehicleFacade,
     private changeDetector: ChangeDetectorRef,
     private _dialogService: DialogService,
-    private _route: ActivatedRoute
+    private _route: ActivatedRoute,
+    private detailService: DetailVehicleService,
   ) {
-    // this.vehicle$ = this._facade.vehicleDetail$;
   }
 
   public toList(): void {
-    this._facade.returnToList();
+    this.detailService.toList();
   }
 
   public create(): void {
-    this._facade.createVehicle();
+    this.detailService.create();
   }
 
   public update(): void {
@@ -59,7 +58,7 @@ export class DetailComponent implements MasterDetailCommand<Vehicle>, OnInit, On
     this._ref.onClose.subscribe((isDelete) => {
 
       if (isDelete) {
-        this._facade.removeDetail(this.vehicle);
+        this.detailService.removeDetail(this.vehicle);
       }
     });
   }
@@ -75,7 +74,7 @@ export class DetailComponent implements MasterDetailCommand<Vehicle>, OnInit, On
 
     this._ref.onClose.subscribe((vehicle) => {
       if (vehicle) {
-        this._facade.updateVehicle(vehicle);
+        this.detailService.updateVehicle(vehicle);
       }
     });
   }
@@ -86,7 +85,7 @@ export class DetailComponent implements MasterDetailCommand<Vehicle>, OnInit, On
   private registerEvents(): void {
     // 订阅车辆详情
     this.subscriptions.push(
-      this._facade.vehicleDetail$.subscribe((vehicle: any) => {
+      this.detailService.detail$.subscribe((vehicle: any) => {
         if (vehicle) {
           this.changeDetector.markForCheck();
           this.vehicle = vehicle;
