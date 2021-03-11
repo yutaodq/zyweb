@@ -2,6 +2,7 @@ import { ChangeDetectionStrategy, Component, OnInit } from '@angular/core';
 import { NGXLogger } from 'ngx-logger';
 import { Vehicle } from '@zyweb/shared/data-access/model/lvms';
 import { VehicleFacade } from '@zyweb/vehicle/vehicle/data-access/store';
+import { ListVehicleService } from '../../services/list-vehicle.service';
 
 @Component({
   selector: 'zyweb-vehicle-list',
@@ -14,6 +15,7 @@ export class ListComponent implements OnInit {
   constructor(
     private _facade: VehicleFacade,
     private _logger: NGXLogger,
+    public listService: ListVehicleService,
 
   ) {
 

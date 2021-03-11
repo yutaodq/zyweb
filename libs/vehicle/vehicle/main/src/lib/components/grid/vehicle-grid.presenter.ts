@@ -4,11 +4,11 @@ import {
   Input
 } from '@angular/core';
 
-import { Vehicle } from '@zyweb/shared/data-access/model/lvms';
+import { VehicleRowViewModel } from '@zyweb/shared/data-access/model/lvms';
 import { GridOptionsModel } from '@zyweb/shared/grid/ui';
 
 @Injectable()
-export class VehicleGridPresenter extends GridOptionsModel<Vehicle> {
+export class VehicleGridPresenter extends GridOptionsModel<VehicleRowViewModel> {
 
   col =
     [
@@ -17,7 +17,7 @@ export class VehicleGridPresenter extends GridOptionsModel<Vehicle> {
         headerName: '车辆名称'
       },
       {
-        field: 'zt',
+        field: 'useStateName',
         headerName: '使用状态'
       },
       {
@@ -31,10 +31,6 @@ export class VehicleGridPresenter extends GridOptionsModel<Vehicle> {
       {
         field: 'nbpz',
         headerName: '内部牌照'
-      },
-      {
-        field: 'description',
-        headerName: '备注'
       },
       {
         headerName: '',

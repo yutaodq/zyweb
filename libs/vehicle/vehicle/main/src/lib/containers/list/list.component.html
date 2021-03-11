@@ -23,7 +23,7 @@
     <div class="row">
       <div class="col">
         <zyweb-vehicle-grid
-          [items]="facade.vehicles$ | async"
+          [items]="listService.rowViewModel$ | async"
             (selectDataEvent)="onSelectData($event)"
         >
         </zyweb-vehicle-grid>

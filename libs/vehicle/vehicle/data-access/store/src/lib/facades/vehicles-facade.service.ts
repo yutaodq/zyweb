@@ -24,7 +24,11 @@ export class VehicleFacade{
   get loading$() {
     return this._collectionService.loading$;
   }
+
   get vehicles$(): Observable<Vehicle[]> {
+    return this._collectionService.entities$;
+  }
+  get entities$(): Observable<Vehicle[]> {
     return this._collectionService.entities$;
   }
 

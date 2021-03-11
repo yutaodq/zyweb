@@ -8,6 +8,7 @@ import { SearchNgrxGridService } from '@zyweb/shared/grid/core';
 import { VehicleMainComponentsModule } from '../../components';
 import { ListComponent } from './list.component';
 import { VehicleFacade, VehicleSearchNgrxGridService } from '@zyweb/vehicle/vehicle/data-access/store';
+import { ListVehicleService } from '../../services/list-vehicle.service';
 
 @NgModule({
   imports: [
@@ -21,6 +22,7 @@ import { VehicleFacade, VehicleSearchNgrxGridService } from '@zyweb/vehicle/vehi
     ListComponent,
   ],
   providers: [ VehicleFacade,
+    ListVehicleService,
     {provide:SearchNgrxGridService, useClass:VehicleSearchNgrxGridService},
     ],
 })

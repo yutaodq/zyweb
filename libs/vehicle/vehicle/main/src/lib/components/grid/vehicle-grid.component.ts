@@ -5,7 +5,7 @@ import {
   Input, OnDestroy, OnInit, Output
 } from '@angular/core';
 
-import { Vehicle } from '@zyweb/shared/data-access/model/lvms';
+import {  VehicleRowViewModel } from '@zyweb/shared/data-access/model/lvms';
 import { VehicleGridPresenter } from './vehicle-grid.presenter';
 import { GridComponentClass, SearchNgrxGridService } from '@zyweb/shared/grid/core';
 
@@ -14,7 +14,7 @@ import { GridComponentClass, SearchNgrxGridService } from '@zyweb/shared/grid/co
   templateUrl: './vehicle-grid.component.html',
   changeDetection: ChangeDetectionStrategy.OnPush
 })
-export class VehicleGridComponent extends GridComponentClass<Vehicle> {
+export class VehicleGridComponent extends GridComponentClass<VehicleRowViewModel> {
   constructor( vehicleGridPresenter: VehicleGridPresenter,
                searchNgrxGridService: SearchNgrxGridService
   ) {

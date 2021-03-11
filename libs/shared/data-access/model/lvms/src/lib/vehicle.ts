@@ -1,11 +1,22 @@
-export interface Vehicle {
+import { VehicleUseState } from './vehicle-use-state';
+
+export class VehicleRowViewModel {
   id: string;
   name: string;
   pz: string;
   nbpz: string;
   type: string;
-  zt: string;
-  description: string;
+  useStateName?: string;
+}
+
+export interface Vehicle {
+  id: string;
+  name: string;
+  pz: string;
+  nbpz: string;
+  type?: string;
+  useState?: VehicleUseState;
+  description?: string;
 
 }
 
@@ -27,7 +38,7 @@ export function generateMockVehicle(): Vehicle {
     pz: '车辆牌照',
     nbpz: '内部牌照',
     type: '车辆类型',
-    zt: '使用状态',
+    useState: {id: 'ffffff', name: 'fff', description: 'dddd'},
     description: '备注'
   };
 }
