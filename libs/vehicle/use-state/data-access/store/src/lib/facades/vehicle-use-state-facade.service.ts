@@ -7,6 +7,7 @@ import { VehicleUseState} from '@zyweb/shared/data-access/model/lvms';
 import { RouteActions } from '@zyweb/shared/data-access/store/ngrx-router';
 
 import * as fromStaes from '../reducers';
+import { map } from 'rxjs/operators';
 
 @Injectable()
 export class VehicleUseStateFacade {
@@ -21,6 +22,13 @@ export class VehicleUseStateFacade {
 
     this.registerEvents();
   }
+
+findId(id: string): string{
+    let useStateName;
+  this._collectionService.getByKey(id).pipe(map(vehicleUseState => vehicleUseState.name))
+    .subscribe(name => useStateName = name);
+  return useStateName;
+}
 
   get loading$() {
     return this._collectionService.loading$;

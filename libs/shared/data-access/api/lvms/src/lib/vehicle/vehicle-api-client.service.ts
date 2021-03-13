@@ -23,8 +23,14 @@ export class VehicleApiClient implements FindByNameApi {
   }
 
   public update(vehicle: Update<Vehicle>): Observable<Vehicle> {
-    return this.apiService.put(FEATURE_URL_FULL + vehicle.id , vehicle.changes);
+    const {id, changes} = vehicle;
+    return this.apiService.put(FEATURE_URL_FULL + id , changes);
+    // return this.apiService.put(FEATURE_URL_FULL + vehicle.id , vehicle.changes);
   }
+
+  // updateBulk(items: Update<Item>[]) {
+  //   return forkJoin(items.map((item) => this.update(item)));
+  // }
 
   public getCollection(): Observable<Vehicle[]> {
     return this.apiService.get<Vehicle[]>(FEATURE_URL);

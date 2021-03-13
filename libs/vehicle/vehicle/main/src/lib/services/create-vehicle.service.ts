@@ -4,7 +4,7 @@ import { VehicleApiClient } from '@zyweb/shared/data-access/api/lvms';
 import { Vehicle, VehicleUseState } from '@zyweb/shared/data-access/model/lvms';
 import { AsyncValidatorExistsService } from '@zyweb/shared/ui/form';
 import { AsyncValidatorFn } from '@angular/forms';
-import { map, reduce } from 'rxjs/operators';
+import { map, reduce, startWith } from 'rxjs/operators';
 import { Observable } from 'rxjs';
 import { VehicleFacade } from '@zyweb/vehicle/vehicle/data-access/store';
 
@@ -28,9 +28,15 @@ export class CreateVehicleService {
 
   getVehiclesUseState(): Observable<VehicleUseState[]> {
     const emptyState: VehicleUseState = { id: '', name: '不填写', description: '' };
+    // return this._vehicleUseStateFacade.vehicleUseStates$
+    //   .pipe(
+    //     startWith([emptyState]),
+    //     map(vehicleUseStates => [...vehicleUseStates]),
+    //
+    //   );
+
     return this._vehicleUseStateFacade.vehicleUseStates$
-      .pipe(map(vehicleUseStates =>
-          [emptyState, ...vehicleUseStates]
+      .pipe(map(vehicleUseStates => [emptyState, ...vehicleUseStates]
         )
       );
   }
