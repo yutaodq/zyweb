@@ -3,7 +3,7 @@ import { select, Store } from '@ngrx/store';
 import { Observable, Subscription } from 'rxjs';
 import { EntityCollectionService, EntityServices } from '@ngrx/data';
 
-import { VehicleUseState} from '@zyweb/shared/data-access/model/lvms';
+import { VehicleUseState } from '@zyweb/shared/data-access/model/lvms';
 import { RouteActions } from '@zyweb/shared/data-access/store/ngrx-router';
 
 import * as fromStaes from '../reducers';
@@ -11,7 +11,7 @@ import { map } from 'rxjs/operators';
 
 @Injectable()
 export class VehicleUseStateFacade {
-  private _collectionService: EntityCollectionService<VehicleUseState>
+  private _collectionService: EntityCollectionService<VehicleUseState>;
   private subscriptions: Array<Subscription> = [];
 
   constructor(
@@ -23,16 +23,17 @@ export class VehicleUseStateFacade {
     this.registerEvents();
   }
 
-findId(id: string): string{
+  findId(id: string): string {
     let useStateName;
-  this._collectionService.getByKey(id).pipe(map(vehicleUseState => vehicleUseState.name))
-    .subscribe(name => useStateName = name);
-  return useStateName;
-}
+    this._collectionService.getByKey(id).pipe(map(vehicleUseState => vehicleUseState.name))
+      .subscribe(name => useStateName = name);
+    return useStateName;
+  }
 
   get loading$() {
     return this._collectionService.loading$;
   }
+
   get vehicleUseStates$(): Observable<VehicleUseState[]> {
     return this._collectionService.entities$;
   }

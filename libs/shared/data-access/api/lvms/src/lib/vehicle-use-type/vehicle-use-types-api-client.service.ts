@@ -11,6 +11,7 @@ import { environment } from '@zyweb/shared/util/environments';
 import { Update } from '@ngrx/entity';
 
 const FEATURE_URL = '/vehicle_use_types';
+// const FEATURE_URL = '/vehicleStates';
 const FEATURE_URL_FULL = FEATURE_URL + '/';
 
 @Injectable()

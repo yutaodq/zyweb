@@ -38,7 +38,7 @@ export function generateMockVehicle(): Vehicle {
     pz: '车辆牌照',
     nbpz: '内部牌照',
     type: '车辆类型',
-    useState: {id: 'ffffff', name: 'fff', description: 'dddd'},
+    useState: {id: 'ffffff', identifier: 'ddddddd', name: 'fff', description: 'dddd'},
     description: '备注'
   };
 }

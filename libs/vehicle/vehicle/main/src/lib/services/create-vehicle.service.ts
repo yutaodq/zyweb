@@ -27,7 +27,7 @@ export class CreateVehicleService {
 
 
   getVehiclesUseState(): Observable<VehicleUseState[]> {
-    const emptyState: VehicleUseState = { id: '', name: '不填写', description: '' };
+    const emptyState: VehicleUseState = { id: '', identifier: '', name: '不填写', description: '' };
     // return this._vehicleUseStateFacade.vehicleUseStates$
     //   .pipe(
     //     startWith([emptyState]),

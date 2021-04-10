@@ -94,6 +94,7 @@ export class CreateFormPresenter {
      */
     if (this.isEmpty(vehicleUseState.id)) {
       vehicleUseState.id = uuidv4();
+      vehicleUseState.identifier = uuidv4();
     }
 
     Object.keys(vehicleUseState).forEach(

@@ -23,7 +23,7 @@ const routes: Routes = [
     loadChildren: () => import('@zyweb/feature/common/not-found')
       .then((m) => m.FeatureCommonNotFoundModule),
   },
-  { path: '', redirectTo: 'vehicle', pathMatch: 'full' },
+  { path: '', redirectTo: 'vehicleUseState', pathMatch: 'full' },
 
 ];
 
