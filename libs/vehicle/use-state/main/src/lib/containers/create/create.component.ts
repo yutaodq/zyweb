@@ -2,9 +2,9 @@ import { ChangeDetectionStrategy, ChangeDetectorRef, Component, OnDestroy, OnIni
 import { ActivatedRoute } from '@angular/router';
 
 import { Subscription } from 'rxjs';
-import { VehicleUseState } from '@zyweb/shared/data-access/model/lvms';
-import { VehicleUseStateFacade } from '@zyweb/vehicle/use-state/data-access/store';
+import { Vehicle, VehicleUseState } from '@zyweb/shared/data-access/model/lvms';
 import { MasterCreateCommand } from '@zyweb/shared/util/utility';
+import { CreateVehicleUseStateService } from '../../services';
 
 /*
 https://github.com/vladeye/druo-dashboard-app/tree/master/src/app/content/pages
@@ -24,7 +24,7 @@ export class CreateComponent implements MasterCreateCommand<VehicleUseState>, On
   public commands = this;
 
   constructor(
-    private _facade: VehicleUseStateFacade,
+    private _createService: CreateVehicleUseStateService,
     ) {}
 
   ngOnInit() {
@@ -36,11 +36,11 @@ export class CreateComponent implements MasterCreateCommand<VehicleUseState>, On
   }
 
   onCancel() {
-    this._facade.cancelCreate()
+    this._createService.cancel()
   }
 
   onAdd(vehicleUseState: VehicleUseState) {
-    this._facade.addVehicle(vehicleUseState)
+    this._createService.add(vehicleUseState)
  }
 
   /**

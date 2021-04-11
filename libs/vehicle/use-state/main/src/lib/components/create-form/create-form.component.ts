@@ -80,7 +80,7 @@ export class CreateFormComponent implements OnInit, OnDestroy {
     // 订阅车辆详情
     this.subscriptions.push(
       this._formPresenter.add$.subscribe(vehicleUseState => this._command.onAdd(vehicleUseState)),
-      this._formPresenter.cancel$.subscribe(_ => this._command.onCancel),
+      this._formPresenter.cancel$.subscribe(_ => this._command.onCancel()),
     );
   }
 
