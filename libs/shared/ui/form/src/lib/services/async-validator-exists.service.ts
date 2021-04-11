@@ -22,7 +22,7 @@ export class AsyncValidatorExistsService {
   private findName(name: string, api: FindByNameApi): Promise<ValidationErrors | null> | Observable<ValidationErrors | null> {
     return  api.findByName(name).pipe(
       first(),
-      map(entity => entity.length === 1),
+      map(entity => entity?.length === 1),
       map(valid => (!valid ? {FORMLY_UNIQUE_NAME: true} : null)),
     );
   }

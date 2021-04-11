@@ -27,7 +27,6 @@ export class VehicleUseStateApiClient implements FindByNameApi {
   }
 
   public getCollection(): Observable<VehicleUseState[]> {
-    console.log('sdafffffffffffffffff:'+ FEATURE_URL)
     return this.apiService.get<VehicleUseState[]>(FEATURE_URL);
 
   }
@@ -45,9 +44,9 @@ export class VehicleUseStateApiClient implements FindByNameApi {
   }
 
   public findByName(name: string): Observable<VehicleUseState[]> {
-    const URL = FEATURE_URL+'/findByName/'
+    const URL = FEATURE_URL+'/findByName/';
     return this.apiService.get<VehicleUseState[]>(
-      FEATURE_URL,
+      URL,
       new HttpParams().set('name', name)
     );
   }

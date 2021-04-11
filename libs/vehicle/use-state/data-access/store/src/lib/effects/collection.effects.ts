@@ -6,6 +6,7 @@ import { map, switchMap } from 'rxjs/operators';
 
 import { EntityAction, EntityOp, ofEntityOp, ofEntityType } from '@ngrx/data';
 import { RouteActions } from '@zyweb/shared/data-access/store/ngrx-router';
+import { of } from 'rxjs';
 const ENTITY_NAME = 'VehicleUseState'
 @Injectable()
 export class CollectionEffects {
@@ -20,14 +21,12 @@ export class CollectionEffects {
       )
     )
   );
-  handleaddTypeSuccess$ = createEffect(() =>
+  handleSaveTypeSuccess$ = createEffect(() =>
     this.actions$.pipe(
       ofEntityType(ENTITY_NAME),
-      ofEntityOp(EntityOp.SAVE_ADD_ONE_SUCCESS),
+      ofEntityOp(EntityOp.SAVE_ADD_ONE_SUCCESS, EntityOp.SAVE_UPDATE_ONE_SUCCESS),
       switchMap((action: EntityAction) => ([
-        // RouteActions.go({ to: { path: ['vehicleUseState', 'list'] } } ),
         RouteActions.go({ to: { path: ['vehicleUseState', action.payload.data.id, 'detail'] } })
-        // RouteActions.go({ to: { path: ['vehicleUseState', action.payload.data.id, 'detail'] } })
         ])
       )
     )
