@@ -3,18 +3,18 @@ import { HttpClient, HttpRequest, HttpParams, HttpResponse, HttpHeaders } from '
 import { Observable, of } from 'rxjs';
 import { Update } from '@ngrx/entity';
 
-import { VehicleUseState } from '@zyweb/shared/data-access/model/lvms';
+import { VehicleUseState, VehicleUseType } from '@zyweb/shared/data-access/model/lvms';
 import { environment } from '@zyweb/shared/util/environments';
 
 import { ApiService } from '../api';
-import { FindByNameApi } from '../..';
+import { ExistsByNameApi, FindByNameApi } from '../..';
 
 // const FEATURE_URL = '/vehicle_use_states';
 const FEATURE_URL = '/vehicleStates';
 const FEATURE_URL_FULL = FEATURE_URL + '/';
 
 @Injectable()
-export class VehicleUseStateApiClient implements FindByNameApi {
+export class VehicleUseStateApiClient implements FindByNameApi, ExistsByNameApi {
   private readonly api = environment.baseUrl;
 
   constructor(private apiService: ApiService,
@@ -43,13 +43,26 @@ export class VehicleUseStateApiClient implements FindByNameApi {
     return this.apiService.post(FEATURE_URL_FULL, vehicleUseState);
   }
 
+  // public findByName(name: string): Observable<VehicleUseState[]> {
+  //   const URL = FEATURE_URL+'/findByName';
+  //   return this.apiService.get<VehicleUseState[]>(
+  //     URL,
+  //     new HttpParams().set('name', name)
+  //   );
+  // }
+
   public findByName(name: string): Observable<VehicleUseState[]> {
-    const URL = FEATURE_URL+'/findByName/';
     return this.apiService.get<VehicleUseState[]>(
-      URL,
-      new HttpParams().set('name', name)
+      FEATURE_URL_FULL+'findByName/'+ name
     );
   }
+
+  public existsByName(name: string): Observable<boolean> {
+    return this.apiService.get<boolean>(
+      FEATURE_URL_FULL+'existsByName/'+ name
+    );
+  }
+
 
   private handleError(error: Response | any) {
     console.error('ApiService::handleError', error);
@@ -64,6 +77,7 @@ export class VehicleUseStateApiClient implements FindByNameApi {
 
     return new HttpHeaders(headersConfig);
   }
+
 
 
 }

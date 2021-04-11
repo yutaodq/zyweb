@@ -69,6 +69,7 @@ export class VehicleUseTypeFacade {
 
 
   cancelCreate() {
+
     this._appState$.dispatch(RouteActions.back());
   }
 

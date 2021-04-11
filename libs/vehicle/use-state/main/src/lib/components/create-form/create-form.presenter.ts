@@ -5,7 +5,7 @@ import { FormlyFieldConfig, FormlyFormOptions } from '@ngx-formly/core';
 import { v4 as uuidv4 } from 'uuid';
 import { VehicleUseState } from '@zyweb/shared/data-access/model/lvms';
 import { VehicleUseStateApiClient } from '@zyweb/shared/data-access/api/lvms';
-import { AsyncValidatorExistsService } from '@zyweb/shared/ui/form';
+import { AsyncValidatorNameExistsService } from '@zyweb/shared/ui/form';
 
 
 @Injectable()
@@ -61,7 +61,7 @@ export class CreateFormPresenter {
     ];
 
   constructor(private _apiClient: VehicleUseStateApiClient,
-              private _existsService: AsyncValidatorExistsService) {
+              private _existsService: AsyncValidatorNameExistsService) {
   }
 
   public exists(): AsyncValidatorFn {
