@@ -9,6 +9,7 @@ import { VehicleUseState } from '@zyweb/shared/data-access/model/lvms';
 import { VehicleUseStateFacade } from '@zyweb/vehicle/use-state/data-access/store';
 import { UpdateNameFormComponent } from '../../components/update-form/name/update-name-form.component';
 import { UpdateMainFormComponent } from '../../components/update-form/main/update-main-form.component';
+import { DetailVehicleUseStateService } from '../../services/detail-vehicle-use-state.service';
 
 @Component({
   selector: 'zyweb-vehicle-use-state-detail',
@@ -27,18 +28,19 @@ export class DetailComponent implements MasterDetailCommand<VehicleUseState>, On
   public vehicleUseState: VehicleUseState;
 
   constructor(
-    public _facade: VehicleUseStateFacade,
+    // public _facade: VehicleUseStateFacade,
     private changeDetector: ChangeDetectorRef,
     private _dialogService: DialogService,
+    private _detailVehicleUseStateService: DetailVehicleUseStateService,
   ) {
   }
 
   public toList(): void {
-    this._facade.returnToList();
+    this._detailVehicleUseStateService.toList();
   }
 
   public create(): void {
-    this._facade.create();
+    this._detailVehicleUseStateService.create();
   }
 
 
@@ -53,7 +55,7 @@ export class DetailComponent implements MasterDetailCommand<VehicleUseState>, On
     this._ref.onClose.subscribe((isDelete) => {
 
       if (isDelete) {
-        this._facade.removeDetail(this.vehicleUseState);
+        this._detailVehicleUseStateService.removeDetail(this.vehicleUseState);
       }
     });
   }
@@ -69,7 +71,7 @@ export class DetailComponent implements MasterDetailCommand<VehicleUseState>, On
 
     this._ref.onClose.subscribe((vehicle) => {
       if (vehicle) {
-        this._facade.update(vehicle);
+        this._detailVehicleUseStateService.update(vehicle);
       }
     });
   }
@@ -84,7 +86,7 @@ export class DetailComponent implements MasterDetailCommand<VehicleUseState>, On
 
     this._ref.onClose.subscribe((vehicle) => {
       if (vehicle) {
-        this._facade.update(vehicle);
+        this._detailVehicleUseStateService.update(vehicle);
       }
     });
   }

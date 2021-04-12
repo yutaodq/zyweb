@@ -19,12 +19,11 @@
     </div>
 
     <hr />
-
     <div class="row">
       <div class="col">
         <zyweb-vehicle-use-state-grid
-          [items]="facade.vehicleUseStates$ | async"
-            (selectDataEvent)="onSelectData($event)"
+          [items]="rowViewModel$ | async"
+          (selectDataEvent)="onSelectData($event)"
         >
         </zyweb-vehicle-use-state-grid>
       </div>

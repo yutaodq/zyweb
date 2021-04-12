@@ -31,7 +31,6 @@ export class VehicleUseStateFacade {
     return this._collectionService.entities$;
   }
 
-
   get detail$(): Observable<VehicleUseState> {
     return this._collectionService.selected$;
   }

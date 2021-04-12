@@ -7,6 +7,7 @@ import { SharedUiBaseModule } from '@zyweb/shared/ui/base';
 import { VehicleUseStateMainComponentsModule } from '../../components';
 import { DetailComponent } from './detail.component';
 import { VehicleUseStateFacade } from '@zyweb/vehicle/use-state/data-access/store';
+import { DetailVehicleUseStateService } from '../../services/detail-vehicle-use-state.service';
 
 @NgModule({
   imports: [
@@ -18,6 +19,9 @@ import { VehicleUseStateFacade } from '@zyweb/vehicle/use-state/data-access/stor
   declarations: [
     DetailComponent,
   ],
-  providers: [ VehicleUseStateFacade, DialogService],
+  providers: [ VehicleUseStateFacade,
+    DetailVehicleUseStateService,
+    DialogService,
+  ],
 })
 export class VehicleUseStateMainContainersDetailModule {}

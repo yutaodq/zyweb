@@ -16,6 +16,7 @@ import { VehicleUseState } from '@zyweb/shared/data-access/model/lvms';
 import { Observable, of, Subscription } from 'rxjs';
 import { VehicleUseStateApiClient } from '@zyweb/shared/data-access/api/lvms';
 import { MasterCreateCommand } from '@zyweb/shared/util/utility';
+import { CreateVehicleUseStateService } from '../../services';
 
 @Component({
   selector: 'zyweb-vehicle-use-state-create-form',
@@ -52,7 +53,8 @@ export class CreateFormComponent implements OnInit, OnDestroy {
               updateOn: 'blur' //失去焦点后验证
             },
             asyncValidators: {
-              uniqueName: this._formPresenter.exists()
+              // uniqueName: this._formPresenter.exists()
+              uniqueName: this._createVehicleUseStateService.isNameExists()
             }
           },
         ]
@@ -69,7 +71,9 @@ export class CreateFormComponent implements OnInit, OnDestroy {
     }
     ];
 
-  constructor(private _formPresenter: CreateFormPresenter) {
+  constructor(private _formPresenter: CreateFormPresenter,
+              private _createVehicleUseStateService: CreateVehicleUseStateService
+  ) {
   }
 
   ngOnInit(): void {

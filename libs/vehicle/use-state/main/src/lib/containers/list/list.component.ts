@@ -13,7 +13,7 @@ import { ListVehicleUseStateService } from '../../services/list-vehicle-use-stat
 export class ListComponent implements OnInit {
   constructor(
     private _logger: NGXLogger,
-    private listService: ListVehicleUseStateService,
+    public listService: ListVehicleUseStateService,
 
   ) {
 
@@ -27,9 +27,9 @@ export class ListComponent implements OnInit {
     this.listService.showDetail(vehicleUseState.id)
   }
 
-  // get facade() {
-  //   return this._facade;
-  // }
+  get rowViewModel$() {
+      return this.listService.rowViewModel$;
+  }
 
   onCreate() {
     this.listService.create();
