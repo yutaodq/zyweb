@@ -3,7 +3,7 @@ import { select, Store } from '@ngrx/store';
 import { Observable, Subscription } from 'rxjs';
 import { EntityCollectionService, EntityServices } from '@ngrx/data';
 
-import { VehicleUseState } from '@zyweb/shared/data-access/model/lvms';
+import { Vehicle, VehicleUseState } from '@zyweb/shared/data-access/model/lvms';
 import { RouteActions } from '@zyweb/shared/data-access/store/ngrx-router';
 
 import * as fromStaes from '../reducers';
@@ -23,15 +23,24 @@ export class VehicleUseStateFacade {
     this.registerEvents();
   }
 
+  get loading$() {
+    return this._collectionService.loading$;
+  }
+
+  get entities$(): Observable<VehicleUseState[]> {
+    return this._collectionService.entities$;
+  }
+
+
+  get detail$(): Observable<VehicleUseState> {
+    return this._collectionService.selected$;
+  }
+
   findId(id: string): string {
     let useStateName;
     this._collectionService.getByKey(id).pipe(map(vehicleUseState => vehicleUseState.name))
       .subscribe(name => useStateName = name);
     return useStateName;
-  }
-
-  get loading$() {
-    return this._collectionService.loading$;
   }
 
   get vehicleUseStates$(): Observable<VehicleUseState[]> {
@@ -61,9 +70,8 @@ export class VehicleUseStateFacade {
     this._appState$.dispatch(RouteActions.go({ to: param }));
   }
 
-  showDetail(vehicleUseState: VehicleUseState) {
-    this.routeTo({ path: ['vehicleUseState', vehicleUseState.id, 'detail'] });
-
+  showDetail(id: string) {
+    this.routeTo({ path: ['vehicleUseState', id, 'detail'] });
   }
 
   returnToList() {
@@ -71,14 +79,13 @@ export class VehicleUseStateFacade {
   }
 
 
-  createVehicle() {
+  create() {
     this.routeTo({ path: ['vehicleUseState', 'create'] });
 
   }
 
 
   cancelCreate() {
-    console.log('ddddddddddddddddddddddddddddddddd');
     this._appState$.dispatch(RouteActions.back());
   }
 
@@ -86,12 +93,12 @@ export class VehicleUseStateFacade {
     return this._collectionService.delete(vehicleUseState);
   }
 
-  addVehicle(vehicleUseState: VehicleUseState) {
+  add(vehicleUseState: VehicleUseState) {
     return this._collectionService.add(vehicleUseState);
 
   }
 
-  updateVehicle(vehicleUseState: VehicleUseState) {
+  update(vehicleUseState: VehicleUseState) {
     return this._collectionService.update(vehicleUseState);
 
   }

@@ -38,7 +38,7 @@ export class DetailComponent implements MasterDetailCommand<VehicleUseState>, On
   }
 
   public create(): void {
-    this._facade.createVehicle();
+    this._facade.create();
   }
 
 
@@ -69,7 +69,7 @@ export class DetailComponent implements MasterDetailCommand<VehicleUseState>, On
 
     this._ref.onClose.subscribe((vehicle) => {
       if (vehicle) {
-        this._facade.updateVehicle(vehicle);
+        this._facade.update(vehicle);
       }
     });
   }
@@ -84,7 +84,7 @@ export class DetailComponent implements MasterDetailCommand<VehicleUseState>, On
 
     this._ref.onClose.subscribe((vehicle) => {
       if (vehicle) {
-        this._facade.updateVehicle(vehicle);
+        this._facade.update(vehicle);
       }
     });
   }

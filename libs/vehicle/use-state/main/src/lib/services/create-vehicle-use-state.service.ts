@@ -18,7 +18,7 @@ export class CreateVehicleUseStateService {
   }
 
   add(vehicleUseState: VehicleUseState) {
-    this._vehicleUseStateFacade.addVehicle(vehicleUseState);
+    this._vehicleUseStateFacade.add(vehicleUseState);
   }
 
   isNameExists(): AsyncValidatorFn {

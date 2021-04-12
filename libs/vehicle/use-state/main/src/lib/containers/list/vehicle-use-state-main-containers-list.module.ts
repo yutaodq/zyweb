@@ -11,6 +11,7 @@ import {
 
 import { VehicleUseStateMainComponentsModule } from '../../components';
 import { ListComponent } from './list.component';
+import { ListVehicleUseStateService } from '../../services/list-vehicle-use-state.service';
 
 @NgModule({
   imports: [
@@ -24,6 +25,7 @@ import { ListComponent } from './list.component';
     ListComponent,
   ],
   providers: [VehicleUseStateFacade,
+    ListVehicleUseStateService,
     {provide: SearchNgrxGridService, useClass: VehicleUseStateSearchNgrxGridService}
     ],
 })

@@ -1,7 +1,7 @@
 import { ChangeDetectionStrategy, Component, OnInit } from '@angular/core';
 import { NGXLogger } from 'ngx-logger';
 import { VehicleUseState } from '@zyweb/shared/data-access/model/lvms';
-import { VehicleUseStateFacade } from '@zyweb/vehicle/use-state/data-access/store';
+import { ListVehicleUseStateService } from '../../services/list-vehicle-use-state.service';
 
 @Component({
   selector: 'zyweb-vehicle-list',
@@ -12,8 +12,8 @@ import { VehicleUseStateFacade } from '@zyweb/vehicle/use-state/data-access/stor
 
 export class ListComponent implements OnInit {
   constructor(
-    private _facade: VehicleUseStateFacade,
     private _logger: NGXLogger,
+    private listService: ListVehicleUseStateService,
 
   ) {
 
@@ -24,15 +24,15 @@ export class ListComponent implements OnInit {
   }
 
   onSelectData(vehicleUseState: VehicleUseState) {
-    this._facade.showDetail(vehicleUseState);
+    this.listService.showDetail(vehicleUseState.id)
   }
 
-  get facade() {
-    return this._facade;
-  }
+  // get facade() {
+  //   return this._facade;
+  // }
 
   onCreate() {
-    this._facade.createVehicle();
+    this.listService.create();
   }
 
 
