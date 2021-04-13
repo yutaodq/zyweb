@@ -99,6 +99,6 @@ export class VehicleUseStateFacade {
 
   update(vehicleUseState: VehicleUseState) {
     return this._collectionService.update(vehicleUseState);
-
   }
+
 }
