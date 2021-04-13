@@ -18,7 +18,8 @@ export class VehicleUseStateFacade {
     private _appState$: Store<fromStaes.State>,
     entityServices: EntityServices
   ) {
-    this._collectionService = entityServices.getEntityCollectionService('VehicleUseState');
+    this._collectionService =
+      entityServices.getEntityCollectionService('VehicleUseState');
 
     this.registerEvents();
   }
