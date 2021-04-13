@@ -34,6 +34,10 @@ export class DetailComponent implements MasterDetailCommand<VehicleUseState>, On
     private _detailVehicleUseStateService: DetailVehicleUseStateService,
   ) {
   }
+  get detail$() {
+    return this._detailVehicleUseStateService.detail$;
+
+  }
 
   public toList(): void {
     this._detailVehicleUseStateService.toList();
@@ -97,13 +101,13 @@ export class DetailComponent implements MasterDetailCommand<VehicleUseState>, On
   private registerEvents(): void {
     // 订阅车辆详情
     this.subscriptions.push(
-      this._facade.vehicleUseStateDetail$.subscribe((vehicleUseState: any) => {
-        if (vehicleUseState) {
-          this.changeDetector.markForCheck();
-          this.vehicleUseState = vehicleUseState;
-          this.vehicleUseState$ = of(vehicleUseState);
-        }
-      }),
+      // this._facade.vehicleUseStateDetail$.subscribe((vehicleUseState: any) => {
+      //   if (vehicleUseState) {
+      //     this.changeDetector.markForCheck();
+      //     this.vehicleUseState = vehicleUseState;
+      //     this.vehicleUseState$ = of(vehicleUseState);
+      //   }
+      // }),
       // this._actionsSubscription = this._route.params
       //   .pipe(map((params) => params.id))
       //   .subscribe((id) => console.log('iiiiiiiiiiiii' + id))
