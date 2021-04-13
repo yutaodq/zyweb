@@ -46,9 +46,9 @@ export class VehicleUseStateFacade {
     return this._collectionService.entities$;
   }
 
-  get vehicleUseStateDetail$(): Observable<VehicleUseState> {
-    return this._collectionService.selected$;
-  }
+  // get vehicleUseStateDetail$(): Observable<VehicleUseState> {
+  //   return this._collectionService.selected$;
+  // }
 
   /**
    * Loads vehicleUseState from the server

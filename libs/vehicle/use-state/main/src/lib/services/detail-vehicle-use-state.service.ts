@@ -1,17 +1,19 @@
 import { Injectable } from '@angular/core';
 import { VehicleUseStateFacade } from '@zyweb/vehicle/use-state/data-access/store';
-import {  VehicleUseStateApiClient } from '@zyweb/shared/data-access/api/lvms';
+import { VehicleUseStateApiClient } from '@zyweb/shared/data-access/api/lvms';
 import { VehicleUseState } from '@zyweb/shared/data-access/model/lvms';
 import { DialogDeleteComponent } from '@zyweb/shared/ui/base';
-import { DynamicDialogRef } from 'primeng/dynamicdialog';
+import { DialogService, DynamicDialogRef } from 'primeng/dynamicdialog';
+import { UpdateMainFormComponent } from '../components/update-form/main/update-main-form.component';
 
 @Injectable()
 export class DetailVehicleUseStateService {
   private _ref: DynamicDialogRef | null = null;
 
   constructor(
-              private _vehicleUseStateFacade: VehicleUseStateFacade,
-              // private _vehicleApiClient: VehicleUseStateApiClient
+    private _vehicleUseStateFacade: VehicleUseStateFacade,
+    private _dialogService: DialogService
+    // private _vehicleApiClient: VehicleUseStateApiClient
   ) {
   }
 
@@ -30,7 +32,7 @@ export class DetailVehicleUseStateService {
 
   }
 
-  public delete(): void {
+  public delete(vehicleUseState: VehicleUseState): void {
     this._ref = this._dialogService.open(DialogDeleteComponent, {
       header: '删除车辆使用状态',
       width: '70%',
@@ -41,18 +43,32 @@ export class DetailVehicleUseStateService {
     this._ref.onClose.subscribe((isDelete) => {
 
       if (isDelete) {
-        this._detailVehicleUseStateService.removeDetail(this.vehicleUseState);
+        this.removeDetail(vehicleUseState);
+      }
+    });
+  }
+  private removeDetail(vehicleUseState: VehicleUseState) {
+    this._vehicleUseStateFacade.removeDetail(vehicleUseState);
+  }
+
+  public update(entity: VehicleUseState): void {
+    this._ref = this._dialogService.open(UpdateMainFormComponent, {
+      header: '修改车辆使用状态说明',
+      width: '70%',
+      contentStyle: { 'max-height': '500px', 'overflow': 'auto' },
+      baseZIndex: 10000,
+      data: entity
+    });
+
+    this._ref.onClose.subscribe((vehicleUseState) => {
+      if (vehicleUseState) {
+        this._vehicleUseStateFacade.update(vehicleUseState);
       }
     });
   }
 
-  removeDetail(vehicleUseState: VehicleUseState) {
-    this._vehicleUseStateFacade.removeDetail(vehicleUseState);
-
-  }
-
-  update(vehicleUseState: any) {
-    this._vehicleUseStateFacade.update(vehicleUseState);
-
-  }
+  // private update(vehicleUseState: any) {
+  //   this._vehicleUseStateFacade.update(vehicleUseState);
+  //
+  // }
 }
