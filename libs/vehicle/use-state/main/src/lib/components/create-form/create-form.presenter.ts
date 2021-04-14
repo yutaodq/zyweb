@@ -1,11 +1,9 @@
 import { Injectable } from '@angular/core';
-import { AsyncValidatorFn, FormGroup } from '@angular/forms';
+import { FormGroup } from '@angular/forms';
 import { Observable, of, Subject, timer } from 'rxjs';
-import { FormlyFieldConfig, FormlyFormOptions } from '@ngx-formly/core';
+import { FormlyFormOptions } from '@ngx-formly/core';
 import { v4 as uuidv4 } from 'uuid';
 import { VehicleUseState } from '@zyweb/shared/data-access/model/lvms';
-import { VehicleUseStateApiClient } from '@zyweb/shared/data-access/api/lvms';
-import { AsyncValidatorNameExistsService } from '@zyweb/shared/ui/form';
 
 
 @Injectable()

@@ -1,2 +1,2 @@
-export * from './vehicle-use-state-api-client.service';
+export * from './vehicle-use-state-data.service';
 

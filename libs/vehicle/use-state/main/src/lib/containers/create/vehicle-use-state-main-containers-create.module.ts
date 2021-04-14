@@ -6,7 +6,7 @@ import { VehicleUseStateMainComponentsModule } from '../../components';
 import { CreateComponent } from './create.component';
 import { VehicleUseStateFacade } from '@zyweb/vehicle/use-state/data-access/store';
 import { CreateVehicleUseStateService } from '../../services';
-import { VehicleUseStateApiClient } from '@zyweb/shared/data-access/api/lvms';
+import { VehicleUseStateDataService } from '@zyweb/shared/data-access/api/lvms';
 
 @NgModule({
   imports: [
@@ -18,7 +18,7 @@ import { VehicleUseStateApiClient } from '@zyweb/shared/data-access/api/lvms';
   declarations: [
     CreateComponent,
   ],
-  providers: [VehicleUseStateApiClient,
+  providers: [VehicleUseStateDataService,
     VehicleUseStateFacade,
     CreateVehicleUseStateService
   ],

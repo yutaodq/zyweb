@@ -1,6 +1,5 @@
 import { Injectable } from '@angular/core';
 import { VehicleUseStateFacade } from '@zyweb/vehicle/use-state/data-access/store';
-import { VehicleUseStateApiClient } from '@zyweb/shared/data-access/api/lvms';
 import { VehicleUseState } from '@zyweb/shared/data-access/model/lvms';
 import { DialogDeleteComponent } from '@zyweb/shared/ui/base';
 import { DialogService, DynamicDialogRef } from 'primeng/dynamicdialog';
@@ -13,7 +12,6 @@ export class DetailVehicleUseStateService {
   constructor(
     private _vehicleUseStateFacade: VehicleUseStateFacade,
     private _dialogService: DialogService
-    // private _vehicleApiClient: VehicleUseStateApiClient
   ) {
   }
 

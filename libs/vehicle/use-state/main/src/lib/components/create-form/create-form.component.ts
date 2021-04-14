@@ -14,7 +14,7 @@ import { FormControl, FormGroup, ValidationErrors } from '@angular/forms';
 import { FormlyFieldConfig, FormlyFormBuilder, FormlyFormOptions } from '@ngx-formly/core';
 import { VehicleUseState } from '@zyweb/shared/data-access/model/lvms';
 import { Observable, of, Subscription } from 'rxjs';
-import { VehicleUseStateApiClient } from '@zyweb/shared/data-access/api/lvms';
+// import { VehicleUseStateDataService } from '@zyweb/shared/data-access/api/lvms';
 import { MasterCreateCommand } from '@zyweb/shared/util/utility';
 import { CreateVehicleUseStateService } from '../../services';
 
@@ -22,7 +22,8 @@ import { CreateVehicleUseStateService } from '../../services';
   selector: 'zyweb-vehicle-use-state-create-form',
   templateUrl: './create-form.component.html',
   styleUrls: ['./create-form.component.scss'],
-  providers: [CreateFormPresenter, VehicleUseStateApiClient],
+  // providers: [CreateFormPresenter, VehicleUseStateDataService],
+  providers: [CreateFormPresenter],
   changeDetection: ChangeDetectionStrategy.OnPush
 })
 

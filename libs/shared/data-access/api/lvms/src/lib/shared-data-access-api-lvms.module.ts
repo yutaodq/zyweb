@@ -8,7 +8,7 @@ import { DefaultDataServiceConfig,
   PLURAL_NAMES_TOKEN } from '@ngrx/data';
 import { defaultDataServiceConfig } from './data/data-service.config';
 import { entityMetadata, pluralNames } from './data/app-entity-metadata.config';
-import { VehicleUseStateDataService } from './vehicle-use-state/vehicle-use-state-data-service';
+import { VehicleUseStateDataService } from './vehicle-use-state/vehicle-use-state-data.service';
 
 @NgModule({
   imports: [CommonModule, ApiModule],
