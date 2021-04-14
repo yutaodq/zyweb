@@ -8,10 +8,13 @@ import { createSelector, select } from '@ngrx/store';
 import { RouteSelectors } from '@zyweb/shared/data-access/store/ngrx-router';
 
 @Injectable({ providedIn: 'root' })
-export class VehicleUseStateCollectionService extends EntityCollectionServiceBase<VehicleUseState> {
+export class VehicleUseStateCollectionService
+  extends EntityCollectionServiceBase<VehicleUseState> {
+
   constructor(serviceElementsFactory: EntityCollectionServiceElementsFactory) {
     super('VehicleUseState', serviceElementsFactory);
   }
+
   private getSelectedId = createSelector(
     RouteSelectors.getMergedRoute,
     (mergedRoute) => <string>mergedRoute.params.id
