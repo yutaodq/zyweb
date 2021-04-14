@@ -10,7 +10,10 @@ export class VehicleUseStateDataService extends DefaultDataService<VehicleUseSta
   constructor(http: HttpClient, httpUrlGenerator: HttpUrlGenerator, defaultDataServiceConfig: DefaultDataServiceConfig) {
     super('VehicleUseState', http, httpUrlGenerator, defaultDataServiceConfig);
   }
-
+  getAll(): Observable<VehicleUseState[]> {
+    console.log('aaaaaaaaaaaaaaaaaaddddddddddddddddfffffffffffffff');
+    return super.getAll();
+  }
   update(update: Update<VehicleUseState>): Observable<VehicleUseState> {
     console.log('aaaaaaaaaaaaaaaaaaddddddddddddddddfffffffffffffff');
     return null;

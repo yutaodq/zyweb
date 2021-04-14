@@ -8,6 +8,7 @@ import { DefaultDataServiceConfig,
   PLURAL_NAMES_TOKEN } from '@ngrx/data';
 import { defaultDataServiceConfig } from './data/data-service.config';
 import { entityMetadata, pluralNames } from './data/app-entity-metadata.config';
+import { VehicleUseStateDataService } from './vehicle-use-state/vehicle-use-state-data-service';
 
 @NgModule({
   imports: [CommonModule, ApiModule],
@@ -15,15 +16,14 @@ import { entityMetadata, pluralNames } from './data/app-entity-metadata.config';
     // { provide: PLURAL_NAMES_TOKEN, multi: true, useValue: pluralNames },
     { provide: ENTITY_METADATA_TOKEN, multi: true, useValue: entityMetadata },
     { provide: DefaultDataServiceConfig, useValue: defaultDataServiceConfig },
-    // VehicleUseStateDataService
+    VehicleUseStateDataService
   ]
 })
 export class SharedDataAccessApiLvmsModule {
   constructor(
-    // entityDataService: EntityDataService,
-    // vehicleDataService: VehicleUseStateDataService
+    entityDataService: EntityDataService,
+    vehicleUseStateDataService: VehicleUseStateDataService
   ) {
-    // entityDataService.registerService('Vehicle', vehicleDataService);
+    entityDataService.registerService('VehicleUseState', vehicleUseStateDataService);
   }
-
 }
