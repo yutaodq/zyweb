@@ -8,7 +8,7 @@ import { ExistsByNameApi, FindByNameApi } from '@zyweb/shared/data-access/api/lv
 import { environment } from '@zyweb/shared/util/environments';
 import { ApiService } from '../api';
 
-const FEATURE_URL = '/vehicleStates';
+const FEATURE_URL = '/vehicleUseStates';
 const FEATURE_URL_FULL = FEATURE_URL + '/';
 
 @Injectable()

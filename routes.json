@@ -1,5 +1,4 @@
 {
   "/api/*": "/$1",
-  "/rest/v2/:baseSiteId/languages(\\?.+)?": "/:products",
-  "/rest/v2/:baseSiteId/currencies(\\?.+)?": "/:warehouses"
+  "/vehicleStates/": "/vehicle_use_states/",
 }
