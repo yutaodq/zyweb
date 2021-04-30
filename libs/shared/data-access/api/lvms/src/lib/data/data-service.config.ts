@@ -6,18 +6,18 @@ export const defaultDataServiceConfig: DefaultDataServiceConfig = {
   timeout: 3000, // request timeout
   entityHttpResourceUrls: {
     Vehicle: {
-      entityResourceUrl: environment.clientApiUrl + '/vehicles/',
-      collectionResourceUrl: environment.clientApiUrl + '/vehicles/'
+      entityResourceUrl: environment.baseUrl + '/vehicles/',
+      collectionResourceUrl: environment.baseUrl + '/vehicles/'
     },
     VehicleUseState: {
-      entityResourceUrl: environment.clientApiUrl + '/vehicleUseStates/',
-      collectionResourceUrl: environment.clientApiUrl + '/vehicleUseStates/'
+      entityResourceUrl: environment.baseUrl + '/vehicleUseStates/',
+      collectionResourceUrl: environment.baseUrl + '/vehicleUseStates/'
       // entityResourceUrl: environment.clientApiUrl+'/vehicle_use_states/',
       // collectionResourceUrl: environment.clientApiUrl+'/vehicle_use_states/'
     },
     VehicleUseType: {
-      entityResourceUrl: environment.clientApiUrl + '/vehicle_use_types/',
-      collectionResourceUrl: environment.clientApiUrl + '/vehicle_use_types/'
+      entityResourceUrl: environment.baseUrl + '/vehicle_use_types/',
+      collectionResourceUrl: environment.baseUrl + '/vehicle_use_types/'
     }
   }
 

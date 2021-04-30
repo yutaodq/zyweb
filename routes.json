@@ -1,4 +1,4 @@
 {
-  "/api/*": "/$1",
+  "/ivms/*": "/$1",
   "/vehicleUseStates/": "/vehicle_use_states/"
 }

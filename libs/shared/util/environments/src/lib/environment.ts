@@ -4,8 +4,8 @@
 
 export const environment = {
   production: false,
-  baseUrl: 'http://localhost:8088/api',
-  clientApiUrl: 'http://localhost:8088/api',
+  baseUrl: 'http://localhost:9088/ivms',
+  // clientApiUrl: 'http://localhost:9088/ivms',
 };
 
 /*
