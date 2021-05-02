@@ -1,4 +1,4 @@
 {
   "/ivms/*": "/$1",
-  "/vehicleUseStates/": "/vehicle_use_states/"
+  "/vehicleUseStates/*": "/vehicle_use_states/$1"
 }
