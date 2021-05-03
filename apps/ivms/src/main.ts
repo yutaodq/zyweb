@@ -3,10 +3,13 @@ import { platformBrowserDynamic } from '@angular/platform-browser-dynamic';
 
 import { AppModule } from './app/app.module';
 import { environment } from '@zyweb/shared/util/environments';
-// import { environment } from './environments/environment';
 
 if (environment.production) {
+  console.log("正式运行环境：" + environment.baseUrl);
   enableProdMode();
+}
+if (!environment.production) {
+  console.log("开发运行环境：" + environment.baseUrl);
 }
 
 platformBrowserDynamic()

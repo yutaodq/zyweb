@@ -14,7 +14,7 @@ export class VehicleUseStateGridPresenter extends GridOptionsModel<VehicleUseSta
     [
       {
         field: 'name',
-        headerName: '车辆名称'
+        headerName: '车辆状态'
       },
       {
         field: 'description',
