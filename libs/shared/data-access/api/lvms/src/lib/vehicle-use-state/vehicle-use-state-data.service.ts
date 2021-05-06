@@ -26,8 +26,9 @@ export class VehicleUseStateDataService
     super('VehicleUseState', http, httpUrlGenerator, defaultDataServiceConfig);
   }
 
-  public update(vehicleUseState: Update<VehicleUseState>): Observable<VehicleUseState> {
-    return this.apiService.put(FEATURE_URL_FULL + vehicleUseState.id , vehicleUseState.changes);
+  public updateName(vehicleUseState: Update<VehicleUseState>): Observable<VehicleUseState> {
+    console.log('VehicleUseStateDataService: 修改')
+    return this.apiService.put(FEATURE_URL_FULL + 'updateName' + vehicleUseState.id , vehicleUseState.changes);
   }
 
   public findByName(name: string): Observable<VehicleUseState[]> {
