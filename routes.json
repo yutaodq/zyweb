@@ -1,4 +1,6 @@
 {
   "/ivms/*": "/$1",
+  "/vehicleUseStates/existsByName/:name": "/vehicle_use_states?name=:name",
+
   "/vehicleUseStates/*": "/vehicle_use_states/$1"
 }
