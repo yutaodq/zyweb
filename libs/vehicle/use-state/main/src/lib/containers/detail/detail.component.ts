@@ -71,20 +71,24 @@ export class DetailComponent implements MasterDetailCommand<VehicleUseState>, On
   //   });
   // }
   public updateName(): void {
-    this._ref = this._dialogService.open(UpdateNameFormComponent, {
-      header: '修改车辆使用状态',
-      width: '70%',
-      contentStyle: { 'max-height': '500px', 'overflow': 'auto' },
-      baseZIndex: 10000,
-      data: this.vehicleUseState
-    });
-
-    this._ref.onClose.subscribe((vehicle) => {
-      if (vehicle) {
-        this._detailVehicleUseStateService.update(vehicle);
-      }
-    });
+    this._detailVehicleUseStateService.update(this.vehicleUseState);
   }
+
+  // public updateName(): void {
+  //   this._ref = this._dialogService.open(UpdateNameFormComponent, {
+  //     header: '修改车辆使用状态',
+  //     width: '70%',
+  //     contentStyle: { 'max-height': '500px', 'overflow': 'auto' },
+  //     baseZIndex: 10000,
+  //     data: this.vehicleUseState
+  //   });
+  //
+  //   this._ref.onClose.subscribe((vehicle) => {
+  //     if (vehicle) {
+  //       this._detailVehicleUseStateService.update(vehicle);
+  //     }
+  //   });
+  // }
 
   /**
    * Registers events

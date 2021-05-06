@@ -4,6 +4,7 @@ import { VehicleUseState } from '@zyweb/shared/data-access/model/lvms';
 import { DialogDeleteComponent } from '@zyweb/shared/ui/base';
 import { DialogService, DynamicDialogRef } from 'primeng/dynamicdialog';
 import { UpdateMainFormComponent } from '../components/update-form/main/update-main-form.component';
+import { UpdateNameFormComponent } from '../components/update-form/name/update-name-form.component';
 
 @Injectable()
 export class DetailVehicleUseStateService {
@@ -64,6 +65,23 @@ export class DetailVehicleUseStateService {
       }
     });
   }
+
+  public updateName(entity: VehicleUseState): void {
+    this._ref = this._dialogService.open(UpdateMainFormComponent, {
+      header: '修改车辆使用状态说明',
+      width: '70%',
+      contentStyle: { 'max-height': '500px', 'overflow': 'auto' },
+      baseZIndex: 10000,
+      data: entity
+    });
+
+    this._ref.onClose.subscribe((vehicleUseState) => {
+      if (vehicleUseState) {
+        this._vehicleUseStateFacade.update(vehicleUseState);
+      }
+    });
+  }
+
 
   // private update(vehicleUseState: any) {
   //   this._vehicleUseStateFacade.update(vehicleUseState);
