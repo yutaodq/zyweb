@@ -4,24 +4,23 @@
             iconPos="left"
             type="submit"
             class=" mr-2, ml-2"
-            [disabled]= "isFormValid"
+            [disabled]="isFormValid"
   >
   </p-button>
-  <p-button label="重置信息"
+  <p-button label="重新录入"
             icon="pi pi-refresh"
             iconPos="left"
             class=" mr-2, ml-2"
             (onClick)="reset()"
   >
-    <i class="far fa-save"></i>
   </p-button>
 
-  <p-button
-    class="mr-2 , ml-2"
-
-    (onClick)="cancel()"
+  <p-button label="取消新记录"
+            icon="pi pi-sign-out"
+            iconPos="left"
+            class="mr-2 , ml-2"
+            (onClick)="cancel()"
   >
-    <i class="fas fa-chevron-circle-left"></i>
-    取消
+
   </p-button>
 </div>

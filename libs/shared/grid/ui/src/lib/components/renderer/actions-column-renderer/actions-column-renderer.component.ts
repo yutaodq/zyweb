@@ -18,8 +18,8 @@ export class ActionsColumnRendererComponent implements ICellRendererAngularComp 
 
   agInit(params): void {
     this._params = params;
-    this.fa = params.fa || null;
-    this.iconClass = params.iconClass || null;
+    this.fa = params.fa || "pi pi-pencil";
+    this.iconClass = params.iconClass || "p-button-rounded p-button-success";
   }
 
 

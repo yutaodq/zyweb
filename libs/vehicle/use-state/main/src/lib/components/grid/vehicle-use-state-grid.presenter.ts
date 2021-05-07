@@ -32,8 +32,8 @@ export class VehicleUseStateGridPresenter extends GridOptionsModel<VehicleUseSta
         cellRenderer: 'actionsColRendered',
         cellRendererParams: {
           onClick: this.onSelectData.bind(this),
-          fa: 'fa fa-info-circle',
-          iconClass: 'detail-icon'
+          fa: 'fa fa-bars',
+          iconClass: 'p-button-rounded p-button-success'
         }
       }
     ];

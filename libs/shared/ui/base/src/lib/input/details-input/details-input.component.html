@@ -1,12 +1,15 @@
 <div class="p-field">
   <label>{{lable}}</label>
-  <input *ngIf="rows==0" pInputText type="text" [ngModel]="value" disabled="flase">
-  <textarea *ngIf="rows>0" pInputTextarea type="text" [ngModel]="value" [rows]="rows" ></textarea>
+  <input *ngIf="rows==0"
+         pInputText
+         type="text"
+         [ngModel]="value"
+         disabled="flase">
+  <textarea *ngIf="rows>0"
+            pInputTextarea
+            type="text"
+            [ngModel]="value"
+            [rows]="rows"
+            disabled="flase"></textarea>
 
 </div>
-
-<!--<input #textInput pInputText type="text" [name]="name" [value]="value||''" [disabled]="disabled" [hidden]="hidden" [readonly]="readonly"-->
-<!--       [spellcheck]="spellcheck" [ngStyle]="style" [ngClass]="'ui-inputtext ui-widget'" [attr.maxlength]="maxLength" [attr.placeholder]="placeholder"-->
-<!--       (focus)="onFocus($event)" (blur)="onBlur($event)" (keydown)="onKeyDown($event)" (keypress)="onKeyPress($event)" (input)="handleInputChange($event)"-->
-<!--       (paste)="handleInputChange($event)">-->
-<!--&lt;!&ndash;[ngClass]="styleClass" [attr.size]="size" [attr.tabindex]="tabindex" &ndash;&gt;-->

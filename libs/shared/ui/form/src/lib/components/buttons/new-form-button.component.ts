@@ -23,12 +23,9 @@ export class NewFormButtonComponent implements OnInit {
   @Output() cancelEvent: EventEmitter<string> = new EventEmitter();
   @Output() resetEvent: EventEmitter<string> = new EventEmitter();
 
-  constructor() {
-  }
+  constructor() {  }
 
-  ngOnInit(): void {
-
-  }
+  ngOnInit(): void {  }
 
   public reset() {
     this.resetEvent.emit();

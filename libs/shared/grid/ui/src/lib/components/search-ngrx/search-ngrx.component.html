@@ -1,18 +1,17 @@
 <div class="row justify-content-end">
-
-  <p-button label="清空查找条件"
-            icon="pi pi-file"
-            iconPos="left"
-            class="mr-md-3"
-            (onClick)="onClearAllFilters()"
-  >
-
-  </p-button>
-
   <span class="p-ml-auto p-input-icon-right">
        <input pInputText type="text" placeholder="请录入要查找的内容"
               [ngModel]="filter" (keyup)="onFilterChanged($event.target.value)"/>
        <i class="pi pi-search" *ngIf=" isShowSearchIcon()"></i>
        <i *ngIf="isShowClearIcon()" class="pi pi-times" (click)="onClearSearch()">  </i>
   </span>
+
+  <p-button
+    pTooltip="取消查找" tooltipPosition="top"
+    icon="fa fa-power-off"
+    iconPos="left"
+    class="mr-md-3"
+    (onClick)="onClearAllFilters()"
+  >
+  </p-button>
 </div>

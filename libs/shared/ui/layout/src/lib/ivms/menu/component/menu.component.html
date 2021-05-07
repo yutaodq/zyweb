@@ -1,11 +1,17 @@
 <div class="layout-sidebar" [ngClass]="{'active': active}">
   <div class="layout-menu">
 
-    <div class="menu-category">智能调派</div>
+    <div class="menu-category">
+      <i class="fa fa-at" aria-hidden="true"></i>
+      智能调派
+    </div>
     <div class="menu-items">
       <a [routerLink]=" ['/404']" routerLinkActive="router-link-exact-active">用车申请</a>
       <div>
-        <a tabindex="0" (click)="toggleSubmenu($event, '/galleria')">审批计划</a>
+        <a tabindex="0" (click)="toggleSubmenu($event, '/galleria')">
+          <i class="fa fa-bolt" aria-hidden="true"></i>
+          审批计划
+        </a>
         <div [@submenu]="isSubmenuActive('/galleria') ? 'visible': 'hidden'">
           <ul>
             <li><a [routerLink]=" ['/galleria']" routerLinkActive="router-link-exact-active"
@@ -21,10 +27,16 @@
     </div>
 
 
-    <div class="menu-category">车辆管理</div>
+    <div class="menu-category">
+      <i class="fa fa-car" aria-hidden="true"></i>
+      车辆管理
+    </div>
     <div class="menu-items">
-      <a [routerLink]=" ['/vehicle']" routerLinkActive="router-link-exact-active">车辆信息档案 <span
-        class="p-tag">New</span></a>
+      <a  [routerLink]=" ['/vehicle']" routerLinkActive="router-link-exact-active">
+        <i class="fa fa-book" aria-hidden="true"></i>
+        车辆信息档案
+        <span class="p-tag">New</span>
+      </a>
     </div>
     <div class="menu-items">
       <a [routerLink]=" ['/vehicleUseType']" routerLinkActive="router-link-exact-active">车辆用途 <span
