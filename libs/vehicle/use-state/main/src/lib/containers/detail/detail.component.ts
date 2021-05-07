@@ -59,7 +59,7 @@ export class DetailComponent implements MasterDetailCommand<VehicleUseState>, On
     this._detailVehicleUseStateService.updateName(this.vehicleUseState);
   }
 
- 
+
   /**
    * Registers events
    */

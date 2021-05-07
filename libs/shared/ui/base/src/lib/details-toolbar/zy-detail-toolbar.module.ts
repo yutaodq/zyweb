@@ -4,6 +4,7 @@ import { DetailsToolbarComponent } from './details-toolbar.component';
 import { ButtonModule } from 'primeng/button';
 import {ToolbarModule} from 'primeng/toolbar';
 import {SplitButtonModule} from 'primeng/splitbutton';
+import { TooltipModule } from 'primeng/tooltip';
 
 export const COMPONENTS_EXPORTS : Array<any> = [
   DetailsToolbarComponent
@@ -15,6 +16,7 @@ export const COMPONENTS_EXPORTS : Array<any> = [
     ButtonModule,
     ToolbarModule,
     SplitButtonModule,
+    TooltipModule
   ],
   declarations: [
     DetailsToolbarComponent

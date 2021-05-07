@@ -1,18 +1,14 @@
 import { Injectable } from '@angular/core';
 import {
-  EntityCollectionServiceBase,
   EntityCollectionServiceElementsFactory
 } from '@ngrx/data';
 import { VehicleUseState } from '@zyweb/shared/data-access/model/lvms';
-import { createSelector, select } from '@ngrx/store';
-import { RouteSelectors } from '@zyweb/shared/data-access/store/ngrx-router';
 import { BaseEntityService } from '../base-entity.service';
 
 
 @Injectable({ providedIn: 'root' })
 
-export class VehicleUseStateCollectionService
-  extends BaseEntityService<VehicleUseState> {
+export class VehicleUseStateCollectionService extends BaseEntityService<VehicleUseState> {
 
   constructor(serviceElementsFactory: EntityCollectionServiceElementsFactory) {
     super('VehicleUseState', serviceElementsFactory);
