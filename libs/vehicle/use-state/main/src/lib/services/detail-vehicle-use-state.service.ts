@@ -67,7 +67,7 @@ export class DetailVehicleUseStateService {
   }
 
   public updateName(entity: VehicleUseState): void {
-    this._ref = this._dialogService.open(UpdateMainFormComponent, {
+    this._ref = this._dialogService.open(UpdateNameFormComponent, {
       header: '修改车辆使用状态说明',
       width: '70%',
       contentStyle: { 'max-height': '500px', 'overflow': 'auto' },
@@ -82,9 +82,4 @@ export class DetailVehicleUseStateService {
     });
   }
 
-
-  // private update(vehicleUseState: any) {
-  //   this._vehicleUseStateFacade.update(vehicleUseState);
-  //
-  // }
 }

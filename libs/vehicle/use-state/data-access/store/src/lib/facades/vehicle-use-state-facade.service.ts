@@ -9,6 +9,12 @@ import { RouteActions } from '@zyweb/shared/data-access/store/ngrx-router';
 import * as fromStaes from '../reducers';
 import { map } from 'rxjs/operators';
 
+export enum UpdateType {
+  UPDATE = 'update',
+  UPDATE_NAME = 'updateName',
+}
+
+
 @Injectable()
 export class VehicleUseStateFacade {
   private _collectionService: EntityCollectionService<VehicleUseState>;
@@ -99,7 +105,15 @@ export class VehicleUseStateFacade {
   }
 
   update(vehicleUseState: VehicleUseState) {
-    return this._collectionService.update(vehicleUseState);
+    return this.updateVehicleUseState(vehicleUseState, UpdateType.UPDATE);
+  }
+
+  private updateVehicleUseState(vehicleUseState: VehicleUseState, update: string) {
+    const state: VehicleUseState = {...vehicleUseState, updateType: update}
+    return this._collectionService.update(state);
+  }
+  updateName(vehicleUseState: VehicleUseState) {
+    return this.updateVehicleUseState(vehicleUseState, UpdateType.UPDATE_NAME);
   }
 
 }
