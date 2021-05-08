@@ -9,13 +9,12 @@ import {
   Output
 } from '@angular/core';
 import { v4 as uuidv4 } from 'uuid';
-import { FormControl, FormGroup, ValidationErrors } from '@angular/forms';
-import { FormlyFieldConfig, FormlyFormBuilder, FormlyFormOptions } from '@ngx-formly/core';
+import { FormGroup } from '@angular/forms';
+import { FormlyFieldConfig, FormlyFormOptions } from '@ngx-formly/core';
 
 import { Observable, of, Subscription } from 'rxjs';
 
 import { VehicleUseState } from '@zyweb/shared/data-access/model/lvms';
-// import { VehicleUseStateDataService } from '@zyweb/shared/data-access/api/lvms';
 import { MasterCreateCommand } from '@zyweb/shared/util/utility';
 import { CreateVehicleUseStateService } from '../../services';
 
@@ -52,33 +51,29 @@ export class CreateFormComponent implements OnInit, OnDestroy {
             templateOptions: {
               label: '状态名称',
               required: true,
-              minLength: 2,
+              minLength: 2
             },
             modelOptions: {
               updateOn: 'blur' //失去焦点后验证
             },
             asyncValidators: {
-              // uniqueName: this._formPresenter.exists()
               uniqueName: this._createVehicleUseStateService.isNameExists()
             }
-          },
+          }
         ]
       },
       { template: '<hr /> ' },
       {
-      key: 'description',
-      type: 'textarea',
-      templateOptions: {
-        label: '车辆备注',
-        rows: 4,
-        placeholder: ''
+        key: 'description',
+        type: 'textarea',
+        templateOptions: {
+          label: '车辆备注',
+          rows: 4,
+          placeholder: ''
+        }
       }
-    }
     ];
 
-  // constructor(private _formPresenter: CreateFormPresenter,
-  //             private _createVehicleUseStateService: CreateVehicleUseStateService
-  // ) {  }
   constructor(private _createVehicleUseStateService: CreateVehicleUseStateService) {  }
 
   ngOnInit(): void {
@@ -96,9 +91,10 @@ export class CreateFormComponent implements OnInit, OnDestroy {
   ngOnDestroy() {
     this.subscriptions.forEach(sub => sub.unsubscribe());
   }
-/*
-按钮命令
- */
+
+  /*
+  按钮命令
+   */
   onSubmit(model: any) {
     this.save();
   }
@@ -119,7 +115,7 @@ export class CreateFormComponent implements OnInit, OnDestroy {
     Object.keys(vehicleUseState).forEach(
       (key) => (vehicleUseState[key] === null || vehicleUseState[key] === '') && delete vehicleUseState[key]);
 
-    this.command.onAdd(vehicleUseState)
+    this.command.onAdd(vehicleUseState);
   }
 
   private isEmpty(id: string) {
@@ -148,7 +144,6 @@ export class CreateFormComponent implements OnInit, OnDestroy {
   public canSave() {
     return this.form.valid && this.form.pristine;
   }
-
 
 
   /*

@@ -77,7 +77,7 @@ export class DetailVehicleUseStateService {
 
     this._ref.onClose.subscribe((vehicleUseState) => {
       if (vehicleUseState) {
-        this._vehicleUseStateFacade.update(vehicleUseState);
+        this._vehicleUseStateFacade.updateName(vehicleUseState);
       }
     });
   }
