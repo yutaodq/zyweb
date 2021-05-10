@@ -14,14 +14,14 @@ import {  FormGroup,  } from '@angular/forms';
 import { FormlyFieldConfig,  FormlyFormOptions } from '@ngx-formly/core';
 import {  VehicleUseType } from '@zyweb/shared/data-access/model/lvms';
 import {  Subscription } from 'rxjs';
-import { VehicleUseTypesApiClient } from '@zyweb/shared/data-access/api/lvms';
+import { VehicleUseTypeDataService } from '@zyweb/shared/data-access/api/lvms';
 import { MasterCreateCommand } from '@zyweb/shared/util/utility';
 
 @Component({
   selector: 'zyweb-vehicle-use-type-create-form',
   templateUrl: './create-form.component.html',
   styleUrls: ['./create-form.component.scss'],
-  providers: [CreateFormPresenter, VehicleUseTypesApiClient]
+  providers: [CreateFormPresenter, VehicleUseTypeDataService]
   // changeDetection: ChangeDetectionStrategy.OnPush
 })
 

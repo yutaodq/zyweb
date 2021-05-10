@@ -4,7 +4,7 @@ import { Observable, of, Subject, timer } from 'rxjs';
 import { FormlyFormOptions } from '@ngx-formly/core';
 import { v4 as uuidv4 } from 'uuid';
 import { VehicleUseType } from '@zyweb/shared/data-access/model/lvms';
-import { VehicleUseTypesApiClient } from '@zyweb/shared/data-access/api/lvms';
+import { VehicleUseTypeDataService } from '@zyweb/shared/data-access/api/lvms';
 import { AsyncValidatorExistsService } from '@zyweb/shared/ui/form';
 
 
@@ -24,7 +24,7 @@ export class CreateFormPresenter {
   private _model: any = {};
   private _options: FormlyFormOptions = {};
 
-  constructor(private _vehicleUseTypesApiClient: VehicleUseTypesApiClient,
+  constructor(private _vehicleUseTypesDataService: VehicleUseTypeDataService,
               private _existsService: AsyncValidatorExistsService) {
   }
   // this.subscription = this.form.valueChanges.subscribe(value =>
@@ -32,7 +32,7 @@ export class CreateFormPresenter {
   // );
 
   exists(): AsyncValidatorFn {
-      return this._existsService.exists(this._vehicleUseTypesApiClient);
+      return this._existsService.exists(this._vehicleUseTypesDataService);
   }
 
   public cancel(): void {

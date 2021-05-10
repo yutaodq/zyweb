@@ -5,14 +5,14 @@ import { EffectsModule } from '@ngrx/effects';
 
 import * as fromVehicleUseType from './reducers';
 import { CollectionEffects } from './effects';
-import { VehicleUseTypesApiClient } from '@zyweb/shared/data-access/api/lvms';
+import { VehicleUseTypeDataService } from '@zyweb/shared/data-access/api/lvms';
 @NgModule({
   imports: [
     CommonModule,
     StoreModule.forFeature(fromVehicleUseType.vehicleUseTypesFeatureKey, fromVehicleUseType.reducers),
     EffectsModule.forFeature([CollectionEffects ]),
   ],
-  providers: [VehicleUseTypesApiClient]
+  providers: [VehicleUseTypeDataService]
 })
 
 export class VehicleUseTypeDataAccessStoreModule {}

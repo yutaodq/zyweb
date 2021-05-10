@@ -16,8 +16,8 @@ export const defaultDataServiceConfig: DefaultDataServiceConfig = {
       // collectionResourceUrl: environment.clientApiUrl+'/vehicle_use_states/'
     },
     VehicleUseType: {
-      entityResourceUrl: environment.baseUrl + '/vehicle_use_types/',
-      collectionResourceUrl: environment.baseUrl + '/vehicle_use_types/'
+      entityResourceUrl: environment.baseUrl + '/vehicleUseTypes/',
+      collectionResourceUrl: environment.baseUrl + '/vehicleUseTypes/'
     }
   }
 

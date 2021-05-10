@@ -20,7 +20,7 @@ export class VehicleUseTypeGridPresenter extends GridOptionsModel<VehicleUseType
         'headerName': '备注'
       },
       {
-        headerName: '',
+        headerName: '细节',
         editable: false,
         sortable: false,
         filter: false,
@@ -31,8 +31,8 @@ export class VehicleUseTypeGridPresenter extends GridOptionsModel<VehicleUseType
         cellRenderer: 'actionsColRendered',
         cellRendererParams: {
           onClick: this.onSelectData.bind(this),
-          fa: 'fa fa-info-circle',
-          iconClass: 'detail-icon'
+          fa: 'fa fa-bars',
+          iconClass: 'p-button-rounded p-button-success'
         }
       }
 
