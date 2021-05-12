@@ -9,7 +9,7 @@ import {
   Output
 } from '@angular/core';
 import { MenuItem } from 'primeng/api';
-import { DetailComponent } from '../../../../../../use-state/main/src/lib/containers/detail/detail.component';
+import { DetailComponent } from '../../containers/detail/detail.component';
 
 @Component({
   selector: 'zyweb-vehicle-use-type-detail-button',
@@ -27,11 +27,8 @@ export class VehicleUseTypeDetailButtonComponent  implements OnInit {
 
   ngOnInit() {
     this.items = [
-      // {label: '修改', icon: 'pi pi-refresh', command: () => {
-      //     this.editOther();
-      //   }},
       {separator:true},
-      {label: '用途变更', icon: 'pi pi-times', command: () => {
+      {label: '修改车辆类型名称', icon: 'pi pi-times', command: () => {
           this.changeName();
         }},
     ];
@@ -45,4 +42,3 @@ export class VehicleUseTypeDetailButtonComponent  implements OnInit {
     this.updateCommand.updateName();
   }
 }
-
