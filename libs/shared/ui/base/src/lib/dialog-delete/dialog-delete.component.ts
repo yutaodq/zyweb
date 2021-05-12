@@ -8,7 +8,8 @@ import {
   OnInit,
   Output
 } from '@angular/core';
-import { DynamicDialogRef } from 'primeng/dynamicdialog';
+import { DynamicDialogConfig, DynamicDialogRef } from 'primeng/dynamicdialog';
+import { MasterDetailCommand } from '@zyweb/shared/util/utility';
 
 @Component({
   selector: 'zyweb-vehicle-delete-dialog',
@@ -19,13 +20,21 @@ import { DynamicDialogRef } from 'primeng/dynamicdialog';
 })
 
 export class DialogDeleteComponent  {
+  title = "删除";
 
-  constructor( private _ref: DynamicDialogRef) {
+  constructor( private _ref: DynamicDialogRef,
+               private _config: DynamicDialogConfig,
+  ) {
+    // this.title = this._config.data
+    this.title = "this._config.data"
+
   }
+
   public delete(): void{
     this._ref.close(true)
 
   }
+
   public cancel(): void{
     this._ref.close(false)
 
