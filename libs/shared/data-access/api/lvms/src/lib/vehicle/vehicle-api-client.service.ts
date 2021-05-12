@@ -29,7 +29,7 @@ export class VehicleApiClient implements FindByNameApi {
   }
 
   // updateBulk(items: Update<Item>[]) {
-  //   return forkJoin(items.map((item) => this.update(item)));
+  //   return forkJoin(items.map((item) => this.main(item)));
   // }
 
   public getCollection(): Observable<Vehicle[]> {

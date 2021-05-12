@@ -1,5 +1,4 @@
-<div class="p-fluid p-formgrid p-grid">
-
+<div *ngIf="vehicleUseType" class="p-fluid p-formgrid p-grid">
   <div class="row">
     <div class="col-md-6">
       <zyweb-ui-details-input lable="车辆名称" [value]="vehicleUseType.name">

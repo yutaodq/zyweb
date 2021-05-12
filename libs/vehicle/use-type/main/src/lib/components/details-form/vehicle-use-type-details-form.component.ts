@@ -18,8 +18,9 @@ import { VehicleUseType } from '@zyweb/shared/data-access/model/lvms';
   changeDetection: ChangeDetectionStrategy.OnPush
 })
 
-export class VehicleUseTypeDetailsFormComponent  {
-  @Input()   public vehicleUseType:        VehicleUseType;
+export class VehicleUseTypeDetailsFormComponent {
+  @Input() public vehicleUseType: VehicleUseType;
+
   constructor() {
   }
 

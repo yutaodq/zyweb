@@ -1,1 +1,1 @@
-export * from './vehicle-use-type-main-component-update-form.module';
+export * from './vehicle-use-type-update-form.module';

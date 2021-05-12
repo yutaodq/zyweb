@@ -5,8 +5,12 @@ import {
 
 import { FormGroup } from '@angular/forms';
 import { FormlyFieldConfig, FormlyFormOptions } from '@ngx-formly/core';
-import { VehicleUseType } from '@zyweb/shared/data-access/model/lvms';
+import { Vehicle } from '@zyweb/shared/data-access/model/lvms';
 import { DynamicDialogConfig, DynamicDialogRef } from 'primeng/dynamicdialog';
+
+interface UpdateForm {
+  id: string, name: string
+}
 @Component({
   selector: 'zyweb-vehicle-use-type-update-name-form',
   templateUrl: './update-name-form.component.html',
@@ -17,10 +21,9 @@ import { DynamicDialogConfig, DynamicDialogRef } from 'primeng/dynamicdialog';
 export class UpdateNameFormComponent {
   private _form = new FormGroup({});
 
-  private _model: any = {};
+  private _model : UpdateForm;
   private _options: FormlyFormOptions = {};
 
-  vehicleUseType: VehicleUseType;
   public fields: FormlyFieldConfig[] =
     [
       {
@@ -32,49 +35,27 @@ export class UpdateNameFormComponent {
             type: 'input',
             focus: true,
             templateOptions: {
-              label: '车辆用途',
-              description: 'dfffffffffffffffffffffffffff',
-              placeholder: '车辆用途',
-              required: true,
+              label: '车辆使用状态',
               minLength: 2,
-              attributes: { zywebOnlyNumbers: null },
             },
-            modelOptions: {
-              updateOn: 'blur' //失去焦点后验证
-            },
-            asyncValidators: {
-            }
           }
         ]
       },
       { template: '<hr /> ' },
-      {
-        key: 'description',
-        type: 'input',
-        templateOptions: {
-          label: '用途描述',
-          placeholder: ''
-        }
-      }
     ];
 
   constructor( private _ref: DynamicDialogRef,
                private _config: DynamicDialogConfig,
   ) {
-    this.vehicleUseType = this._config.data;
-    this._model = {id: this.vehicleUseType.id,
-      description: this.vehicleUseType.description,
-      name: this.vehicleUseType.name}
-    // this._model =  this.vehicleUseType
-
+    this._model = {...this._config.data}
   }
   public cancel(): void{
     this._ref.close(null)
   }
 
-  onSubmit(model: any) {
-    const useType: VehicleUseType = model as VehicleUseType;
-    this._ref.close(useType)
+  onSubmit(model: UpdateForm) {
+    this._ref.close(model)
+
   }
 
   get form(): FormGroup {

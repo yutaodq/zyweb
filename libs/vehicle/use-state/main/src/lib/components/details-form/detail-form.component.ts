@@ -1,12 +1,7 @@
 import {
-  ChangeDetectionStrategy, ChangeDetectorRef,
+  ChangeDetectionStrategy,
   Component,
-  EventEmitter,
-  inject,
-  Injector,
-  Input,
-  OnInit,
-  Output
+  Input
 } from '@angular/core';
 import { VehicleUseState } from '@zyweb/shared/data-access/model/lvms';
 
@@ -18,8 +13,9 @@ import { VehicleUseState } from '@zyweb/shared/data-access/model/lvms';
   changeDetection: ChangeDetectionStrategy.OnPush
 })
 
-export class DetailFormComponent  {
-  @Input()   public vehicleUseState:        VehicleUseState;
+export class DetailFormComponent {
+  @Input() public vehicleUseState: VehicleUseState;
+
   constructor() {
   }
 

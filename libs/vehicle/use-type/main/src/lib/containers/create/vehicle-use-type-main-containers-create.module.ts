@@ -5,6 +5,8 @@ import { SharedUiBaseModule } from '@zyweb/shared/ui/base';
 import { VehicleUseTypeMainComponentsModule } from '../../components';
 import { CreateComponent } from './create.component';
 import { VehicleUseTypeFacade } from '@zyweb/vehicle/use-type/data-access/store';
+import {  VehicleUseTypeDataService } from '@zyweb/shared/data-access/api/lvms';
+import { CreateVehicleUseTypeService } from '../../services/create-vehicle-use-type.service';
 
 @NgModule({
   imports: [
@@ -16,6 +18,9 @@ import { VehicleUseTypeFacade } from '@zyweb/vehicle/use-type/data-access/store'
   declarations: [
     CreateComponent,
   ],
-  providers: [VehicleUseTypeFacade],
+  providers: [VehicleUseTypeDataService,
+    VehicleUseTypeFacade,
+    CreateVehicleUseTypeService
+  ],
 })
 export class VehicleUseTypeMainContainersCreateModule {}

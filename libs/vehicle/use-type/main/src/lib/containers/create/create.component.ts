@@ -3,8 +3,8 @@ import { ActivatedRoute } from '@angular/router';
 
 import { Subscription } from 'rxjs';
 import { VehicleUseType } from '@zyweb/shared/data-access/model/lvms';
-import { VehicleUseTypeFacade } from '@zyweb/vehicle/use-type/data-access/store';
 import { MasterCreateCommand } from '@zyweb/shared/util/utility';
+import { CreateVehicleUseTypeService } from '../../services';
 
 /*
 https://github.com/vladeye/druo-dashboard-app/tree/master/src/app/content/pages
@@ -24,10 +24,11 @@ export class CreateComponent implements MasterCreateCommand<VehicleUseType>, OnI
   public commands = this;
 
   constructor(
-    private _facade: VehicleUseTypeFacade,
-    ) {}
+    private _createService: CreateVehicleUseTypeService,
+  ) {}
 
   ngOnInit() {
+    this.registerEvents();
   }
 
   ngOnDestroy() {
@@ -35,12 +36,16 @@ export class CreateComponent implements MasterCreateCommand<VehicleUseType>, OnI
   }
 
   onCancel() {
-    this._facade.cancelCreate()
+    this._createService.cancel()
   }
 
   onAdd(vehicleUseType: VehicleUseType) {
-    this._facade.addVehicleUseType(vehicleUseType)
- }
+    this._createService.add(vehicleUseType)
+  }
 
-
+  /**
+   * Registers events
+   */
+  private registerEvents(): void {
+  }
 }

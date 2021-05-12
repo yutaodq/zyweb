@@ -4,7 +4,7 @@ import { VehicleUseTypeGridModule } from './grid';
 import { VehicleUseTypeMainComponentDetailFormModule } from './details-form';
 import { VehicleUseTypeMainComponentCreateFormModule } from './create-form';
 import { VehicleUseTypeMainComponentDetailButtonModule } from './details-button';
-import { VehicleUseTypeMainComponentUpdateFormModule } from './update-form';
+import { VehicleUseTypeUpdateFormModule } from './update-form';
 
 export const COMPONENTS_EXPORTS : Array<any> = [
 ];
@@ -18,7 +18,7 @@ export const COMPONENTS_EXPORTS : Array<any> = [
   exports: [...COMPONENTS_EXPORTS,
     VehicleUseTypeGridModule,
     VehicleUseTypeMainComponentDetailFormModule,
-    VehicleUseTypeMainComponentUpdateFormModule,
+    VehicleUseTypeUpdateFormModule,
     VehicleUseTypeMainComponentCreateFormModule,
     VehicleUseTypeMainComponentDetailButtonModule,
   ],

@@ -14,7 +14,8 @@ const FEATURE_URL_FULL = FEATURE_URL + '/';
 @Injectable()
 export class VehicleUseTypeDataService
   extends DefaultDataService<VehicleUseType>
-  implements FindByNameApi, ExistsByNameApi{
+  implements  ExistsByNameApi{
+  // implements FindByNameApi, ExistsByNameApi{
 
   private readonly api = environment.baseUrl;
 
@@ -31,11 +32,11 @@ export class VehicleUseTypeDataService
     return this.apiService.put(FEATURE_URL_FULL + 'updateName' + vehicleUseType.id , vehicleUseType.changes);
   }
 
-  public findByName(name: string): Observable<VehicleUseType[]> {
-    return this.apiService.get<VehicleUseType[]>(
-      FEATURE_URL_FULL+'findByName/'+ name
-    );
-  }
+  // public findByName(name: string): Observable<VehicleUseType[]> {
+  //   return this.apiService.get<VehicleUseType[]>(
+  //     FEATURE_URL_FULL+'findByName/'+ name
+  //   );
+  // }
 
   public existsByName(name: string): Observable<boolean> {
     return this.apiService.get<boolean>(

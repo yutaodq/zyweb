@@ -86,12 +86,12 @@
 //   }
 //
 //   updateVehicleUseType(vehicleUseType: VehicleUseType) {
-//     const update: Update<VehicleUseType> =  { id: vehicleUseType.id, changes: vehicleUseType };
+//     const main: Update<VehicleUseType> =  { id: vehicleUseType.id, changes: vehicleUseType };
 //     this.appState$.dispatch(
 //       fromVehicleUseTypes
 //         .ViewVehicleUseTypePageActions
 //         .updateVehicleUseType(
-//           { vehicleUseType:  update})
+//           { vehicleUseType:  main})
 //     );
 //   }
 //

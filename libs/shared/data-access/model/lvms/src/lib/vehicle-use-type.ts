@@ -1,7 +1,9 @@
 export interface VehicleUseType {
   id: string;
   name: string;
-  description: string
+  description: string;
+  updateType: string
+
 }
 // export function generateMockVehicle(): VehicleUseType {
 //   return {

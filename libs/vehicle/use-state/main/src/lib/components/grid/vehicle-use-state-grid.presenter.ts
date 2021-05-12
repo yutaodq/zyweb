@@ -21,7 +21,7 @@ export class VehicleUseStateGridPresenter extends GridOptionsModel<VehicleUseSta
         headerName: '备注'
       },
       {
-        headerName: '',
+        headerName: '选择',
         editable: false,
         sortable: false,
         filter: false,

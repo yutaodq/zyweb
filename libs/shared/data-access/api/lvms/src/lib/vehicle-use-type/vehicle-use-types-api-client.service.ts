@@ -22,7 +22,7 @@
 //   ) {
 //   }
 //
-//   public update(vehicleUseType: Update<VehicleUseType>): Observable<VehicleUseType> {
+//   public main(vehicleUseType: Update<VehicleUseType>): Observable<VehicleUseType> {
 //     return this.apiService.put(FEATURE_URL_FULL + vehicleUseType.id , vehicleUseType.changes);
 //   }
 //

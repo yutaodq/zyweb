@@ -2,13 +2,9 @@ import { ChangeDetectionStrategy, ChangeDetectorRef, Component, OnDestroy, OnIni
 import { Observable, of, Subscription } from 'rxjs';
 import { DialogService, DynamicDialogRef } from 'primeng/dynamicdialog';
 
-import { DialogDeleteComponent } from '@zyweb/shared/ui/base';
 import { MasterDetailCommand } from '@zyweb/shared/util/utility';
 
 import { VehicleUseState } from '@zyweb/shared/data-access/model/lvms';
-import { VehicleUseStateFacade } from '@zyweb/vehicle/use-state/data-access/store';
-import { UpdateNameFormComponent } from '../../components/update-form/name/update-name-form.component';
-import { UpdateMainFormComponent } from '../../components/update-form/main/update-main-form.component';
 import { DetailVehicleUseStateService } from '../../services/detail-vehicle-use-state.service';
 
 @Component({
@@ -28,7 +24,6 @@ export class DetailComponent implements MasterDetailCommand<VehicleUseState>, On
   public vehicleUseState: VehicleUseState;
 
   constructor(
-    // public _facade: VehicleUseStateFacade,
     private changeDetector: ChangeDetectorRef,
     private _dialogService: DialogService,
     private _detailVehicleUseStateService: DetailVehicleUseStateService,

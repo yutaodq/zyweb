@@ -2,7 +2,7 @@ import { ChangeDetectionStrategy, ChangeDetectorRef, Component, OnDestroy, OnIni
 import { ActivatedRoute } from '@angular/router';
 
 import { Subscription } from 'rxjs';
-import { Vehicle, VehicleUseState } from '@zyweb/shared/data-access/model/lvms';
+import { VehicleUseState } from '@zyweb/shared/data-access/model/lvms';
 import { MasterCreateCommand } from '@zyweb/shared/util/utility';
 import { CreateVehicleUseStateService } from '../../services';
 
@@ -11,7 +11,7 @@ https://github.com/vladeye/druo-dashboard-app/tree/master/src/app/content/pages
 D:\学习案例\druo-dashboard\src\app\content\pages\components\invoices\invoices-routing.module.ts
  */
 @Component({
-  selector: 'zyweb-vehicle-create',
+  selector: 'zyweb-vehicle-use-state-create',
   templateUrl: './create.component.html',
   styleUrls: ['./create.component.scss'],
   changeDetection: ChangeDetectionStrategy.OnPush,
