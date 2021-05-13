@@ -21,12 +21,16 @@ import { MasterDetailCommand } from '@zyweb/shared/util/utility';
 
 export class DialogDeleteComponent  {
   title = "删除";
+  details= "";
+  // logo = require('../../../../assets/images/logo.svg').default;
+  logo = require('./delete.jpg').default;
 
   constructor( private _ref: DynamicDialogRef,
                private _config: DynamicDialogConfig,
   ) {
     // this.title = this._config.data
-    this.title = "this._config.data"
+    this.title = this._config.data.title;
+    this.details  = this._config.data.details
 
   }
 

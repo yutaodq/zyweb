@@ -34,9 +34,11 @@ export class DetailVehicleUseStateService {
   public delete(vehicleUseState: VehicleUseState): void {
     this._ref = this._dialogService.open(DialogDeleteComponent, {
       header: '删除车辆使用状态',
-      width: '70%',
+      width: '30%',
       contentStyle: { 'max-height': '500px', 'overflow': 'auto' },
-      baseZIndex: 10000
+      baseZIndex: 10000,
+      data: {'title': "您确定要删除使用状态是：",
+        'details': vehicleUseState.name + "的记录？"}
     });
 
     this._ref.onClose.subscribe((isDelete) => {

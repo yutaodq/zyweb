@@ -1,17 +1,23 @@
-<div class="container content-section introduction">
-  <h1>{{title}}</h1>
-  <p>您将要删除车辆的档案.</p>
-
-</div>
-
-<div class="container content-section implementation">
-
+<p-card styleClass="p-card-shadow">
+  <!--  <p-card header="Advanced Card" subheader="Card Subheader"  styleClass="p-card-shadow">-->
+  <ng-template pTemplate="header">
+    <!--    <img alt="Card" src="assets/showcase/images/delete.jpg">-->
+    <!--    <img alt="Card" src="../../assets/images/delete.jpg">-->
+    <!--    <img alt="logo" [src]="logo"/>-->
+    {{title}}
+  </ng-template>
   <div class="row justify-content-center">
-    <p-button label="确定删除" icon="pi pi-trash" (click)="delete()" class="mr-md-3" styleClass="p-button-danger">
-    </p-button>
-    <p-button label="取消删除" icon="pi pi-sign-out" (click)="cancel()" >
-    </p-button>
 
+    <p>{{details}}</p>
   </div>
+  <ng-template pTemplate="footer">
+    <div class="row justify-content-center">
 
-</div>
+      <p-button label="确定删除" icon="pi pi-trash" (click)="delete()" class="mr-md-3" styleClass="p-button-danger">
+      </p-button>
+      <p-button label="取消删除" icon="pi pi-sign-out" (click)="cancel()">
+      </p-button>
+    </div>
+  </ng-template>
+
+</p-card>

@@ -4,6 +4,7 @@ import { FormsModule } from '@angular/forms';
 
 import { DialogDeleteComponent } from './dialog-delete.component';
 import { ButtonModule } from 'primeng/button';
+import { SharedUiCommonModule } from '@zyweb/shared/ui/common';
 
 export const COMPONENTS_EXPORTS : Array<any> = [
   DialogDeleteComponent
@@ -14,6 +15,7 @@ export const COMPONENTS_EXPORTS : Array<any> = [
     CommonModule,
     FormsModule,
     ButtonModule,
+    SharedUiCommonModule
 
   ],
   declarations: [

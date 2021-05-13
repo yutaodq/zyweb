@@ -34,10 +34,12 @@ export class DetailVehicleUseTypeService {
   public delete(vehicleUseType: VehicleUseType): void {
     this._ref = this._dialogService.open(DialogDeleteComponent, {
       header: '删除车辆使用类型',
-      width: '50%',
+      width: '30%',
       contentStyle: { 'max-height': '500px', 'overflow': 'auto' },
       baseZIndex: 10000,
-      data: "您是否要删除车辆使用类型为：vehicleUseType.name的记录？"
+      // data: "您确定要删除车辆使用类型为："+ vehicleUseType.name + "的记录？"
+      data: {'title': "您确定要删除车辆使用类型为：",
+        'details': vehicleUseType.name + "的记录？"}
 
     });
 
