@@ -37,7 +37,6 @@ export class DetailVehicleUseTypeService {
       width: '30%',
       contentStyle: { 'max-height': '500px', 'overflow': 'auto' },
       baseZIndex: 10000,
-      // data: "您确定要删除车辆使用类型为："+ vehicleUseType.name + "的记录？"
       data: {'title': "您确定要删除车辆使用类型为：",
         'details': vehicleUseType.name + "的记录？"}
 

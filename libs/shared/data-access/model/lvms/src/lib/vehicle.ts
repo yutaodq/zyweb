@@ -5,8 +5,8 @@ export class VehicleRowViewModel {
   name: string;
   pz: string;
   nbpz: string;
-  type: string;
-  useStateName?: string;
+  useType: string;
+  useState?: string;
 }
 
 export interface Vehicle {
