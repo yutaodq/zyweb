@@ -41,8 +41,8 @@ export class ListVehicleService {
       name: v.name,
       pz: v.pz,
       nbpz: v.nbpz,
-      type: v.type,
-      useStateName: v.useState?.name || null
+      useType: v.type,
+      useState: v.useState?.name || null
 
     };
   }
