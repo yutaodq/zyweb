@@ -8,11 +8,11 @@ import {
   OnInit,
   Output
 } from '@angular/core';
+import { v4 as uuidv4 } from 'uuid';
 
-import { CreateFormPresenter } from './create-form.presenter';
 import {  FormGroup } from '@angular/forms';
 import { FormlyFieldConfig, FormlyFormOptions } from '@ngx-formly/core';
-import { Vehicle } from '@zyweb/shared/data-access/model/lvms';
+import { Vehicle  } from '@zyweb/shared/data-access/model/lvms';
 import {  Subscription } from 'rxjs';
 import { CreateVehicleService } from '../../services/create-vehicle.service';
 import { MasterCreateCommand } from '@zyweb/shared/util/utility';
@@ -21,7 +21,7 @@ import { MasterCreateCommand } from '@zyweb/shared/util/utility';
   selector: 'zyweb-vehicle-create-form',
   templateUrl: './create-form.component.html',
   styleUrls: ['./create-form.component.scss'],
-  providers: [CreateFormPresenter]
+  providers: []
   // changeDetection: ChangeDetectionStrategy.OnPush
 })
 
@@ -32,6 +32,10 @@ export class CreateFormComponent implements OnInit, OnDestroy {
 
   private subscriptions: Array<Subscription> = [];
 
+  private _form = new FormGroup({});
+
+  private _model: any = {};
+  private _options: FormlyFormOptions = {};
 
   public fields: FormlyFieldConfig[] =
     [
@@ -53,7 +57,7 @@ export class CreateFormComponent implements OnInit, OnDestroy {
               updateOn: 'blur' //失去焦点后验证
             },
             asyncValidators: {
-              uniqueName: this._createVehicleService.isNameExists()
+              // uniqueName: this._createVehicleService.isNameExists()
             }
           },
           {
@@ -62,11 +66,18 @@ export class CreateFormComponent implements OnInit, OnDestroy {
             type: 'select',
             templateOptions: {
               label: '使用状态',
+              // placeholder: 'Placeholder',
               options: this._createVehicleService.getVehiclesUseState(),
               valueProp: 'id',
               labelProp: 'name',
 
-            }
+            },
+            expressionProperties: {
+              // apply expressionProperty for disabled based on formState
+              '_options.fields.pz' : 'sassd',
+              'pz.templateOptions.value' : 'daff'
+            },
+
           }
         ]
       },
@@ -114,7 +125,6 @@ export class CreateFormComponent implements OnInit, OnDestroy {
     ];
 
   constructor(
-    private _formPresenter: CreateFormPresenter,
               private _createVehicleService: CreateVehicleService
   ) {
   }
@@ -126,9 +136,6 @@ export class CreateFormComponent implements OnInit, OnDestroy {
   private registerEvents(): void {
     // 订阅车辆详情
     this.subscriptions.push(
-      this._formPresenter.add$.subscribe(vehicle => this._command.onAdd(vehicle)),
-      this._formPresenter.cancel$.subscribe(name => this._command.onCancel()),
-      // this._formPresenter.reset$.subscribe(name => this.resetEvent.emit(name))
     );
   }
 
@@ -137,35 +144,72 @@ export class CreateFormComponent implements OnInit, OnDestroy {
   }
 
   onSubmit(model: any) {
-    this._formPresenter.save();
+    this.save();
+  }
+  private save(): void {
+    if (!this.isFormValid()) {
+      return;
+    }
+    const vehicle: Vehicle = this.model as Vehicle;
+    /*
+      可写成 ( this.isEmpty(vehicle.id) ) && (vehicle.id = uuidv4());
+      但 tslint.json出现报警信息
+     */
+    if (this.isEmpty(vehicle.id)) {
+      vehicle.id = uuidv4();
+    }
+
+    Object.keys(vehicle).forEach(
+      (key) => (vehicle[key] === null || vehicle[key] === '') && delete vehicle[key]);
+
+    this.command.onAdd(vehicle);
+  }
+
+  private isEmpty(id: string) {
+    let isEmpty = false;
+    if (id === undefined || id === null || id === '') {
+      isEmpty = true;
+    }
+    return isEmpty;
   }
 
   public cancelCreate(): void {
-    this._formPresenter.cancel();
+    this.command.onCancel();
   }
 
   public reset(): void {
-    this._formPresenter.reset();
+    this.options.resetModel();
+  }
+  /*
+
+    */
+  public isFormValid() {
+    return this._form?.valid;
   }
 
-  public get isFormValid() {
-    return this._formPresenter.isFormValid;
-  }
-
-  canSave() {
+  public canSave() {
     return this.form.valid && this.form.pristine;
   }
 
+
+  /*
+Get方法
+ */
   get form(): FormGroup {
-    return this._formPresenter.form;
+    return this._form;
   }
 
   get model() {
-    return this._formPresenter.model;
+    return this._model;
   }
 
   get options(): FormlyFormOptions {
-    return this._formPresenter.options;
+    return this._options;
   }
+
+  get command(): MasterCreateCommand<Vehicle> {
+    return this._command;
+  }
+
 }
 

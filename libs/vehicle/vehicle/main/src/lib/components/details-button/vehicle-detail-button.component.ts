@@ -39,11 +39,11 @@ export class VehicleDetailButtonComponent  implements OnInit {
   }
 
   public change(): void {
-    this.updateCommand.update();
+    // this.updateCommand.update();
   }
 
   public changeVehicleZt(): void {
-    this.updateCommand.updateZt();
+    // this.updateCommand.updateZt();
   }
 }
 

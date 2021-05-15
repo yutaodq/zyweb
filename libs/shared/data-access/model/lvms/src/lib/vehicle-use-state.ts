@@ -9,11 +9,9 @@ export const emptyState: VehicleUseState = {
   id: '',
   name: '不选择',
 };
-// export function generateMockVehicle(): VehicleUseType {
-//   return {
-//     id: '1',
-//     name: '车辆名称',
-//     description: '车辆牌照'
-//
-//   };
-// }
+export function generateMockVehicleUseState(): VehicleUseState {
+  return {
+    id: '',
+    name: '不选择',
+  };
+}
