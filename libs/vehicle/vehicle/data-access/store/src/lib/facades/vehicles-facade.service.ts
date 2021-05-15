@@ -6,18 +6,26 @@ import { EntityCollectionService, EntityServices } from '@ngrx/data';
 import { Vehicle } from '@zyweb/shared/data-access/model/lvms';
 import { RouteActions } from '@zyweb/shared/data-access/store/ngrx-router';
 import * as fromStaes from '../reducers';
+import { map } from 'rxjs/operators';
+
+export enum UpdateType {
+  UPDATE = 'update',
+  UPDATE_NAME = 'updateName',
+}
+
 
 @Injectable()
-export class VehicleFacade{
+export class VehicleFacade {
   private _collectionService: EntityCollectionService<Vehicle>;
-
   private subscriptions: Array<Subscription> = [];
 
   constructor(
     private _appState$: Store<fromStaes.State>,
     entityServices: EntityServices
   ) {
-    this._collectionService = entityServices.getEntityCollectionService('Vehicle');
+    this._collectionService =
+      entityServices.getEntityCollectionService('Vehicle');
+
     this.registerEvents();
   }
 
@@ -25,20 +33,25 @@ export class VehicleFacade{
     return this._collectionService.loading$;
   }
 
-  get vehicles$(): Observable<Vehicle[]> {
-    return this._collectionService.entities$;
-  }
   get entities$(): Observable<Vehicle[]> {
     return this._collectionService.entities$;
-  }
-
-  get vehicleDetail$(): Observable<Vehicle> {
-    return this._collectionService.selected$;
   }
 
   get detail$(): Observable<Vehicle> {
     return this._collectionService.selected$;
   }
+
+  findId(id: string): string {
+    let useStateName;
+    this._collectionService.getByKey(id).pipe(map(vehicle => vehicle.name))
+      .subscribe(name => useStateName = name);
+    return useStateName;
+  }
+
+  // get vehicles$(): Observable<Vehicle[]> {
+  //   return this._collectionService.entities$;
+  // }
+
 
   /**
    * Loads vehicle from the server
@@ -60,10 +73,7 @@ export class VehicleFacade{
   }
 
   showDetail(id: string) {
-    // showDetail(vehicle: Vehicle) {
-    // this.routeTo({ path: ['vehicle', vehicle.id, 'detail'] });
     this.routeTo({ path: ['vehicle', id, 'detail'] });
-
   }
 
   returnToList() {
@@ -71,7 +81,7 @@ export class VehicleFacade{
   }
 
 
-  createVehicle() {
+  create() {
     this.routeTo({ path: ['vehicle', 'create'] });
 
   }
@@ -85,13 +95,21 @@ export class VehicleFacade{
     return this._collectionService.delete(vehicle);
   }
 
-  addVehicle(vehicle: Vehicle) {
+  add(vehicle: Vehicle) {
     return this._collectionService.add(vehicle);
 
   }
 
-  updateVehicle(vehicle: Vehicle) {
-    return this._collectionService.update(vehicle);
-
+  update(vehicle: Vehicle) {
+    return this.updateVehicle(vehicle, UpdateType.UPDATE);
   }
+
+  private updateVehicle(vehicle: Vehicle, update: string) {
+    const state: Vehicle = {...vehicle, updateType: update}
+    return this._collectionService.update(state);
+  }
+  updateName(vehicle: Vehicle) {
+    return this.updateVehicle(vehicle, UpdateType.UPDATE_NAME);
+  }
+
 }

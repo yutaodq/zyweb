@@ -24,7 +24,7 @@ export class DetailComponent implements MasterDetailCommand<VehicleUseType>, OnI
 
   constructor(
     private changeDetector: ChangeDetectorRef,
-    private _dialogService: DialogService,
+    // private _dialogService: DialogService,
     private _detailVehicleUseTypeService: DetailVehicleUseTypeService
   ) {
   }

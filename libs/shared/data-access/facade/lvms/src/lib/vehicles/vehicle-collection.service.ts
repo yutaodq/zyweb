@@ -3,27 +3,35 @@ import {
   EntityCollectionServiceBase,
   EntityCollectionServiceElementsFactory
 } from '@ngrx/data';
-import { Vehicle } from '@zyweb/shared/data-access/model/lvms';
-import { createSelector, select } from '@ngrx/store';
-import { RouteSelectors } from '@zyweb/shared/data-access/store/ngrx-router';
+import { Vehicle, VehicleUseType } from '@zyweb/shared/data-access/model/lvms';
+import { BaseEntityService } from '../base-entity.service';
 
 @Injectable({ providedIn: 'root' })
-export class VehicleCollectionService extends EntityCollectionServiceBase<Vehicle> {
+export class VehicleCollectionService extends BaseEntityService<Vehicle> {
+
   constructor(serviceElementsFactory: EntityCollectionServiceElementsFactory) {
     super('Vehicle', serviceElementsFactory);
   }
-  private getSelectedId = createSelector(
-    RouteSelectors.getMergedRoute,
-    (mergedRoute) => <string>mergedRoute.params.id
-  );
 
-  selectedId$ = this.store.pipe(select(this.getSelectedId))
-
-  private getSelected = createSelector(
-    this.selectors.selectEntityMap,
-    this.getSelectedId,
-    (entities, selectedId) => <Vehicle>(selectedId && entities[selectedId])
-  );
-
-  selected$ = this.store.pipe(select(this.getSelected))
 }
+
+// @Injectable({ providedIn: 'root' })
+// export class VehicleCollectionService extends EntityCollectionServiceBase<Vehicle> {
+//   constructor(serviceElementsFactory: EntityCollectionServiceElementsFactory) {
+//     super('Vehicle', serviceElementsFactory);
+//   }
+//   private getSelectedId = createSelector(
+//     RouteSelectors.getMergedRoute,
+//     (mergedRoute) => <string>mergedRoute.params.id
+//   );
+//
+//   selectedId$ = this.store.pipe(select(this.getSelectedId))
+//
+//   private getSelected = createSelector(
+//     this.selectors.selectEntityMap,
+//     this.getSelectedId,
+//     (entities, selectedId) => <Vehicle>(selectedId && entities[selectedId])
+//   );
+//
+//   selected$ = this.store.pipe(select(this.getSelected))
+// }

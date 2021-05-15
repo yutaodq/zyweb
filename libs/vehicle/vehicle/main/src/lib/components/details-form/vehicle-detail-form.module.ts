@@ -6,6 +6,7 @@ import { SharedUiBaseModule } from '@zyweb/shared/ui/base';
 import { SharedUiCommonModule } from '@zyweb/shared/ui/common';
 
 import { DetailFormComponent } from './detail-form.component';
+import { TabViewModule } from 'primeng/tabview';
 
 export const COMPONENTS_EXPORTS : Array<any> = [
   DetailFormComponent
@@ -17,6 +18,7 @@ export const COMPONENTS_EXPORTS : Array<any> = [
     ReactiveFormsModule,
     SharedUiCommonModule,
     SharedUiBaseModule,
+    TabViewModule
   ],
   declarations: [
     DetailFormComponent

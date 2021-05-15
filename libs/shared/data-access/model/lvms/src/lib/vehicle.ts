@@ -14,10 +14,10 @@ export interface Vehicle {
   name: string;
   pz: string;
   nbpz: string;
-  type?: string;
-  useState?: VehicleUseState;
+  typeName?: string;
+  stateName?: string;
   description?: string;
-
+  updateType?: string
 }
 
 export interface VehicleList {
@@ -37,8 +37,8 @@ export function generateMockVehicle(): Vehicle {
     name: '车辆名称',
     pz: '车辆牌照',
     nbpz: '内部牌照',
-    type: '车辆类型',
-    useState: {id: 'ffffff',  name: 'fff', description: 'dddd', updateType: ''},
+    typeName: '车辆类型',
+    stateName: 'aaaa',
     description: '备注'
   };
 }

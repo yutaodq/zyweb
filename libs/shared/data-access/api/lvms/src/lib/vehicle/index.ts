@@ -1,2 +1,2 @@
-export * from './vehicle-api-client.service';
+export * from './vehicle-data-service';
 

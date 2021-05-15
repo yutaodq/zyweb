@@ -17,11 +17,11 @@ export class VehicleGridPresenter extends GridOptionsModel<VehicleRowViewModel> 
         headerName: '车辆名称'
       },
       {
-        field: 'useStateName',
+        field: 'stateName',
         headerName: '使用状态'
       },
       {
-        field: 'type',
+        field: 'typeName',
         headerName: '车辆类型'
       },
       {
@@ -44,8 +44,8 @@ export class VehicleGridPresenter extends GridOptionsModel<VehicleRowViewModel> 
         cellRenderer: 'actionsColRendered',
         cellRendererParams: {
           onClick: this.onSelectData.bind(this),
-          fa: 'fa fa-info-circle',
-          iconClass: 'detail-icon'
+          fa: 'fa fa-bars',
+          iconClass: 'p-button-rounded p-button-success'
         }
       }
     ];
