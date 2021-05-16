@@ -12,11 +12,11 @@ import { v4 as uuidv4 } from 'uuid';
 
 import { AbstractControl, FormGroup } from '@angular/forms';
 import { FormlyFieldConfig, FormlyFormOptions } from '@ngx-formly/core';
-import { Vehicle  } from '@zyweb/shared/data-access/model/lvms';
-import {  Subscription } from 'rxjs';
+import { Vehicle, VehicleUseState } from '@zyweb/shared/data-access/model/lvms';
+import { Observable, Subscription } from 'rxjs';
 import { CreateVehicleService } from '../../services/create-vehicle.service';
 import { MasterCreateCommand } from '@zyweb/shared/util/utility';
-import { map } from 'rxjs/operators';
+import { filter, map } from 'rxjs/operators';
 
 @Component({
   selector: 'zyweb-vehicle-create-form',
@@ -71,13 +71,29 @@ export class CreateFormComponent implements OnInit, OnDestroy {
               options: this._createVehicleService.getVehiclesUseState(),
               valueProp: 'id',
               labelProp: 'name',
-              change: (field, $event) => {
+              change: (field, $event, ) => {
               // change: (field, formControl: AbstractControl) => {
                 console.log( {field, $event});
-                console.log('11111111'+ field.templateOptions.options[2]);
+                const ad: any[] | Observable<any[]> = field.templateOptions.options;
+                // ad.
+                const id = field.formControl.value;
+                // let named: VehicleUseState;
+                let named;
+
+                this._createVehicleService.getVehiclesUseState()
+                   .subscribe((a) =>
+                  { named = a[2].name}
+                )
+
+                // this._createVehicleService.getVehiclesUseState().pipe(
+                //     map(stated => stated.filter(a => a.id ===id))
+                // ).subscribe((a) =>
+                //   { named = ad.name}
+                // )
+                console.log(named);
 
                 // this.form.get('pz').setValue('aaadddddddd');
-                field.form.get('pz').setValue('lllllllllllll');
+                field.form.get('pz').setValue(named);
               }
               // change: (field, $event) => {
               //   const value = $event.srcElement.value;
