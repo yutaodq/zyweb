@@ -10,7 +10,7 @@ import {
 } from '@angular/core';
 import { v4 as uuidv4 } from 'uuid';
 
-import {  FormGroup } from '@angular/forms';
+import { AbstractControl, FormGroup } from '@angular/forms';
 import { FormlyFieldConfig, FormlyFormOptions } from '@ngx-formly/core';
 import { Vehicle  } from '@zyweb/shared/data-access/model/lvms';
 import {  Subscription } from 'rxjs';
@@ -68,32 +68,49 @@ export class CreateFormComponent implements OnInit, OnDestroy {
             templateOptions: {
               label: '使用状态',
               // placeholder: 'Placeholder',
-              // options: this._createVehicleService.getVehiclesUseState(),
+              options: this._createVehicleService.getVehiclesUseState(),
               valueProp: 'id',
               labelProp: 'name',
-              // change:
+              change: (field, $event) => {
+              // change: (field, formControl: AbstractControl) => {
+                console.log( {field, $event});
+                console.log('11111111'+ field.templateOptions.options[2]);
+
+                // this.form.get('pz').setValue('aaadddddddd');
+                field.form.get('pz').setValue('lllllllllllll');
+              }
+              // change: (field, $event) => {
+              //   const value = $event.srcElement.value;
+              //   const durationValue = value / 5;
+              //   const newModel = { ...this.model1, durationValue };
+              //   this.model1 = newModel;
+              //   console.log({ field, $event });
+              // },
 
             },
             expressionProperties: {
               // apply expressionProperty for disabled based on formState
-              // '_options.fields.pz' : 'sassd',
               // 'pz.templateOptions.value' : 'daff'
             },
             hooks: {
-              onChanges: field => {
-                // field.formControl.setValue(field.templateOptions.options[0].name);
-                field.templateOptions.options = this._createVehicleService.getVehiclesUseState();
-                console.log('afsfsfsdddddsfdsfds:' + field.templateOptions.options.pipe(map( a => a[name])))
-                this.form.get('pz').setValue(field.templateOptions.options[0]);
-                // this._model = {
-                //   ...this._model,
-                //   pz: 'value',
-                // };
-              }
+              onChanges: (data) => {
+                console.log({ data });
+              },
+            //   onChanges: field => {
+            //     // field.formControl.setValue(field.templateOptions.options[0].name);
+            //     field.templateOptions.options = this._createVehicleService.getVehiclesUseState();
+            //     console.log('afsfsfsdddddsfdsfds:' + field.templateOptions.options.pipe(map( a => a[name])))
+            //     this.form.get('pz').setValue(field.templateOptions.options[0]);
+            //     // this._model = {
+            //     //   ...this._model,
+            //     //   pz: 'value',
+            //     // };
+            //   }
             }
           }
         ]
       },
+
       { template: '<hr /> ' },
       {
         fieldGroupClassName: 'row',
@@ -134,7 +151,66 @@ export class CreateFormComponent implements OnInit, OnDestroy {
         rows: 4,
         placeholder: ''
       }
-    }
+    },
+      {
+        type: 'tabs',
+        fieldGroup:
+          [
+            {
+              templateOptions: {
+                label: '练习一',
+                // icon: 'pi-apple'
+              },
+              fieldGroup: [
+                {
+                  key: 'firstname',
+                  type: 'input',
+                  templateOptions: {
+                    label: 'First name',
+                    required: true
+                  }
+                },
+                {
+                  key: 'age',
+                  type: 'input',
+                  templateOptions: {
+                    type: 'number',
+                    label: 'Age',
+                    required: true
+                  }
+                }
+              ]
+            },
+            {
+              templateOptions: { label: 'Destination' },
+              fieldGroup: [
+                {
+                  key: 'country',
+                  type: 'input',
+                  templateOptions: {
+                    label: 'Country',
+                    required: true
+                  }
+                }
+              ]
+            },
+            {
+              templateOptions: { label: 'Day of the trip' },
+              fieldGroup: [
+                {
+                  key: 'day',
+                  type: 'input',
+                  templateOptions: {
+                    type: 'date',
+                    label: 'Day of the trip',
+                    required: true
+                  }
+                }
+              ]
+            }
+          ],
+      }
+
     ];
 
   constructor(

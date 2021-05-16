@@ -12,6 +12,7 @@ import {  VehicleUseType } from '@zyweb/shared/data-access/model/lvms';
 import {  Subscription } from 'rxjs';
 import { MasterCreateCommand } from '@zyweb/shared/util/utility';
 import { CreateVehicleUseTypeService } from '../../services';
+import {loadForms} from '../../services';
 
 @Component({
   selector: 'zyweb-vehicle-use-type-create-form',
@@ -32,47 +33,54 @@ export class CreateFormComponent implements OnInit, OnDestroy {
 
   private _model: any = {};
   private _options: FormlyFormOptions = {};
+  public fields: FormlyFieldConfig[] ;
 
-  public fields: FormlyFieldConfig[] =
-    [
-      {
-        fieldGroupClassName: 'row',
-        fieldGroup: [
-          {
-            className: 'col-md-6',
-            key: 'name',
-            type: 'input',
-            focus: true,
-            templateOptions: {
-              label: '类型名称',
-              required: true,
-              minLength: 2
-            },
-            modelOptions: {
-              updateOn: 'blur' //失去焦点后验证
-            },
-            asyncValidators: {
-              uniqueName: this._createVehicleUseTypeService.isNameExists()
-            }
-          }
-        ]
-      },
-      { template: '<hr /> ' },
-      {
-        key: 'description',
-        type: 'textarea',
-        templateOptions: {
-          label: '车辆类型备注',
-          rows: 4,
-          placeholder: ''
-        }
-      }
-    ];
+  // public fields: FormlyFieldConfig[] =
+  //   [
+  //     {
+  //       fieldGroupClassName: 'row',
+  //       fieldGroup: [
+  //         {
+  //           className: 'col-md-6',
+  //           key: 'name',
+  //           type: 'input',
+  //           focus: true,
+  //           templateOptions: {
+  //             label: '类型名称',
+  //             required: true,
+  //             minLength: 2
+  //           },
+  //           modelOptions: {
+  //             updateOn: 'blur' //失去焦点后验证
+  //           },
+  //           asyncValidators: {
+  //             uniqueName: this._createVehicleUseTypeService.isNameExists()
+  //           }
+  //         }
+  //       ]
+  //     },
+  //     { template: '<hr /> ' },
+  //     {
+  //       key: 'description',
+  //       type: 'textarea',
+  //       templateOptions: {
+  //         label: '车辆类型备注',
+  //         rows: 4,
+  //         placeholder: ''
+  //       }
+  //     }
+  //   ];
 
   constructor(private _createVehicleUseTypeService: CreateVehicleUseTypeService) {  }
 
   ngOnInit(): void {
     this.registerEvents();
+    loadForms(this._createVehicleUseTypeService).subscribe(
+      response => {
+        this.fields = response;
+        // this.initializeElements();
+      }
+    )
   }
 
   private registerEvents(): void {
@@ -82,7 +90,10 @@ export class CreateFormComponent implements OnInit, OnDestroy {
       // this._formPresenter.cancel$.subscribe(_ => this._command.onCancel()),
     );
   }
-
+  initializeElements(){
+    // overrides = this.form.get('Overrides'); // this is null on page load
+    // firstNameObj = overrides.get('First Name'); // also null on page load
+  };
   ngOnDestroy() {
     this.subscriptions.forEach(sub => sub.unsubscribe());
   }
