@@ -133,7 +133,7 @@ export class CreateFormComponent implements OnInit, OnDestroy {
 
    */
   public isFormValid() {
-    return this._form?.valid;
+    return this._form.valid;
   }
 
   public canSave() {

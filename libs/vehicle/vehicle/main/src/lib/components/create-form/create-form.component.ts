@@ -16,6 +16,7 @@ import { Vehicle  } from '@zyweb/shared/data-access/model/lvms';
 import {  Subscription } from 'rxjs';
 import { CreateVehicleService } from '../../services/create-vehicle.service';
 import { MasterCreateCommand } from '@zyweb/shared/util/utility';
+import { map } from 'rxjs/operators';
 
 @Component({
   selector: 'zyweb-vehicle-create-form',
@@ -67,17 +68,29 @@ export class CreateFormComponent implements OnInit, OnDestroy {
             templateOptions: {
               label: '使用状态',
               // placeholder: 'Placeholder',
-              options: this._createVehicleService.getVehiclesUseState(),
+              // options: this._createVehicleService.getVehiclesUseState(),
               valueProp: 'id',
               labelProp: 'name',
+              // change:
 
             },
             expressionProperties: {
               // apply expressionProperty for disabled based on formState
-              '_options.fields.pz' : 'sassd',
-              'pz.templateOptions.value' : 'daff'
+              // '_options.fields.pz' : 'sassd',
+              // 'pz.templateOptions.value' : 'daff'
             },
-
+            hooks: {
+              onChanges: field => {
+                // field.formControl.setValue(field.templateOptions.options[0].name);
+                field.templateOptions.options = this._createVehicleService.getVehiclesUseState();
+                console.log('afsfsfsdddddsfdsfds:' + field.templateOptions.options.pipe(map( a => a[name])))
+                this.form.get('pz').setValue(field.templateOptions.options[0]);
+                // this._model = {
+                //   ...this._model,
+                //   pz: 'value',
+                // };
+              }
+            }
           }
         ]
       },

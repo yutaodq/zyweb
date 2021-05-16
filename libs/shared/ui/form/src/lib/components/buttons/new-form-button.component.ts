@@ -8,6 +8,7 @@ import {
   OnInit,
   Output
 } from '@angular/core';
+import { FormGroup } from '@angular/forms';
 
 
 @Component({
@@ -20,6 +21,7 @@ import {
 
 export class NewFormButtonComponent implements OnInit {
   @Input()   public isFormValid = false;
+
   @Output() cancelEvent: EventEmitter<string> = new EventEmitter();
   @Output() resetEvent: EventEmitter<string> = new EventEmitter();
 
@@ -33,7 +35,7 @@ export class NewFormButtonComponent implements OnInit {
 
   public cancel(): void {
     this.cancelEvent.emit();
-
   }
+
 }
 
