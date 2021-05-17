@@ -16,7 +16,7 @@ import { Vehicle, VehicleUseState } from '@zyweb/shared/data-access/model/lvms';
 import { Observable, Subscription } from 'rxjs';
 import { CreateVehicleService } from '../../services/create-vehicle.service';
 import { MasterCreateCommand } from '@zyweb/shared/util/utility';
-import { filter, map } from 'rxjs/operators';
+import { concatAll, filter, first, map } from 'rxjs/operators';
 
 @Component({
   selector: 'zyweb-vehicle-create-form',
@@ -75,21 +75,25 @@ export class CreateFormComponent implements OnInit, OnDestroy {
               // change: (field, formControl: AbstractControl) => {
                 console.log( {field, $event});
                 const ad: any[] | Observable<any[]> = field.templateOptions.options;
-                // ad.
+                console.log( {ad});
+                console.log( 'ddddddddddddddddddddddddddddddddddd');
+
                 const id = field.formControl.value;
                 // let named: VehicleUseState;
                 let named;
 
-                this._createVehicleService.getVehiclesUseState()
-                   .subscribe((a) =>
-                  { named = a[2].name}
-                )
-
-                // this._createVehicleService.getVehiclesUseState().pipe(
-                //     map(stated => stated.filter(a => a.id ===id))
-                // ).subscribe((a) =>
-                //   { named = ad.name}
+                // this._createVehicleService.getVehiclesUseState()
+                //    .subscribe((a) =>
+                //   { named = a[2].name}
                 // )
+
+                this._createVehicleService.getVehiclesUseState().pipe(
+                  concatAll(),
+                  filter(stated => stated.id===id),
+                  first()
+                ).subscribe((avd) =>
+                  { named = avd.name}
+                )
                 console.log(named);
 
                 // this.form.get('pz').setValue('aaadddddddd');
