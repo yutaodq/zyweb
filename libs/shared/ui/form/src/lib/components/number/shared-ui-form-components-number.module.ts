@@ -3,7 +3,7 @@ import { FormlyModule } from '@ngx-formly/core';
 import { FormlyPrimeNGModule } from '@ngx-formly/primeng';
 import { ReactiveFormsModule } from '@angular/forms';
 import { InputTextModule } from 'primeng/inputtext';
-import { CurrencyTypeComponent } from './currency-type.component';
+import { NumberTypeComponent } from './number-type.component';
 import { InputNumberModule } from 'primeng/inputnumber';
 
 @NgModule({
@@ -12,17 +12,10 @@ import { InputNumberModule } from 'primeng/inputnumber';
     FormlyPrimeNGModule,
     ReactiveFormsModule,
     InputTextModule,
-    InputNumberModule
+    InputNumberModule,
   ],
-  exports: [
-    CurrencyTypeComponent
-  ],
-  declarations: [
-    CurrencyTypeComponent
-  ],
+  exports: [NumberTypeComponent],
+  declarations: [NumberTypeComponent],
   providers: [],
 })
-
-export class SharedUiFormComponentsNumberModule {
-
-}
+export class SharedUiFormComponentsNumberModule {}
