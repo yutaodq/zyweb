@@ -61,7 +61,7 @@ export function loadForms(service: CreateVehicleService): Observable<any> {
         { template: '<hr /> ' },
 
         {
-          type: 'tabs',
+          type: 'tabsZy',
           fieldGroup:
             [
               {
@@ -104,7 +104,7 @@ function loadFormsBase(service: CreateVehicleService) {
         {
           className: 'col-md-4',
           key: 'ccrq',
-          type: 'input',
+          type: 'dateZy',
           templateOptions: {
             label: '出厂日期'
           }
@@ -112,7 +112,7 @@ function loadFormsBase(service: CreateVehicleService) {
         {
           className: 'col-md-4',
           key: 'tcrq',
-          type: 'input',
+          type: 'dateZy',
           templateOptions: {
             label: '投产日期'
           }
@@ -143,7 +143,7 @@ function loadFormsBase(service: CreateVehicleService) {
         {
           className: 'col-md-4',
           key: 'yz',
-          type: 'input',
+          type: 'currencyZy',
           templateOptions: {
             label: '车辆原值'
           }

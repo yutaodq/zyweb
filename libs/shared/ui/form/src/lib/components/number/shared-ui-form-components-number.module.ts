@@ -1,9 +1,10 @@
 import { NgModule } from '@angular/core';
-import { FieldInputComponent } from './field-input.component';
 import { FormlyModule } from '@ngx-formly/core';
 import { FormlyPrimeNGModule } from '@ngx-formly/primeng';
 import { ReactiveFormsModule } from '@angular/forms';
 import { InputTextModule } from 'primeng/inputtext';
+import { CurrencyTypeComponent } from './currency-type.component';
+import { InputNumberModule } from 'primeng/inputnumber';
 
 @NgModule({
   imports: [
@@ -11,15 +12,17 @@ import { InputTextModule } from 'primeng/inputtext';
     FormlyPrimeNGModule,
     ReactiveFormsModule,
     InputTextModule,
+    InputNumberModule
   ],
   exports: [
-    FieldInputComponent,
+    CurrencyTypeComponent
   ],
-  declarations: [FieldInputComponent,
+  declarations: [
+    CurrencyTypeComponent
   ],
   providers: [],
 })
 
-export class SharedUiFormComponentsInputModule {
+export class SharedUiFormComponentsNumberModule {
 
 }
