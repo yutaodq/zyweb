@@ -2,6 +2,7 @@ import { Observable } from 'rxjs';
 import { CreateVehicleService } from './create-vehicle.service';
 import { concatAll, filter, first } from 'rxjs/operators';
 
+
 export function loadForms(service: CreateVehicleService): Observable<any> {
   return new Observable<any>(observer => {
       observer.next([
@@ -29,8 +30,7 @@ export function loadForms(service: CreateVehicleService): Observable<any> {
               key: 'nbpz',
               type: 'input',
               templateOptions: {
-                label: '内部牌照号',
-                required: true
+                label: '内部牌照号'
               },
               modelOptions: {
                 updateOn: 'blur' //失去焦点后验证
@@ -69,127 +69,16 @@ export function loadForms(service: CreateVehicleService): Observable<any> {
                   label: '基础信息'
                   // icon: 'pi-apple'
                 },
-                fieldGroup: [
-                  {
-                    fieldGroupClassName: 'row',
-                    fieldGroup: [
-                      {
-                        className: 'col-md-4',
-                        key: 'sccj',
-                        type: 'input',
-                        templateOptions: {
-                          label: '生产厂家'
-                        }
-                      },
-                      {
-                        className: 'col-md-4',
-                        key: 'ccrq',
-                        type: 'input',
-                        templateOptions: {
-                          label: '出厂日期'
-                        }
-                      },
-                      {
-                        className: 'col-md-4',
-                        key: 'tcrq',
-                        type: 'input',
-                        templateOptions: {
-                          label: '投产日期'
-                        }
-                      }
-                    ]
-                  },
-                  { template: '<hr /> ' },
+                fieldGroup: loadFormsBase(service)
 
-                  {
-                    fieldGroupClassName: 'row',
-                    fieldGroup: [
-                      {
-                        className: 'col-md-4',
-                        key: 'fdjxh',
-                        type: 'input',
-                        templateOptions: {
-                          label: '发动机型号'
-                        }
-                      },
-                      {
-                        className: 'col-md-4',
-                        key: 'fdjbh',
-                        type: 'input',
-                        templateOptions: {
-                          label: '发动机编号'
-                        }
-                      },
-                      {
-                        className: 'col-md-4',
-                        key: 'yz',
-                        type: 'input',
-                        templateOptions: {
-                          label: '车辆原值'
-                        }
-                      }
-                    ]
-                  },
-                  { template: '<hr /> ' },
-
-                  {
-                    fieldGroupClassName: 'row',
-                    fieldGroup: [
-                      {
-                        className: 'col-md-4',
-                        key: 'dpxh',
-                        type: 'input',
-                        templateOptions: {
-                          label: '底盘型号'
-                        }
-                      },
-                      {
-                        className: 'col-md-4',
-                        key: 'dpbh',
-                        type: 'input',
-                        templateOptions: {
-                          label: '底盘编号'
-                        }
-                      },
-                      {
-                        className: 'col-md-4',
-                        key: 'csys',
-                        type: 'input',
-                        templateOptions: {
-                          label: '车身颜色'
-                        }
-                      }
-                    ]
-                  }
-
-                ]
               },
               {
-                templateOptions: { label: '车身结果和技术参数' },
-                fieldGroup: [
-                  {
-                    key: 'country',
-                    type: 'input',
-                    templateOptions: {
-                      label: 'Country',
-                      required: true
-                    }
-                  }
-                ]
+                templateOptions: { label: '车身结构和技术参数' },
+                fieldGroup: loadFormsCsjg(service)
               },
               {
                 templateOptions: { label: '特种设备' },
-                fieldGroup: [
-                  {
-                    key: 'day',
-                    type: 'input',
-                    templateOptions: {
-                      type: 'date',
-                      label: 'Day of the trip',
-                      required: true
-                    }
-                  }
-                ]
+                fieldGroup: loadFormsTzsb(service)
               }
             ]
         }
@@ -197,4 +86,111 @@ export function loadForms(service: CreateVehicleService): Observable<any> {
       ]);
     }
   );
+}
+
+function loadFormsBase(service: CreateVehicleService) {
+  return [
+    {
+      fieldGroupClassName: 'row',
+      fieldGroup: [
+        {
+          className: 'col-md-4',
+          key: 'sccj',
+          type: 'input',
+          templateOptions: {
+            label: '生产厂家'
+          }
+        },
+        {
+          className: 'col-md-4',
+          key: 'ccrq',
+          type: 'input',
+          templateOptions: {
+            label: '出厂日期'
+          }
+        },
+        {
+          className: 'col-md-4',
+          key: 'tcrq',
+          type: 'input',
+          templateOptions: {
+            label: '投产日期'
+          }
+        }
+      ]
+    },
+    { template: '<hr /> ' },
+
+    {
+      fieldGroupClassName: 'row',
+      fieldGroup: [
+        {
+          className: 'col-md-4',
+          key: 'fdjxh',
+          type: 'input',
+          templateOptions: {
+            label: '发动机型号'
+          }
+        },
+        {
+          className: 'col-md-4',
+          key: 'fdjbh',
+          type: 'input',
+          templateOptions: {
+            label: '发动机编号'
+          }
+        },
+        {
+          className: 'col-md-4',
+          key: 'yz',
+          type: 'input',
+          templateOptions: {
+            label: '车辆原值'
+          }
+        }
+      ]
+    },
+    { template: '<hr /> ' },
+
+    {
+      fieldGroupClassName: 'row',
+      fieldGroup: [
+        {
+          className: 'col-md-4',
+          key: 'dpxh',
+          type: 'input',
+          templateOptions: {
+            label: '底盘型号'
+          }
+        },
+        {
+          className: 'col-md-4',
+          key: 'dpbh',
+          type: 'input',
+          templateOptions: {
+            label: '底盘编号'
+          }
+        },
+        {
+          className: 'col-md-4',
+          key: 'csys',
+          type: 'input',
+          templateOptions: {
+            label: '车身颜色'
+          }
+        }
+      ]
+    }
+
+  ];
+}
+
+function loadFormsCsjg(service: CreateVehicleService) {
+  return [
+  ];
+}
+
+function loadFormsTzsb(service: CreateVehicleService) {
+  return [
+  ];
 }
