@@ -3,14 +3,14 @@ import { FieldInputComponent } from './field-input.component';
 import { FormlyModule } from '@ngx-formly/core';
 import { FormlyPrimeNGModule } from '@ngx-formly/primeng';
 import { ReactiveFormsModule } from '@angular/forms';
-import { InputTextModule } from 'primeng/inputtext';
+import { ThemePrimengModule } from '@zyweb/shared/ui/common';
 
 @NgModule({
   imports: [
     FormlyModule,
     FormlyPrimeNGModule,
     ReactiveFormsModule,
-    InputTextModule,
+    ThemePrimengModule,
   ],
   exports: [
     FieldInputComponent,

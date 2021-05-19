@@ -1,6 +1,22 @@
 import { Component } from '@angular/core';
 import { FieldType, FormlyFieldConfig } from '@ngx-formly/core';
+/*
+         templateOptions: {
+            label: '车辆原值',
+            disabled: false,
+            attributes: {
+              prefix: 'abc',
+              suffix: 'mm',
+              minFractionDigits: '3',
+              maxFractionDigits: '5',
+              min: '6',
+              max: '9',
+              mode: 'currency',
+              showButtons: false
+            }
+          }
 
+ */
 @Component({
   selector: 'zyweb-formly-field-number-type',
   templateUrl: './number-type.component.html',

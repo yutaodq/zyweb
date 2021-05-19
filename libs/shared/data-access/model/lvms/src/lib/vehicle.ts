@@ -16,8 +16,8 @@ export interface Vehicle {
   pz: string;
   nbpz: string;
   sccj : string ;  //生产厂家
-  // ccrq：Date ;  //出厂日期
-  // tcrq：date ;  //投产日期
+  ccrq: Date ;  //出厂日期
+  tcrq: Date ;  //投产日期
   yz: number ;  //车辆原值
   csys : string ;  //车身颜色
   fdjxh : string ;  //发动机型号

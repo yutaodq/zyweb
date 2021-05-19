@@ -1,2 +1,9 @@
-<label >{{to.label}}</label>
-<p-calendar [formControl]="formControl" dateFormat="yy-mm-dd" [showIcon]="true" ></p-calendar>
+<label>{{to.label}}</label>
+<p-calendar [formControl]="formControl"
+            dateFormat="yy-mm-dd"
+            [showIcon]="true"
+            [monthNavigator]="true"
+            [yearNavigator]="true"
+            [readonlyInput] = "readonlyInput"
+            [yearRange]="yearRange"
+></p-calendar>

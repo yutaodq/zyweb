@@ -1,13 +1,13 @@
 import { NgModule } from '@angular/core';
 import { NewFormButtonComponent } from './new-form-button.component';
 import { CommonModule } from '@angular/common';
-import { ButtonModule } from 'primeng/button';
+import { ThemePrimengModule } from '@zyweb/shared/ui/common';
 
 
 @NgModule({
   imports: [
     CommonModule,
-    ButtonModule,
+    ThemePrimengModule,
  ],
   exports: [
     NewFormButtonComponent

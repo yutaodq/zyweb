@@ -15,28 +15,28 @@ export function loadForms(service: CreateVehicleService): Observable<any> {
             focus: true,
             templateOptions: {
               label: '牌照号',
-              required: true,
+              required: true
             },
             modelOptions: {
-              updateOn: 'blur', //失去焦点后验证
+              updateOn: 'blur' //失去焦点后验证
             },
             asyncValidators: {
               // uniqueName: this._createVehicleService.isNameExists()
-            },
+            }
           },
           {
             className: 'col-md-2',
             key: 'nbpz',
             type: 'input',
             templateOptions: {
-              label: '内部牌照号',
+              label: '内部牌照号'
             },
             modelOptions: {
-              updateOn: 'blur', //失去焦点后验证
+              updateOn: 'blur' //失去焦点后验证
             },
             asyncValidators: {
               // uniqueName: this._createVehicleService.isNameExists()
-            },
+            }
           },
           {
             className: 'col-md-4',
@@ -44,18 +44,18 @@ export function loadForms(service: CreateVehicleService): Observable<any> {
             type: 'input',
             templateOptions: {
               label: '车辆名称',
-              required: true,
-            },
+              required: true
+            }
           },
           {
             className: 'col-md-4',
             key: 'ggxh',
             type: 'input',
             templateOptions: {
-              label: '规格型号',
-            },
-          },
-        ],
+              label: '规格型号'
+            }
+          }
+        ]
       },
       { template: '<hr /> ' },
 
@@ -64,21 +64,21 @@ export function loadForms(service: CreateVehicleService): Observable<any> {
         fieldGroup: [
           {
             templateOptions: {
-              label: '基础信息',
+              label: '基础信息'
               // icon: 'pi-apple'
             },
-            fieldGroup: loadFormsBase(service),
+            fieldGroup: loadFormsBase(service)
           },
           {
             templateOptions: { label: '车身结构和技术参数' },
-            fieldGroup: loadFormsCsjg(service),
+            fieldGroup: loadFormsCsjg(service)
           },
           {
             templateOptions: { label: '特种设备' },
-            fieldGroup: loadFormsTzsb(service),
-          },
-        ],
-      },
+            fieldGroup: loadFormsTzsb(service)
+          }
+        ]
+      }
     ]);
   });
 }
@@ -93,8 +93,8 @@ function loadFormsBase(service: CreateVehicleService) {
           key: 'sccj',
           type: 'input',
           templateOptions: {
-            label: '生产厂家',
-          },
+            label: '生产厂家'
+          }
         },
         {
           className: 'col-md-4',
@@ -102,17 +102,20 @@ function loadFormsBase(service: CreateVehicleService) {
           type: 'dateZy',
           templateOptions: {
             label: '出厂日期',
-          },
+            attributes: {
+              readonlyInput: false
+            }
+          }
         },
         {
           className: 'col-md-4',
           key: 'tcrq',
           type: 'dateZy',
           templateOptions: {
-            label: '投产日期',
-          },
-        },
-      ],
+            label: '投产日期'
+          }
+        }
+      ]
     },
     { template: '<hr /> ' },
 
@@ -124,16 +127,16 @@ function loadFormsBase(service: CreateVehicleService) {
           key: 'fdjxh',
           type: 'input',
           templateOptions: {
-            label: '发动机型号',
-          },
+            label: '发动机型号'
+          }
         },
         {
           className: 'col-md-4',
           key: 'fdjbh',
           type: 'input',
           templateOptions: {
-            label: '发动机编号',
-          },
+            label: '发动机编号'
+          }
         },
         {
           className: 'col-md-4',
@@ -143,18 +146,18 @@ function loadFormsBase(service: CreateVehicleService) {
             label: '车辆原值',
             disabled: false,
             attributes: {
-              prefix: "abc",
-              suffix: "mm",
-              minFractionDigits: "3",
-              maxFractionDigits: "5",
-              min: "6",
-              max: "9",
+              prefix: 'abc',
+              suffix: 'mm',
+              minFractionDigits: '3',
+              maxFractionDigits: '5',
+              min: '6',
+              max: '9',
               mode: 'currency',
-              showButtons: true,
+              showButtons: false
             }
-          },
-        },
-      ],
+          }
+        }
+      ]
     },
     { template: '<hr /> ' },
 
@@ -166,27 +169,27 @@ function loadFormsBase(service: CreateVehicleService) {
           key: 'dpxh',
           type: 'input',
           templateOptions: {
-            label: '底盘型号',
-          },
+            label: '底盘型号'
+          }
         },
         {
           className: 'col-md-4',
           key: 'dpbh',
           type: 'input',
           templateOptions: {
-            label: '底盘编号',
-          },
+            label: '底盘编号'
+          }
         },
         {
           className: 'col-md-4',
           key: 'csys',
           type: 'input',
           templateOptions: {
-            label: '车身颜色',
-          },
-        },
-      ],
-    },
+            label: '车身颜色'
+          }
+        }
+      ]
+    }
   ];
 }
 
