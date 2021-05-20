@@ -14,7 +14,7 @@ import { AbstractControl, FormGroup } from '@angular/forms';
 import { FormlyFieldConfig, FormlyFormOptions } from '@ngx-formly/core';
 import { Vehicle, VehicleUseState } from '@zyweb/shared/data-access/model/lvms';
 import { Observable, Subscription } from 'rxjs';
-import { CreateVehicleService, loadForms } from '../../services';
+import { CreateVehicleService, loadForms, loadSteps } from '../../services';
 import { MasterCreateCommand } from '@zyweb/shared/util/utility';
 import { concatAll, filter, first, map } from 'rxjs/operators';
 
@@ -40,18 +40,18 @@ export class CreateFormComponent implements OnInit, OnDestroy {
   private _options: FormlyFormOptions = {};
   public fields: FormlyFieldConfig[];
 
-  // public fields: FormlyFieldConfig[] =
-  //   [
-  //     {
-  //       fieldGroupClassName: 'row',
-  //       fieldGroup: [
-  //         {
-  //           className: 'col-md-6',
-  //           key: 'name',
-  //           type: 'input',
-  //           focus: true,
-  //           templateOptions: {
-  //             label: '车辆名称',
+  public fields: FormlyFieldConfig[] =
+    [
+      {
+        fieldGroupClassName: 'row',
+        fieldGroup: [
+          {
+            className: 'col-md-6',
+            key: 'name',
+            type: 'input',
+            focus: true,
+            templateOptions: {
+              label: '车辆名称',
   //             // placeholder: '车辆名称',
   //             required: true,
   //             minLength: 2,
@@ -243,12 +243,18 @@ export class CreateFormComponent implements OnInit, OnDestroy {
   ngOnInit(): void {
 
     this.registerEvents();
-    loadForms(this._createVehicleService).subscribe(
+    loadSteps(this._createVehicleService).subscribe(
       response => {
         this.fields = response;
         // this.initializeElements();
       }
-    )
+    );
+    // loadForms(this._createVehicleService).subscribe(
+    //   response => {
+    //     this.fields = response;
+    //     // this.initializeElements();
+    //   }
+    // )
 
   }
 

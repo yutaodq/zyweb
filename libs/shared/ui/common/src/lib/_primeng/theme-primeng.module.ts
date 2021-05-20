@@ -20,6 +20,7 @@ import { ConfirmDialogModule } from 'primeng/confirmdialog';
 import { PrimeNGConfig, Translation } from 'primeng/api';
 import { TabViewModule } from 'primeng/tabview';
 import { InputNumberModule } from 'primeng/inputnumber';
+import { StepsModule } from 'primeng/steps';
 
 export const IMPORTS_PRIMENG_MODULES = [
   InputTextModule,
@@ -42,6 +43,7 @@ export const IMPORTS_PRIMENG_MODULES = [
   SplitButtonModule,
   ConfirmDialogModule,
   TabViewModule,
+  StepsModule,
 ];
 
 export const EXPORTS_PRIMENG_MODULES = [
@@ -65,6 +67,7 @@ export const EXPORTS_PRIMENG_MODULES = [
   SplitButtonModule,
   ConfirmDialogModule,
   TabViewModule,
+  StepsModule,
 ];
 
 @NgModule({

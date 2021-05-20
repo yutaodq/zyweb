@@ -6,6 +6,7 @@ import { SharedUiFormComponentsMyFormModule } from './my-form';
 import { SharedUiFormComponentsTabsTypeModule } from './tabs';
 import { SharedUiFormComponentsCalendarTypeModule } from './calendar';
 import { SharedUiFormComponentsNumberModule } from './number';
+import { SharedUiFormComponentsStepsModule } from './steps';
 
 
 const UI_FORM_EXPORTS_MODULE = [
@@ -16,6 +17,7 @@ const UI_FORM_EXPORTS_MODULE = [
   SharedUiFormComponentsTabsTypeModule,
   SharedUiFormComponentsCalendarTypeModule,
   SharedUiFormComponentsNumberModule,
+  SharedUiFormComponentsStepsModule,
 ]
 @NgModule({
   imports: [
