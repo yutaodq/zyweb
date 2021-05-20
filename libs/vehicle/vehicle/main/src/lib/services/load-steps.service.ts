@@ -58,23 +58,28 @@ export function loadSteps(service: CreateVehicleService): Observable<any> {
       },
       { template: '<hr /> ' },
       {
-        type: 'stepsZy',
         fieldGroup: [
-          {
+          { type: 'stepsZy',
             templateOptions: {
-              attributes: {
-                items: [
-                  {label: 'Carrinho', routerLink: ''},
-                  {label: 'Endereço', routerLink: ''},
-
-                ]
-              }
+              items: [
+                { label: 'Carrinho', routerLink: '' },
+                { label: 'Endereço', routerLink: '' }
+              ]
             },
-            // fieldGroup: loadFormsBase(service)
-          },
+            fieldGroup: [
+              {
+                className: 'col-md-2',
+                key: 'nbpz',
+                type: 'input',
+                templateOptions: {
+                  label: '内部牌照号'
+                },
+               },
+
+            ]
+          }
         ]
       }
-
     ])
   })
 }

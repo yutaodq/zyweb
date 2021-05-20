@@ -1,6 +1,9 @@
 import { Component } from '@angular/core';
 import { FieldType, FormlyFieldConfig } from '@ngx-formly/core';
+/*
+https://github.com/snello-cms/snello-formly
 
+ */
 @Component({
   selector: 'zyweb-formly-field-tabs',
   templateUrl: './tabs-type.component.html',

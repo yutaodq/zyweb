@@ -13,8 +13,6 @@ export const config: ConfigOption = {
     { name: 'dateZy', component: DateTypeComponent },
     { name: 'numberZy', component: NumberTypeComponent },
     { name: 'stepsZy', component: StepsTypeComponent },
-
-
   ],
   wrappers: [{ name: 'panel', component: FormlyWrapperPanelComponent }],
   validationMessages: [],

@@ -40,18 +40,18 @@ export class CreateFormComponent implements OnInit, OnDestroy {
   private _options: FormlyFormOptions = {};
   public fields: FormlyFieldConfig[];
 
-  public fields: FormlyFieldConfig[] =
-    [
-      {
-        fieldGroupClassName: 'row',
-        fieldGroup: [
-          {
-            className: 'col-md-6',
-            key: 'name',
-            type: 'input',
-            focus: true,
-            templateOptions: {
-              label: '车辆名称',
+  // public fields: FormlyFieldConfig[] =
+  //   [
+  //     {
+  //       fieldGroupClassName: 'row',
+  //       fieldGroup: [
+  //         {
+  //           className: 'col-md-6',
+  //           key: 'name',
+  //           type: 'input',
+  //           focus: true,
+  //           templateOptions: {
+  //             label: '车辆名称',
   //             // placeholder: '车辆名称',
   //             required: true,
   //             minLength: 2,

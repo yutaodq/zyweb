@@ -1,23 +1,28 @@
-<p-steps [model]="items"
-         [readonly]="false"
-></p-steps>
-<router-outlet></router-outlet>
+<!--<p-steps [model]="to.items"-->
+<!--         [readonly]="false"-->
+<!--&gt;</p-steps>-->
+<p-steps [model]="items" [(activeIndex)]="index" [readonly]="true"></p-steps>
 
+<p-card styleClass="p-card-shadow">
+  <ng-template pTemplate="title">
+    {{items[index].label}}
+  </ng-template>
 
-<!--<label>{{ to.label }}</label>-->
+  <ng-template pTemplate="content">
+    <div class="form-container">
+      <form>
+        <formly-form [model]="model" [fields]="fields" [form]="form"></formly-form>
+      </form>
+    </div>
+  </ng-template>
 
-<!--<p-inputNumber-->
-<!--  [formControl]="formControl"-->
-<!--  [disabled]="disabled"-->
-<!--  [mode]="mode"-->
-<!--  [prefix]="prefix"-->
-<!--  [suffix]="suffix"-->
-<!--  [minFractionDigits]="minFractionDigits"-->
-<!--  [maxFractionDigits]="maxFractionDigits"-->
-<!--  [min]="min"-->
-<!--  [max]="max"-->
-<!--  [step]="step"-->
-<!--  [showButtons]="showButtons"-->
-<!--  currency="CNY"-->
-<!--  locale="zh-CN"-->
-<!--&gt;</p-inputNumber>-->
+  <ng-template pTemplate="footer">
+    <div class="p-grid p-nogutter" [class.p-justify-between]="index>0" [class.p-justify-end]="index===0">
+      <p-button *ngIf="index > 0" label="Back" icon="pi pi-angle-left" (click)="prevPage()"></p-button>
+      <p-button *ngIf="index < tabs.length-1" label="Next" icon="pi pi-angle-right" iconPos="right"
+                (click)="nextPage()"></p-button>
+      <p-button *ngIf="index === tabs.length-1" label="Complete" (onClick)="complete()"
+                icon="pi pi-angle-right" iconPos="right" styleClass="p-button-success"></p-button>
+    </div>
+  </ng-template>
+</p-card>
