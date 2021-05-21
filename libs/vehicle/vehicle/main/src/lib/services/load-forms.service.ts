@@ -21,7 +21,7 @@ export function loadForms(service: CreateVehicleService): Observable<any> {
               updateOn: 'blur' //失去焦点后验证
             },
             asyncValidators: {
-              // uniqueName: this._createVehicleService.isNameExists()
+              uniqueName: service.isPzExists()
             }
           },
           {
@@ -35,7 +35,7 @@ export function loadForms(service: CreateVehicleService): Observable<any> {
               updateOn: 'blur' //失去焦点后验证
             },
             asyncValidators: {
-              // uniqueName: this._createVehicleService.isNameExists()
+              uniqueName: service.isNbpzExists()
             }
           },
           {
@@ -58,28 +58,7 @@ export function loadForms(service: CreateVehicleService): Observable<any> {
         ]
       },
       { template: '<hr /> ' },
-
-      {
-        type: 'tabsZy',
-        fieldGroup: [
-          {
-            templateOptions: {
-              label: '基础信息'
-              // icon: 'pi-apple'
-            },
-            fieldGroup: loadFormsBase(service)
-          },
-          {
-            templateOptions: { label: '车身结构和技术参数' },
-            fieldGroup: loadFormsCsjg(service)
-          },
-          {
-            templateOptions: { label: '特种设备' },
-            fieldGroup: loadFormsTzsb(service)
-          }
-        ]
-      }
-    ]);
+     ]);
   });
 }
 

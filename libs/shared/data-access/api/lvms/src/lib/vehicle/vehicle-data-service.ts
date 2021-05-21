@@ -40,6 +40,16 @@ export class VehicleDataService extends
       FEATURE_URL_FULL+'existsByName/'+ name
     );
   }
+  public existsByPz(name: string): Observable<boolean> {
+    return this.apiService.get<boolean>(
+      FEATURE_URL_FULL+'existsByPz/'+ name
+    );
+  }
+  public existsByNbpz(name: string): Observable<boolean> {
+    return this.apiService.get<boolean>(
+      FEATURE_URL_FULL+'existsByNbpz/'+ name
+    );
+  }
 
   get headers(): HttpHeaders {
     const headersConfig = {

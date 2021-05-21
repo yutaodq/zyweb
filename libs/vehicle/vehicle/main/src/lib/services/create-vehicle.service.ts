@@ -5,10 +5,10 @@ import {
   VehicleUseState
 } from '@zyweb/shared/data-access/model/lvms';
 import { AsyncValidatorNameExistsService } from '@zyweb/shared/ui/form';
-import { AsyncValidatorFn } from '@angular/forms';
+import { AbstractControl, AsyncValidatorFn, ValidationErrors } from '@angular/forms';
 import { VehicleFacade } from '@zyweb/vehicle/vehicle/data-access/store';
-import { VehicleDataService } from '@zyweb/shared/data-access/api/lvms';
-import { Observable } from 'rxjs';
+import { ExistsByNameApi, VehicleDataService } from '@zyweb/shared/data-access/api/lvms';
+import { Observable, of } from 'rxjs';
 import { VehicleUseStateFacade } from '@zyweb/vehicle/use-state/data-access/store';
 import { map } from 'rxjs/operators';
 
@@ -31,7 +31,7 @@ export class CreateVehicleService {
 
   getVehiclesUseState(): Observable<VehicleUseState[]> {
     // const emptyState: VehicleUseState = { id: '', name: '不填写', description: '', updateType: '' };
-    const emptyState = generateMockVehicleUseState()
+    const emptyState = generateMockVehicleUseState();
     // return this._vehicleUseStateFacade.vehicleUseStates$
     //   .pipe(
     //     startWith([emptyState]),
@@ -45,8 +45,48 @@ export class CreateVehicleService {
     //     )
     //   );
   }
-  isNameExists(): AsyncValidatorFn {
-    return this._asyncValidatorNameExistsService.exists(this.vehicleDataService);
+
+  isNbpzExists(): AsyncValidatorFn {
+    return (control: AbstractControl): Promise<ValidationErrors | null>
+      | Observable<ValidationErrors | null> => {
+      const value = control.value;
+      if (!value) {
+        return of(null);
+      }
+      return this.vehicleDataService.existsByNbpz(value).pipe(
+        map(valid => (!valid ? { FORMLY_UNIQUE_NAME: true } : null))
+      );
+    };
   }
+
+  isPzExists(): AsyncValidatorFn {
+    return (control: AbstractControl): Promise<ValidationErrors | null>
+      | Observable<ValidationErrors | null> => {
+      const value = control.value;
+      if (!value) {
+        return of(null);
+      }
+      return this.vehicleDataService.existsByPz(value).pipe(
+        map(valid => (!valid ? { FORMLY_UNIQUE_NAME: true } : null))
+      );
+    };
+  }
+
+  // public exists(api: ExistsByNameApi): AsyncValidatorFn {
+  //   return (control: AbstractControl): Promise<ValidationErrors | null>
+  //     | Observable<ValidationErrors | null> => {
+  //     const name = control.value;
+  //     if (!name) {
+  //       return of(null);
+  //     }
+  //     return this.isNameExists(name, api);
+  //   };
+  // }
+  //
+  // private isNameExists(name: string, api: ExistsByNameApi): Promise<ValidationErrors | null> | Observable<ValidationErrors | null> {
+  //   return this.vehicleDataService.existsByPz(name).pipe(
+  //     map(valid => (!valid ? { FORMLY_UNIQUE_NAME: true } : null))
+  //   );
+  // }
 
 }
