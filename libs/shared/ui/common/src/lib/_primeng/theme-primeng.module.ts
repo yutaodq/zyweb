@@ -21,6 +21,7 @@ import { PrimeNGConfig, Translation } from 'primeng/api';
 import { TabViewModule } from 'primeng/tabview';
 import { InputNumberModule } from 'primeng/inputnumber';
 import { StepsModule } from 'primeng/steps';
+import { AutoCompleteModule } from 'primeng/autocomplete';
 
 export const IMPORTS_PRIMENG_MODULES = [
   InputTextModule,
@@ -44,6 +45,7 @@ export const IMPORTS_PRIMENG_MODULES = [
   ConfirmDialogModule,
   TabViewModule,
   StepsModule,
+  AutoCompleteModule,
 ];
 
 export const EXPORTS_PRIMENG_MODULES = [
@@ -68,6 +70,7 @@ export const EXPORTS_PRIMENG_MODULES = [
   ConfirmDialogModule,
   TabViewModule,
   StepsModule,
+  AutoCompleteModule,
 ];
 
 @NgModule({

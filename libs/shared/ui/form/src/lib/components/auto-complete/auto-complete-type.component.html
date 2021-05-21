@@ -1,0 +1,15 @@
+<div class="p-fluid">
+  <div class="p-field">
+    <label>{{to.label}}</label>
+    <p-autoComplete
+      [formControl]="formControl"
+      [formlyAttributes]="field"
+      [field]="to.field || ''"
+      [minLength]="to.minLength || 1"
+      [suggestions]="results"
+      [dropdown]="!!to.dropdown"
+      [multiple]="!!to.multiple"
+      (completeMethod)="search($event)">
+    </p-autoComplete>
+  </div>
+</div>

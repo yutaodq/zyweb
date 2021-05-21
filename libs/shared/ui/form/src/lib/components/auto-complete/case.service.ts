@@ -1,8 +1,7 @@
 import { Observable } from 'rxjs';
-import { CreateVehicleService } from './create-vehicle.service';
 import { concatAll, filter, first } from 'rxjs/operators';
 
-export function loadForms(service: CreateVehicleService): Observable<any> {
+export function loadForms(): Observable<any> {
   return new Observable<any>((observer) => {
     observer.next([
       {
@@ -12,18 +11,10 @@ export function loadForms(service: CreateVehicleService): Observable<any> {
             className: 'col-md-2',
             key: 'pz',
             type: 'input',
-            focus: true,
             templateOptions: {
               label: '牌照号',
-              required: true
             },
-            modelOptions: {
-              updateOn: 'blur' //失去焦点后验证
-            },
-            asyncValidators: {
-              uniqueName: service.isPzExists()
-            }
-          },
+           },
           {
             className: 'col-md-2',
             key: 'nbpz',
@@ -31,41 +22,36 @@ export function loadForms(service: CreateVehicleService): Observable<any> {
             templateOptions: {
               label: '内部牌照号'
             },
-            modelOptions: {
-              updateOn: 'blur' //失去焦点后验证
-            },
-            asyncValidators: {
-              uniqueName: service.isNbpzExists()
-            }
           },
-          {
-            className: 'col-md-4',
-            key: 'name',
-            type: 'autoZy',
-            templateOptions: {
-              label: '车辆名称',
-              required: true,
-              results: service.nameResults(),
-
-            }
-          },
-
-          {
-            className: 'col-md-4',
-            key: 'ggxh',
-            type: 'input',
-            templateOptions: {
-              label: '规格型号'
-            }
-          }
-        ]
+         ]
       },
       { template: '<hr /> ' },
-     ]);
+
+      {
+        type: 'tabsZy',
+        fieldGroup: [
+          {
+            templateOptions: {
+              label: '基础信息'
+              // icon: 'pi-apple'
+            },
+            fieldGroup: loadFormsBase()
+          },
+          {
+            templateOptions: { label: '车身结构和技术参数' },
+            fieldGroup: loadFormsCsjg()
+          },
+          {
+            templateOptions: { label: '特种设备' },
+            fieldGroup: loadFormsTzsb()
+          }
+        ]
+      }
+    ]);
   });
 }
 
-function loadFormsBase(service: CreateVehicleService) {
+function loadFormsBase() {
   return [
     {
       fieldGroupClassName: 'row',
@@ -175,10 +161,10 @@ function loadFormsBase(service: CreateVehicleService) {
   ];
 }
 
-function loadFormsCsjg(service: CreateVehicleService) {
+function loadFormsCsjg( ) {
   return [];
 }
 
-function loadFormsTzsb(service: CreateVehicleService) {
+function loadFormsTzsb() {
   return [];
 }
