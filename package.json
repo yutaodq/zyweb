@@ -8,7 +8,7 @@
     "nx": "nx",
     "start": "ng serve",
     "json-server": "json-server --watch server/db.json --config json-server.json",
-    "build": "ng build -c production",
+    "build": "ng build -c production && nx format:write",
     "test": "ng test",
     "lint": "nx workspace-lint && ng lint",
     "e2e": "ng e2e",

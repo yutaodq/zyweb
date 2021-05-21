@@ -6,10 +6,10 @@
       [formlyAttributes]="field"
       [field]="to.field || ''"
       [minLength]="to.minLength || 1"
-      [suggestions]="results"
-      [dropdown]="!!to.dropdown"
-      [multiple]="!!to.multiple"
-      (completeMethod)="search($event)">
+      [suggestions]="to.results"
+      (completeMethod)="to.search($event)">
     </p-autoComplete>
   </div>
 </div>
+<!--[multiple]="!!to.multiple"-->
+<!--[dropdown]="!!to.dropdown"-->

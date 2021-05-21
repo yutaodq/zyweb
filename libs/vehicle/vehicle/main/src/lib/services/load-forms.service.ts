@@ -46,7 +46,7 @@ export function loadForms(service: CreateVehicleService): Observable<any> {
               label: '车辆名称',
               required: true,
               results: service.nameResults(),
-
+              search: service.search()
             }
           },
 

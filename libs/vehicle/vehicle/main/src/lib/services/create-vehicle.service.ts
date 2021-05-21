@@ -71,6 +71,13 @@ export class CreateVehicleService {
       );
     };
   }
+  nameResults(): Observable<Vehicle[]> {
+    return this._vehicleFacade.entities$
+  }
+  search(): Observable<Vehicle[]> {
+    return this._vehicleFacade.entities$
+  }
+
 
   // public exists(api: ExistsByNameApi): AsyncValidatorFn {
   //   return (control: AbstractControl): Promise<ValidationErrors | null>
