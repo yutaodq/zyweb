@@ -28,116 +28,17 @@ import { concatAll, filter, first, map } from 'rxjs/operators';
 })
 
 
-export class CreateFormComponent implements OnInit, OnDestroy {
-  @Input()
-  private _command: MasterCreateCommand<Vehicle>;
-
+export class CreateFormComponent  {
   private subscriptions: Array<Subscription> = [];
 
-  private _form = new FormGroup({});
-
-  private _model: any = {};
-  private _options: FormlyFormOptions = {};
-  public fields: FormlyFieldConfig[];
-
-
+  @Input()
+  form: FormGroup;
 
   constructor(
     private _createVehicleService: CreateVehicleService
   ) {
   }
 
-  ngOnInit(): void {
-
-    this.registerEvents();
-    loadForms(this._createVehicleService).subscribe(
-      response => {
-        this.fields = response;
-        // this.initializeElements();
-      }
-    )
-
-  }
-
-  private registerEvents(): void {
-    // 订阅车辆详情
-    this.subscriptions.push(
-    );
-  }
-
-  ngOnDestroy() {
-    this.subscriptions.forEach(sub => sub.unsubscribe());
-  }
-
-  onSubmit(model: any) {
-    this.save();
-  }
-
-  private save(): void {
-    if (!this.isFormValid()) {
-      return;
-    }
-    const vehicle: Vehicle = this.model as Vehicle;
-    /*
-      可写成 ( this.isEmpty(vehicle.id) ) && (vehicle.id = uuidv4());
-      但 tslint.json出现报警信息
-     */
-    if (this.isEmpty(vehicle.id)) {
-      vehicle.id = uuidv4();
-    }
-
-    Object.keys(vehicle).forEach(
-      (key) => (vehicle[key] === null || vehicle[key] === '') && delete vehicle[key]);
-
-    this.command.onAdd(vehicle);
-  }
-
-  private isEmpty(id: string) {
-    let isEmpty = false;
-    if (id === undefined || id === null || id === '') {
-      isEmpty = true;
-    }
-    return isEmpty;
-  }
-
-  public cancelCreate(): void {
-    this.command.onCancel();
-  }
-
-  public reset(): void {
-    this.options.resetModel();
-  }
-
-  /*
-
-    */
-  public isFormValid() {
-    return this._form?.valid;
-  }
-
-  public canSave() {
-    return this.form.valid && this.form.pristine;
-  }
-
-
-  /*
-Get方法
- */
-  get form(): FormGroup {
-    return this._form;
-  }
-
-  get model() {
-    return this._model;
-  }
-
-  get options(): FormlyFormOptions {
-    return this._options;
-  }
-
-  get command(): MasterCreateCommand<Vehicle> {
-    return this._command;
-  }
 
 }
 

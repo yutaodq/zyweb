@@ -1,13 +1,13 @@
 import { Injectable } from "@angular/core";
 import { Subject } from "rxjs";
-import { VehicleCreationForm } from './VehicleCreationForm';
+import { VehicleCreateForm } from './VehicleCreateForm';
 
 @Injectable()
-export class VehicleCreationFormActions {
+export class VehicleCreateFormActions {
   searchButtonClicked = new Subject<void>();
 
   constructor(
-    private form: VehicleCreationForm,
+    private form: VehicleCreateForm,
     // private urlStore: UrlStore<PersonSearchCriteria>
   ) {
     this.handleSearchButtonClick();

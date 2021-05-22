@@ -11,7 +11,7 @@ import {
 } from "rxjs/operators";
 
 @Injectable()
-export class VehicleCreationFormDataProvider {
+export class VehicleCreateFormDataProvider {
   constructor(private httpClient: HttpClient) {}
 
   searchCountry = (termChanged: Observable<string>): Observable<string[]> =>

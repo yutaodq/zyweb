@@ -17,7 +17,7 @@ export const COMPONENTS_EXPORTS : Array<any> = [
     ReactiveFormsModule,
     SplitButtonModule,
     // SharedUiCommonModule,
-    // SharedUiBaseModule,
+    // SharedUiBaseFormModule,
   ],
   declarations: [
     DetailButtonComponent

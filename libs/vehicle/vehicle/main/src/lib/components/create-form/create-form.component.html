@@ -1,23 +1,41 @@
 <div class="p-fluid p-formgrid p-grid">
-  <form [formGroup]="form" (ngSubmit)="onSubmit(model)">
+  <form [formGroup]="form" >
+    <div class="form-row">
+      <div class="col">
+        <label for="namec">
+          name
+<!--          <span *ngIf="required == true">*</span>-->
+        </label>
+        <input id="namec" type="text"  pInputText  formControlName="name" required="ture"/>
 
-    <zyweb-shared-ui-form
-      [form]="form"
-      [fields]="fields"
-      [model]="model"
-      [options]="options"
-    >
-
-    </zyweb-shared-ui-form>
-    <hr/>
-    <div class="row justify-content-center">
-      <zyweb-shared-ui-form-new-form-button
-        (cancelEvent)="cancelCreate()"
-        (resetEvent)="reset()"
-        [isFormValid]="canSave()"
-      >
-      </zyweb-shared-ui-form-new-form-button>
-
+      </div>
+      <div class="col">
+        <input type="text" class="form-control" placeholder="Last name">
+      </div>
     </div>
   </form>
 </div>
+
+<!--<div class="p-fluid p-formgrid p-grid">-->
+<!--    <form [formGroup]="form" (ngSubmit)="onSubmit(model)">-->
+
+<!--    <zyweb-shared-ui-form-->
+<!--      [form]="form"-->
+<!--      [fields]="fields"-->
+<!--      [model]="model"-->
+<!--      [options]="options"-->
+<!--    >-->
+
+<!--    </zyweb-shared-ui-form>-->
+<!--    <hr/>-->
+<!--    <div class="row justify-content-center">-->
+<!--      <zyweb-shared-ui-form-new-form-button-->
+<!--        (cancelEvent)="cancelCreate()"-->
+<!--        (resetEvent)="reset()"-->
+<!--        [isFormValid]="canSave()"-->
+<!--      >-->
+<!--      </zyweb-shared-ui-form-new-form-button>-->
+
+<!--    </div>-->
+<!--  </form>-->
+<!--</div>-->

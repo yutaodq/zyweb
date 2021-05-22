@@ -2,7 +2,7 @@ import { FormGroup } from '@angular/forms';
 import { Observable, of } from 'rxjs';
 import { distinctUntilChanged, map, startWith } from 'rxjs/operators';
 
-export class VehicleCreationForm {
+export class VehicleCreateForm {
   readonly initialValue;
 
   constructor(private formGroup: FormGroup) {
