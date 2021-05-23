@@ -1,11 +1,11 @@
-
-import { Injectable } from "@angular/core";
-import { FormBuilder } from "@angular/forms";
-import { VehicleCreateForm } from "./VehicleCreateForm";
+import { Injectable } from '@angular/core';
+import { FormBuilder, FormControl, FormGroup } from '@angular/forms';
+import { VehicleCreateForm } from './VehicleCreateForm';
 
 @Injectable()
 export class VehicleCreateFormFactory {
-  constructor(private formBuilder: FormBuilder) {}
+   constructor(private formBuilder: FormBuilder) {
+  }
 
   create(): VehicleCreateForm {
     const formGroup = this.createFormGroup();
@@ -14,12 +14,12 @@ export class VehicleCreateFormFactory {
 
   private createFormGroup() {
     return this.formBuilder.group({
-      pz: [""],
-      nbpz: [""],
-      name: [""],
-      ggxh: [""],
-      age: [""],
-      country: [""]
+      pz: [''],
+      nbpz: [''],
+      name: [''],
+      ggxh: [''],
+      age: [''],
+      country: ['']
     });
   }
 }
