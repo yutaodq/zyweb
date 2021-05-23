@@ -17,6 +17,7 @@ import { Observable, Subscription } from 'rxjs';
 import { CreateVehicleService, loadForms, loadSteps } from '../../services';
 import { MasterCreateCommand } from '@zyweb/shared/util/utility';
 import { concatAll, filter, first, map } from 'rxjs/operators';
+import { BaseFormControl } from '@zyweb/shared/ui/base';
 
 
 @Component({
@@ -39,6 +40,9 @@ export class CreateFormComponent  {
   ) {
   }
 
+get lable(): string {
+    return (<BaseFormControl>this.form.controls['pz']).label;
+}
 
 }
 

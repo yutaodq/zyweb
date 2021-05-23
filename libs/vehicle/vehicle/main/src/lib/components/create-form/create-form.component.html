@@ -1,18 +1,50 @@
+
 <div class="p-fluid p-formgrid p-grid">
   <form [formGroup]="form" >
+    <zyweb-form-errors>
+
+    </zyweb-form-errors>
     <div class="form-row">
-      <div class="col">
-        <label for="namec">
+
+      <div class="form-group col-md-6">
+        <label for="pz">
+<!--          {{form.controls['pz'].label}}-->
+<!--          {{form.get('pz').label}}-->
+
           name
-<!--          <span *ngIf="required == true">*</span>-->
+<!--          <span *ngIf="form.controls['pz'].required == true">*</span>-->
         </label>
-        <input id="namec" type="text"  pInputText  formControlName="name" required="ture"/>
+        <input id="pz" type="text"  pInputText  formControlName="pz" />
+        <zyweb-form-errors [control]="form.get('pz')"
+        ></zyweb-form-errors>
 
       </div>
-      <div class="col">
-        <input type="text" class="form-control" placeholder="Last name">
+      <div class="form-group col-md-6">
+        <label for="nbpz">
+          内部牌照
+        </label>
+        <input id="nbpz" type="text"  pInputText  formControlName="nbpz" />
+        <zyweb-form-errors [control]="form.get('nbpz')"
+        ></zyweb-form-errors>
+
       </div>
     </div>
+    <div class="form-row">
+      <div class="form-group col-md-6">
+        <label for="name">
+          车辆名称
+        </label>
+        <input id="name" type="text"  pInputText  formControlName="name" />
+
+      </div>
+      <div class="form-group col-md-6">
+        <label for="ggxh">
+          规格型号
+        </label>
+        <input id="ggxh" type="text"  pInputText  formControlName="ggxh" />
+      </div>
+    </div>
+
   </form>
 </div>
 

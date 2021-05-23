@@ -1,3 +1,5 @@
 {
-    "myEmail": "Email"
+    "myEmail": "Email",
+  "formErrors.required": "aaaaaaaaaa"
+
 }

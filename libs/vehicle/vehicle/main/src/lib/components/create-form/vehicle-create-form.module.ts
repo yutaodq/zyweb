@@ -7,6 +7,7 @@ import { SharedUiFormModule } from '@zyweb/shared/ui/form';
 import { SharedUiDirectiveModule } from '@zyweb/shared/ui/directive';
 
 import { CreateFormComponent } from './create-form.component';
+import { SharedUtilI18nModule } from '@zyweb/shared/util/i18n';
 
 @NgModule({
   imports: [
@@ -15,6 +16,7 @@ import { CreateFormComponent } from './create-form.component';
     SharedUiCommonModule,
     SharedUiBaseModule,
     SharedUiDirectiveModule,
+    SharedUtilI18nModule,
   ],
   declarations: [CreateFormComponent],
   exports: [CreateFormComponent],

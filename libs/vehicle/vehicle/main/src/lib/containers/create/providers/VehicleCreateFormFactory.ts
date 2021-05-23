@@ -1,9 +1,11 @@
 import { Injectable } from '@angular/core';
-import { FormBuilder, FormControl, FormGroup } from '@angular/forms';
+import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
 import { VehicleCreateForm } from './VehicleCreateForm';
+import { BaseFormControl } from '@zyweb/shared/ui/base';
 
 @Injectable()
 export class VehicleCreateFormFactory {
+
    constructor(private formBuilder: FormBuilder) {
   }
 
@@ -14,9 +16,9 @@ export class VehicleCreateFormFactory {
 
   private createFormGroup() {
     return this.formBuilder.group({
-      pz: [''],
-      nbpz: [''],
-      name: [''],
+      pz: BaseFormControl.create('牌照号：123456', '牌照'),
+      nbpz: BaseFormControl.create('内部牌照123', '内部牌照', [Validators.required]),
+      name: [{value: null, disabled: true}],
       ggxh: [''],
       age: [''],
       country: ['']

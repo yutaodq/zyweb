@@ -6,5 +6,5 @@
     "EmailRequiredError": "Email is required",
     "PasswordRequiredError": "Password is required",
     "ConfirmPasswordError": "Passwords mismatch",
-    "PasswordLengthError": "Passwords must contain at least 6 characters"
+    "PasswordLengthError": "Passwords must contain at least 6 characters",
 }
