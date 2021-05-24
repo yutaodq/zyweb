@@ -8,6 +8,7 @@ import { CreateVehicleService } from '../../services/create-vehicle.service';
 import { VehicleUseStateFacade } from '@zyweb/vehicle/use-state/data-access/store';
 import { VehicleFacade } from '@zyweb/vehicle/vehicle/data-access/store';
 import { VehicleDataService } from '@zyweb/shared/data-access/api/lvms';
+import { ClickEventDirective } from './click-event.directive';
 
 @NgModule({
   imports: [
@@ -18,6 +19,7 @@ import { VehicleDataService } from '@zyweb/shared/data-access/api/lvms';
   ],
   declarations: [
     CreateComponent,
+    ClickEventDirective
   ],
    providers: [VehicleDataService,
      VehicleFacade,

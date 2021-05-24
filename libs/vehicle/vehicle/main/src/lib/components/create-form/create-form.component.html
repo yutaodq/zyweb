@@ -1,19 +1,13 @@
 <div class="p-fluid p-formgrid p-grid">
   <form [formGroup]="form" >
-    <zyweb-form-errors>
-
-    </zyweb-form-errors>
     <div class="form-row">
 
       <div class="form-group col-md-6">
         <label for="pz">
-<!--          {{form.controls['pz'].label}}-->
-<!--          {{form.get('pz').label}}-->
-
           name
-<!--          <span *ngIf="form.controls['pz'].required == true">*</span>-->
+          <span class="required">*</span>
         </label>
-        <input id="pz" type="text"  pInputText  formControlName="pz" />
+        <input id="pz" type="text"  pInputText  formControlName="pz" required="true"/>
         <zyweb-form-errors [control]="form.get('pz')"
         ></zyweb-form-errors>
 
@@ -21,6 +15,7 @@
       <div class="form-group col-md-6">
         <label for="nbpz">
           内部牌照
+
         </label>
         <input id="nbpz" type="text"  pInputText  formControlName="nbpz" />
         <zyweb-form-errors [control]="form.get('nbpz')"

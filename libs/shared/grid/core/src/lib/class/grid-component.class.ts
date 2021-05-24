@@ -5,7 +5,7 @@ import {
   Input, OnDestroy, OnInit, Output
 } from '@angular/core';
 
-import { map } from 'rxjs/operators';
+import { debounceTime, distinctUntilChanged, map } from 'rxjs/operators';
 import { Subscription } from 'rxjs';
 import { SearchNgrxGridService } from '../services';
 import { IDataGridOptions } from '../options';
@@ -56,10 +56,13 @@ export abstract class GridComponentClass<T> implements OnInit, AfterViewInit, On
 
   public ngAfterViewInit(): void {
     let vale;
-    this.searchNgrxGridService.query$.pipe(
-      map(query => vale = query))
-      .subscribe(query => this.quickFilter(query));
-
+    this.subscriptions.push(
+      this.searchNgrxGridService.query$.pipe(
+        debounceTime(1000),
+        distinctUntilChanged(),
+        map(query => vale = query))
+        .subscribe(query => this.quickFilter(query))
+    );
     this.quickFilter(vale);
   }
 

@@ -1,7 +1,7 @@
 import { ChangeDetectionStrategy, ChangeDetectorRef, Component, OnDestroy, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 
-import { Subscription } from 'rxjs';
+import { Observable, Subscription } from 'rxjs';
 import { Vehicle, VehicleUseState } from '@zyweb/shared/data-access/model/lvms';
 import { CreateVehicleService } from '../../services/create-vehicle.service';
 import { MasterCreateCommand } from '@zyweb/shared/util/utility';
@@ -35,14 +35,18 @@ D:\学习案例\druo-dashboard\src\app\content\pages\components\invoices\invoice
 })
 
 export class CreateComponent  {
+  ageIsGreaterThanTen: Observable<boolean>;
+  formIsValid: Observable<boolean>;
 
   constructor(
     private _createService: CreateVehicleService,
     public form: VehicleCreateForm,
-    formDataProvider: VehicleCreateFormDataProvider,
-    formActions: VehicleCreateFormActions
-
-  ) {}
+    public formDataProvider: VehicleCreateFormDataProvider,
+    public formActions: VehicleCreateFormActions
+  ) {
+    this.ageIsGreaterThanTen = this.form.ageIsGreaterThan(10);
+    this.formIsValid = this.form.isValid();
+  }
 
 
 }

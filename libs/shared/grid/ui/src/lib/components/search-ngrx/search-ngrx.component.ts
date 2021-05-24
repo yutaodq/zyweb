@@ -25,6 +25,7 @@ export class SearchNgrxComponent implements OnInit {
   ) { }
 
   ngOnInit() {
+    //将存储库中的状态query,赋值给过滤条件 filter
     this.searchNgrxGridService.query$.subscribe( filter => this._filter = filter )
   }
 
