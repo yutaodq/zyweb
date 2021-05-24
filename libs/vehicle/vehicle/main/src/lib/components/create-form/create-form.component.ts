@@ -36,7 +36,7 @@ export class CreateFormComponent  {
   form: FormGroup;
 
   constructor(
-    private _createVehicleService: CreateVehicleService
+    private _createVehicleService: CreateVehicleService,
   ) {
   }
 
