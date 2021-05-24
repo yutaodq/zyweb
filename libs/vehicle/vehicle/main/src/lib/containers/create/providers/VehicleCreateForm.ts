@@ -1,8 +1,10 @@
 import { FormGroup } from '@angular/forms';
 import { Observable, of } from 'rxjs';
 import { distinctUntilChanged, map, startWith } from 'rxjs/operators';
+import { Vehicle } from '@zyweb/shared/data-access/model/lvms';
+import { SpartacusFormService } from '@zyweb/shared/ui/common';
 
-export class VehicleCreateForm {
+export class VehicleCreateForm  extends SpartacusFormService<Vehicle> {
   readonly initialValue;
 
   constructor(private formGroup: FormGroup) {
@@ -31,5 +33,29 @@ export class VehicleCreateForm {
 
   reset() {
     this.formGroup.reset();
+  }
+
+  protected build() {
+      const form = new FormGroup({});
+
+      form.setControl(
+        'uid',
+        new FormControl('', [
+          Validators.required,
+          CustomFormValidators.noSpecialCharacters,
+        ])
+      );
+
+      form.setControl('name', new FormControl('', Validators.required));
+
+      form.setControl(
+        'orgUnit',
+        new FormGroup({
+          uid: new FormControl(undefined, Validators.required),
+        })
+      );
+      
+      this.form = form;
+    }
   }
 }

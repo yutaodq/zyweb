@@ -1,7 +1,6 @@
 /*
 https://github.com/SAP/spartacus
-D:\前端案例\真实案例\spartacus\projects\storefrontlib\src\cms-components\product\product-tabs\product-reviews\product-reviews.component.ts
-
+D:\学习案例\真实案例\spartacus\projects\storefrontlib\src\shared\components\form\form-errors\form-errors.component.ts
 案例：
           <cx-form-errors
             [control]="reviewForm.get('comment')"

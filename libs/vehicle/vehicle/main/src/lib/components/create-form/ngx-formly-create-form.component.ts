@@ -21,7 +21,7 @@
 //
 // @Component({
 //   selector: 'zyweb-vehicle-create-form',
-//   templateUrl: './ngx-formly-create-form.component.html',
+//   templateUrl: './ngx-formly-create-spartacus-form.component.html',
 //   styleUrls: ['./create-form.component.scss'],
 //   providers: []
 //   // changeDetection: ChangeDetectionStrategy.OnPush
