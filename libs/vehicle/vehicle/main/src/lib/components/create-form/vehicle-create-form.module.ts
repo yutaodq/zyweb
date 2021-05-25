@@ -1,7 +1,7 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 
-import { SharedUiCommonModule } from '@zyweb/shared/ui/common';
+import { SharedUiCommonModule, ThemePrimengModule } from '@zyweb/shared/ui/common';
 import { SharedUiBaseModule } from '@zyweb/shared/ui/base';
 import { SharedUiFormModule } from '@zyweb/shared/ui/form';
 import { SharedUiDirectiveModule } from '@zyweb/shared/ui/directive';
@@ -13,10 +13,11 @@ import { SharedUtilI18nModule } from '@zyweb/shared/util/i18n';
   imports: [
     CommonModule,
     SharedUiFormModule,
-    SharedUiCommonModule,
+    // SharedUiCommonModule,
     SharedUiBaseModule,
     SharedUiDirectiveModule,
     SharedUtilI18nModule,
+    ThemePrimengModule
   ],
   declarations: [CreateFormComponent],
   exports: [CreateFormComponent],

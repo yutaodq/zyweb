@@ -21,7 +21,7 @@ export class VehicleCreateFormFactory {
     return this._fb.group({
       pz: ['牌照号：123456', [], [this._formDataProvider.isPzExists()]],
       nbpz: ['内部牌照123', [Validators.required]],
-      name: [],
+      name: [''],
       ggxh: [''],
       age: [''],
       country: ['{ value: null, disabled: true }']

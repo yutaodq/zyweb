@@ -1,11 +1,11 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { Observable, of } from 'rxjs';
+import { from, Observable, of } from 'rxjs';
 import {
   debounceTime, distinct,
   distinctUntilChanged, flatMap,
   map,
-  switchMap
+  switchMap, toArray
 } from 'rxjs/operators';
 import { AbstractControl, AsyncValidatorFn, ValidationErrors } from '@angular/forms';
 import { VehicleDataService } from '@zyweb/shared/data-access/api/lvms';
@@ -16,15 +16,25 @@ import { Vehicle } from '@zyweb/shared/data-access/model/lvms';
 
 @Injectable()
 export class VehicleCreateFormDataProvider {
-  clmc: Observable<Vehicle[]>;
+  vehicleName$: Observable<Vehicle[]> =  this._vehicleFacade.entities$;
+
+  // vehicleName$: Observable<Vehicle[]> =  this._vehicleFacade.entities$.pipe(
+  //   switchMap((vehicles) => vehicles.sort((a, b) => a.name.localeCompare(b.name))),
+  //   distinct((a: Vehicle) => a.name),
+  //   toArray()
+  // );
+
   constructor(
     private _vehicleDataService: VehicleDataService,
     private _vehicleFacade: VehicleFacade
   ) {
-    this._vehicleFacade.entities$.pipe(
-      map((dt) => dt.map((el) => el))
-    )
+    //  this.vehicleName$ = this._vehicleFacade.entities$.pipe(
+    //   switchMap((vehicles) => vehicles.sort((a, b) => a.name.localeCompare(b.name))),
+    //   distinct((a: Vehicle) => a.name),
+    //   toArray()
+    // );
   }
+
 
   // isPzExists(): AsyncValidatorFn {
   //   return (control: AbstractControl): Promise<ValidationErrors | null>
@@ -53,10 +63,11 @@ export class VehicleCreateFormDataProvider {
         debounceTime(200),
         distinctUntilChanged(),
         switchMap(term => (term.length < 3 ? of(null) : this._vehicleDataService.existsByPz(term))),
-        map(valid => (valid ? { formUniqueName : true } : null))
+        map(valid => (valid ? { formUniqueName: true } : null))
       );
     };
   }
+
   isNbpzExists(): AsyncValidatorFn {
     const name = VALIDATION_PATTERNS.FORM_UNIQUE_NAME;
     return (control: AbstractControl): Promise<ValidationErrors | null>
@@ -65,7 +76,7 @@ export class VehicleCreateFormDataProvider {
         debounceTime(200),
         distinctUntilChanged(),
         switchMap(term => (term.length < 3 ? of(null) : this._vehicleDataService.existsByNbpz(term))),
-        map(valid => (valid ? { formUniqueName : true } : null))
+        map(valid => (valid ? { formUniqueName: true } : null))
       );
     };
   }
