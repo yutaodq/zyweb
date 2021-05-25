@@ -31,6 +31,8 @@ import { BaseFormControl } from '@zyweb/shared/ui/base';
 
 export class CreateFormComponent  {
   private subscriptions: Array<Subscription> = [];
+  filteredCountries: any[];
+  countries: any[];
 
   @Input()
   form: FormGroup;
@@ -38,9 +40,24 @@ export class CreateFormComponent  {
   constructor() {
   }
 
-get lable(): string {
-    return (<BaseFormControl>this.form.controls['pz']).label;
-}
+  filterCountry(event) {
+    //in a real application, make a request to a remote url with the query and return filtered results, for demo we filter at client side
+    const filtered : any[] = [];
+    const query = event.query;
+
+    for(let i = 0; i < this.countries.length; i++) {
+      const country = this.countries[i];
+      if (country.name.toLowerCase().indexOf(query.toLowerCase()) === 0) {
+        filtered.push(country);
+      }
+    }
+
+    this.filteredCountries = filtered;
+  }
+//
+// get lable(): string {
+//     return (<BaseFormControl>this.form.controls['pz']).label;
+// }
 
 }
 

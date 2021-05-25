@@ -21,7 +21,8 @@ import { ClickEventDirective } from './click-event.directive';
     CreateComponent,
     ClickEventDirective
   ],
-   providers: [VehicleDataService,
+   providers: [
+     VehicleDataService,
      VehicleFacade,
      VehicleUseStateFacade,
      CreateVehicleService,

@@ -28,8 +28,7 @@
         <label for="name">
           车辆名称
         </label>
-        <input id="name" type="text"  pInputText  formControlName="name" />
-
+        <p-autoComplete id="name"  formControlName="name"  [suggestions]="results" (completeMethod)="search($event)"></p-autoComplete>
       </div>
       <div class="form-group col-md-6">
         <label for="ggxh">

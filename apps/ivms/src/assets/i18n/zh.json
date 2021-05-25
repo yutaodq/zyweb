@@ -8,6 +8,7 @@
     "ConfirmPasswordError": "Passwords mismatch",
     "PasswordLengthError": "Passwords must contain at least 6 characters",
   "formErrors": {
-    "required": "必须填写项"
+    "required": "必须填写项",
+    "formUniqueName": "已经存在相同的记录"
   }
 }
