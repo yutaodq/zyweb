@@ -3,7 +3,7 @@ import { Injectable } from '@angular/core';
 import { from, Observable, of } from 'rxjs';
 import {
   debounceTime, distinct,
-  distinctUntilChanged, flatMap,
+  distinctUntilChanged, filter, flatMap,
   map,
   switchMap, toArray
 } from 'rxjs/operators';
@@ -16,7 +16,8 @@ import { Vehicle } from '@zyweb/shared/data-access/model/lvms';
 
 @Injectable()
 export class VehicleCreateFormDataProvider {
-  vehicleName$: Observable<Vehicle[]> =  this._vehicleFacade.entities$;
+  // vehicleName$: Observable<Vehicle[]> =  this._vehicleFacade.entities$;
+  vehicleName$: Vehicle[] ;
 
   // vehicleName$: Observable<Vehicle[]> =  this._vehicleFacade.entities$.pipe(
   //   switchMap((vehicles) => vehicles.sort((a, b) => a.name.localeCompare(b.name))),
@@ -28,6 +29,14 @@ export class VehicleCreateFormDataProvider {
     private _vehicleDataService: VehicleDataService,
     private _vehicleFacade: VehicleFacade
   ) {
+    this._vehicleFacade.entities$
+      .pipe(
+        filter( (ba) => ba.)
+      map((a) => a)
+    )
+      .subscribe(a => this.vehicleName$ = a);
+    console.log(this.vehicleName$)
+
     //  this.vehicleName$ = this._vehicleFacade.entities$.pipe(
     //   switchMap((vehicles) => vehicles.sort((a, b) => a.name.localeCompare(b.name))),
     //   distinct((a: Vehicle) => a.name),
@@ -35,6 +44,12 @@ export class VehicleCreateFormDataProvider {
     // );
   }
 
+  searchName(event: any) {
+    const value = event.query;
+    console.log("this.countries")
+    console.log(value)
+    this._vehicleFacade.entities$.subscribe(a => this.vehicleName$ = a);
+  }
 
   // isPzExists(): AsyncValidatorFn {
   //   return (control: AbstractControl): Promise<ValidationErrors | null>
@@ -94,5 +109,6 @@ export class VehicleCreateFormDataProvider {
   //     `https://restcountries.eu/rest/v2/name/${term}?fields=name`
   //   );
   // }
+
 }
 

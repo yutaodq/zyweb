@@ -17,7 +17,7 @@ import { SharedUtilI18nModule } from '@zyweb/shared/util/i18n';
     SharedUiBaseModule,
     SharedUiDirectiveModule,
     SharedUtilI18nModule,
-    ThemePrimengModule
+    ThemePrimengModule,
   ],
   declarations: [CreateFormComponent],
   exports: [CreateFormComponent],

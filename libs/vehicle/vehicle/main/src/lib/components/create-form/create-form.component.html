@@ -1,5 +1,15 @@
 <div class="p-fluid p-formgrid p-grid">
   <form [formGroup]="form">
+
+    <p-autoComplete
+                    formControlName="name"
+                    [suggestions]="formDataProvider.vehicleName$"
+                    (completeMethod)="formDataProvider.searchName($event)"
+                    field="name"
+                    [dropdown]="true"
+
+    ></p-autoComplete>
+
     <div class="form-row">
 
       <div class="form-group col-md-6">
@@ -28,12 +38,15 @@
         <label for="name">
           车辆名称
         </label>
+<!--        <p-autoComplete [(ngModel)]="selectedCountry"-->
+<!--                        [suggestions]="items"-->
+<!--                        (completeMethod)="search($event)"-->
+<!--                        field="name"-->
+<!--        >-->
 
-        <p-autoComplete id="name"
-                        formControlName="name"
-                        [suggestions]="items"
-                        (completeMethod)="search($event)"
-        ></p-autoComplete>
+<!--        </p-autoComplete>-->
+
+
 <!--        <p-autoComplete id="name"-->
 <!--                        formControlName="name"-->
 <!--                        [suggestions]="formDataProvider.vehicleName$ | async"-->

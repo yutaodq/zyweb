@@ -30,11 +30,31 @@ import { VehicleCreateFormDataProvider } from '../../containers/create/providers
 })
 
 
-export class CreateFormComponent  {
+export class CreateFormComponent {
   private subscriptions: Array<Subscription> = [];
   filteredCountries: any[];
-  countries: any[];
-  items: ['Berlin', 'Frankfurt'];
+  public countries = [
+    {label: 'Kyoto', name: 'Kyoto'},
+{label: 'Osaka', name: 'Osaka'},
+
+];
+
+  public items = [
+    {label: 'Kyoto', name: 'Kyoto'},
+    {label: 'Osaka', name: 'Osaka'},
+    {label: 'Tokyo', name: 'Tokyo'},
+    {label: 'Yokohama', name: 'Yokohama'}
+  ]
+
+  // items: [
+  //   { 'name': 'Afghanistan', 'code': 'AF' },
+  //   { 'name': 'Albania', 'code': 'AL' },
+  //   { 'name': 'Algeria', 'code': 'DZ' },
+  //   { 'name': 'American Samoa', 'code': 'AS' },
+  //   { 'name': 'Andorra', 'code': 'AD' }
+  // ];
+
+  selectedCountry: any;
 
   @Input()
   form: FormGroup;
@@ -44,7 +64,7 @@ export class CreateFormComponent  {
   }
 
   search(event) {
-    console.log("sdfaaaaaaaaaaaaa");
+    console.log('deeeeeeeeeeeeeeeeeeeeeeeeeeeeeee');
     //in a real application, make a request to a remote url with the query and return filtered results, for demo we filter at client side
     // const filtered : any[] = [];
     // const query = event.query;
@@ -56,8 +76,13 @@ export class CreateFormComponent  {
     //   }
     // }
     //
-    // this.filteredCountries = filtered;
+    this.countries = this.items;
+    console.log("this.countries")
+    console.log(this.items)
+
+    console.log(this.countries)
   }
+
 //
 // get lable(): string {
 //     return (<BaseFormControl>this.form.controls['pz']).label;
