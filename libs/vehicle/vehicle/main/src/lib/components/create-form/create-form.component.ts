@@ -14,10 +14,20 @@ import { v4 as uuidv4 } from 'uuid';
 import { AbstractControl, FormGroup } from '@angular/forms';
 import { FormlyFieldConfig, FormlyFormOptions } from '@ngx-formly/core';
 import { Vehicle, VehicleUseState } from '@zyweb/shared/data-access/model/lvms';
-import { Observable, Subscription } from 'rxjs';
+import { Observable, pipe, Subscription } from 'rxjs';
 import { CreateVehicleService, loadForms, loadSteps } from '../../services';
 import { MasterCreateCommand } from '@zyweb/shared/util/utility';
-import { concatAll, debounceTime, distinct, distinctUntilChanged, filter, first, map, switchMap } from 'rxjs/operators';
+import {
+  concatAll,
+  debounceTime,
+  distinct,
+  distinctUntilChanged,
+  filter,
+  first,
+  map,
+  switchMap,
+  toArray
+} from 'rxjs/operators';
 import { BaseFormControl } from '@zyweb/shared/ui/base';
 import { VehicleCreateFormDataProvider } from '../../containers/create/providers';
 import { AutoComplete } from 'primeng/autocomplete';
@@ -75,12 +85,23 @@ export class CreateFormComponent implements OnInit, AfterViewInit {
   }
   searchName(event: any) {
     const name = event.query;
-
+    // return   this.formDataProvider.findVehicleName(name).pipe(
+    //    map( (a) => a ),
+    //     filter(a => a.name.toString().toLocaleLowerCase().indexOf(name.toString().toLocaleLowerCase()) !== -1),
+    //
+    // )
     return this.formDataProvider.findVehicleName(name).pipe(
-      map(arr => arr
-        .filter(e => e.name.toString().toLocaleLowerCase().indexOf(name.toString().toLocaleLowerCase()) !== -1)
-      ),
+      switchMap((vehicles) => vehicles.sort((a, b) => a.name.localeCompare(b.name))),
+      filter(vehicle => vehicle.name.toString().toLocaleLowerCase().indexOf(name.toString().toLocaleLowerCase()) !== -1),
+      distinct( vehicle =>vehicle.name),
+      toArray()
     )
+
+    // return this.formDataProvider.findVehicleName(name).pipe(
+    //   map(arr => arr
+    //     .filter(e => e.name.toString().toLocaleLowerCase().indexOf(name.toString().toLocaleLowerCase()) !== -1)
+    //   ),
+    // )
   }
 
   search(event) {
