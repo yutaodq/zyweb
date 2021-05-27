@@ -3,12 +3,20 @@
 
     <p-autoComplete
                     formControlName="name"
-                    [suggestions]="formDataProvider.vehicleName$"
+                    [suggestions]="formDataProvider.vehicleName$ "
                     (completeMethod)="formDataProvider.searchName($event)"
                     field="name"
                     [dropdown]="true"
 
     ></p-autoComplete>
+<!--    <p-autoComplete-->
+<!--      formControlName="name"-->
+<!--      [suggestions]="formDataProvider.vehicleName$ | async"-->
+<!--      (completeMethod)="formDataProvider.searchName($event)"-->
+<!--      field="name"-->
+<!--      [dropdown]="true"-->
+
+<!--    ></p-autoComplete>-->
 
     <div class="form-row">
 

@@ -29,12 +29,14 @@ export class VehicleCreateFormDataProvider {
     private _vehicleDataService: VehicleDataService,
     private _vehicleFacade: VehicleFacade
   ) {
-    this._vehicleFacade.entities$
-      .pipe(
-        filter( (ba) => ba.)
-      map((a) => a)
+    this._vehicleFacade.entities$.pipe(
+      map( (value) => value.map((value1) =>  value1))
+
     )
       .subscribe(a => this.vehicleName$ = a);
+
+
+    console.log("this.countriesdddddddddddd")
     console.log(this.vehicleName$)
 
     //  this.vehicleName$ = this._vehicleFacade.entities$.pipe(
@@ -45,10 +47,10 @@ export class VehicleCreateFormDataProvider {
   }
 
   searchName(event: any) {
-    const value = event.query;
-    console.log("this.countries")
-    console.log(value)
-    this._vehicleFacade.entities$.subscribe(a => this.vehicleName$ = a);
+    // const value = event.query;
+    // console.log("this.countries")
+    // console.log(value)
+    // this._vehicleFacade.entities$.subscribe(a => this.vehicleName$ = a);
   }
 
   // isPzExists(): AsyncValidatorFn {
