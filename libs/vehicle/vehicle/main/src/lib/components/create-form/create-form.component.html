@@ -1,22 +1,30 @@
 <div class="p-fluid p-formgrid p-grid">
   <form [formGroup]="form">
 
-    <p-autoComplete
-                    formControlName="name"
-                    #nameAutoComplete
-                    [suggestions]="vehicleName$ | async "
-                    field="name"
-                    [dropdown]="true"
-
-    ></p-autoComplete>
 <!--    <p-autoComplete-->
-<!--      formControlName="name"-->
-<!--      [suggestions]="formDataProvider.vehicleName$ | async"-->
-<!--      (completeMethod)="formDataProvider.searchName($event)"-->
-<!--      field="name"-->
-<!--      [dropdown]="true"-->
+<!--                    formControlName="name"-->
+<!--                    #nameAutoComplete-->
+<!--                    [suggestions]="vehicleName$ | async "-->
+<!--                    field="name"-->
+<!--                    [dropdown]="true"-->
 
 <!--    ></p-autoComplete>-->
+    <p-autoComplete
+      formControlName="name"
+      [suggestions]="formDataProvider.vehicleName$ | async "
+      (completeMethod)="formDataProvider.searchName($event)"
+      field="name"
+
+    ></p-autoComplete>
+
+<!--    <p-autoComplete-->
+<!--      formControlName="name"-->
+<!--      [suggestions]="formDataProvider.name$ "-->
+<!--      (completeMethod)="formDataProvider.searchName($event)"-->
+<!--      field="name"-->
+
+<!--    ></p-autoComplete>-->
+
 
     <div class="form-row">
 
@@ -43,7 +51,7 @@
     </div>
     <div class="form-row">
       <div class="form-group col-md-6">
-        <label for="name">
+        <label >
           车辆名称
         </label>
 <!--        <p-autoComplete [(ngModel)]="selectedCountry"-->

@@ -43,94 +43,40 @@ import { VehicleFacade } from '@zyweb/vehicle/vehicle/data-access/store';
 
 
 export class CreateFormComponent implements OnInit, AfterViewInit {
-  @ViewChild('nameAutoComplete') nameAutoComplete: AutoComplete;
+  // @ViewChild('nameAutoComplete') nameAutoComplete: AutoComplete;
 
   private subscriptions: Array<Subscription> = [];
   vehicleName$: Observable<Vehicle[]>;
 
-  filteredCountries: any[];
-  public countries = [
-    { label: 'Kyoto', name: 'Kyoto' },
-    { label: 'Osaka', name: 'Osaka' }
-
-  ];
-
-  public items = [
-    { label: 'Kyoto', name: 'Kyoto' },
-    { label: 'Osaka', name: 'Osaka' },
-    { label: 'Tokyo', name: 'Tokyo' },
-    { label: 'Yokohama', name: 'Yokohama' }
-  ];
-
-  selectedCountry: any;
-
   @Input()
   form: FormGroup;
 
-  constructor(public formDataProvider: VehicleCreateFormDataProvider,
+  constructor(
+    public formDataProvider: VehicleCreateFormDataProvider,
 ) {
   }
 
   ngAfterViewInit() {
-    // this.vehicleName$ = this.formDataProvider.vehicleName$;
-    this.vehicleName$ = this.nameAutoComplete.completeMethod
-      .pipe(
-        debounceTime(100),
-        distinctUntilChanged(),
-        switchMap(search => this.searchName(search))
-      );
-
-    console.log("this.ngAfterViewInitngAfterViewInitngAfterViewInitngAfterViewInitngAfterViewInit")
+    // this.vehicleName$ = this.nameAutoComplete.completeMethod
+    //   .pipe(
+    //     debounceTime(100),
+    //     distinctUntilChanged(),
+    //     switchMap(search => this.searchName(search))
+    //   );
 
   }
-  searchName(event: any) {
-    const name = event.query;
-    // return   this.formDataProvider.findVehicleName(name).pipe(
-    //    map( (a) => a ),
-    //     filter(a => a.name.toString().toLocaleLowerCase().indexOf(name.toString().toLocaleLowerCase()) !== -1),
-    //
-    // )
-    return this.formDataProvider.findVehicleName(name).pipe(
-      switchMap((vehicles) => vehicles.sort((a, b) => a.name.localeCompare(b.name))),
-      filter(vehicle => vehicle.name.toString().toLocaleLowerCase().indexOf(name.toString().toLocaleLowerCase()) !== -1),
-      distinct( vehicle =>vehicle.name),
-      toArray()
-    )
-
-    // return this.formDataProvider.findVehicleName(name).pipe(
-    //   map(arr => arr
-    //     .filter(e => e.name.toString().toLocaleLowerCase().indexOf(name.toString().toLocaleLowerCase()) !== -1)
-    //   ),
-    // )
-  }
-
-  search(event) {
-    console.log('deeeeeeeeeeeeeeeeeeeeeeeeeeeeeee');
-    //in a real application, make a request to a remote url with the query and return filtered results, for demo we filter at client side
-    // const filtered : any[] = [];
-    // const query = event.query;
-    //
-    // for(let i = 0; i < this.countries.length; i++) {
-    //   const country = this.countries[i];
-    //   if (country.name.toLowerCase().indexOf(query.toLowerCase()) === 0) {
-    //     filtered.push(country);
-    //   }
-    // }
-    //
-    this.countries = this.items;
-    console.log('this.countries');
-    console.log(this.items);
-
-    console.log(this.countries);
-  }
+  // searchName(event: any) {
+  //   const name = event.query;
+  //    return this.formDataProvider.findVehicleName(name).pipe(
+  //     switchMap((vehicles) => vehicles.sort((a, b) => a.name.localeCompare(b.name))),
+  //     filter(vehicle => vehicle.name.toString().toLocaleLowerCase().indexOf(name.toString().toLocaleLowerCase()) !== -1),
+  //     distinct( vehicle =>vehicle.name),
+  //     toArray()
+  //   )
+  // }
 
   ngOnInit(): void {
   }
-
-//
-// get lable(): string {
-//     return (<BaseFormControl>this.form.controls['pz']).label;
-// }
 
 }
 

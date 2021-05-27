@@ -16,75 +16,51 @@ import { Vehicle } from '@zyweb/shared/data-access/model/lvms';
 
 @Injectable()
 export class VehicleCreateFormDataProvider {
-  private _vehicleName$: Observable<Vehicle[]>
-
-  // vehicleName$: Observable<Vehicle[]> =  this._vehicleFacade.entities$;
-  // vehicleName$: Vehicle[] ;
-
-  // vehicleName$: Observable<Vehicle[]> =  this._vehicleFacade.entities$.pipe(
-  //   switchMap((vehicles) => vehicles.sort((a, b) => a.name.localeCompare(b.name))),
-  //   distinct((a: Vehicle) => a.name),
-  //   toArray()
-  // );
+  vehicleName$: Observable<Vehicle[]> = this._vehicleDataService.getAll() ;
+   // vehicleName$: Observable<Vehicle[]> = this._vehicleFacade.entities$.pipe(
+   //  map((vehicles) => vehicles.map(v => v)));
 
   constructor(
     private _vehicleDataService: VehicleDataService,
     private _vehicleFacade: VehicleFacade
   ) {
-    // this._vehicleFacade.entities$
-    // //   .pipe(
-    // //   map( (values) =>   values)
-    // //
-    // // )
-    //   .subscribe((values) => this.vehicleName$ = values);
 
-
-    // this._vehicleFacade.entities$
-    //   .pipe(map( (values) => values))
-    //   .subscribe(  (values) => this.vehicleName$ = values);
-
-    this._vehicleName$ = this._vehicleFacade.entities$
-      .pipe(map( (values) => values))
-    ;
-
-
-    //  this.vehicleName$ = this._vehicleFacade.entities$.pipe(
-    //   switchMap((vehicles) => vehicles.sort((a, b) => a.name.localeCompare(b.name))),
-    //   distinct((a: Vehicle) => a.name),
-    //   toArray()
-    // );
   }
-  get vehicleName$(): Observable<Vehicle[]> {
-    return this._vehicleName$;
-  }
+
+
   get vehicleFacade(): VehicleFacade {
     return this._vehicleFacade;
   }
 
-  findVehicleName(name: string): Observable<Vehicle[]> {
-    // const value = this._vehicleFacade.entities$;
-    const value =  this._vehicleDataService.getAll();
-    console.log("findVehicleNamefindVehicleNamefindVehicleNamefindVehicleNamefindVehicleName")
-
-    return value;
-    // return this._vehicleFacade.entities$.pipe(
-    //   map((vehicles) => vehicles)
-    // );
-  }
-
-
-// get vehicleName$: Observable<Vehicle[]>() {
-//   return this.vehicleName$;
-// }
-
-
   searchName(event: any) {
-    // const value = event.query;
-    // console.log("this.countries")
-    // console.log(value)
-    // this._vehicleFacade.entities$.subscribe(a => this.vehicleName$ = a);
+    this.vehicleName$ = of(event.query).pipe(
+      debounceTime(100),
+      distinctUntilChanged(),
+      switchMap(search => this.findByName(search))
+    );
   }
 
+  findByName(name: string): Observable<Vehicle[]> {
+    return this._vehicleDataService.getAll().pipe(
+      switchMap((vehicles) => vehicles.sort((a, b) => a.name.localeCompare(b.name))),
+      filter(vehicle => vehicle.name.toString().toLocaleLowerCase().indexOf(name.toString().toLocaleLowerCase()) !== -1),
+      distinct(vehicle => vehicle.name),
+      toArray()
+    );
+
+    // return this._vehicleFacade.entities$.pipe(
+    //   switchMap((vehicles) => vehicles.sort((a, b) => a.name.localeCompare(b.name))),
+    //   filter(vehicle => vehicle.name.toString().toLocaleLowerCase().indexOf(name.toString().toLocaleLowerCase()) !== -1),
+    //   distinct(vehicle => vehicle.name),
+    //   toArray()
+    // );
+
+  }
+
+
+  /*
+
+   */
 
   isPzExists(): AsyncValidatorFn {
     const name = VALIDATION_PATTERNS.FORM_UNIQUE_NAME;
