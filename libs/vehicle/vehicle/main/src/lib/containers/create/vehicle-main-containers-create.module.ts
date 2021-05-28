@@ -9,12 +9,14 @@ import { VehicleUseStateFacade } from '@zyweb/vehicle/use-state/data-access/stor
 import { VehicleFacade } from '@zyweb/vehicle/vehicle/data-access/store';
 import { VehicleDataService } from '@zyweb/shared/data-access/api/lvms';
 import { ClickEventDirective } from './click-event.directive';
+import { ReactiveFormsModule } from '@angular/forms';
 
 @NgModule({
   imports: [
     CommonModule,
     SharedUiBaseModule,
     VehicleMainComponentsModule,
+    ReactiveFormsModule
 
   ],
   declarations: [

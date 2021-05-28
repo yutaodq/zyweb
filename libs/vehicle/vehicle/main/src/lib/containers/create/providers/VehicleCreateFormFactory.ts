@@ -21,10 +21,18 @@ export class VehicleCreateFormFactory {
     return this._fb.group({
       pz: ['牌照号：123456', [], [this._formDataProvider.isPzExists()]],
       nbpz: ['内部牌照123', [Validators.required]],
-      name: [''],
-      ggxh: [''],
-      age: [''],
-      country: ['{ value: null, disabled: true }']
+      name: ['车辆名称'],
+      ggxh: ['规格型号'],
+      sccj: ['生产厂家'],
+      ccrq: [null],
+      tcrq: [null],
+      yz: ['123'],
+      csys: ['车身颜色'],
+      fdjxh: ['发动机型号'],
+      fdjbh: ['发动机编号'],
+      dpxh: ['底盘型号'],
+      dpbh: ['底盘编号'],
+      description: ['备注']
     });
 
     // return this.formBuilder.group({

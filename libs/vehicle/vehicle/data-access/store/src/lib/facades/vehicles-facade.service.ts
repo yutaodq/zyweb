@@ -37,6 +37,10 @@ export class VehicleFacade {
     return this._collectionService.entities$;
   }
 
+  getAll(): Observable<Vehicle[]> {
+    return this._collectionService.getAll();
+  }
+
   get detail$(): Observable<Vehicle> {
     return this._collectionService.selected$;
   }

@@ -16,20 +16,13 @@ import { Vehicle } from '@zyweb/shared/data-access/model/lvms';
 
 @Injectable()
 export class VehicleCreateFormDataProvider {
-  vehicleName$: Observable<Vehicle[]> = this._vehicleDataService.getAll() ;
-   // vehicleName$: Observable<Vehicle[]> = this._vehicleFacade.entities$.pipe(
-   //  map((vehicles) => vehicles.map(v => v)));
+  vehicleName$: Observable<Vehicle[]> ;
 
   constructor(
     private _vehicleDataService: VehicleDataService,
     private _vehicleFacade: VehicleFacade
   ) {
-
-  }
-
-
-  get vehicleFacade(): VehicleFacade {
-    return this._vehicleFacade;
+    this.vehicleName$ = this._vehicleFacade.getAll();
   }
 
   searchName(event: any) {
@@ -40,21 +33,13 @@ export class VehicleCreateFormDataProvider {
     );
   }
 
-  findByName(name: string): Observable<Vehicle[]> {
-    return this._vehicleDataService.getAll().pipe(
+  private findByName(name: string): Observable<Vehicle[]> {
+    return this._vehicleFacade.getAll().pipe(
       switchMap((vehicles) => vehicles.sort((a, b) => a.name.localeCompare(b.name))),
       filter(vehicle => vehicle.name.toString().toLocaleLowerCase().indexOf(name.toString().toLocaleLowerCase()) !== -1),
       distinct(vehicle => vehicle.name),
       toArray()
     );
-
-    // return this._vehicleFacade.entities$.pipe(
-    //   switchMap((vehicles) => vehicles.sort((a, b) => a.name.localeCompare(b.name))),
-    //   filter(vehicle => vehicle.name.toString().toLocaleLowerCase().indexOf(name.toString().toLocaleLowerCase()) !== -1),
-    //   distinct(vehicle => vehicle.name),
-    //   toArray()
-    // );
-
   }
 
 
