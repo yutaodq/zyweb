@@ -1,0 +1,28 @@
+<div class="row">
+  <p-button label="保存新记录"
+            icon="pi pi-save"
+            iconPos="left"
+            type="submit"
+            class=" mr-2, ml-2"
+            [zywebClickEvent]="validateButtonClicked"
+  >
+  </p-button>
+  <p-button label="重新录入"
+            icon="pi pi-refresh"
+            iconPos="left"
+            styleClass="p-button-warning"
+            class=" mr-2, ml-2"
+            [zywebClickEvent]="resetButtonClicked"
+  >
+  </p-button>
+
+  <p-button label="取消新记录"
+            icon="pi pi-sign-out"
+            iconPos="left"
+            styleClass="p-button-danger"
+            class="mr-2 , ml-2"
+            [zywebClickEvent]="cancelButtonClicked"
+  >
+
+  </p-button>
+</div>

@@ -8,20 +8,22 @@ import { CreateVehicleService } from '../../services/create-vehicle.service';
 import { VehicleUseStateFacade } from '@zyweb/vehicle/use-state/data-access/store';
 import { VehicleFacade } from '@zyweb/vehicle/vehicle/data-access/store';
 import { VehicleDataService } from '@zyweb/shared/data-access/api/lvms';
-import { ClickEventDirective } from './click-event.directive';
 import { ReactiveFormsModule } from '@angular/forms';
+import { ThemePrimengModule } from '@zyweb/shared/ui/common';
+import { SharedUiFormModule } from '@zyweb/shared/ui/form';
 
 @NgModule({
   imports: [
     CommonModule,
     SharedUiBaseModule,
     VehicleMainComponentsModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    ThemePrimengModule,
+    SharedUiFormModule
 
   ],
   declarations: [
     CreateComponent,
-    ClickEventDirective
   ],
    providers: [
      VehicleDataService,

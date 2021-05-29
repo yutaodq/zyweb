@@ -1,9 +1,11 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { LIST_NEW_BUTTON_EXPORTS, ListNewButtonModule } from './list-new/list-new-button.module';
+import { SharedUiBaseButtonNewFormModule } from './new-form/shared-ui-base-button-new-form.module';
 
 const BUTTON_EXPORTS: Array<any> = [
   ListNewButtonModule,
+  SharedUiBaseButtonNewFormModule,
 ];
 
 
@@ -15,4 +17,4 @@ const BUTTON_EXPORTS: Array<any> = [
   exports: [...BUTTON_EXPORTS]
 
 })
-export class ZyButtonModule { }
+export class SharedUiBaseButtonModule { }

@@ -5,7 +5,7 @@ import { Subject } from "rxjs";
   selector: "[zywebClickEvent]"
 })
 export class ClickEventDirective {
-  @Input() clickEvent: Subject<void>;
+  @Input('zywebClickEvent') clickEvent: Subject<void>;
 
   @HostListener("click") onClick() {
     this.clickEvent.next();

@@ -1,3 +1,3 @@
 
-export * from './zy-button.module';
+export * from './shared-ui-base-button.module';
 
