@@ -33,14 +33,20 @@ export class VehicleCreateFormActions implements OnInit, OnDestroy {
   private registerEvents(): void {
     this._subscriptions.push(
       this.validateButtonClicked
-        .subscribe(() => alert('The form is validated!')),
-      // this._createService.add(vehicle)
+        .subscribe(() =>  this.save()
+        ),
+
       this.resetButtonClicked
-        .subscribe(() => this._form.reset()),
+        .subscribe(() => this._form.reset()
+        ),
 
       this.cancelButtonClicked
-        .subscribe(() => this._createService.cancel())
+        .subscribe(() => this._createService.cancel()
+        )
     );
   }
 
+  private save() {
+    this._createService.add(this._form.asFormGroup.value);
+  }
 }

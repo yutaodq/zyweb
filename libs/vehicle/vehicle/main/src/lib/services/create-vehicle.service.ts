@@ -11,6 +11,7 @@ import { ExistsByNameApi, VehicleDataService } from '@zyweb/shared/data-access/a
 import { Observable, of } from 'rxjs';
 import { VehicleUseStateFacade } from '@zyweb/vehicle/use-state/data-access/store';
 import { map } from 'rxjs/operators';
+import { v4 as uuidv4 } from 'uuid';
 
 @Injectable()
 export class CreateVehicleService {
@@ -26,51 +27,52 @@ export class CreateVehicleService {
   }
 
   add(vehicle: Vehicle) {
+    vehicle.id = uuidv4();
     this._vehicleFacade.add(vehicle);
   }
 
-  getVehiclesUseState(): Observable<VehicleUseState[]> {
-    // const emptyState: VehicleUseState = { id: '', name: '不填写', description: '', updateType: '' };
-    const emptyState = generateMockVehicleUseState();
-    // return this._vehicleUseStateFacade.vehicleUseStates$
-    //   .pipe(
-    //     startWith([emptyState]),
-    //     map(vehicleUseStates => [...vehicleUseStates]),
-    //
-    //   );
-    return this._vehicleUseStateFacade.entities$;
+  // getVehiclesUseState(): Observable<VehicleUseState[]> {
+  //   // const emptyState: VehicleUseState = { id: '', name: '不填写', description: '', updateType: '' };
+  //   const emptyState = generateMockVehicleUseState();
+  //   // return this._vehicleUseStateFacade.vehicleUseStates$
+  //   //   .pipe(
+  //   //     startWith([emptyState]),
+  //   //     map(vehicleUseStates => [...vehicleUseStates]),
+  //   //
+  //   //   );
+  //   return this._vehicleUseStateFacade.entities$;
+  //
+  //   // return this._vehicleUseStateFacade.entities$
+  //   //   .pipe(map(vehicleUseStates => [emptyState, ...vehicleUseStates]
+  //   //     )
+  //   //   );
+  // }
 
-    // return this._vehicleUseStateFacade.entities$
-    //   .pipe(map(vehicleUseStates => [emptyState, ...vehicleUseStates]
-    //     )
-    //   );
-  }
+  // isNbpzExists(): AsyncValidatorFn {
+  //   return (control: AbstractControl): Promise<ValidationErrors | null>
+  //     | Observable<ValidationErrors | null> => {
+  //     const value = control.value;
+  //     if (!value) {
+  //       return of(null);
+  //     }
+  //     return this.vehicleDataService.existsByNbpz(value).pipe(
+  //       map(valid => (!valid ? { FORMLY_UNIQUE_NAME: true } : null))
+  //     );
+  //   };
+  // }
 
-  isNbpzExists(): AsyncValidatorFn {
-    return (control: AbstractControl): Promise<ValidationErrors | null>
-      | Observable<ValidationErrors | null> => {
-      const value = control.value;
-      if (!value) {
-        return of(null);
-      }
-      return this.vehicleDataService.existsByNbpz(value).pipe(
-        map(valid => (!valid ? { FORMLY_UNIQUE_NAME: true } : null))
-      );
-    };
-  }
-
-  isPzExists(): AsyncValidatorFn {
-    return (control: AbstractControl): Promise<ValidationErrors | null>
-      | Observable<ValidationErrors | null> => {
-      const value = control.value;
-      if (!value) {
-        return of(null);
-      }
-      return this.vehicleDataService.existsByPz(value).pipe(
-        map(valid => (!valid ? { FORMLY_UNIQUE_NAME: true } : null))
-      );
-    };
-  }
+  // isPzExists(): AsyncValidatorFn {
+  //   return (control: AbstractControl): Promise<ValidationErrors | null>
+  //     | Observable<ValidationErrors | null> => {
+  //     const value = control.value;
+  //     if (!value) {
+  //       return of(null);
+  //     }
+  //     return this.vehicleDataService.existsByPz(value).pipe(
+  //       map(valid => (!valid ? { FORMLY_UNIQUE_NAME: true } : null))
+  //     );
+  //   };
+  // }
   nameResults(): Observable<Vehicle[]> {
     return this._vehicleFacade.entities$
   }

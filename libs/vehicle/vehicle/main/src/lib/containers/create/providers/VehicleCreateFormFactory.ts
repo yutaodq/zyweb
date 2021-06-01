@@ -7,7 +7,7 @@ import { VehicleCreateFormDataProvider } from './VehicleCreateFormDataProvider';
 @Injectable()
 export class VehicleCreateFormFactory {
 
-  constructor(private _fb: FormBuilder,
+  constructor(private readonly _fb: FormBuilder,
               private _formDataProvider: VehicleCreateFormDataProvider
   ) {
   }
@@ -26,7 +26,7 @@ export class VehicleCreateFormFactory {
       sccj: ['生产厂家'],
       ccrq: [null],
       tcrq: [null],
-      yz: ['123'],
+      yz: [123],
       csys: ['车身颜色'],
       fdjxh: ['发动机型号'],
       fdjbh: ['发动机编号'],
