@@ -4,6 +4,7 @@ import { ListComponent as VehicleListComponent } from './containers/list/list.co
 import { DetailComponent as VehicleDetailComponent } from './containers/detail/detail.component';
 import { VehicleExistsGuard } from './guards/vehicle-exists.guard';
 import { CreateComponent as VehicleCreateComponent } from './containers/create/create.component';
+import { CreateStructureForm, CreateVehicleForm } from './components/create-form';
 
 const routes: Routes = [
   { path: '', redirectTo: 'list', pathMatch: 'full' },
@@ -20,6 +21,17 @@ const routes: Routes = [
   {
     path: 'create',
     component: VehicleCreateComponent,
+    children:[
+      { path: '', redirectTo: 'createVehicle', pathMatch: 'full' },
+      {
+        path: 'createVehicle',
+        component: CreateVehicleForm,
+      },
+      {
+        path: 'createStructure',
+        component: CreateStructureForm,
+      },
+    ]
   },
 
 ];

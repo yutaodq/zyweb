@@ -19,7 +19,7 @@ import { SharedUiFormModule } from '@zyweb/shared/ui/form';
     VehicleMainComponentsModule,
     ReactiveFormsModule,
     ThemePrimengModule,
-    SharedUiFormModule
+    SharedUiFormModule,
 
   ],
   declarations: [

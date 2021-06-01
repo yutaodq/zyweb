@@ -11,6 +11,7 @@ import {
   VehicleCreateFormDataProvider,
   VehicleCreateFormFactory
 } from './providers';
+import { MenuItem } from 'primeng/api';
 
 /*
 https://github.com/vladeye/druo-dashboard-app/tree/master/src/app/content/pages
@@ -34,7 +35,9 @@ D:\学习案例\druo-dashboard\src\app\content\pages\components\invoices\invoice
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 
-export class CreateComponent  {
+export class CreateComponent  implements OnInit  {
+  items: MenuItem[];
+
   ageIsGreaterThanTen: Observable<boolean>;
   formIsValid: Observable<boolean>;
 
@@ -46,6 +49,27 @@ export class CreateComponent  {
   ) {
     this.ageIsGreaterThanTen = this.form.ageIsGreaterThan(10);
     this.formIsValid = this.form.isValid();
+  }
+
+  ngOnInit(): void {
+    this.items = [{
+      label: '基础信息',
+      routerLink: 'createVehicle'
+    },
+      {
+        label: '车身结构',
+        routerLink: 'createStructure'
+      },
+      {
+        label: 'Payment',
+        routerLink: 'payment'
+      },
+      {
+        label: 'Confirmation',
+        routerLink: 'confirmation'
+      }
+    ];
+
   }
 
 
