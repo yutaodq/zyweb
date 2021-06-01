@@ -28,6 +28,7 @@ export class CreateVehicleService {
 
   add(vehicle: Vehicle) {
     vehicle.id = uuidv4();
+    console.log('aaaaaaa:' + vehicle.ccrq)
     this._vehicleFacade.add(vehicle);
   }
 
