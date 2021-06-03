@@ -3,8 +3,9 @@ import { RouterModule, Routes } from '@angular/router';
 import { ListComponent as VehicleListComponent } from './containers/list/list.component';
 import { DetailComponent as VehicleDetailComponent } from './containers/detail/detail.component';
 import { VehicleExistsGuard } from './guards/vehicle-exists.guard';
-import { CreateComponent as VehicleCreateComponent } from './containers/create/create.component';
+import { CreateComponent } from './containers/create/create.component';
 import { CreateStructureForm, CreateVehicleForm } from './components/create-form';
+import { CreateVehicleComponent } from './containers/create/vehicle/create-vehicle.component';
 
 const routes: Routes = [
   { path: '', redirectTo: 'list', pathMatch: 'full' },
@@ -20,12 +21,12 @@ const routes: Routes = [
   },
   {
     path: 'create',
-    component: VehicleCreateComponent,
+    component: CreateComponent,
     children:[
       { path: '', redirectTo: 'createVehicle', pathMatch: 'full' },
       {
         path: 'createVehicle',
-        component: CreateVehicleForm,
+        component: CreateVehicleComponent,
       },
       {
         path: 'createStructure',

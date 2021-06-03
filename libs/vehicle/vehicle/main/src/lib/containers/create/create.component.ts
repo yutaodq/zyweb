@@ -21,16 +21,16 @@ D:\学习案例\druo-dashboard\src\app\content\pages\components\invoices\invoice
   selector: 'zyweb-vehicle-create',
   templateUrl: './create.component.html',
   styleUrls: ['./create.component.scss'],
-  providers: [
-    VehicleCreateFormFactory,
-    {
-      provide: VehicleCreateForm,
-      useFactory: (factory: VehicleCreateFormFactory) => factory.create(),
-      deps: [VehicleCreateFormFactory]
-    },
-    VehicleCreateFormDataProvider,
-    VehicleCreateFormActions
-  ],
+  // providers: [
+  //   VehicleCreateFormFactory,
+  //   {
+  //     provide: VehicleCreateForm,
+  //     useFactory: (factory: VehicleCreateFormFactory) => factory.create(),
+  //     deps: [VehicleCreateFormFactory]
+  //   },
+  //   VehicleCreateFormDataProvider,
+  //   VehicleCreateFormActions
+  // ],
 
   changeDetection: ChangeDetectionStrategy.OnPush,
 })

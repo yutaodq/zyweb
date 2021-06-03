@@ -10,7 +10,7 @@ export class VehicleCreateFormActions implements OnInit, OnDestroy {
   validateButtonClicked = new Subject<void>();
   resetButtonClicked = new Subject<void>();
   cancelButtonClicked = new Subject<void>();
-
+vehicleCreatreFormNextClicked = new Subject<void>();
   constructor(
     private _createService: CreateVehicleService,
     private _form: VehicleCreateForm
@@ -32,6 +32,9 @@ export class VehicleCreateFormActions implements OnInit, OnDestroy {
    */
   private registerEvents(): void {
     this._subscriptions.push(
+      this.vehicleCreatreFormNextClicked
+        .subscribe(() =>  this.vehicleCreatreFormNext()
+        ),
       this.validateButtonClicked
         .subscribe(() =>  this.save()
         ),
@@ -45,7 +48,9 @@ export class VehicleCreateFormActions implements OnInit, OnDestroy {
         )
     );
   }
-
+private vehicleCreatreFormNext() {
+    console.log('aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa')
+}
   private save() {
     this._createService.add(this._form.asFormGroup.value);
   }

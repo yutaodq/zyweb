@@ -11,6 +11,14 @@ import { VehicleDataService } from '@zyweb/shared/data-access/api/lvms';
 import { ReactiveFormsModule } from '@angular/forms';
 import { ThemePrimengModule } from '@zyweb/shared/ui/common';
 import { SharedUiFormModule } from '@zyweb/shared/ui/form';
+import {
+  VehicleCreateForm,
+  VehicleCreateFormActions,
+  VehicleCreateFormDataProvider,
+  VehicleCreateFormFactory
+} from './providers';
+import { CreateVehicleComponent } from './vehicle/create-vehicle.component';
+import { SharedUiDirectiveModule } from '@zyweb/shared/ui/directive';
 
 @NgModule({
   imports: [
@@ -20,16 +28,28 @@ import { SharedUiFormModule } from '@zyweb/shared/ui/form';
     ReactiveFormsModule,
     ThemePrimengModule,
     SharedUiFormModule,
+    SharedUiDirectiveModule,
 
   ],
   declarations: [
     CreateComponent,
+    CreateVehicleComponent
   ],
-   providers: [
-     VehicleDataService,
-     VehicleFacade,
-     VehicleUseStateFacade,
-     CreateVehicleService,
-   ],
+  providers: [
+    VehicleDataService,
+    VehicleFacade,
+    VehicleUseStateFacade,
+    CreateVehicleService,
+    VehicleCreateFormFactory,
+    {
+      provide: VehicleCreateForm,
+      useFactory: (factory: VehicleCreateFormFactory) => factory.create(),
+      deps: [VehicleCreateFormFactory]
+    },
+    VehicleCreateFormDataProvider,
+    VehicleCreateFormActions
+
+  ]
 })
-export class VehicleMainContainersCreateModule {}
+export class VehicleMainContainersCreateModule {
+}
