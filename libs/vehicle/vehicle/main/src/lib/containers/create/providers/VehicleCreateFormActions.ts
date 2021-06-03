@@ -2,6 +2,7 @@ import { Injectable, OnDestroy, OnInit } from '@angular/core';
 import { Subject, Subscription } from 'rxjs';
 import { VehicleCreateForm } from './VehicleCreateForm';
 import { CreateVehicleService } from '../../../services';
+import { Vehicle } from '@zyweb/shared/data-access/model/lvms';
 
 @Injectable()
 export class VehicleCreateFormActions implements OnInit, OnDestroy {
@@ -49,7 +50,8 @@ vehicleCreatreFormNextClicked = new Subject<void>();
     );
   }
 private vehicleCreatreFormNext() {
-    console.log('aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa')
+  const vehicle = this._form.asFormGroup.value as Vehicle;
+  this._createService.vehicleCreatreFormNext(vehicle)
 }
   private save() {
     this._createService.add(this._form.asFormGroup.value);

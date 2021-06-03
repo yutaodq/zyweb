@@ -22,6 +22,10 @@ export class CreateVehicleService {
   ) {
   }
 
+  vehicleCreatreFormNext(vehicle: Vehicle) {
+    console.log('aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaCreateVehicleServiceCreateVehicleService')
+  }
+
   cancel() {
     this._vehicleFacade.cancelCreate();
   }
