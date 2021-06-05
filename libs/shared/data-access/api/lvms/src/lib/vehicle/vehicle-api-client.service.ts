@@ -22,10 +22,10 @@
 //   ) {
 //   }
 //
-//   public update(vehicle: Update<Vehicle>): Observable<Vehicle> {
-//     const {id, changes} = vehicle;
+//   public update(information: Update<Vehicle>): Observable<Vehicle> {
+//     const {id, changes} = information;
 //     return this.apiService.put(FEATURE_URL_FULL + id , changes);
-//     // return this.apiService.put(FEATURE_URL_FULL + vehicle.id , vehicle.changes);
+//     // return this.apiService.put(FEATURE_URL_FULL + information.id , information.changes);
 //   }
 //
 //   // updateBulk(items: Update<Item>[]) {
@@ -45,8 +45,8 @@
 //     return this.apiService.delete<Vehicle>(FEATURE_URL_FULL + id);
 //   }
 //
-//   public addVehicle(vehicle: Vehicle): Observable<Vehicle> {
-//     return this.apiService.post(FEATURE_URL_FULL, vehicle);
+//   public addVehicle(information: Vehicle): Observable<Vehicle> {
+//     return this.apiService.post(FEATURE_URL_FULL, information);
 //   }
 //
 //   public findByName(name: string): Observable<Vehicle[]> {

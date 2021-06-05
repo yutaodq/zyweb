@@ -22,8 +22,9 @@ export class CreateVehicleService {
   ) {
   }
 
-  vehicleCreatreFormNext(vehicle: Vehicle) {
+  creatreInformationFormNext(vehicle: Vehicle) {
     console.log('aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaCreateVehicleServiceCreateVehicleService')
+    this._vehicleFacade.creatreInformationFormNext(vehicle: Vehicle);
   }
 
   cancel() {

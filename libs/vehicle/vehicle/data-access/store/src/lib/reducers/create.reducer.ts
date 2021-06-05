@@ -2,29 +2,39 @@ import {
    VehicleCreateActions
 } from '../actions';
 import { createReducer, on } from '@ngrx/store';
-import { Vehicle } from '@zyweb/shared/data-access/model/lvms';
+import { VehicleInformation,
+  VehicleParameter,
+  VehicleStructure,
+  VehicleSpecial
+} from '@zyweb/shared/data-access/model/lvms';
 
 export const vehicleCreatreFeatureKey = 'vehicleCreatre';
 
 export interface State {
-  vehicle: Vehicle;
+  vehicleInformation: VehicleInformation;
+  vehicleParameter: VehicleParameter,
+  vehicleStructure: VehicleStructure,
+  vehicleSpecial: VehicleSpecial,
   error: string;
   query: string;}
 
 const initialState: State = {
-  vehicle: null,
+  vehicleInformation: null,
+  vehicleParameter: null,
+  vehicleStructure: null,
+  vehicleSpecial: null,
   error: '',
   query: '',
 };
 
 export const reducer = createReducer(
   initialState,
-  on(VehicleCreateActions.vehicleCreatreFormNext, (state, { vehicle }) => ({
+  on(VehicleCreateActions.vehicleCreatreInformationFormNext, (state, { vehicleInformation }) => ({
     ...state,
-    vehicle: vehicle
+    vehicleInformation: vehicleInformation
   })),
 
 );
 
-export const getVehicle = (state: State) => state.vehicle;
+export const getVehicle = (state: State) => state.vehicleInformation;
 

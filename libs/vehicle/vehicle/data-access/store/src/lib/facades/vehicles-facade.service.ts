@@ -58,7 +58,7 @@ export class VehicleFacade {
 
 
   /**
-   * Loads vehicle from the server
+   * Loads information from the server
    */
 
   public unregisterEvents() {
@@ -77,16 +77,21 @@ export class VehicleFacade {
   }
 
   showDetail(id: string) {
-    this.routeTo({ path: ['vehicle', id, 'detail'] });
+    this.routeTo({ path: ['information', id, 'detail'] });
   }
 
   returnToList() {
-    this.routeTo({ path: ['vehicle', 'list'] });
+    this.routeTo({ path: ['information', 'list'] });
   }
 
+/*
 
+ */
   create() {
-    this.routeTo({ path: ['vehicle', 'create'] });
+    this.routeTo({ path: ['information', 'create'] });
+
+  }
+  creatreInformationFormNext(vehicle: Vehicle) {
 
   }
 
@@ -95,14 +100,18 @@ export class VehicleFacade {
     this._appState$.dispatch(RouteActions.back());
   }
 
-  removeDetail(vehicle: Vehicle) {
-    return this._collectionService.delete(vehicle);
-  }
-
   add(vehicle: Vehicle) {
     return this._collectionService.add(vehicle);
 
   }
+
+  /*
+
+ */
+  removeDetail(vehicle: Vehicle) {
+    return this._collectionService.delete(vehicle);
+  }
+
 
   update(vehicle: Vehicle) {
     return this.updateVehicle(vehicle, UpdateType.UPDATE);

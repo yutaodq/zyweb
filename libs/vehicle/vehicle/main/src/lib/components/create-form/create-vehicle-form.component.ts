@@ -8,7 +8,7 @@ import { VehicleCreateFormDataProvider } from '../../containers/create/providers
 
 
 @Component({
-  selector: 'zyweb-vehicle-create-vehicle-form',
+  selector: 'zyweb-vehicle-create-information-form',
   templateUrl: './create-vehicle-form.component.html',
   styleUrls: []
 })

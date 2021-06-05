@@ -3,7 +3,7 @@
 //
 // import { Subscription } from 'rxjs';
 // import { Vehicle, VehicleUseState } from '@zyweb/shared/data-access/model/lvms';
-// import { CreateVehicleService } from '../../services/create-vehicle.service';
+// import { CreateVehicleService } from '../../services/create-information.service';
 // import { MasterCreateCommand } from '@zyweb/shared/util/utility';
 // import {
 //   VehicleCreateForm,
@@ -17,7 +17,7 @@
 // D:\学习案例\druo-dashboard\src\app\content\pages\components\invoices\invoices-routing.module.ts
 //  */
 // @Component({
-//   selector: 'zyweb-vehicle-create',
+//   selector: 'zyweb-information-create',
 //   templateUrl: './create.component.html',
 //   styleUrls: ['./create.component.scss'],
 //   providers: [
@@ -37,7 +37,7 @@
 // export class CreateComponent implements  MasterCreateCommand<Vehicle>, OnInit, OnDestroy {
 //
 //   private subscriptions: Array<Subscription> = [];
-//   public vehicle:        Vehicle;
+//   public information:        Vehicle;
 //   public commands = this;
 //
 //   constructor(
@@ -56,8 +56,8 @@
 //     this._createService.cancel()
 //   }
 //
-//   onAdd(vehicle: Vehicle) {
-//     this._createService.add(vehicle)
+//   onAdd(information: Vehicle) {
+//     this._createService.add(information)
 //   }
 //
 //   /**

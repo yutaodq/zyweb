@@ -1,7 +1,11 @@
 import { createAction, props } from '@ngrx/store';
-import { Vehicle } from '@zyweb/shared/data-access/model/lvms';
+import { VehicleInformation,
+  VehicleParameter,
+  VehicleStructure,
+  VehicleSpecial
+} from '@zyweb/shared/data-access/model/lvms';
 
-export const vehicleCreatreFormNext = createAction(
+export const vehicleCreatreInformationFormNext = createAction(
   '[Vehicle Cretate] Vehicle Creatre Form Next',
-  props<{ vehicle: Vehicle }>()
+  props<{ vehicleInformation: VehicleInformation }>()
 );

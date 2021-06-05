@@ -70,8 +70,8 @@ export class CreateFormComponent {
   // //   const name = event.query;
   // //    return this.formDataProvider.findVehicleName(name).pipe(
   // //     switchMap((vehicles) => vehicles.sort((a, b) => a.name.localeCompare(b.name))),
-  // //     filter(vehicle => vehicle.name.toString().toLocaleLowerCase().indexOf(name.toString().toLocaleLowerCase()) !== -1),
-  // //     distinct( vehicle =>vehicle.name),
+  // //     filter(information => information.name.toString().toLocaleLowerCase().indexOf(name.toString().toLocaleLowerCase()) !== -1),
+  // //     distinct( information =>information.name),
   // //     toArray()
   // //   )
   // // }

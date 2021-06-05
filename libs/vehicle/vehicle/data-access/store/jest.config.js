@@ -1,5 +1,5 @@
 module.exports = {
-  displayName: 'vehicle-vehicle-data-access-store',
+  displayName: 'information-information-data-access-store',
   preset: '../../../../../jest.preset.js',
   setupFilesAfterEnv: ['<rootDir>/src/test-setup.ts'],
   globals: {
@@ -15,7 +15,7 @@ module.exports = {
     },
   },
   coverageDirectory:
-    '../../../../../coverage/libs/vehicle/vehicle/data-access/store',
+    '../../../../../coverage/libs/information/information/data-access/store',
   snapshotSerializers: [
     'jest-preset-angular/build/AngularNoNgAttributesSnapshotSerializer.js',
     'jest-preset-angular/build/AngularSnapshotSerializer.js',

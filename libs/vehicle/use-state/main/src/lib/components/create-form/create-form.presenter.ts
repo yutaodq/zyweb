@@ -43,7 +43,7 @@
 //   //   }
 //   //   const vehicleUseState: VehicleUseState = this.model as VehicleUseState;
 //   //   /*
-//   //     可写成 ( this.isEmpty(vehicle.id) ) && (vehicle.id = uuidv4());
+//   //     可写成 ( this.isEmpty(information.id) ) && (information.id = uuidv4());
 //   //     但 tslint.json出现报警信息
 //   //    */
 //   //   if (this.isEmpty(vehicleUseState.id)) {

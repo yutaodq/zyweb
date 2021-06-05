@@ -2,7 +2,7 @@
 // import { select, Store } from '@ngrx/store';
 // import { Subscription } from 'rxjs';
 //
-// import * as fromVehicleUseTypes from '@zyweb/vehicle/use-type/data-access/store';
+// import * as fromVehicleUseTypes from '@zyweb/information/use-type/data-access/store';
 // import { Router } from '@angular/router';
 // import { Sandbox } from '@zyweb/shared/data-access/facade/base';
 // // import { go, back } from '@zyweb/shared/data-access/store/ngrx-router';
@@ -34,7 +34,7 @@
 //   }
 //
 //   /**
-//    * Loads vehicle from the server
+//    * Loads information from the server
 //    */
 //   public dispatchLoadVehicleUseTypes(): void {
 //     this.appState$.dispatch(

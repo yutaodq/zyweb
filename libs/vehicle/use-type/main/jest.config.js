@@ -1,5 +1,5 @@
 module.exports = {
-  displayName: 'vehicle-use-type-main',
+  displayName: 'information-use-type-main',
   preset: '../../../../jest.preset.js',
   setupFilesAfterEnv: ['<rootDir>/src/test-setup.ts'],
   globals: {
@@ -14,7 +14,7 @@ module.exports = {
       },
     },
   },
-  coverageDirectory: '../../../../coverage/libs/vehicle/use-type/main',
+  coverageDirectory: '../../../../coverage/libs/information/use-type/main',
   snapshotSerializers: [
     'jest-preset-angular/build/AngularNoNgAttributesSnapshotSerializer.js',
     'jest-preset-angular/build/AngularSnapshotSerializer.js',

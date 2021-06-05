@@ -1,5 +1,5 @@
 // import { Observable } from 'rxjs';
-// import { CreateVehicleService } from './create-vehicle.service';
+// import { CreateVehicleService } from './create-information.service';
 // import { concatAll, filter, first } from 'rxjs/operators';
 //
 // export function loadForms(service: CreateVehicleService): Observable<any> {

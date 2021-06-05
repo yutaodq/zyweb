@@ -51,7 +51,7 @@ export class DetailComponent implements MasterDetailCommand<Vehicle>, OnInit, On
   }
 
   // public update(): void {
-  //   this._detailService.update(this.vehicle);
+  //   this._detailService.update(this.information);
   // }
 
 

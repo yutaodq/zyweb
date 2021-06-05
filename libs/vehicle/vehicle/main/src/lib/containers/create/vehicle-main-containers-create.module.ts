@@ -17,7 +17,7 @@ import {
   VehicleCreateFormDataProvider,
   VehicleCreateFormFactory
 } from './providers';
-import { CreateVehicleComponent } from './vehicle/create-vehicle.component';
+import { CreateInformationComponent } from './information/create-information.component';
 import { SharedUiDirectiveModule } from '@zyweb/shared/ui/directive';
 
 @NgModule({
@@ -33,7 +33,7 @@ import { SharedUiDirectiveModule } from '@zyweb/shared/ui/directive';
   ],
   declarations: [
     CreateComponent,
-    CreateVehicleComponent
+    CreateInformationComponent
   ],
   providers: [
     VehicleDataService,

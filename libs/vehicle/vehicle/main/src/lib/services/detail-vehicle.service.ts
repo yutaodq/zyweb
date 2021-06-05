@@ -60,9 +60,9 @@ export class DetailVehicleService {
   //     data: entity
   //   });
   //
-  //   this._ref.onClose.subscribe((vehicle) => {
-  //     if (vehicle) {
-  //       this._vehicleFacade.update(vehicle);
+  //   this._ref.onClose.subscribe((information) => {
+  //     if (information) {
+  //       this._vehicleFacade.update(information);
   //     }
   //   });
   // }

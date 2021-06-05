@@ -1,3 +1,3 @@
-export * from './vehicle-use-types-facade.service';
-export * from './vehicle-use-type-search-ngrx-grid.service'
-export * from './vehicle-use-type-exists.service'
+export * from './information-use-types-facade.service';
+export * from './information-use-type-search-ngrx-grid.service'
+export * from './information-use-type-exists.service'

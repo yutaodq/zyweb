@@ -7,7 +7,7 @@
 // import { Observable, of, Subscription } from 'rxjs';
 // import { catchError, filter, map, switchMap, take, tap } from 'rxjs/operators';
 //
-// import * as fromVehicleUseTypes from '@zyweb/vehicle/use-type/data-access/store';
+// import * as fromVehicleUseTypes from '@zyweb/information/use-type/data-access/store';
 // import {  Router } from '@angular/router';
 // import { VehicleUseTypesApiClient } from '@zyweb/shared/data-access/api/lvms';
 //

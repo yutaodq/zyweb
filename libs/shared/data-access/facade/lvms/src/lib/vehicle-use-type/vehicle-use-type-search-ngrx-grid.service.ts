@@ -1,7 +1,7 @@
 // import { Injectable } from '@angular/core';
 // import { select, Store } from '@ngrx/store';
 //
-// import * as fromVehicleUseTypes from '@zyweb/vehicle/use-type/data-access/store';
+// import * as fromVehicleUseTypes from '@zyweb/information/use-type/data-access/store';
 // import { SearchNgrxGridService } from '@zyweb/shared/grid/core';
 //
 // @Injectable()

@@ -51,7 +51,7 @@ vehicleCreatreFormNextClicked = new Subject<void>();
   }
 private vehicleCreatreFormNext() {
   const vehicle = this._form.asFormGroup.value as Vehicle;
-  this._createService.vehicleCreatreFormNext(vehicle)
+  this._createService.creatreInformationFormNext(vehicle)
 }
   private save() {
     this._createService.add(this._form.asFormGroup.value);

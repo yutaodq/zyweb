@@ -15,13 +15,13 @@ https://github.com/vladeye/druo-dashboard-app/tree/master/src/app/content/pages
 D:\学习案例\druo-dashboard\src\app\content\pages\components\invoices\invoices-routing.module.ts
  */
 @Component({
-  selector: 'zyweb-vehicle-create-vehicle-form',
-  templateUrl: './create-vehicle.component.html',
+  selector: 'zyweb-vehicle-create-special-form',
+  templateUrl: './create-special.component.html',
 
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 
-export class CreateVehicleComponent  implements OnInit  {
+export class CreateSpecialComponent  implements OnInit  {
 
   ageIsGreaterThanTen: Observable<boolean>;
   formIsValid: Observable<boolean>;

@@ -55,19 +55,19 @@
 //     if (!this.isFormValid()) {
 //       return;
 //     }
-//     const vehicle: Vehicle = this.model as Vehicle;
+//     const information: Vehicle = this.model as Vehicle;
 //     /*
-//       可写成 ( this.isEmpty(vehicle.id) ) && (vehicle.id = uuidv4());
+//       可写成 ( this.isEmpty(information.id) ) && (information.id = uuidv4());
 //       但 tslint.json出现报警信息
 //      */
-//     if (this.isEmpty(vehicle.id)) {
-//       vehicle.id = uuidv4();
+//     if (this.isEmpty(information.id)) {
+//       information.id = uuidv4();
 //     }
 //
-//     Object.keys(vehicle).forEach(
-//       (key) => (vehicle[key] === null || vehicle[key] === '') && delete vehicle[key]);
+//     Object.keys(information).forEach(
+//       (key) => (information[key] === null || information[key] === '') && delete information[key]);
 //
-//     this._add.next(vehicle);
+//     this._add.next(information);
 //   }
 //
 //   private isEmpty(id: string) {

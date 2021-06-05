@@ -4,7 +4,7 @@ import { NgModule } from '@angular/core';
 
 const routes: Routes = [
   {
-    path: 'vehicle',
+    path: 'information',
     loadChildren: () => import('@zyweb/vehicle/vehicle/main')
       .then((m) => m.VehicleMainModule),
   },
