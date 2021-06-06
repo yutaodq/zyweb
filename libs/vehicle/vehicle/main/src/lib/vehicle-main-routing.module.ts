@@ -4,8 +4,12 @@ import { ListComponent as VehicleListComponent } from './containers/list/list.co
 import { DetailComponent as VehicleDetailComponent } from './containers/detail/detail.component';
 import { VehicleExistsGuard } from './guards/vehicle-exists.guard';
 import { CreateComponent } from './containers/create/create.component';
-import { CreateStructureForm, CreateVehicleForm } from './components/create-form';
-import { CreateInformationComponent } from './containers/create/information/create-information.component';
+import {
+  CreateInformationComponent,
+  CreateParameterComponent,
+  CreateSpecialComponent,
+  CreateStructureComponent
+} from './containers/create';
 
 const routes: Routes = [
   { path: '', redirectTo: 'list', pathMatch: 'full' },
@@ -23,15 +27,24 @@ const routes: Routes = [
     path: 'create',
     component: CreateComponent,
     children:[
-      { path: '', redirectTo: 'createVehicle', pathMatch: 'full' },
+      { path: '', redirectTo: 'createInformation', pathMatch: 'full' },
       {
-        path: 'createVehicle',
+        path: 'createInformation',
         component: CreateInformationComponent,
       },
       {
         path: 'createStructure',
-        component: CreateStructureForm,
+        component: CreateStructureComponent,
       },
+      {
+        path: 'createParameter',
+        component: CreateParameterComponent,
+      },
+      {
+        path: 'createSpecial',
+        component: CreateSpecialComponent,
+      },
+
     ]
   },
 

@@ -61,11 +61,15 @@ export class CreateComponent  implements OnInit  {
         routerLink: 'createStructure'
       },
       {
-        label: 'Payment',
-        routerLink: 'payment'
+        label: '技术参数',
+        routerLink: 'createParameter'
       },
       {
-        label: 'Confirmation',
+        label: '特种设备',
+        routerLink: 'createSpecial'
+      },
+      {
+        label: '保存确认',
         routerLink: 'confirmation'
       }
     ];

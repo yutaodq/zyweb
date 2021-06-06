@@ -4,7 +4,7 @@ import { NgModule } from '@angular/core';
 
 const routes: Routes = [
   {
-    path: 'information',
+    path: 'vehicle',
     loadChildren: () => import('@zyweb/vehicle/vehicle/main')
       .then((m) => m.VehicleMainModule),
   },
@@ -23,7 +23,7 @@ const routes: Routes = [
     loadChildren: () => import('@zyweb/feature/common/not-found')
       .then((m) => m.FeatureCommonNotFoundModule),
   },
-  { path: '', redirectTo: 'vehicleUseState', pathMatch: 'full' },
+  { path: '', redirectTo: 'vehicle', pathMatch: 'full' },
 
 ];
 

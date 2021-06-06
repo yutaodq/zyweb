@@ -11,7 +11,7 @@ import * as fromSearch from './search.reducer';
 
 import * as fromCretate from './create.reducer';
 
-export const vehiclesFeatureKey = ' information';
+export const vehiclesFeatureKey = 'vehicle';
 
 export interface VehiclesState {
   [fromSearch.searchFeatureKey]: fromSearch.State;

@@ -5,8 +5,9 @@ import { EntityCollectionService, EntityServices } from '@ngrx/data';
 
 import { Vehicle } from '@zyweb/shared/data-access/model/lvms';
 import { RouteActions } from '@zyweb/shared/data-access/store/ngrx-router';
-import * as fromStaes from '../reducers';
+import * as fromStates from '../reducers';
 import { map } from 'rxjs/operators';
+import { VehicleCreateActions } from '../actions';
 
 export enum UpdateType {
   UPDATE = 'update',
@@ -20,7 +21,7 @@ export class VehicleFacade {
   private subscriptions: Array<Subscription> = [];
 
   constructor(
-    private _appState$: Store<fromStaes.State>,
+    private _appState$: Store<fromStates.State>,
     entityServices: EntityServices
   ) {
     this._collectionService =
@@ -77,21 +78,24 @@ export class VehicleFacade {
   }
 
   showDetail(id: string) {
-    this.routeTo({ path: ['information', id, 'detail'] });
+    this.routeTo({ path: ['vehicle', id, 'detail'] });
   }
 
   returnToList() {
-    this.routeTo({ path: ['information', 'list'] });
+    this.routeTo({ path: ['vehicle', 'list'] });
   }
 
 /*
-
+ create start
  */
   create() {
-    this.routeTo({ path: ['information', 'create'] });
+    this.routeTo({ path: ['vehicle', 'create'] });
 
   }
-  creatreInformationFormNext(vehicle: Vehicle) {
+  createInformationFormNext(vehicle: Vehicle) {
+    this._appState$.dispatch(VehicleCreateActions.vehicleCreatreInformationFormNext({ vehicleInformation: vehicle }));
+    this.routeTo({ path: ['vehicle', 'create', 'createStructure'] });
+
 
   }
 
@@ -106,7 +110,7 @@ export class VehicleFacade {
   }
 
   /*
-
+create end
  */
   removeDetail(vehicle: Vehicle) {
     return this._collectionService.delete(vehicle);
