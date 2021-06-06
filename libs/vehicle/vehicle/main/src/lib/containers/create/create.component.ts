@@ -54,7 +54,7 @@ export class CreateComponent  implements OnInit  {
   ngOnInit(): void {
     this.items = [{
       label: '基础信息',
-      routerLink: 'createVehicle'
+      routerLink: 'createInformation'
     },
       {
         label: '车身结构',

@@ -20,11 +20,15 @@ import { Subject } from 'rxjs';
 
 
 export class NewFormButtonComponent implements OnInit {
-  @Input()   public isFormValid = false;
+  @Input() isFormValid = false;
+  
   @Input() validateButtonClicked: Subject<void>;
   @Input() resetButtonClicked: Subject<void>;
   @Input() cancelButtonClicked: Subject<void>;
+  @Input() previousStepButtonClicked: Subject<void>;
+  @Input() nextStepButtonClicked: Subject<void>;
 
+  @Input() isStepsFrom = false;
 
   @Output() cancelEvent: EventEmitter<string> = new EventEmitter();
   @Output() resetEvent: EventEmitter<string> = new EventEmitter();
@@ -32,6 +36,14 @@ export class NewFormButtonComponent implements OnInit {
   constructor() {  }
 
   ngOnInit(): void {  }
+public isShowPreviousStepButton(){
+    return this.isStepsFrom;
+}
+
+  public isShowNextStepButton(){
+    return this.isStepsFrom;
+  }
+
 
   public reset() {
     this.resetEvent.emit();
