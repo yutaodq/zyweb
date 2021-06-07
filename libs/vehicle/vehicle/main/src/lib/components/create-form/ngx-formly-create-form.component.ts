@@ -22,7 +22,7 @@
 // @Component({
 //   selector: 'zyweb-information-create-form',
 //   templateUrl: './ngx-formly-create-spartacus-form.component.html',
-//   styleUrls: ['./create-form.component.scss'],
+//   styleUrls: ['./create-information-form.component.scss'],
 //   providers: []
 //   // changeDetection: ChangeDetectionStrategy.OnPush
 // })

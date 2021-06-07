@@ -1,21 +1,22 @@
 import { Injectable, OnDestroy, OnInit } from '@angular/core';
 import { Subject, Subscription } from 'rxjs';
-import { VehicleCreateForm } from './VehicleCreateForm';
-import { CreateVehicleService } from '../../../services';
+import { CreateStructureForm } from './create-structure.form';
 import { Vehicle } from '@zyweb/shared/data-access/model/lvms';
+import { CreateVehicleService } from '../../../../services';
 
 @Injectable()
-export class VehicleCreateFormActions implements OnInit, OnDestroy {
+export class CreateStructureFormActions implements OnInit, OnDestroy {
   private _subscriptions: Array<Subscription> = [];
 
-  validateButtonClicked = new Subject<void>();
   resetButtonClicked = new Subject<void>();
   cancelButtonClicked = new Subject<void>();
-  creatreInformationFormNextClicked = new Subject<void>();
+  creatreStructureFormNextClicked = new Subject<void>();
+
+  creatreStructureFormPreviousClicked = new Subject<void>();
 
   constructor(
     private _createService: CreateVehicleService,
-    private _form: VehicleCreateForm
+    private _form: CreateStructureForm
   ) {
     this.registerEvents();
 
@@ -34,11 +35,13 @@ export class VehicleCreateFormActions implements OnInit, OnDestroy {
    */
   private registerEvents(): void {
     this._subscriptions.push(
-      this.creatreInformationFormNextClicked
-        .subscribe(() => this.creatreInformationFormNext()
-        ),
-      this.validateButtonClicked
-        .subscribe(() => this.save()
+
+    this.creatreStructureFormPreviousClicked
+      .subscribe(() => this.creatreStructureFormPrevious()
+      ),
+
+      this.creatreStructureFormNextClicked
+        .subscribe(() => this.creatreStructureFormNext()
         ),
 
       this.resetButtonClicked
@@ -51,12 +54,13 @@ export class VehicleCreateFormActions implements OnInit, OnDestroy {
     );
   }
 
-  private creatreInformationFormNext() {
+  private creatreStructureFormNext() {
     const vehicle = this._form.asFormGroup.value as Vehicle;
     this._createService.createInformationFormNext(vehicle);
   }
 
-  private save() {
-    this._createService.add(this._form.asFormGroup.value);
+  private creatreStructureFormPrevious() {
+    this._createService.creatreStructureFormPrevious();
+
   }
 }

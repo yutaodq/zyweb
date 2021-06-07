@@ -6,10 +6,10 @@
 // import { CreateVehicleService } from '../../services/create-information.service';
 // import { MasterCreateCommand } from '@zyweb/shared/util/utility';
 // import {
-//   VehicleCreateForm,
-//   VehicleCreateFormActions,
-//   VehicleCreateFormDataProvider,
-//   VehicleCreateFormFactory
+//   CreateStructureForm,
+//   CreateStructureFormActions,
+//   CreateStructureFormDataProvider,
+//   CreateStructureFormFactory
 // } from './providers';
 //
 // /*
@@ -21,14 +21,14 @@
 //   templateUrl: './create.component.html',
 //   styleUrls: ['./create.component.scss'],
 //   providers: [
-//     VehicleCreateFormFactory,
+//     CreateStructureFormFactory,
 //     {
-//       provide: VehicleCreateForm,
-//       useFactory: (factory: VehicleCreateFormFactory) => factory.create(),
-//       deps: [VehicleCreateFormFactory]
+//       provide: CreateStructureForm,
+//       useFactory: (factory: CreateStructureFormFactory) => factory.create(),
+//       deps: [CreateStructureFormFactory]
 //     },
-//     VehicleCreateFormDataProvider,
-//     VehicleCreateFormActions
+//     CreateStructureFormDataProvider,
+//     CreateStructureFormActions
 //   ],
 //
 //   changeDetection: ChangeDetectionStrategy.OnPush,

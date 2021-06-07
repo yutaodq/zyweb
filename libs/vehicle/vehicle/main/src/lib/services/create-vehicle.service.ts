@@ -21,10 +21,27 @@ export class CreateVehicleService {
               private _asyncValidatorNameExistsService: AsyncValidatorNameExistsService
   ) {
   }
-
+/*
+ createInformation start
+ */
   createInformationFormNext(vehicle: Vehicle) {
     this._vehicleFacade.createInformationFormNext(vehicle);
   }
+  /*
+ createInformation end
+ */
+
+  /*
+  creatreStructure start
+   */
+  creatreStructureFormPrevious() {
+    this._vehicleFacade.creatreStructureFormPrevious();
+
+  }
+
+  /*
+  creatreStructure end
+   */
 
   cancel() {
     this._vehicleFacade.cancelCreate();
@@ -103,4 +120,4 @@ export class CreateVehicleService {
   //   );
   // }
 
-}
+ }

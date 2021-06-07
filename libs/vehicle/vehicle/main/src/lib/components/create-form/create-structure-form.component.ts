@@ -1,6 +1,7 @@
 import {
   Component, Input
 } from '@angular/core';
+import { FormGroup } from '@angular/forms';
 
 @Component({
   selector: 'zyweb-vehicle-create-structure-form',
@@ -9,7 +10,9 @@ import {
 })
 
 
-export class CreateStructureForm {
+export class CreateStructureFormComponent {
+  @Input()
+  form: FormGroup;
 
   constructor(
   ) {

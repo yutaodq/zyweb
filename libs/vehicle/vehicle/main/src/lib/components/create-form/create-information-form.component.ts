@@ -36,14 +36,14 @@ import { VehicleFacade } from '@zyweb/vehicle/vehicle/data-access/store';
 
 @Component({
   selector: 'zyweb-vehicle-create-form',
-  templateUrl: './create-form.component.html',
-  styleUrls: ['./create-form.component.scss']
+  templateUrl: './create-information-form.component.html',
+  styleUrls: ['./create-information-form.component.scss']
   // changeDetection: ChangeDetectionStrategy.OnPush
 })
 
 
-export class CreateFormComponent {
-  // export class CreateFormComponent implements OnInit, AfterViewInit {
+export class CreateInformationFormComponent {
+  // export class CreateInformationFormComponent implements OnInit, AfterViewInit {
   // @ViewChild('nameAutoComplete') nameAutoComplete: AutoComplete;
 
   // private subscriptions: Array<Subscription> = [];

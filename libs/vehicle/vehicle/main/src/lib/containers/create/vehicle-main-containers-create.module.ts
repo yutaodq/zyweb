@@ -22,6 +22,11 @@ import { SharedUiDirectiveModule } from '@zyweb/shared/ui/directive';
 import { CreateStructureComponent } from './structure/create-structure.component';
 import { CreateSpecialComponent } from './special/create-special.component';
 import { CreateParameterComponent } from './parameter/create-parameter.component';
+import {
+  CreateStructureForm, CreateStructureFormActions,
+  CreateStructureFormDataProvider,
+  CreateStructureFormFactory
+} from './structure/providers';
 
 @NgModule({
   imports: [
@@ -54,7 +59,16 @@ import { CreateParameterComponent } from './parameter/create-parameter.component
       deps: [VehicleCreateFormFactory]
     },
     VehicleCreateFormDataProvider,
-    VehicleCreateFormActions
+    VehicleCreateFormActions,
+
+    CreateStructureFormFactory,
+    {
+      provide: CreateStructureForm,
+      useFactory: (factory: CreateStructureFormFactory) => factory.create(),
+      deps: [CreateStructureFormFactory]
+    },
+    CreateStructureFormDataProvider,
+    CreateStructureFormActions
 
   ]
 })

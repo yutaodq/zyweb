@@ -1,10 +1,11 @@
 <div class="row">
   <p-button label="上一步"
-            icon="pi pi-save"
+            *ngIf="isShowPreviousStepButton()"
+            icon="pi pi-step-backward"
             iconPos="left"
             type="submit"
             class=" mr-2, ml-2"
-            [zywebClickEvent]="validateButtonClicked"
+            [zywebClickEvent]="previousStepButtonClicked"
   >
   </p-button>
   <p-button label="保存新记录"
@@ -34,11 +35,12 @@
 
   </p-button>
   <p-button label="下一步"
-            icon="pi pi-save"
+            *ngIf="isShowNextStepButton()"
+            icon="pi pi-step-forward"
             iconPos="left"
             type="submit"
             class=" mr-2, ml-2"
-            [zywebClickEvent]="validateButtonClicked"
+            [zywebClickEvent]="nextStepButtonClicked"
   >
   </p-button>
 

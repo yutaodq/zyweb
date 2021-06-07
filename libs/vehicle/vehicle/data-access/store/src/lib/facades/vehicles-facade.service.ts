@@ -99,6 +99,10 @@ export class VehicleFacade {
 
   }
 
+  creatreStructureFormPrevious() {
+    this.routeTo({ path: ['vehicle', 'create', 'createInformation'] });
+
+  }
 
   cancelCreate() {
     this._appState$.dispatch(RouteActions.back());

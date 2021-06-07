@@ -22,14 +22,14 @@ D:\学习案例\druo-dashboard\src\app\content\pages\components\invoices\invoice
   templateUrl: './create.component.html',
   styleUrls: ['./create.component.scss'],
   // providers: [
-  //   VehicleCreateFormFactory,
+  //   CreateStructureFormFactory,
   //   {
-  //     provide: VehicleCreateForm,
-  //     useFactory: (factory: VehicleCreateFormFactory) => factory.create(),
-  //     deps: [VehicleCreateFormFactory]
+  //     provide: CreateStructureForm,
+  //     useFactory: (factory: CreateStructureFormFactory) => factory.create(),
+  //     deps: [CreateStructureFormFactory]
   //   },
-  //   VehicleCreateFormDataProvider,
-  //   VehicleCreateFormActions
+  //   CreateStructureFormDataProvider,
+  //   CreateStructureFormActions
   // ],
 
   changeDetection: ChangeDetectionStrategy.OnPush,

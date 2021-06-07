@@ -9,6 +9,7 @@ import {
   Output
 } from '@angular/core';
 import { Subject } from 'rxjs';
+import * as utils from 'lodash';
 
 
 @Component({
@@ -21,12 +22,13 @@ import { Subject } from 'rxjs';
 
 export class NewFormButtonComponent implements OnInit {
   @Input() isFormValid = false;
-  
+
   @Input() validateButtonClicked: Subject<void>;
   @Input() resetButtonClicked: Subject<void>;
   @Input() cancelButtonClicked: Subject<void>;
-  @Input() previousStepButtonClicked: Subject<void>;
-  @Input() nextStepButtonClicked: Subject<void>;
+
+  @Input() previousStepButtonClicked: Subject<void> = null;
+  @Input() nextStepButtonClicked: Subject<void> = null;
 
   @Input() isStepsFrom = false;
 
@@ -36,12 +38,14 @@ export class NewFormButtonComponent implements OnInit {
   constructor() {  }
 
   ngOnInit(): void {  }
-public isShowPreviousStepButton(){
-    return this.isStepsFrom;
+
+public isShowPreviousStepButton(): boolean {
+  // 简写 return utils.isNull(this.previousStepButtonClicked) ? false: true;
+  return !utils.isNull(this.previousStepButtonClicked);
 }
 
   public isShowNextStepButton(){
-    return this.isStepsFrom;
+    return !utils.isNull(this.nextStepButtonClicked);
   }
 
 

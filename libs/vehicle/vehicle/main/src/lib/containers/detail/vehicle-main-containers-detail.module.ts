@@ -7,7 +7,7 @@ import { SharedUiBaseModule } from '@zyweb/shared/ui/base';
 import { VehicleMainComponentsModule } from '../../components';
 import { DetailComponent } from './detail.component';
 import { VehicleFacade } from '@zyweb/vehicle/vehicle/data-access/store';
-import { DetailVehicleService } from '../../services/detail-vehicle.service';
+import { DetailVehicleService } from '../../services';
 
 @NgModule({
   imports: [

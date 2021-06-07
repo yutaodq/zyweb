@@ -2,17 +2,12 @@
 
     <zyweb-vehicle-create-form [form]="form.asFormGroup">
             <zyweb-shared-ui-base-new-form-button
-                [validateButtonClicked]="formActions.validateButtonClicked"
-                [resetButtonClicked]="formActions.resetButtonClicked"
-                [cancelButtonClicked]="formActions.cancelButtonClicked"
+                [validateButtonClicked]= "formActions.validateButtonClicked"
+                [resetButtonClicked]= "formActions.resetButtonClicked"
+                [cancelButtonClicked]= "formActions.cancelButtonClicked"
+                [nextStepButtonClicked]= "formActions.creatreInformationFormNextClicked"
               >
               </zyweb-shared-ui-base-new-form-button>
-      <p-button label="保存新记录"
-                icon="pi pi-save"
-                iconPos="left"
-                type="submit"
-                [zywebClickEvent]="formActions.vehicleCreatreFormNextClicked"
-      ></p-button>
 
     </zyweb-vehicle-create-form>
 
