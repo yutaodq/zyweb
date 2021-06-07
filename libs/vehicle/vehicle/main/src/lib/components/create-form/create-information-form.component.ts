@@ -29,7 +29,7 @@ import { Observable, pipe, Subscription } from 'rxjs';
 //   toArray
 // } from 'rxjs/operators';
 // import { BaseFormControl } from '@zyweb/shared/ui/base';
-import { VehicleCreateFormDataProvider } from '../../containers/create/providers';
+import { CreateInformationFormDataProvider } from '../../containers/create/information/providers';
 import { AutoComplete } from 'primeng/autocomplete';
 import { VehicleFacade } from '@zyweb/vehicle/vehicle/data-access/store';
 
@@ -53,7 +53,7 @@ export class CreateInformationFormComponent {
   form: FormGroup;
 
   constructor(
-    public formDataProvider: VehicleCreateFormDataProvider,
+    public formDataProvider: CreateInformationFormDataProvider,
 ) {
   }
 

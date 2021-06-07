@@ -1,14 +1,11 @@
 import { ChangeDetectionStrategy, ChangeDetectorRef, Component, OnDestroy, OnInit } from '@angular/core';
 
 import { Observable,  } from 'rxjs';
-import {
-  VehicleCreateForm,
-  VehicleCreateFormActions,
-  VehicleCreateFormDataProvider,
-  VehicleCreateFormFactory
-} from '../providers';
-import { MenuItem } from 'primeng/api';
 import { CreateVehicleService } from '../../../services';
+import { CreateSpecialForm,
+  CreateSpecialFormActions,
+  CreateSpecialFormDataProvider
+} from './providers';
 
 /*
 https://github.com/vladeye/druo-dashboard-app/tree/master/src/app/content/pages
@@ -23,16 +20,14 @@ D:\学习案例\druo-dashboard\src\app\content\pages\components\invoices\invoice
 
 export class CreateSpecialComponent  implements OnInit  {
 
-  ageIsGreaterThanTen: Observable<boolean>;
   formIsValid: Observable<boolean>;
 
   constructor(
     private _createService: CreateVehicleService,
-    public form: VehicleCreateForm,
-    public formDataProvider: VehicleCreateFormDataProvider,
-    public formActions: VehicleCreateFormActions
+    public form: CreateSpecialForm,
+    public formDataProvider: CreateSpecialFormDataProvider,
+    public formActions: CreateSpecialFormActions
   ) {
-    this.ageIsGreaterThanTen = this.form.ageIsGreaterThan(10);
     this.formIsValid = this.form.isValid();
   }
 

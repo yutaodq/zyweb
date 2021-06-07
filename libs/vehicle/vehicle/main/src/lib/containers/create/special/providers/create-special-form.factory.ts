@@ -1,20 +1,20 @@
 import { Injectable } from '@angular/core';
 import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
-import { VehicleCreateForm } from './VehicleCreateForm';
+import { CreateSpecialForm } from './create-special.form';
 import { BaseFormControl } from '@zyweb/shared/ui/base';
-import { VehicleCreateFormDataProvider } from './VehicleCreateFormDataProvider';
+import { CreateSpecialFormDataProvider } from './create-special-form-data.provider';
 
 @Injectable()
-export class VehicleCreateFormFactory {
+export class CreateSpecialFormFactory {
 
   constructor(private readonly _fb: FormBuilder,
-              private _formDataProvider: VehicleCreateFormDataProvider
+              private _formDataProvider: CreateSpecialFormDataProvider
   ) {
   }
 
-  create(): VehicleCreateForm {
+  create(): CreateSpecialForm {
     const formGroup = this.createFormGroup();
-    return new VehicleCreateForm(formGroup);
+    return new CreateSpecialForm(formGroup);
   }
 
   private createFormGroup() {
@@ -28,8 +28,8 @@ export class VehicleCreateFormFactory {
       tcrq: [null],
       yz: [123],
       csys: ['车身颜色'],
-      fdjxh: ['发动机型号'],
-      fdjbh: ['发动机编号'],
+      fdjxh: ['发动机型�?'],
+      fdjbh: ['发动机编�?'],
       dpxh: ['底盘型号'],
       dpbh: ['底盘编号'],
       description: ['备注']

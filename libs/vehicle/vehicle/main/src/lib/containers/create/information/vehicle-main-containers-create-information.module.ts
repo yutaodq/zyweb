@@ -1,0 +1,44 @@
+import { NgModule } from '@angular/core';
+import { CommonModule } from '@angular/common';
+
+import { SharedUiBaseModule } from '@zyweb/shared/ui/base';
+import { ReactiveFormsModule } from '@angular/forms';
+import { ThemePrimengModule } from '@zyweb/shared/ui/common';
+import { SharedUiFormModule } from '@zyweb/shared/ui/form';
+import { SharedUiDirectiveModule } from '@zyweb/shared/ui/directive';
+import {
+  CreateInformationForm,
+  CreateInformationFormActions,
+  CreateInformationFormDataProvider,
+  CreateInformationFormFactory
+} from './providers';
+import { CreateInformationComponent } from './create-information.component';
+
+@NgModule({
+  imports: [
+    CommonModule,
+    SharedUiBaseModule,
+    ReactiveFormsModule,
+    ThemePrimengModule,
+    SharedUiFormModule,
+    SharedUiDirectiveModule,
+
+  ],
+  declarations: [
+    CreateInformationComponent
+  ],
+  exports: [CreateInformationComponent],
+  providers: [
+    CreateInformationFormFactory,
+    {
+      provide: CreateInformationForm,
+      useFactory: (factory: CreateInformationFormFactory) => factory.create(),
+      deps: [CreateInformationFormFactory]
+    },
+    CreateInformationFormDataProvider,
+    CreateInformationFormActions,
+
+  ]
+})
+export class VehicleMainContainersCreateInformationModule {
+}

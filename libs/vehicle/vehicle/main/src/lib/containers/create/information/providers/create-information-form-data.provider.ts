@@ -15,7 +15,7 @@ import { VALIDATION_PATTERNS } from '@zyweb/shared/ui/base';
 import { Vehicle } from '@zyweb/shared/data-access/model/lvms';
 
 @Injectable()
-export class VehicleCreateFormDataProvider {
+export class CreateInformationFormDataProvider {
   vehicleName$: Observable<Vehicle[]> ;
 
   constructor(

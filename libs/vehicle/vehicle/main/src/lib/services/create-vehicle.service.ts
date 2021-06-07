@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import {
   generateMockVehicleUseState,
-  Vehicle,
+  Vehicle, VehicleInformation, VehicleParameter, VehicleSpecial, VehicleStructure,
   VehicleUseState
 } from '@zyweb/shared/data-access/model/lvms';
 import { AsyncValidatorNameExistsService } from '@zyweb/shared/ui/form';
@@ -21,27 +21,38 @@ export class CreateVehicleService {
               private _asyncValidatorNameExistsService: AsyncValidatorNameExistsService
   ) {
   }
-/*
- createInformation start
- */
-  createInformationFormNext(vehicle: Vehicle) {
-    this._vehicleFacade.createInformationFormNext(vehicle);
-  }
-  /*
- createInformation end
- */
 
-  /*
-  creatreStructure start
-   */
+  createInformationFormNext(vhicleInformation: VehicleInformation) {
+    this._vehicleFacade.createInformationFormNext(vhicleInformation);
+  }
+
   creatreStructureFormPrevious() {
     this._vehicleFacade.creatreStructureFormPrevious();
-
   }
 
-  /*
-  creatreStructure end
-   */
+  creatreStructureFormNext(vehicleStructure: VehicleStructure) {
+    this._vehicleFacade.creatreStructureFormNext(vehicleStructure);
+  }
+
+  creatreParameterFormPrevious() {
+    this._vehicleFacade.creatreParameterFormPrevious();
+  }
+
+  creatreParameterFormNext(vehicleParameter: VehicleParameter) {
+    this._vehicleFacade.creatreParameterFormNext(vehicleParameter);
+  }
+
+  creatreVehicleSpecialFormPrevious() {
+    this._vehicleFacade.creatreVehicleSpecialFormPrevious();
+  }
+
+  creatreVehicleSpecialFormNext(vehicleSpecial: VehicleSpecial) {
+    this._vehicleFacade.creatreVehicleSpecialFormNext(vehicleSpecial);
+  }
+
+  creatreVehicleConfirmationFormPrevious() {
+    this._vehicleFacade.creatreVehicleConfirmationFormPrevious();
+  }
 
   cancel() {
     this._vehicleFacade.cancelCreate();
@@ -49,7 +60,7 @@ export class CreateVehicleService {
 
   add(vehicle: Vehicle) {
     vehicle.id = uuidv4();
-    console.log('aaaaaaa:' + vehicle.ccrq)
+    console.log('aaaaaaa:' + vehicle.ccrq);
     this._vehicleFacade.add(vehicle);
   }
 
@@ -96,10 +107,11 @@ export class CreateVehicleService {
   //   };
   // }
   nameResults(): Observable<Vehicle[]> {
-    return this._vehicleFacade.entities$
+    return this._vehicleFacade.entities$;
   }
+
   search(): Observable<Vehicle[]> {
-    return this._vehicleFacade.entities$
+    return this._vehicleFacade.entities$;
   }
 
 
@@ -120,4 +132,4 @@ export class CreateVehicleService {
   //   );
   // }
 
- }
+}

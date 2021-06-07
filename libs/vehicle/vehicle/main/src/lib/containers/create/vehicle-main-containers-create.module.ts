@@ -11,22 +11,12 @@ import { VehicleDataService } from '@zyweb/shared/data-access/api/lvms';
 import { ReactiveFormsModule } from '@angular/forms';
 import { ThemePrimengModule } from '@zyweb/shared/ui/common';
 import { SharedUiFormModule } from '@zyweb/shared/ui/form';
-import {
-  VehicleCreateForm,
-  VehicleCreateFormActions,
-  VehicleCreateFormDataProvider,
-  VehicleCreateFormFactory
-} from './providers';
-import { CreateInformationComponent } from './information/create-information.component';
 import { SharedUiDirectiveModule } from '@zyweb/shared/ui/directive';
-import { CreateStructureComponent } from './structure/create-structure.component';
-import { CreateSpecialComponent } from './special/create-special.component';
-import { CreateParameterComponent } from './parameter/create-parameter.component';
-import {
-  CreateStructureForm, CreateStructureFormActions,
-  CreateStructureFormDataProvider,
-  CreateStructureFormFactory
-} from './structure/providers';
+
+import { VehicleMainContainersCreateInformationModule } from './information/vehicle-main-containers-create-information.module';
+import { VehicleMainContainersCreateSpecialModule } from './special/vehicle-main-containers-create-special.module';
+import { VehicleMainContainersCreateStructureModule } from './structure/vehicle-main-containers-create-structure.module';
+import { VehicleMainContainersCreateParameterModule } from './parameter/vehicle-main-containers-create-parameter.module';
 
 @NgModule({
   imports: [
@@ -37,38 +27,19 @@ import {
     ThemePrimengModule,
     SharedUiFormModule,
     SharedUiDirectiveModule,
-
+    VehicleMainContainersCreateInformationModule,
+    VehicleMainContainersCreateParameterModule,
+    VehicleMainContainersCreateSpecialModule,
+    VehicleMainContainersCreateStructureModule,
   ],
   declarations: [
     CreateComponent,
-    CreateInformationComponent,
-    CreateParameterComponent,
-    CreateSpecialComponent,
-    CreateStructureComponent,
-
   ],
   providers: [
     VehicleDataService,
     VehicleFacade,
     VehicleUseStateFacade,
     CreateVehicleService,
-    VehicleCreateFormFactory,
-    {
-      provide: VehicleCreateForm,
-      useFactory: (factory: VehicleCreateFormFactory) => factory.create(),
-      deps: [VehicleCreateFormFactory]
-    },
-    VehicleCreateFormDataProvider,
-    VehicleCreateFormActions,
-
-    CreateStructureFormFactory,
-    {
-      provide: CreateStructureForm,
-      useFactory: (factory: CreateStructureFormFactory) => factory.create(),
-      deps: [CreateStructureFormFactory]
-    },
-    CreateStructureFormDataProvider,
-    CreateStructureFormActions
 
   ]
 })

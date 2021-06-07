@@ -4,7 +4,7 @@ import { distinctUntilChanged, map, startWith } from 'rxjs/operators';
 import { Vehicle } from '@zyweb/shared/data-access/model/lvms';
 import { SpartacusFormService } from '@zyweb/shared/ui/common';
 
-export class VehicleCreateForm  {
+export class CreateSpecialForm  {
   readonly initialValue;
 
   constructor(private formGroup: FormGroup) {

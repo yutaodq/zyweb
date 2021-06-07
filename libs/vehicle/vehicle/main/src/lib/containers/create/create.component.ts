@@ -6,11 +6,11 @@ import { Vehicle, VehicleUseState } from '@zyweb/shared/data-access/model/lvms';
 import { CreateVehicleService } from '../../services/create-vehicle.service';
 import { MasterCreateCommand } from '@zyweb/shared/util/utility';
 import {
-  VehicleCreateForm,
-  VehicleCreateFormActions,
-  VehicleCreateFormDataProvider,
-  VehicleCreateFormFactory
-} from './providers';
+  CreateInformationForm,
+  CreateInformationFormActions,
+  CreateInformationFormDataProvider,
+  CreateInformationFormFactory
+} from './information/providers';
 import { MenuItem } from 'primeng/api';
 
 /*
@@ -43,9 +43,9 @@ export class CreateComponent  implements OnInit  {
 
   constructor(
     private _createService: CreateVehicleService,
-    public form: VehicleCreateForm,
-    public formDataProvider: VehicleCreateFormDataProvider,
-    public formActions: VehicleCreateFormActions
+    public form: CreateInformationForm,
+    public formDataProvider: CreateInformationFormDataProvider,
+    public formActions: CreateInformationFormActions
   ) {
     this.ageIsGreaterThanTen = this.form.ageIsGreaterThan(10);
     this.formIsValid = this.form.isValid();

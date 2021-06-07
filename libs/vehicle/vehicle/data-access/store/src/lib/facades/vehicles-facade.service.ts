@@ -3,7 +3,13 @@ import { select, Store } from '@ngrx/store';
 import { Observable, Subscription } from 'rxjs';
 import { EntityCollectionService, EntityServices } from '@ngrx/data';
 
-import { Vehicle } from '@zyweb/shared/data-access/model/lvms';
+import {
+  Vehicle,
+  VehicleInformation,
+  VehicleParameter,
+  VehicleSpecial,
+  VehicleStructure
+} from '@zyweb/shared/data-access/model/lvms';
 import { RouteActions } from '@zyweb/shared/data-access/store/ngrx-router';
 import * as fromStates from '../reducers';
 import { map } from 'rxjs/operators';
@@ -92,17 +98,40 @@ export class VehicleFacade {
     this.routeTo({ path: ['vehicle', 'create'] });
 
   }
-  createInformationFormNext(vehicle: Vehicle) {
-    this._appState$.dispatch(VehicleCreateActions.vehicleCreatreInformationFormNext({ vehicleInformation: vehicle }));
+  createInformationFormNext(vhicleInformation: VehicleInformation) {
+    this._appState$.dispatch(VehicleCreateActions.vehicleCreatreInformationFormNext({ vehicleInformation: vhicleInformation }));
     this.routeTo({ path: ['vehicle', 'create', 'createStructure'] });
-
-
   }
 
   creatreStructureFormPrevious() {
     this.routeTo({ path: ['vehicle', 'create', 'createInformation'] });
-
   }
+
+  creatreStructureFormNext(vehicleStructure: VehicleStructure) {
+    this.routeTo({ path: ['vehicle', 'create', 'createParameter'] });
+  }
+
+  creatreParameterFormPrevious() {
+    this.routeTo({ path: ['vehicle', 'create', 'createStructure'] });
+  }
+
+  creatreParameterFormNext(vehicleParameter: VehicleParameter) {
+    this.routeTo({ path: ['vehicle', 'create', 'createSpecial'] });
+  }
+
+  creatreVehicleSpecialFormPrevious() {
+    this.routeTo({ path: ['vehicle', 'create', 'createParameter'] });
+  }
+
+  creatreVehicleSpecialFormNext(vehicleSpecial: VehicleSpecial) {
+    this.routeTo({ path: ['vehicle', 'create', 'confirmation'] });
+  }
+
+  creatreVehicleConfirmationFormPrevious() {
+    this.routeTo({ path: ['vehicle', 'create', 'createSpecial'] });
+  }
+
+
 
   cancelCreate() {
     this._appState$.dispatch(RouteActions.back());

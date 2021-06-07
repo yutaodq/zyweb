@@ -4,7 +4,7 @@ import {
 } from '@angular/core';
 
 import { FormGroup } from '@angular/forms';
-import { VehicleCreateFormDataProvider } from '../../containers/create/providers';
+import { CreateInformationFormDataProvider } from '../../containers/create/information/providers';
 
 
 @Component({
@@ -20,7 +20,7 @@ export class CreateVehicleForm {
   form: FormGroup;
 
   constructor(
-    public formDataProvider: VehicleCreateFormDataProvider,
+    public formDataProvider: CreateInformationFormDataProvider,
   ) {
   }
 

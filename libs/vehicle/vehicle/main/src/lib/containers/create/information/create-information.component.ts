@@ -2,11 +2,11 @@ import { ChangeDetectionStrategy, ChangeDetectorRef, Component, OnDestroy, OnIni
 
 import { Observable,  } from 'rxjs';
 import {
-  VehicleCreateForm,
-  VehicleCreateFormActions,
-  VehicleCreateFormDataProvider,
-  VehicleCreateFormFactory
-} from '../providers';
+  CreateInformationForm,
+  CreateInformationFormActions,
+  CreateInformationFormDataProvider,
+  CreateInformationFormFactory
+} from './providers';
 import { MenuItem } from 'primeng/api';
 import { CreateVehicleService } from '../../../services';
 
@@ -28,9 +28,9 @@ export class CreateInformationComponent  implements OnInit  {
 
   constructor(
     private _createService: CreateVehicleService,
-    public form: VehicleCreateForm,
-    public formDataProvider: VehicleCreateFormDataProvider,
-    public formActions: VehicleCreateFormActions
+    public form: CreateInformationForm,
+    public formDataProvider: CreateInformationFormDataProvider,
+    public formActions: CreateInformationFormActions
   ) {
     this.ageIsGreaterThanTen = this.form.ageIsGreaterThan(10);
     this.formIsValid = this.form.isValid();
