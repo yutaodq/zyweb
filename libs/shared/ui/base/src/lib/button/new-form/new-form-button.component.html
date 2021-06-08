@@ -1,5 +1,8 @@
-<div class="row">
+<div class="row justify-content-between">
+  <div class="col-md-2">
+
   <p-button label="上一步"
+            class=""
             *ngIf="isShowPreviousStepButton()"
             icon="pi pi-step-backward"
             iconPos="left"
@@ -8,7 +11,10 @@
             [zywebClickEvent]="previousStepButtonClicked"
   >
   </p-button>
-  <p-button label="保存新记录"
+  </div>
+    <div class="col-md-8">
+
+    <p-button label="保存新记录"
             icon="pi pi-save"
             iconPos="left"
             type="submit"
@@ -34,7 +40,11 @@
   >
 
   </p-button>
-  <p-button label="下一步"
+    </div>
+      <div class="col-md-2 align-self-end">
+
+      <p-button label="下一步"
+            class= "align-self-end"
             *ngIf="isShowNextStepButton()"
             icon="pi pi-step-forward"
             iconPos="left"
@@ -43,5 +53,5 @@
             [zywebClickEvent]="nextStepButtonClicked"
   >
   </p-button>
-
+      </div>
 </div>

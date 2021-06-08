@@ -27,7 +27,7 @@ export class CreateSpecialFormFactory {
       fdjxh: [],   //发动机型号
       edgl: [],   //额定功率
       zdnj: [],   //最大扭矩
-      qdxs: [],   //最高转速
+      zgzs: [],   //最高转速
       rylx: [],   //燃油类型
       pjyh: [],   //平均油耗
       glxh: [],   //锅炉型号
