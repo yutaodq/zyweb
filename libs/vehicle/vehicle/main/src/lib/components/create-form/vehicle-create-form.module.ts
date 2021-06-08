@@ -9,6 +9,9 @@ import { SharedUiDirectiveModule } from '@zyweb/shared/ui/directive';
 import { CreateInformationFormComponent } from './create-information-form.component';
 import { SharedUtilI18nModule } from '@zyweb/shared/util/i18n';
 import { CreateStructureFormComponent } from './create-structure-form.component';
+import { CreateParameterFormComponent } from './create-parameter-form.component';
+import { CreateSpecialFormComponent } from './create-special-form.component';
+import { CreateConfirmationFormComponent } from './create-confirmation-form.component';
 
 @NgModule({
   imports: [
@@ -19,8 +22,18 @@ import { CreateStructureFormComponent } from './create-structure-form.component'
     SharedUtilI18nModule,
     ThemePrimengModule,
   ],
-  declarations: [CreateInformationFormComponent, CreateStructureFormComponent],
-  exports: [CreateInformationFormComponent, CreateStructureFormComponent],
+  declarations: [CreateInformationFormComponent,
+    CreateStructureFormComponent,
+    CreateParameterFormComponent,
+    CreateSpecialFormComponent,
+    CreateConfirmationFormComponent,
+  ],
+  exports: [CreateInformationFormComponent,
+    CreateStructureFormComponent,
+    CreateParameterFormComponent,
+    CreateSpecialFormComponent,
+    CreateConfirmationFormComponent,
+  ],
 })
 export class VehicleCreateFormModule {}
 

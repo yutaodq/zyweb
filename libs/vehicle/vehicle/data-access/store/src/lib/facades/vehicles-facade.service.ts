@@ -103,11 +103,11 @@ export class VehicleFacade {
     this.routeTo({ path: ['vehicle', 'create', 'createStructure'] });
   }
 
-  creatreStructureFormPrevious() {
+  createStructureFormPrevious() {
     this.routeTo({ path: ['vehicle', 'create', 'createInformation'] });
   }
 
-  creatreStructureFormNext(vehicleStructure: VehicleStructure) {
+  createStructureFormNext(vehicleStructure: VehicleStructure) {
     this.routeTo({ path: ['vehicle', 'create', 'createParameter'] });
   }
 
@@ -115,19 +115,19 @@ export class VehicleFacade {
     this.routeTo({ path: ['vehicle', 'create', 'createStructure'] });
   }
 
-  creatreParameterFormNext(vehicleParameter: VehicleParameter) {
+  createParameterFormNext(vehicleParameter: VehicleParameter) {
     this.routeTo({ path: ['vehicle', 'create', 'createSpecial'] });
   }
 
-  creatreVehicleSpecialFormPrevious() {
+  createSpecialFormPrevious() {
     this.routeTo({ path: ['vehicle', 'create', 'createParameter'] });
   }
 
-  creatreVehicleSpecialFormNext(vehicleSpecial: VehicleSpecial) {
-    this.routeTo({ path: ['vehicle', 'create', 'confirmation'] });
+  createSpecialFormNext(vehicleSpecial: VehicleSpecial) {
+    this.routeTo({ path: ['vehicle', 'create', 'createConfirmation'] });
   }
 
-  creatreVehicleConfirmationFormPrevious() {
+  createConfirmationFormPrevious() {
     this.routeTo({ path: ['vehicle', 'create', 'createSpecial'] });
   }
 

@@ -1,21 +1,20 @@
 import { Injectable, OnDestroy, OnInit } from '@angular/core';
 import { Subject, Subscription } from 'rxjs';
-import { CreateParameterForm } from './create-parameter.form';
+import { CreateConfirmationForm } from './create-confirmation.form';
 import { CreateVehicleService } from '../../../../services';
-import { Vehicle, VehicleParameter } from '@zyweb/shared/data-access/model/lvms';
 
 @Injectable()
-export class CreateParameterFormActions implements OnInit, OnDestroy {
+export class CreateConfirmationFormActions implements OnInit, OnDestroy {
   private _subscriptions: Array<Subscription> = [];
 
+  validateButtonClicked = new Subject<void>();
   resetButtonClicked = new Subject<void>();
   cancelButtonClicked = new Subject<void>();
-  createParameterFormNextClicked = new Subject<void>();
-  createParameterFormPreviousClicked = new Subject<void>();
+  createConfirmationFormPreviousClicked = new Subject<void>();
 
   constructor(
     private _createService: CreateVehicleService,
-    private _form: CreateParameterForm
+    private _form: CreateConfirmationForm
   ) {
     this.registerEvents();
 
@@ -34,13 +33,13 @@ export class CreateParameterFormActions implements OnInit, OnDestroy {
    */
   private registerEvents(): void {
     this._subscriptions.push(
-      this.createParameterFormPreviousClicked
-        .subscribe(() => this.creatreParameterFormPrevious()
+      this.createConfirmationFormPreviousClicked
+        .subscribe(() => this.createConfirmationFormPrevious()
+        ),
+      this.validateButtonClicked
+        .subscribe(() => this.save()
         ),
 
-      this.createParameterFormNextClicked
-        .subscribe(() => this.creatreParameterFormNext()
-        ),
       this.resetButtonClicked
         .subscribe(() => this._form.reset()
         ),
@@ -51,13 +50,11 @@ export class CreateParameterFormActions implements OnInit, OnDestroy {
     );
   }
 
-  private creatreParameterFormNext() {
-    const vehicleParameter = this._form.asFormGroup.value as VehicleParameter;
-    this._createService.createParameterFormNext(vehicleParameter);
+  private createConfirmationFormPrevious() {
+    this._createService.createConfirmationFormPrevious();
   }
 
-  private creatreParameterFormPrevious() {
-    this._createService.createParameterFormPrevious();
-
+  private save() {
+    this._createService.add(this._form.asFormGroup.value);
   }
 }

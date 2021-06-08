@@ -17,6 +17,7 @@ import { VehicleMainContainersCreateInformationModule } from './information/vehi
 import { VehicleMainContainersCreateSpecialModule } from './special/vehicle-main-containers-create-special.module';
 import { VehicleMainContainersCreateStructureModule } from './structure/vehicle-main-containers-create-structure.module';
 import { VehicleMainContainersCreateParameterModule } from './parameter/vehicle-main-containers-create-parameter.module';
+import { VehicleMainContainersCreateConfirmationModule } from './confirmation/vehicle-main-containers-create-confirmation.module';
 
 @NgModule({
   imports: [
@@ -31,6 +32,7 @@ import { VehicleMainContainersCreateParameterModule } from './parameter/vehicle-
     VehicleMainContainersCreateParameterModule,
     VehicleMainContainersCreateSpecialModule,
     VehicleMainContainersCreateStructureModule,
+    VehicleMainContainersCreateConfirmationModule,
   ],
   declarations: [
     CreateComponent,

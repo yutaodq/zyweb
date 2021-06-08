@@ -13,7 +13,7 @@ import {
   CreateParameterFormFactory
 } from './providers';
 import { CreateParameterComponent } from './create-parameter.component';
-import { CreateInformationComponent } from '..';
+import { VehicleCreateFormModule } from '../../../components/create-form';
 
 @NgModule({
   imports: [
@@ -23,7 +23,7 @@ import { CreateInformationComponent } from '..';
     ThemePrimengModule,
     SharedUiFormModule,
     SharedUiDirectiveModule,
-
+    VehicleCreateFormModule,
   ],
   declarations: [
     CreateParameterComponent

@@ -26,32 +26,32 @@ export class CreateVehicleService {
     this._vehicleFacade.createInformationFormNext(vhicleInformation);
   }
 
-  creatreStructureFormPrevious() {
-    this._vehicleFacade.creatreStructureFormPrevious();
+  createStructureFormPrevious() {
+    this._vehicleFacade.createStructureFormPrevious();
   }
 
-  creatreStructureFormNext(vehicleStructure: VehicleStructure) {
-    this._vehicleFacade.creatreStructureFormNext(vehicleStructure);
+  createStructureFormNext(vehicleStructure: VehicleStructure) {
+    this._vehicleFacade.createStructureFormNext(vehicleStructure);
   }
 
-  creatreParameterFormPrevious() {
+  createParameterFormPrevious() {
     this._vehicleFacade.creatreParameterFormPrevious();
   }
 
-  creatreParameterFormNext(vehicleParameter: VehicleParameter) {
-    this._vehicleFacade.creatreParameterFormNext(vehicleParameter);
+  createParameterFormNext(vehicleParameter: VehicleParameter) {
+    this._vehicleFacade.createParameterFormNext(vehicleParameter);
   }
 
-  creatreVehicleSpecialFormPrevious() {
-    this._vehicleFacade.creatreVehicleSpecialFormPrevious();
+  createSpecialFormPrevious() {
+    this._vehicleFacade.createSpecialFormPrevious();
   }
 
-  creatreVehicleSpecialFormNext(vehicleSpecial: VehicleSpecial) {
-    this._vehicleFacade.creatreVehicleSpecialFormNext(vehicleSpecial);
+  createSpecialFormNext(vehicleSpecial: VehicleSpecial) {
+    this._vehicleFacade.createSpecialFormNext(vehicleSpecial);
   }
 
-  creatreVehicleConfirmationFormPrevious() {
-    this._vehicleFacade.creatreVehicleConfirmationFormPrevious();
+  createConfirmationFormPrevious() {
+    this._vehicleFacade.createConfirmationFormPrevious();
   }
 
   cancel() {

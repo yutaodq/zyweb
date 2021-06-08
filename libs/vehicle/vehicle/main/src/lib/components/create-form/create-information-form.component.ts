@@ -35,7 +35,7 @@ import { VehicleFacade } from '@zyweb/vehicle/vehicle/data-access/store';
 
 
 @Component({
-  selector: 'zyweb-vehicle-create-form',
+  selector: 'zyweb-vehicle-create-information-form',
   templateUrl: './create-information-form.component.html',
   styleUrls: ['./create-information-form.component.scss']
   // changeDetection: ChangeDetectionStrategy.OnPush

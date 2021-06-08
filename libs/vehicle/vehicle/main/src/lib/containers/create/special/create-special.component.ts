@@ -12,7 +12,7 @@ https://github.com/vladeye/druo-dashboard-app/tree/master/src/app/content/pages
 D:\学习案例\druo-dashboard\src\app\content\pages\components\invoices\invoices-routing.module.ts
  */
 @Component({
-  selector: 'zyweb-vehicle-create-special-form',
+  selector: 'zyweb-vehicle-create-special',
   templateUrl: './create-special.component.html',
 
   changeDetection: ChangeDetectionStrategy.OnPush,

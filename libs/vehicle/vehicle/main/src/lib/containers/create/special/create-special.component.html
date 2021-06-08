@@ -1,1 +1,15 @@
-sssssssppppppppppp
+<div class="container content-section implementation">
+
+  <zyweb-vehicle-create-special-form [form]="form.asFormGroup">
+    <zyweb-shared-ui-base-new-form-button
+      [resetButtonClicked]= "formActions.resetButtonClicked"
+      [cancelButtonClicked]= "formActions.cancelButtonClicked"
+      [nextStepButtonClicked]= "formActions.createSpecialFormNextClicked"
+      [previousStepButtonClicked] = "formActions.createSpecialFormPreviousClicked"
+    >
+    </zyweb-shared-ui-base-new-form-button>
+
+  </zyweb-vehicle-create-special-form>
+
+
+</div>

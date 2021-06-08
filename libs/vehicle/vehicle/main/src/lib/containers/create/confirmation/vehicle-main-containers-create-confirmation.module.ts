@@ -7,12 +7,12 @@ import { ThemePrimengModule } from '@zyweb/shared/ui/common';
 import { SharedUiFormModule } from '@zyweb/shared/ui/form';
 import { SharedUiDirectiveModule } from '@zyweb/shared/ui/directive';
 import {
-  CreateInformationForm,
-  CreateInformationFormActions,
-  CreateInformationFormDataProvider,
-  CreateInformationFormFactory
+  CreateConfirmationForm,
+  CreateConfirmationFormActions,
+  CreateConfirmationFormDataProvider,
+  CreateConfirmationFormFactory
 } from './providers';
-import { CreateInformationComponent } from './create-information.component';
+import { CreateConfirmationComponent } from './create-confirmation.component';
 import { VehicleCreateFormModule } from '../../../components/create-form';
 
 @NgModule({
@@ -26,20 +26,20 @@ import { VehicleCreateFormModule } from '../../../components/create-form';
     VehicleCreateFormModule,
   ],
   declarations: [
-    CreateInformationComponent
+    CreateConfirmationComponent
   ],
-  exports: [CreateInformationComponent],
+  exports: [CreateConfirmationComponent],
   providers: [
-    CreateInformationFormFactory,
+    CreateConfirmationFormFactory,
     {
-      provide: CreateInformationForm,
-      useFactory: (factory: CreateInformationFormFactory) => factory.create(),
-      deps: [CreateInformationFormFactory]
+      provide: CreateConfirmationForm,
+      useFactory: (factory: CreateConfirmationFormFactory) => factory.create(),
+      deps: [CreateConfirmationFormFactory]
     },
-    CreateInformationFormDataProvider,
-    CreateInformationFormActions,
+    CreateConfirmationFormDataProvider,
+    CreateConfirmationFormActions,
 
   ]
 })
-export class VehicleMainContainersCreateInformationModule {
+export class VehicleMainContainersCreateConfirmationModule {
 }

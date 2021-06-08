@@ -8,10 +8,10 @@ import { Vehicle, VehicleSpecial } from '@zyweb/shared/data-access/model/lvms';
 export class CreateSpecialFormActions implements OnInit, OnDestroy {
   private _subscriptions: Array<Subscription> = [];
 
-  validateButtonClicked = new Subject<void>();
   resetButtonClicked = new Subject<void>();
   cancelButtonClicked = new Subject<void>();
-  creatreSpecialFormNextClicked = new Subject<void>();
+  createSpecialFormNextClicked = new Subject<void>();
+  createSpecialFormPreviousClicked = new Subject<void>();
 
   constructor(
     private _createService: CreateVehicleService,
@@ -22,7 +22,6 @@ export class CreateSpecialFormActions implements OnInit, OnDestroy {
   }
 
   ngOnInit() {
-    // this.registerEvents();
   }
 
   ngOnDestroy() {
@@ -34,11 +33,12 @@ export class CreateSpecialFormActions implements OnInit, OnDestroy {
    */
   private registerEvents(): void {
     this._subscriptions.push(
-      this.creatreSpecialFormNextClicked
-        .subscribe(() => this.creatreSpecialFormNext()
+      this.createSpecialFormPreviousClicked
+        .subscribe(() => this.creatreSpecialFormPrevious()
         ),
-      this.validateButtonClicked
-        .subscribe(() => this.save()
+
+      this.createSpecialFormNextClicked
+        .subscribe(() => this.creatreSpecialFormNext()
         ),
 
       this.resetButtonClicked
@@ -58,5 +58,10 @@ export class CreateSpecialFormActions implements OnInit, OnDestroy {
 
   private save() {
     this._createService.add(this._form.asFormGroup.value);
+  }
+
+  private creatreSpecialFormPrevious() {
+    this._createService.createSpecialFormPrevious();
+
   }
 }

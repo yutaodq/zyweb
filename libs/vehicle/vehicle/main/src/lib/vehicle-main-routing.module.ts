@@ -10,6 +10,7 @@ import {
   CreateSpecialComponent,
   CreateStructureComponent
 } from './containers/create';
+import { CreateConfirmationComponent } from './containers/create/confirmation/create-confirmation.component';
 
 const routes: Routes = [
   { path: '', redirectTo: 'list', pathMatch: 'full' },
@@ -43,6 +44,10 @@ const routes: Routes = [
       {
         path: 'createSpecial',
         component: CreateSpecialComponent,
+      },
+      {
+        path: 'createConfirmation',
+        component: CreateConfirmationComponent,
       },
 
     ]

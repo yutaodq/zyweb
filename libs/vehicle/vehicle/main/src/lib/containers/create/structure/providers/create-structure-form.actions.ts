@@ -1,7 +1,7 @@
 import { Injectable, OnDestroy, OnInit } from '@angular/core';
 import { Subject, Subscription } from 'rxjs';
 import { CreateStructureForm } from './create-structure.form';
-import { Vehicle } from '@zyweb/shared/data-access/model/lvms';
+import { Vehicle, VehicleInformation, VehicleStructure } from '@zyweb/shared/data-access/model/lvms';
 import { CreateVehicleService } from '../../../../services';
 
 @Injectable()
@@ -10,9 +10,9 @@ export class CreateStructureFormActions implements OnInit, OnDestroy {
 
   resetButtonClicked = new Subject<void>();
   cancelButtonClicked = new Subject<void>();
-  creatreStructureFormNextClicked = new Subject<void>();
+  createStructureFormNextClicked = new Subject<void>();
 
-  creatreStructureFormPreviousClicked = new Subject<void>();
+  createStructureFormPreviousClicked = new Subject<void>();
 
   constructor(
     private _createService: CreateVehicleService,
@@ -23,7 +23,6 @@ export class CreateStructureFormActions implements OnInit, OnDestroy {
   }
 
   ngOnInit() {
-    // this.registerEvents();
   }
 
   ngOnDestroy() {
@@ -36,11 +35,11 @@ export class CreateStructureFormActions implements OnInit, OnDestroy {
   private registerEvents(): void {
     this._subscriptions.push(
 
-    this.creatreStructureFormPreviousClicked
+    this.createStructureFormPreviousClicked
       .subscribe(() => this.creatreStructureFormPrevious()
       ),
 
-      this.creatreStructureFormNextClicked
+      this.createStructureFormNextClicked
         .subscribe(() => this.creatreStructureFormNext()
         ),
 
@@ -55,12 +54,12 @@ export class CreateStructureFormActions implements OnInit, OnDestroy {
   }
 
   private creatreStructureFormNext() {
-    const vehicle = this._form.asFormGroup.value as Vehicle;
-    this._createService.createInformationFormNext(vehicle);
+    const vehicleStructure = this._form.asFormGroup.value as VehicleStructure;
+    this._createService.createStructureFormNext(vehicleStructure);
   }
 
   private creatreStructureFormPrevious() {
-    this._createService.creatreStructureFormPrevious();
+    this._createService.createStructureFormPrevious();
 
   }
 }

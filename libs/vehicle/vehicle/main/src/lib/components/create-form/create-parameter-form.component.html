@@ -1,0 +1,90 @@
+<div class="p-fluid p-formgrid p-grid">
+  <form [formGroup]="form">
+
+    <div class="form-row">
+      <div class="form-group col-md-4">
+        <label for="zczbzl">
+          整车装备质量
+        </label>
+        <input id="zczbzl" type="text" pInputText formControlName="zczbzl" required="true"/>
+        <zyweb-form-errors [control]="form.get('zczbzl')"
+        ></zyweb-form-errors>
+
+      </div>
+      <div class="form-group col-md-4">
+        <label for="zdzzzl">
+          最大装载质量
+
+        </label>
+        <input id="zdzzzl" type="text" pInputText formControlName="zdzzzl"/>
+        <zyweb-form-errors [control]="form.get('zdzzzl')"
+        ></zyweb-form-errors>
+
+      </div>
+      <div class="form-group col-md-4">
+        <label for="rylx">
+          燃油类型
+        </label>
+        <input id="rylx" type="text" pInputText formControlName="rylx"/>
+        <zyweb-form-errors [control]="form.get('rylx')"
+        ></zyweb-form-errors>
+
+      </div>
+    </div>
+    <div class="form-row">
+      <div class="form-group col-md-4">
+        <label for="pjyh">
+          平均油耗
+        </label>
+        <input id="pjyh" type="text" pInputText formControlName="pjyh"/>
+        <zyweb-form-errors [control]="form.get('pjyh')"
+        ></zyweb-form-errors>
+
+      </div>
+      <div class="form-group col-md-4">
+        <label for="edgl">
+          额定功率
+        </label>
+        <input id="edgl" type="text" pInputText formControlName="edgl"/>
+        <zyweb-form-errors [control]="form.get('edgl')"
+        ></zyweb-form-errors>
+      </div>
+      <div class="form-group col-md-4">
+        <label for="zdnj">
+          最大扭矩
+        </label>
+        <input id="zdnj" type="text" pInputText formControlName="zdnj"/>
+        <zyweb-form-errors [control]="form.get('zdnj')"
+        ></zyweb-form-errors>
+      </div>
+    </div>
+    <div class="form-row">
+      <div class="form-group col-md-4">
+        <label for="zxzwbj">
+          最小转弯半径
+        </label>
+        <input id="zxzwbj" type="text" pInputText formControlName="zxzwbj"/>
+        <zyweb-form-errors [control]="form.get('zxzwbj')"
+        ></zyweb-form-errors>
+      </div>
+
+      <div class="form-group col-md-4">
+        <label for="zgcs">
+          最高车速
+        </label>
+        <input id="zgcs" type="text" pInputText formControlName="zgcs"/>
+        <zyweb-form-errors [control]="form.get('zgcs')"
+        ></zyweb-form-errors>
+      </div>
+
+
+    </div>
+    <hr/>
+
+    <div class="form-row row justify-content-center">
+
+      <ng-content></ng-content>
+    </div>
+
+  </form>
+</div>

@@ -13,7 +13,7 @@ import {
   CreateStructureFormFactory
 } from './providers';
 import { CreateStructureComponent } from './create-structure.component';
-import { CreateSpecialComponent } from '..';
+import { VehicleCreateFormModule } from '../../../components/create-form';
 
 @NgModule({
   imports: [
@@ -23,6 +23,7 @@ import { CreateSpecialComponent } from '..';
     ThemePrimengModule,
     SharedUiFormModule,
     SharedUiDirectiveModule,
+    VehicleCreateFormModule,
 
   ],
   declarations: [

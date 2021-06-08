@@ -76,13 +76,13 @@ export interface VehicleStructure {
 export interface  VehicleSpecial{
   zdqzl: number;  //最大起重量
   gjbj: number;  //工作半径
-  zb: number;  //主笔
+  zb: number;  //主臂
   zbc: number;  //主臂长
   fbc: number;  //副臂长
   fdjxh: string;  //发动机型号
   edgl: number;  //额定功率
   zdnj: number;  //最大扭矩
-  qdxs: number;  //最高转速
+  zgzs: number;  //最高转速  =====
   rylx: string;  //燃油类型
   pjyh: number;  //平均油耗
   glxh: string;  //锅炉型号
