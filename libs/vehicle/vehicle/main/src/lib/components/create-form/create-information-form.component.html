@@ -1,13 +1,19 @@
-<div class="container content-section implementation">
+<p-card>
+  <ng-template pTemplate="header">
+    Header content here
+  </ng-template>
+  Body Content
+  <ng-template pTemplate="footer">
+    Footer content here
+  </ng-template>
+</p-card>
 <form [formGroup]="form">
-<!--    <div class="card">-->
 
     <div class="p-fluid p-formgrid p-grid">
-<!--      <div >-->
 
       <div class="form-row">
 
-        <div class="form-group col-md-6">
+        <div class="form-group col-md-4">
           <label for="pz">
             牌照
             <span class="required">*</span>
@@ -104,10 +110,8 @@
     <div>
       <ng-content></ng-content>
     </div>
-<!--    </div>-->
 
   </form>
-</div>
 
 <!--<div class="p-fluid p-formgrid p-grid">-->
 <!--  <form [formGroup]="form">-->
