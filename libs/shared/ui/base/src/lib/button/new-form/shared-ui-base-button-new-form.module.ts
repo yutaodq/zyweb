@@ -9,7 +9,7 @@ import { ClickEventDirective, directives, SharedUiDirectiveModule } from '@zyweb
   imports: [
     CommonModule,
     ThemePrimengModule,
-    SharedUiDirectiveModule
+    SharedUiDirectiveModule,
   ],
   exports: [
     NewFormButtonComponent,

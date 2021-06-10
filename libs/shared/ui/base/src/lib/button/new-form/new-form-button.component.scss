@@ -1,0 +1,60 @@
+.new-button-text {
+  //display: none; // 此元素不会被显示
+  display: flex;
+  //justify-content: center;  // 水平居中
+  align-items: center;     //  垂直居中
+
+  //.previous-step {
+  //  align-self: flex-start;
+  //
+  //}
+  //.next-step {
+  //  align-self: flex-end;
+  //}
+
+  //justify-content: space-between;  // justify-content 用于设置或检索弹性盒子元素在主轴（横轴）方向上的对齐方式。
+  //width: 70px;
+  //height: 70px;
+  //line-height: 70px;
+  //text-align: center;
+  //transition: background-color .2s;
+  //cursor: pointer;
+
+  //&:hover {
+  //  background-color: var(--surface-c);
+  //}
+
+}
+.previous-step {
+  align-self: flex-start;
+
+}
+.next-step {
+  align-self: flex-end;
+}
+
+
+//.new-button-icon {
+//  display: block;
+//  width: 70px;
+//  height: 70px;
+//  line-height: 70px;
+//  text-align: center;
+//  transition: background-color .2s;
+//  cursor: pointer;
+//
+//  &:hover {
+//    background-color: var(--surface-c);
+//  }
+//
+//}
+
+  // 可视区域>960
+@media screen and (min-width: 960px) {
+  .new-button-icon {
+    display: none; // 此元素不会被显示
+  }
+  .new-button-text {
+    //display: flex; // 此元素不会被显示
+  }
+}

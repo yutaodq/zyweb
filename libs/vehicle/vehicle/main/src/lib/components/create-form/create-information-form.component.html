@@ -1,14 +1,9 @@
-<p-card>
-  <ng-template pTemplate="header">
-    Header content here
-  </ng-template>
-  Body Content
-  <ng-template pTemplate="footer">
-    Footer content here
-  </ng-template>
-</p-card>
 <form [formGroup]="form">
 
+  <p-card>
+    <ng-template pTemplate="header">
+      Header content here
+    </ng-template>
     <div class="p-fluid p-formgrid p-grid">
 
       <div class="form-row">
@@ -104,12 +99,13 @@
         </div>
       </div>
     </div>
-
-    <!--    <div class="form-row row justify-content-center">-->
-    <hr/>
-    <div>
-      <ng-content></ng-content>
-    </div>
+    <ng-template pTemplate="footer">
+      <hr/>
+      <div>
+        <ng-content></ng-content>
+      </div>
+    </ng-template>
+  </p-card>
 
   </form>
 

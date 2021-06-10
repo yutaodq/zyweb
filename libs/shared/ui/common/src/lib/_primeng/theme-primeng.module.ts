@@ -22,6 +22,7 @@ import { TabViewModule } from 'primeng/tabview';
 import { InputNumberModule } from 'primeng/inputnumber';
 import { StepsModule } from 'primeng/steps';
 import { AutoCompleteModule } from 'primeng/autocomplete';
+import { TooltipModule } from 'primeng/tooltip';
 
 export const IMPORTS_PRIMENG_MODULES = [
   InputTextModule,
@@ -46,6 +47,8 @@ export const IMPORTS_PRIMENG_MODULES = [
   TabViewModule,
   StepsModule,
   AutoCompleteModule,
+  TooltipModule,
+
 ];
 
 export const EXPORTS_PRIMENG_MODULES = [
@@ -71,6 +74,8 @@ export const EXPORTS_PRIMENG_MODULES = [
   TabViewModule,
   StepsModule,
   AutoCompleteModule,
+  TooltipModule,
+
 ];
 
 @NgModule({
