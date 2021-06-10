@@ -4,14 +4,6 @@
   //justify-content: center;  // 水平居中
   align-items: center;     //  垂直居中
 
-  //.previous-step {
-  //  align-self: flex-start;
-  //
-  //}
-  //.next-step {
-  //  align-self: flex-end;
-  //}
-
   //justify-content: space-between;  // justify-content 用于设置或检索弹性盒子元素在主轴（横轴）方向上的对齐方式。
   //width: 70px;
   //height: 70px;
@@ -23,14 +15,14 @@
   //&:hover {
   //  background-color: var(--surface-c);
   //}
+  .previous-step {
+    margin-right: auto;
 
-}
-.previous-step {
-  align-self: flex-start;
+  }
+  .next-step {
+    margin-left: auto;
+  }
 
-}
-.next-step {
-  align-self: flex-end;
 }
 
 

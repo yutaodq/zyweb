@@ -8,9 +8,9 @@
               label="上一步"
               icon="pi pi-step-backward"
               iconPos="left"
-              type="submit"
               class=" mr-2, ml-2"
               [zywebClickEvent]="previousStepButtonClicked"
+              pTooltip="上一步"  tooltipPosition="top"
     >
     </p-button>
     </div>
@@ -22,6 +22,7 @@
               type="submit"
               class=" mr-2, ml-2"
               [zywebClickEvent]="validateButtonClicked"
+               pTooltip="保存新记录"  tooltipPosition="top"
     >
     </p-button>
     <p-button id="resetButton"
@@ -31,6 +32,8 @@
               styleClass="p-button-warning"
               class=" mr-2, ml-2"
               [zywebClickEvent]="resetButtonClicked"
+              pTooltip="重新录入"  tooltipPosition="top"
+
     >
     </p-button>
 
@@ -41,6 +44,8 @@
               styleClass="p-button-danger"
               class="mr-2 , ml-2"
               [zywebClickEvent]="cancelButtonClicked"
+              pTooltip="取消新记录"  tooltipPosition="top"
+
     >
 
     </p-button>
@@ -56,6 +61,8 @@
               type="submit"
               class=" mr-2, ml-2"
               [zywebClickEvent]="nextStepButtonClicked"
+              pTooltip="下一步"  tooltipPosition="top"
+
     >
     </p-button>
     </div>
