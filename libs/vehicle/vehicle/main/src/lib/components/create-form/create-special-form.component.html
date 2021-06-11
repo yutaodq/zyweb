@@ -1,175 +1,184 @@
-<div class="p-fluid p-formgrid p-grid">
-  <form [formGroup]="form">
+<form [formGroup]="form">
+  <p-card>
+    <div class="p-fluid p-formgrid p-grid">
+      <div class="form-row">
 
-    <div class="form-row">
-      <div class="form-group col-md-4">
-        <label for="zdqzl">
-          最大起重量
-        </label>
-        <input id="zdqzl" type="text" pInputText formControlName="zdqzl" required="true"/>
-        <zyweb-form-errors [control]="form.get('cc')"
-        ></zyweb-form-errors>
+        <div class="form-group col-md-2">
+          <label for="fdjxh">
+            发动机型号
+          </label>
+          <input id="fdjxh" type="text" pInputText formControlName="fdjxh"/>
+          <zyweb-form-errors [control]="form.get('fdjxh')"
+          ></zyweb-form-errors>
+        </div>
+        <div class="form-group col-md-2">
+          <label for="edgl">
+            额定功率
+          </label>
+          <p-inputNumber id="edgl" formControlName="edgl" suffix=" KW">
+          </p-inputNumber>
+          <zyweb-form-errors [control]="form.get('edgl')"
+          ></zyweb-form-errors>
+        </div>
+
+        <div class="form-group col-md-2">
+          <label for="zdnj">
+            最大扭矩
+          </label>
+          <p-inputNumber id="zdnj" formControlName="zdnj" suffix=" Nm">
+          </p-inputNumber>
+          <zyweb-form-errors [control]="form.get('zdnj')"
+          ></zyweb-form-errors>
+        </div>
+
+        <div class="form-group col-md-2">
+          <label for="zgzs">
+            最高转速
+          </label>
+          <p-inputNumber id="zgzs" formControlName="zgzs" suffix=" mm">
+          </p-inputNumber>
+          <zyweb-form-errors [control]="form.get('zgzs')"
+          ></zyweb-form-errors>
+        </div>
+        <div class="form-group col-md-2">
+          <label for="rylx">
+            燃油类型
+          </label>
+          <input id="rylx" type="text" pInputText formControlName="rylx"/>
+          <zyweb-form-errors [control]="form.get('rylx')"
+          ></zyweb-form-errors>
+        </div>
+
+        <div class="form-group col-md-2">
+          <label for="pjyh">
+            平均油耗
+          </label>
+          <p-inputNumber id="pjyh" formControlName="pjyh" suffix=" mm">
+          </p-inputNumber>
+          <zyweb-form-errors [control]="form.get('pjyh')"
+          ></zyweb-form-errors>
+        </div>
 
       </div>
-      <div class="form-group col-md-4">
-        <label for="gjbj">
-          工作半径
+      <hr/>
 
-        </label>
-        <input id="gjbj" type="text" pInputText formControlName="gjbj"/>
-        <zyweb-form-errors [control]="form.get('gjbj')"
-        ></zyweb-form-errors>
+      <div class="form-row">
+        <div class="form-group col-md-3">
+          <label for="zdqzl">
+            最大起重量
+          </label>
+          <p-inputNumber id="zdqzl" formControlName="zdqzl" suffix=" Kg">
+          </p-inputNumber>
+          <zyweb-form-errors [control]="form.get('cc')"
+          ></zyweb-form-errors>
 
+        </div>
+        <div class="form-group col-md-3">
+          <label for="gjbj">
+            工作半径
+
+          </label>
+          <p-inputNumber id="gjbj" formControlName="gjbj" suffix=" mm">
+          </p-inputNumber>
+          <zyweb-form-errors [control]="form.get('gjbj')"
+          ></zyweb-form-errors>
+
+        </div>
+        <div class="form-group col-md-2">
+          <label for="zb">
+            主臂
+          </label>
+          <p-inputNumber id="zb" formControlName="zb" suffix=" mm">
+          </p-inputNumber>
+          <zyweb-form-errors [control]="form.get('zb')"
+          ></zyweb-form-errors>
+
+        </div>
+        <div class="form-group col-md-2">
+          <label for="zbc">
+            主臂长
+          </label>
+          <p-inputNumber id="zbc" formControlName="zbc" suffix=" mm">
+          </p-inputNumber>
+          <zyweb-form-errors [control]="form.get('zbc')"
+          ></zyweb-form-errors>
+
+        </div>
+        <div class="form-group col-md-2">
+          <label for="fbc">
+            副臂长
+          </label>
+          <p-inputNumber id="fbc" formControlName="fbc" suffix=" mm">
+          </p-inputNumber>
+          <zyweb-form-errors [control]="form.get('fbc')"
+          ></zyweb-form-errors>
+        </div>
       </div>
-      <div class="form-group col-md-4">
-        <label for="zb">
-          主臂
-        </label>
-        <input id="zb" type="text" pInputText formControlName="zb"/>
-        <zyweb-form-errors [control]="form.get('zb')"
-        ></zyweb-form-errors>
+      <hr/>
 
+      <div class="form-row">
+
+        <div class="form-group col-md-2">
+          <label for="glxh">
+            锅炉型号
+          </label>
+          <input id="glxh" type="text" pInputText formControlName="glxh"/>
+          <zyweb-form-errors [control]="form.get('glxh')"
+          ></zyweb-form-errors>
+        </div>
+
+        <div class="form-group col-md-2">
+          <label for="ysjxh">
+            压缩机型号
+          </label>
+          <input id="ysjxh" type="text" pInputText formControlName="ysjxh"/>
+          <zyweb-form-errors [control]="form.get('ysjxh')"
+          ></zyweb-form-errors>
+        </div>
+
+        <div class="form-group col-md-2">
+          <label for="bxh">
+            泵型号
+          </label>
+          <input id="bxh" type="text" pInputText formControlName="bxh"/>
+          <zyweb-form-errors [control]="form.get('bxh')"
+          ></zyweb-form-errors>
+        </div>
+
+        <div class="form-group col-md-2">
+          <label for="csyq">
+            测试仪器
+          </label>
+          <input id="csyq" type="text" pInputText formControlName="csyq"/>
+          <zyweb-form-errors [control]="form.get('csyq')"
+          ></zyweb-form-errors>
+        </div>
+
+        <div class="form-group col-md-2">
+          <label for="dr">
+            斗容
+          </label>
+          <p-inputNumber id="dr" formControlName="dr" suffix=" m³">
+          </p-inputNumber>
+          <zyweb-form-errors [control]="form.get('dr')"
+          ></zyweb-form-errors>
+        </div>
+
+        <div class="form-group col-md-2">
+          <label for="bsqxs">
+            变数器形式
+          </label>
+          <input id="bsqxs" type="text" pInputText formControlName="bsqxs"/>
+          <zyweb-form-errors [control]="form.get('bsqxs')"
+          ></zyweb-form-errors>
+        </div>
       </div>
     </div>
-    <div class="form-row">
-      <div class="form-group col-md-4">
-        <label for="zbc">
-          主臂长
-        </label>
-        <input id="zbc" type="text" pInputText formControlName="zbc"/>
-        <zyweb-form-errors [control]="form.get('zbc')"
-        ></zyweb-form-errors>
-
-      </div>
-      <div class="form-group col-md-4">
-        <label for="fbc">
-          副臂长
-        </label>
-        <input id="fbc" type="text" pInputText formControlName="fbc"/>
-        <zyweb-form-errors [control]="form.get('fbc')"
-        ></zyweb-form-errors>
-      </div>
-      <div class="form-group col-md-4">
-        <label for="fdjxh">
-          发动机型号
-        </label>
-        <input id="fdjxh" type="text" pInputText formControlName="fdjxh"/>
-        <zyweb-form-errors [control]="form.get('fdjxh')"
-        ></zyweb-form-errors>
-      </div>
-    </div>
-    <div class="form-row">
-      <div class="form-group col-md-4">
-        <label for="edgl">
-          额定功率
-        </label>
-        <input id="edgl" type="text" pInputText formControlName="edgl"/>
-        <zyweb-form-errors [control]="form.get('edgl')"
-        ></zyweb-form-errors>
-      </div>
-
-      <div class="form-group col-md-4">
-        <label for="zdnj">
-          最大扭矩
-        </label>
-        <input id="zdnj" type="text" pInputText formControlName="zdnj"/>
-        <zyweb-form-errors [control]="form.get('zdnj')"
-        ></zyweb-form-errors>
-      </div>
-
-      <div class="form-group col-md-4">
-        <label for="zgzs">
-          最高转速
-        </label>
-        <input id="zgzs" type="text" pInputText formControlName="zgzs"/>
-        <zyweb-form-errors [control]="form.get('zgzs')"
-        ></zyweb-form-errors>
-      </div>
-
-    </div>
-    <div class="form-row">
-      <div class="form-group col-md-4">
-        <label for="rylx">
-          燃油类型
-        </label>
-        <input id="rylx" type="text" pInputText formControlName="rylx"/>
-        <zyweb-form-errors [control]="form.get('rylx')"
-        ></zyweb-form-errors>
-      </div>
-
-      <div class="form-group col-md-4">
-        <label for="pjyh">
-          平均油耗
-        </label>
-        <input id="pjyh" type="text" pInputText formControlName="pjyh"/>
-        <zyweb-form-errors [control]="form.get('pjyh')"
-        ></zyweb-form-errors>
-      </div>
-
-      <div class="form-group col-md-4">
-        <label for="glxh">
-          锅炉型号
-        </label>
-        <input id="glxh" type="text" pInputText formControlName="glxh"/>
-        <zyweb-form-errors [control]="form.get('glxh')"
-        ></zyweb-form-errors>
-      </div>
-
-    </div>    <div class="form-row">
-    <div class="form-group col-md-4">
-      <label for="ysjxh">
-        压缩机型号
-      </label>
-      <input id="ysjxh" type="text" pInputText formControlName="ysjxh"/>
-      <zyweb-form-errors [control]="form.get('ysjxh')"
-      ></zyweb-form-errors>
-    </div>
-
-    <div class="form-group col-md-4">
-      <label for="bxh">
-        泵型号
-      </label>
-      <input id="bxh" type="text" pInputText formControlName="bxh"/>
-      <zyweb-form-errors [control]="form.get('bxh')"
-      ></zyweb-form-errors>
-    </div>
-
-    <div class="form-group col-md-4">
-      <label for="csyq">
-        测试仪器
-      </label>
-      <input id="csyq" type="text" pInputText formControlName="csyq"/>
-      <zyweb-form-errors [control]="form.get('csyq')"
-      ></zyweb-form-errors>
-    </div>
-
-  </div>
-    <div class="form-row">
-    <div class="form-group col-md-4">
-      <label for="dr">
-        斗容
-      </label>
-      <input id="dr" type="text" pInputText formControlName="dr"/>
-      <zyweb-form-errors [control]="form.get('dr')"
-      ></zyweb-form-errors>
-    </div>
-
-    <div class="form-group col-md-4">
-      <label for="bsqxs">
-        变数器形式
-      </label>
-      <input id="bsqxs" type="text" pInputText formControlName="bsqxs"/>
-      <zyweb-form-errors [control]="form.get('bsqxs')"
-      ></zyweb-form-errors>
-    </div>
-
-  </div>
-    <hr/>
-
-    <div class="form-row row justify-content-center">
-
+    <ng-template pTemplate="footer">
+      <hr/>
       <ng-content></ng-content>
-    </div>
+    </ng-template>
+  </p-card>
 
-  </form>
-</div>
+</form>
+

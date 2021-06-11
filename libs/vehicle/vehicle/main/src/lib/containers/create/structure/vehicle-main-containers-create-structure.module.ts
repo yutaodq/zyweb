@@ -33,8 +33,7 @@ import { VehicleCreateFormModule } from '../../../components/create-form';
 
   providers: [
     CreateStructureFormFactory,
-    {
-      provide: CreateStructureForm,
+    { provide: CreateStructureForm,
       useFactory: (factory: CreateStructureFormFactory) => factory.create(),
       deps: [CreateStructureFormFactory]
     },

@@ -34,7 +34,7 @@ export class CreateInformationFormActions implements OnInit, OnDestroy {
    */
   private registerEvents(): void {
     this._subscriptions.push(
-      this.creatreInformationFormNextClicked
+       this.creatreInformationFormNextClicked
         .subscribe(() => this.creatreInformationFormNext()
         ),
       this.validateButtonClicked

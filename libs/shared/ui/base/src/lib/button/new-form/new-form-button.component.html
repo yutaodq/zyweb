@@ -1,60 +1,111 @@
-  <div class="new-form-button-content new-form-button-text">
-      <button pButton id="previousButton"
+  <div class="new-form-button-content button-text">
+      <button pButton
               type="button"
                 label="上一步"
                 icon="pi pi-step-backward"
                 iconPos="left"
                 [zywebClickEvent]="previousStepButtonClicked"
-                pTooltip="上一步" tooltipPosition="top"
                 [ngStyle]="{visibility:isShowPreviousStepButton()?'visible':'hidden'}"
       >
       </button>
-    <button pButton id="saveButton"
+    <button pButton
             type="button"
               label="保存新记录"
               icon="pi pi-save"
               iconPos="left"
               type="submit"
               [zywebClickEvent]="validateButtonClicked"
-              pTooltip="保存新记录" tooltipPosition="top"
               [ngStyle]="{display:isShowSaveButton()?'none':'flex'}"
 
     >
     </button>
 
-    <button pButton id="resetButton"
+    <button pButton
             type="button"
              label="重新录入"
               icon="pi pi-refresh"
               iconPos="left"
               [zywebClickEvent]="resetButtonClicked"
-              pTooltip="重新录入" tooltipPosition="top"
               class="p-button-warning "
 
     >
     </button>
 
-    <button pButton id="cancelButton"
+    <button pButton
             type="button"
               label="取消新记录"
               icon="pi pi-sign-out"
               iconPos="left"
               [zywebClickEvent]="cancelButtonClicked"
-              pTooltip="取消新记录" tooltipPosition="top"
               class="p-button-danger"
 
     >
 
     </button>
-      <button pButton id="nextButton"
+      <button pButton
               type="button"
                 label="下一步"
                 icon="pi pi-step-forward"
                 iconPos="left"
                 [zywebClickEvent]="nextStepButtonClicked"
-                pTooltip="下一步" tooltipPosition="top"
                 [ngStyle]="{visibility:isShowNextStepButton()?'visible':'hidden'}"
 
       >
       </button>
+  </div>
+
+  <div class="new-form-button-content button-icon">
+    <button pButton
+            type="button"
+            icon="pi pi-step-backward"
+            iconPos="left"
+            [zywebClickEvent]="previousStepButtonClicked"
+            pTooltip="上一步" tooltipPosition="top"
+            [ngStyle]="{visibility:isShowPreviousStepButton()?'visible':'hidden'}"
+    >
+    </button>
+    <button pButton
+            type="button"
+            icon="pi pi-save"
+            iconPos="left"
+            type="submit"
+            [zywebClickEvent]="validateButtonClicked"
+            pTooltip="保存新记录" tooltipPosition="top"
+            [ngStyle]="{display:isShowSaveButton()?'none':'flex'}"
+
+    >
+    </button>
+
+    <button pButton
+            type="button"
+            icon="pi pi-refresh"
+            iconPos="left"
+            [zywebClickEvent]="resetButtonClicked"
+            pTooltip="重新录入" tooltipPosition="top"
+            class="p-button-warning "
+
+    >
+    </button>
+
+    <button pButton
+            type="button"
+            icon="pi pi-sign-out"
+            iconPos="left"
+            [zywebClickEvent]="cancelButtonClicked"
+            pTooltip="取消新记录" tooltipPosition="top"
+            class="p-button-danger"
+
+    >
+
+    </button>
+    <button pButton
+            type="button"
+            icon="pi pi-step-forward"
+            iconPos="left"
+            [zywebClickEvent]="nextStepButtonClicked"
+            pTooltip="下一步" tooltipPosition="top"
+            [ngStyle]="{visibility:isShowNextStepButton()?'visible':'hidden'}"
+
+    >
+    </button>
   </div>

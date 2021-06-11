@@ -92,14 +92,22 @@
           <label for="tcrq">
             投产日期
           </label>
-          <input id="tcrq" name="tcrq" type="text" pInputText formControlName="tcrq"/>
+          <p-calendar id="tcrq"
+                      formControlName="tcrq"
+                      dateFormat="yy-mm-dd"
+                      showIcon="true"
+                      monthNavigator="true"
+                      yearNavigator="true"
+                      yearRange="1990:2050"
+
+          ></p-calendar>
         </div>
       </div>
     </div>
     <ng-template pTemplate="footer">
       <hr/>
-        <ng-content></ng-content>
+      <ng-content></ng-content>
     </ng-template>
   </p-card>
 
-  </form>
+</form>

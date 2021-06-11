@@ -5,7 +5,6 @@ import {
   CreateInformationForm,
   CreateInformationFormActions,
   CreateInformationFormDataProvider,
-  CreateInformationFormFactory
 } from './providers';
 import { MenuItem } from 'primeng/api';
 import { CreateVehicleService } from '../../../services';

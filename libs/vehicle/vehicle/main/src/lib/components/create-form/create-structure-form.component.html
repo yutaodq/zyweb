@@ -1,98 +1,99 @@
-<div class="p-fluid p-formgrid p-grid">
-  <form [formGroup]="form">
+<form [formGroup]="form">
+  <p-card>
+    <div class="p-fluid p-formgrid p-grid">
 
-    <div class="form-row">
-      <div class="form-group col-md-4">
-        <label for="cc">
-          车长
-        </label>
-        <input id="cc" type="text" pInputText formControlName="cc" required="true"/>
-        <zyweb-form-errors [control]="form.get('cc')"
-        ></zyweb-form-errors>
+      <div class="form-row">
 
+        <div class="form-group col-md-4">
+          <label for="cc">车长</label>
+          <p-inputNumber id="cc" formControlName="cc" suffix=" mm">
+          </p-inputNumber>
+          <zyweb-form-errors [control]="form.get('cc')"
+          ></zyweb-form-errors>
+        </div>
+
+        <div class="form-group col-md-4">
+          <label for="ck">车宽</label>
+          <p-inputNumber id="ck"  formControlName="ck" suffix=" mm">
+          </p-inputNumber>
+
+          <zyweb-form-errors [control]="form.get('ck')"
+          ></zyweb-form-errors>
+        </div>
+
+        <div class="form-group col-md-4">
+          <label for="cg">车高</label>
+          <p-inputNumber id="cg"  formControlName="cg" suffix=" mm">
+          </p-inputNumber>
+          <zyweb-form-errors [control]="form.get('cg')"
+          ></zyweb-form-errors>
+        </div>
       </div>
-      <div class="form-group col-md-4">
-        <label for="ck">
-          车宽
 
-        </label>
-        <input id="ck" type="text" pInputText formControlName="ck"/>
-        <zyweb-form-errors [control]="form.get('ck')"
-        ></zyweb-form-errors>
+      <div class="form-row">
+        <div class="form-group col-md-4">
+          <label for="zj">轴距</label>
+          <p-inputNumber id="zj"  formControlName="zj" suffix=" mm">
+          </p-inputNumber>
+          <zyweb-form-errors [control]="form.get('zj')"
+          ></zyweb-form-errors>
 
+        </div>
+        <div class="form-group col-md-4">
+          <label for="qlj">
+            前轮距
+          </label>
+          <p-inputNumber id="qlj"  formControlName="qlj" suffix=" mm">
+          </p-inputNumber>
+          <zyweb-form-errors [control]="form.get('zj')"
+          ></zyweb-form-errors>
+        </div>
+
+        <div class="form-group col-md-4">
+          <label for="hlj">
+            后轮距
+          </label>
+          <p-inputNumber id="hlj"  formControlName="hlj" suffix=" mm">
+          </p-inputNumber>
+          <zyweb-form-errors [control]="form.get('hlj')"
+          ></zyweb-form-errors>
+        </div>
       </div>
-      <div class="form-group col-md-4">
-        <label for="cg">
-          车高
-        </label>
-        <input id="cg" type="text" pInputText formControlName="cg"/>
-        <zyweb-form-errors [control]="form.get('cg')"
-        ></zyweb-form-errors>
 
+      <div class="form-row">
+        <div class="form-group col-md-4">
+          <label for="qdxs">
+            驱动形式
+          </label>
+          <input id="qdxs" type="text" pInputText formControlName="qdxs"/>
+          <zyweb-form-errors [control]="form.get('qdxs')"
+          ></zyweb-form-errors>
+        </div>
+
+        <div class="form-group col-md-4">
+          <label for="fxpwz">
+            方向盘位置
+          </label>
+          <input id="fxpwz" type="text" pInputText formControlName="fxpwz"/>
+          <zyweb-form-errors [control]="form.get('fxpwz')"
+          ></zyweb-form-errors>
+        </div>
+
+        <div class="form-group col-md-4">
+          <label for="bsqxs">
+            变数器形式
+          </label>
+          <input id="bsqxs" type="text" pInputText formControlName="bsqxs"/>
+          <zyweb-form-errors [control]="form.get('bsqxs')"
+          ></zyweb-form-errors>
+        </div>
       </div>
     </div>
-    <div class="form-row">
-      <div class="form-group col-md-4">
-        <label for="zj">
-          轴距
-        </label>
-        <input id="zj" type="text" pInputText formControlName="zj"/>
-        <zyweb-form-errors [control]="form.get('zj')"
-        ></zyweb-form-errors>
-
-      </div>
-      <div class="form-group col-md-4">
-        <label for="qlj">
-          前轮距
-        </label>
-        <input id="qlj" type="text" pInputText formControlName="qlj"/>
-        <zyweb-form-errors [control]="form.get('zj')"
-        ></zyweb-form-errors>
-      </div>
-      <div class="form-group col-md-4">
-        <label for="hlj">
-          后轮距
-        </label>
-        <input id="hlj" type="text" pInputText formControlName="hlj"/>
-        <zyweb-form-errors [control]="form.get('hlj')"
-        ></zyweb-form-errors>
-      </div>
-    </div>
-    <div class="form-row">
-      <div class="form-group col-md-4">
-        <label for="qdxs">
-          驱动形式
-        </label>
-        <input id="qdxs" type="text" pInputText formControlName="qdxs"/>
-        <zyweb-form-errors [control]="form.get('qdxs')"
-        ></zyweb-form-errors>
-      </div>
-
-      <div class="form-group col-md-4">
-        <label for="fxpwz">
-          方向盘位置
-        </label>
-        <input id="fxpwz" type="text" pInputText formControlName="fxpwz"/>
-        <zyweb-form-errors [control]="form.get('fxpwz')"
-        ></zyweb-form-errors>
-      </div>
-
-      <div class="form-group col-md-4">
-        <label for="bsqxs">
-          变数器形式
-        </label>
-        <input id="bsqxs" type="text" pInputText formControlName="bsqxs"/>
-        <zyweb-form-errors [control]="form.get('bsqxs')"
-        ></zyweb-form-errors>
-      </div>
-
-    </div>
-    <hr/>
-
-    <div class="form-row row justify-content-center">
-
+    <ng-template pTemplate="footer">
+      <hr/>
       <ng-content></ng-content>
-    </div>
+    </ng-template>
+  </p-card>
 
-  </form>
-</div>
+</form>
+
