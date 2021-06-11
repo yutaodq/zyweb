@@ -1,8 +1,22 @@
-.new-button-text {
+.new-form-button-content {
   //display: none; // 此元素不会被显示
   display: flex;
+  flex-flow: row wrap;
   //justify-content: center;  // 水平居中
   align-items: center;     //  垂直居中
+  button {
+    margin-left: 1rem;
+
+  }
+  button:first-of-type {
+    margin-left: auto;
+
+  }
+  button:last-of-type {
+    margin-left: auto;
+    margin-right: 1rem;
+
+  }
 
   //justify-content: space-between;  // justify-content 用于设置或检索弹性盒子元素在主轴（横轴）方向上的对齐方式。
   //width: 70px;
@@ -15,13 +29,6 @@
   //&:hover {
   //  background-color: var(--surface-c);
   //}
-  .previous-step {
-    margin-right: auto;
-
-  }
-  .next-step {
-    margin-left: auto;
-  }
 
 }
 

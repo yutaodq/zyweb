@@ -48,6 +48,9 @@ public isShowPreviousStepButton(): boolean {
     return !utils.isNull(this.nextStepButtonClicked);
   }
 
+  public isShowSaveButton(): boolean {
+    return !utils.isNull(this.validateButtonClicked);
+  }
 
   public reset() {
     this.resetEvent.emit();

@@ -1,124 +1,60 @@
-
-<!--<div class="row justify-content-between new-button-text">-->
-  <div class="new-button-text">
-
-    <div class="previous-step">
-<!--    *ngIf="isShowPreviousStepButton()"-->
-    <p-button id="previousButton"
-              label="上一步"
-              icon="pi pi-step-backward"
-              iconPos="left"
-              class=" mr-2, ml-2"
-              [zywebClickEvent]="previousStepButtonClicked"
-              pTooltip="上一步"  tooltipPosition="top"
-    >
-    </p-button>
-    </div>
-     <p-button id="saveButton"
-               label="保存新记录"
-              class="new-button-text"
+  <div class="new-form-button-content new-form-button-text">
+      <button pButton id="previousButton"
+              type="button"
+                label="上一步"
+                icon="pi pi-step-backward"
+                iconPos="left"
+                [zywebClickEvent]="previousStepButtonClicked"
+                pTooltip="上一步" tooltipPosition="top"
+                [ngStyle]="{visibility:isShowPreviousStepButton()?'visible':'hidden'}"
+      >
+      </button>
+    <button pButton id="saveButton"
+            type="button"
+              label="保存新记录"
               icon="pi pi-save"
               iconPos="left"
               type="submit"
-              class=" mr-2, ml-2"
               [zywebClickEvent]="validateButtonClicked"
-               pTooltip="保存新记录"  tooltipPosition="top"
+              pTooltip="保存新记录" tooltipPosition="top"
+              [ngStyle]="{display:isShowSaveButton()?'none':'flex'}"
+
     >
-    </p-button>
-    <p-button id="resetButton"
-              label="重新录入"
+    </button>
+
+    <button pButton id="resetButton"
+            type="button"
+             label="重新录入"
               icon="pi pi-refresh"
               iconPos="left"
-              styleClass="p-button-warning"
-              class=" mr-2, ml-2"
               [zywebClickEvent]="resetButtonClicked"
-              pTooltip="重新录入"  tooltipPosition="top"
+              pTooltip="重新录入" tooltipPosition="top"
+              class="p-button-warning "
 
     >
-    </p-button>
+    </button>
 
-    <p-button id="cancelButton"
+    <button pButton id="cancelButton"
+            type="button"
               label="取消新记录"
               icon="pi pi-sign-out"
               iconPos="left"
-              styleClass="p-button-danger"
-              class="mr-2 , ml-2"
               [zywebClickEvent]="cancelButtonClicked"
-              pTooltip="取消新记录"  tooltipPosition="top"
+              pTooltip="取消新记录" tooltipPosition="top"
+              class="p-button-danger"
 
     >
 
-    </p-button>
-<!--  <div class="col-md-2 align-self-end">-->
-    <div class="next-step">
+    </button>
+      <button pButton id="nextButton"
+              type="button"
+                label="下一步"
+                icon="pi pi-step-forward"
+                iconPos="left"
+                [zywebClickEvent]="nextStepButtonClicked"
+                pTooltip="下一步" tooltipPosition="top"
+                [ngStyle]="{visibility:isShowNextStepButton()?'visible':'hidden'}"
 
-    <p-button id="nextButton"
-              label="下一步"
-              class="align-self-end"
-              *ngIf="isShowNextStepButton()"
-              icon="pi pi-step-forward"
-              iconPos="left"
-              type="submit"
-              class=" mr-2, ml-2"
-              [zywebClickEvent]="nextStepButtonClicked"
-              pTooltip="下一步"  tooltipPosition="top"
-
-    >
-    </p-button>
-    </div>
-</div>
-
-<!--<div class="row justify-content-between new-button-icon">-->
-<!--  <div class="col-md-2">-->
-
-<!--    <p-button-->
-<!--              *ngIf="isShowPreviousStepButton()"-->
-<!--              icon="pi pi-step-backward"-->
-<!--              iconPos="left"-->
-<!--              type="submit"-->
-<!--              class=" mr-2, ml-2"-->
-<!--              [zywebClickEvent]="previousStepButtonClicked"-->
-<!--    >-->
-<!--    </p-button>-->
-<!--  </div>-->
-<!--  <div class="col-md-8">-->
-
-<!--    <p-button icon="pi pi-save"-->
-<!--              iconPos="left"-->
-<!--              type="submit"-->
-<!--              class=" mr-2, ml-2"-->
-<!--              [zywebClickEvent]="validateButtonClicked"-->
-<!--    >-->
-<!--    </p-button>-->
-<!--    <p-button icon="pi pi-refresh"-->
-<!--              iconPos="left"-->
-<!--              styleClass="p-button-warning"-->
-<!--              class=" mr-2, ml-2"-->
-<!--              [zywebClickEvent]="resetButtonClicked"-->
-<!--    >-->
-<!--    </p-button>-->
-
-<!--    <p-button-->
-<!--              icon="pi pi-sign-out"-->
-<!--              iconPos="left"-->
-<!--              styleClass="p-button-danger"-->
-<!--              class="mr-2 , ml-2"-->
-<!--              [zywebClickEvent]="cancelButtonClicked"-->
-<!--    >-->
-
-<!--    </p-button>-->
-<!--  </div>-->
-<!--  <div class="col-md-2 align-self-end">-->
-
-<!--    <p-button-->
-<!--              class="align-self-end"-->
-<!--              *ngIf="isShowNextStepButton()"-->
-<!--              icon="pi pi-step-forward"-->
-<!--              iconPos="left"-->
-<!--              type="submit"-->
-<!--              class=" mr-2, ml-2"-->
-<!--              [zywebClickEvent]="nextStepButtonClicked"-->
-<!--    >-->
-<!--    </p-button>-->
-<!--  </div>-->
-<!--</div>-->
+      >
+      </button>
+  </div>
