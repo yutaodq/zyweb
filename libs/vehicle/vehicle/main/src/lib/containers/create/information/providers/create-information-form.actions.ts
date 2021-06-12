@@ -8,7 +8,6 @@ import { Vehicle, VehicleInformation } from '@zyweb/shared/data-access/model/lvm
 export class CreateInformationFormActions implements OnInit, OnDestroy {
   private _subscriptions: Array<Subscription> = [];
 
-  validateButtonClicked = new Subject<void>();
   resetButtonClicked = new Subject<void>();
   cancelButtonClicked = new Subject<void>();
   creatreInformationFormNextClicked = new Subject<void>();
@@ -37,10 +36,6 @@ export class CreateInformationFormActions implements OnInit, OnDestroy {
        this.creatreInformationFormNextClicked
         .subscribe(() => this.creatreInformationFormNext()
         ),
-      this.validateButtonClicked
-        .subscribe(() => this.save()
-        ),
-
       this.resetButtonClicked
         .subscribe(() => this._form.reset()
         ),

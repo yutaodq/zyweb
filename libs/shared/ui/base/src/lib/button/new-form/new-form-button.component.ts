@@ -23,9 +23,9 @@ import * as utils from 'lodash';
 export class NewFormButtonComponent implements OnInit {
   @Input() isFormValid = false;
 
-  @Input() validateButtonClicked: Subject<void>;
-  @Input() resetButtonClicked: Subject<void>;
-  @Input() cancelButtonClicked: Subject<void>;
+  @Input() saveButtonClicked: Subject<void> = null;
+  @Input() resetButtonClicked: Subject<void> = null;
+  @Input() cancelButtonClicked: Subject<void> = null;
 
   @Input() previousStepButtonClicked: Subject<void> = null;
   @Input() nextStepButtonClicked: Subject<void> = null;
@@ -49,7 +49,7 @@ public isShowPreviousStepButton(): boolean {
   }
 
   public isShowSaveButton(): boolean {
-    return !utils.isNull(this.validateButtonClicked);
+    return !utils.isNull(this.saveButtonClicked);
   }
 
   public reset() {

@@ -4,10 +4,10 @@ import { CreateConfirmationForm } from './create-confirmation.form';
 import { CreateVehicleService } from '../../../../services';
 
 @Injectable()
-export class CreateConfirmationFormActions implements OnInit, OnDestroy {
+export class CreateConfirmationFormActions implements OnDestroy {
   private _subscriptions: Array<Subscription> = [];
 
-  validateButtonClicked = new Subject<void>();
+  saveButtonClicked = new Subject<void>();
   resetButtonClicked = new Subject<void>();
   cancelButtonClicked = new Subject<void>();
   createConfirmationFormPreviousClicked = new Subject<void>();
@@ -18,10 +18,6 @@ export class CreateConfirmationFormActions implements OnInit, OnDestroy {
   ) {
     this.registerEvents();
 
-  }
-
-  ngOnInit() {
-    // this.registerEvents();
   }
 
   ngOnDestroy() {
@@ -36,7 +32,7 @@ export class CreateConfirmationFormActions implements OnInit, OnDestroy {
       this.createConfirmationFormPreviousClicked
         .subscribe(() => this.createConfirmationFormPrevious()
         ),
-      this.validateButtonClicked
+      this.saveButtonClicked
         .subscribe(() => this.save()
         ),
 

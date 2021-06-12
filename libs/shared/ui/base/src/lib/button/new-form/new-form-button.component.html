@@ -5,20 +5,9 @@
                 icon="pi pi-step-backward"
                 iconPos="left"
                 [zywebClickEvent]="previousStepButtonClicked"
-                [ngStyle]="{visibility:isShowPreviousStepButton()?'visible':'hidden'}"
-      >
-      </button>
-    <button pButton
-            type="button"
-              label="保存新记录"
-              icon="pi pi-save"
-              iconPos="left"
-              type="submit"
-              [zywebClickEvent]="validateButtonClicked"
-              [ngStyle]="{display:isShowSaveButton()?'none':'flex'}"
+                [ngStyle]="{visibility: isShowPreviousStepButton() ? 'visible' : 'hidden'}"
+      > </button>
 
-    >
-    </button>
 
     <button pButton
             type="button"
@@ -28,8 +17,7 @@
               [zywebClickEvent]="resetButtonClicked"
               class="p-button-warning "
 
-    >
-    </button>
+    > </button>
 
     <button pButton
             type="button"
@@ -39,21 +27,30 @@
               [zywebClickEvent]="cancelButtonClicked"
               class="p-button-danger"
 
-    >
+    > </button>
+    <button pButton
+            type="button"
+            label="保存新记录"
+            icon="pi pi-save"
+            iconPos="left"
+            class="p-button-success"
+            [zywebClickEvent]="saveButtonClicked"
+            [ngStyle]="{ 'display' : isShowSaveButton() ? 'flex' : 'none', 'margin-left' : isShowSaveButton() ? 'auto' : '1rem'}"
 
-    </button>
-      <button pButton
-              type="button"
-                label="下一步"
-                icon="pi pi-step-forward"
-                iconPos="left"
-                [zywebClickEvent]="nextStepButtonClicked"
-                [ngStyle]="{visibility:isShowNextStepButton()?'visible':'hidden'}"
+    ></button>
+    <button pButton
+            type="button submit"
+            label="下一步"
+            icon="pi pi-step-forward"
+            iconPos="left"
+            [zywebClickEvent]="nextStepButtonClicked"
+            [ngStyle]="{ 'display' : isShowNextStepButton() ? 'flex' : 'none' }"
 
-      >
-      </button>
+    >   </button>
   </div>
 
+
+  <!--显示图标-->
   <div class="new-form-button-content button-icon">
     <button pButton
             type="button"
@@ -69,9 +66,9 @@
             icon="pi pi-save"
             iconPos="left"
             type="submit"
-            [zywebClickEvent]="validateButtonClicked"
+            [zywebClickEvent]="saveButtonClicked"
             pTooltip="保存新记录" tooltipPosition="top"
-            [ngStyle]="{display:isShowSaveButton()?'none':'flex'}"
+        [ngStyle]="{ 'display' : isShowSaveButton() ? 'none' : 'flex' }"
 
     >
     </button>

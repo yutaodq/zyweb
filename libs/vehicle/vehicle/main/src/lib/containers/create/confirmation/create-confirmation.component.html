@@ -1,15 +1,11 @@
-<div class="container content-section implementation">
-    <zyweb-vehicle-create-confirmation-form >
-            <zyweb-shared-ui-base-new-form-button
-                [validateButtonClicked]= "formActions.validateButtonClicked"
-                [resetButtonClicked]= "formActions.resetButtonClicked"
-                [cancelButtonClicked]= "formActions.cancelButtonClicked"
-                [previousStepButtonClicked] = "formActions.createConfirmationFormPreviousClicked"
+<zyweb-vehicle-create-confirmation-form>
+  <zyweb-shared-ui-base-new-form-button
+    [saveButtonClicked]="formActions.saveButtonClicked"
+    [resetButtonClicked]="formActions.resetButtonClicked"
+    [cancelButtonClicked]="formActions.cancelButtonClicked"
+    [previousStepButtonClicked]="formActions.createConfirmationFormPreviousClicked"
 
-            >
-              </zyweb-shared-ui-base-new-form-button>
+  >
+  </zyweb-shared-ui-base-new-form-button>
 
-    </zyweb-vehicle-create-confirmation-form>
-
-
-</div>
+</zyweb-vehicle-create-confirmation-form>
