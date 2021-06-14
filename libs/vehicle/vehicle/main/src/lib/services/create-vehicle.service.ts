@@ -26,24 +26,24 @@ export class CreateVehicleService {
     this._vehicleFacade.createInformationFormNext(vhicleInformation);
   }
 
-  createStructureFormPrevious() {
-    this._vehicleFacade.createStructureFormPrevious();
+  createStructureFormPrevious(vehicleStructure: VehicleStructure) {
+    this._vehicleFacade.createStructureFormPrevious(vehicleStructure);
   }
 
   createStructureFormNext(vehicleStructure: VehicleStructure) {
     this._vehicleFacade.createStructureFormNext(vehicleStructure);
   }
 
-  createParameterFormPrevious() {
-    this._vehicleFacade.creatreParameterFormPrevious();
+  createParameterFormPrevious(vehicleParameter: VehicleParameter) {
+    this._vehicleFacade.creatreParameterFormPrevious(vehicleParameter);
   }
 
   createParameterFormNext(vehicleParameter: VehicleParameter) {
     this._vehicleFacade.createParameterFormNext(vehicleParameter);
   }
 
-  createSpecialFormPrevious() {
-    this._vehicleFacade.createSpecialFormPrevious();
+  createSpecialFormPrevious(vehicleSpecial: VehicleSpecial) {
+    this._vehicleFacade.createSpecialFormPrevious(vehicleSpecial);
   }
 
   createSpecialFormNext(vehicleSpecial: VehicleSpecial) {
@@ -106,13 +106,13 @@ export class CreateVehicleService {
   //     );
   //   };
   // }
-  nameResults(): Observable<Vehicle[]> {
-    return this._vehicleFacade.entities$;
-  }
+  // nameResults(): Observable<Vehicle[]> {
+  //   return this._vehicleFacade.entities$;
+  // }
 
-  search(): Observable<Vehicle[]> {
-    return this._vehicleFacade.entities$;
-  }
+  // search(): Observable<Vehicle[]> {
+  //   return this._vehicleFacade.entities$;
+  // }
 
 
   // public exists(api: ExistsByNameApi): AsyncValidatorFn {

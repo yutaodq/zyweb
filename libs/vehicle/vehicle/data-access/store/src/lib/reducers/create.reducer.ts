@@ -29,12 +29,29 @@ const initialState: State = {
 
 export const reducer = createReducer(
   initialState,
-  on(VehicleCreateActions.vehicleCreatreInformationFormNext, (state, { vehicleInformation }) => ({
+  on(VehicleCreateActions.vehicleCreateInformationFormNext, (state, { vehicleInformation }) => ({
     ...state,
     vehicleInformation: vehicleInformation
+  })),
+  on(VehicleCreateActions.vehicleCreateStructureForm, (state, { vehicleStructure }) => ({
+    ...state,
+    vehicleStructure: vehicleStructure
+  })),
+  on(VehicleCreateActions.vehicleCreateParameterForm, (state, { vehicleParameter }) => ({
+    ...state,
+    vehicleParameter: vehicleParameter
+  })),
+  on(VehicleCreateActions.vehicleCreateSpecialForm, (state, { vehicleSpecial }) => ({
+    ...state,
+    vehicleSpecial: vehicleSpecial
   })),
 
 );
 
-export const getVehicle = (state: State) => state.vehicleInformation;
+export const getVehicleInformation = (state: State) => state.vehicleInformation;
 
+export const getVehicleStructure = (state: State) => state.vehicleStructure;
+
+export const getVehicleParameter = (state: State) => state.vehicleParameter;
+
+export const getVehicleSpecial = (state: State) => state.vehicleSpecial;

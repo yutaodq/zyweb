@@ -54,12 +54,15 @@ export class CreateStructureFormActions implements OnInit, OnDestroy {
   }
 
   private creatreStructureFormNext() {
-    const vehicleStructure = this._form.asFormGroup.value as VehicleStructure;
-    this._createService.createStructureFormNext(vehicleStructure);
+    // const vehicleStructure = this._form.asFormGroup.value as VehicleStructure;
+    this._createService.createStructureFormNext(this.getStructure());
+  }
+  private getStructure() {
+    return this._form.asFormGroup.value as VehicleStructure;
   }
 
   private creatreStructureFormPrevious() {
-    this._createService.createStructureFormPrevious();
+    this._createService.createStructureFormPrevious(this.getStructure());
 
   }
 }

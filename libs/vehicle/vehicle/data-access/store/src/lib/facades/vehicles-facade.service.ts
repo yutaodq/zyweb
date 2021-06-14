@@ -98,32 +98,51 @@ export class VehicleFacade {
     this.routeTo({ path: ['vehicle', 'create'] });
 
   }
-  createInformationFormNext(vhicleInformation: VehicleInformation) {
-    this._appState$.dispatch(VehicleCreateActions.vehicleCreatreInformationFormNext({ vehicleInformation: vhicleInformation }));
+  createInformationFormNext(vehicleInformation: VehicleInformation) {
+    this.dispatchCreateInformation(vehicleInformation);
     this.routeTo({ path: ['vehicle', 'create', 'createStructure'] });
   }
+  private dispatchCreateInformation(vehicleInformation: VehicleInformation) {
+    this._appState$.dispatch(VehicleCreateActions.vehicleCreateInformationFormNext({ vehicleInformation: vehicleInformation }));
+  }
 
-  createStructureFormPrevious() {
+  createStructureFormPrevious(vehicleStructure: VehicleStructure) {
+    this.dispatchCreateStructure(vehicleStructure);
     this.routeTo({ path: ['vehicle', 'create', 'createInformation'] });
+  }
+  private dispatchCreateStructure(vehicleStructure: VehicleStructure) {
+    this._appState$.dispatch(VehicleCreateActions.vehicleCreateStructureForm({ vehicleStructure: vehicleStructure }));
   }
 
   createStructureFormNext(vehicleStructure: VehicleStructure) {
+    this.dispatchCreateStructure(vehicleStructure);
     this.routeTo({ path: ['vehicle', 'create', 'createParameter'] });
   }
 
-  creatreParameterFormPrevious() {
+
+  creatreParameterFormPrevious(vehicleParameter: VehicleParameter) {
+    this.dispatchCreateParameter(vehicleParameter);
     this.routeTo({ path: ['vehicle', 'create', 'createStructure'] });
+  }
+  private dispatchCreateParameter(vehicleParameter: VehicleParameter) {
+    this._appState$.dispatch(VehicleCreateActions.vehicleCreateParameterForm({ vehicleParameter: vehicleParameter }));
   }
 
   createParameterFormNext(vehicleParameter: VehicleParameter) {
+    this.dispatchCreateParameter(vehicleParameter);
     this.routeTo({ path: ['vehicle', 'create', 'createSpecial'] });
   }
 
-  createSpecialFormPrevious() {
+  createSpecialFormPrevious(vehicleSpecial: VehicleSpecial) {
+    this.dispatchCreateSpecia(vehicleSpecial);
     this.routeTo({ path: ['vehicle', 'create', 'createParameter'] });
+  }
+  private dispatchCreateSpecia(vehicleSpecial: VehicleSpecial) {
+    this._appState$.dispatch(VehicleCreateActions.vehicleCreateSpecialForm({ vehicleSpecial: vehicleSpecial }));
   }
 
   createSpecialFormNext(vehicleSpecial: VehicleSpecial) {
+    this.dispatchCreateSpecia(vehicleSpecial);
     this.routeTo({ path: ['vehicle', 'create', 'createConfirmation'] });
   }
 

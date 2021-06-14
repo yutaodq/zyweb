@@ -2,10 +2,10 @@ import { Injectable, OnDestroy, OnInit } from '@angular/core';
 import { Subject, Subscription } from 'rxjs';
 import { CreateSpecialForm } from './create-special.form';
 import { CreateVehicleService } from '../../../../services';
-import { Vehicle, VehicleSpecial } from '@zyweb/shared/data-access/model/lvms';
+import { Vehicle, VehicleSpecial, VehicleStructure } from '@zyweb/shared/data-access/model/lvms';
 
 @Injectable()
-export class CreateSpecialFormActions implements OnInit, OnDestroy {
+export class CreateSpecialFormActions implements OnDestroy {
   private _subscriptions: Array<Subscription> = [];
 
   resetButtonClicked = new Subject<void>();
@@ -19,9 +19,6 @@ export class CreateSpecialFormActions implements OnInit, OnDestroy {
   ) {
     this.registerEvents();
 
-  }
-
-  ngOnInit() {
   }
 
   ngOnDestroy() {
@@ -52,16 +49,15 @@ export class CreateSpecialFormActions implements OnInit, OnDestroy {
   }
 
   private creatreSpecialFormNext() {
-    const vehicleSpecial = this._form.asFormGroup.value as VehicleSpecial;
-    this._createService.createSpecialFormNext(vehicleSpecial);
+    // const vehicleSpecial = this._form.asFormGroup.value as VehicleSpecial;
+    this._createService.createSpecialFormNext(this.getSpecial());
   }
-
-  private save() {
-    this._createService.add(this._form.asFormGroup.value);
+  private getSpecial() {
+    return this._form.asFormGroup.value as VehicleSpecial;
   }
 
   private creatreSpecialFormPrevious() {
-    this._createService.createSpecialFormPrevious();
+    this._createService.createSpecialFormPrevious(this.getSpecial());
 
   }
 }

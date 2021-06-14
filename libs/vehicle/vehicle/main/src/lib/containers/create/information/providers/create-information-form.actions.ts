@@ -5,7 +5,7 @@ import { CreateVehicleService } from '../../../../services';
 import { Vehicle, VehicleInformation } from '@zyweb/shared/data-access/model/lvms';
 
 @Injectable()
-export class CreateInformationFormActions implements OnInit, OnDestroy {
+export class CreateInformationFormActions implements OnDestroy {
   private _subscriptions: Array<Subscription> = [];
 
   resetButtonClicked = new Subject<void>();
@@ -18,10 +18,6 @@ export class CreateInformationFormActions implements OnInit, OnDestroy {
   ) {
     this.registerEvents();
 
-  }
-
-  ngOnInit() {
-    // this.registerEvents();
   }
 
   ngOnDestroy() {
@@ -49,9 +45,5 @@ export class CreateInformationFormActions implements OnInit, OnDestroy {
   private creatreInformationFormNext() {
     const vehicleInformation = this._form.asFormGroup.value as VehicleInformation;
     this._createService.createInformationFormNext(vehicleInformation);
-  }
-
-  private save() {
-    this._createService.add(this._form.asFormGroup.value);
   }
 }

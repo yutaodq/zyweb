@@ -2,10 +2,10 @@ import { Injectable, OnDestroy, OnInit } from '@angular/core';
 import { Subject, Subscription } from 'rxjs';
 import { CreateParameterForm } from './create-parameter.form';
 import { CreateVehicleService } from '../../../../services';
-import { Vehicle, VehicleParameter } from '@zyweb/shared/data-access/model/lvms';
+import { Vehicle, VehicleParameter, VehicleStructure } from '@zyweb/shared/data-access/model/lvms';
 
 @Injectable()
-export class CreateParameterFormActions implements OnInit, OnDestroy {
+export class CreateParameterFormActions implements  OnDestroy {
   private _subscriptions: Array<Subscription> = [];
 
   resetButtonClicked = new Subject<void>();
@@ -19,10 +19,6 @@ export class CreateParameterFormActions implements OnInit, OnDestroy {
   ) {
     this.registerEvents();
 
-  }
-
-  ngOnInit() {
-    // this.registerEvents();
   }
 
   ngOnDestroy() {
@@ -52,12 +48,14 @@ export class CreateParameterFormActions implements OnInit, OnDestroy {
   }
 
   private creatreParameterFormNext() {
-    const vehicleParameter = this._form.asFormGroup.value as VehicleParameter;
-    this._createService.createParameterFormNext(vehicleParameter);
+    this._createService.createParameterFormNext(this.getParameter());
+  }
+  private getParameter() {
+    return this._form.asFormGroup.value as VehicleParameter;
   }
 
   private creatreParameterFormPrevious() {
-    this._createService.createParameterFormPrevious();
+    this._createService.createParameterFormPrevious(this.getParameter());
 
   }
 }
