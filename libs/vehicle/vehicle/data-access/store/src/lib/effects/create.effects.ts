@@ -24,7 +24,7 @@ export class CreateEffects {
   @Effect({ dispatch: false })
   addBookToCollection$ = createEffect(() =>
     this.actions$.pipe(
-      ofType(VehicleCreateActions.vehicleCreateConfirmationFormNext),
+      ofType(VehicleCreateActions.vehicleCreateConfirmationFormSave),
       map(_ => {
         console.log(`BEFORE MAP`);
         return { type: 'NOOP_ACTION'};

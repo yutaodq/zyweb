@@ -46,6 +46,10 @@ export interface VehicleInformation{
   dpxh : string ;  //底盘型号
   dpbh : string ;  //底盘编号
   description?: string; // 备注
+  parameter: VehicleParameter;
+  structure: VehicleStructure;
+  special: VehicleSpecial;
+
 }
 
 export interface VehicleParameter {

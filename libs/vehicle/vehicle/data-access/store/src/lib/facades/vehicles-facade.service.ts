@@ -157,7 +157,7 @@ export class VehicleFacade {
   }
 
   add() {
-    this._appState$.dispatch(VehicleCreateActions.vehicleCreateConfirmationFormNext());
+    this._appState$.dispatch(VehicleCreateActions.vehicleCreateConfirmationFormSave());
   }
 
   /*
