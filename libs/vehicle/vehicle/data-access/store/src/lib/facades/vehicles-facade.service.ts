@@ -156,9 +156,8 @@ export class VehicleFacade {
     this._appState$.dispatch(RouteActions.back());
   }
 
-  add(vehicle: Vehicle) {
-    return this._collectionService.add(vehicle);
-
+  add() {
+    this._appState$.dispatch(VehicleCreateActions.vehicleCreateConfirmationFormNext());
   }
 
   /*

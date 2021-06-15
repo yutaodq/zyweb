@@ -1,5 +1,5 @@
 import { Injectable, OnDestroy, OnInit } from '@angular/core';
-import { Subject, Subscription } from 'rxjs';
+import { Subject, Subscription, Observable } from 'rxjs';
 import { CreateConfirmationForm } from './create-confirmation.form';
 import { CreateVehicleService } from '../../../../services';
 
@@ -51,6 +51,6 @@ export class CreateConfirmationFormActions implements OnDestroy {
   }
 
   private save() {
-    this._createService.add(this._form.asFormGroup.value);
+    this._createService.add();
   }
 }

@@ -58,10 +58,10 @@ export class CreateVehicleService {
     this._vehicleFacade.cancelCreate();
   }
 
-  add(vehicle: Vehicle) {
-    vehicle.id = uuidv4();
-    console.log('aaaaaaa:' + vehicle.ccrq);
-    this._vehicleFacade.add(vehicle);
+  add() {
+    // vehicle.id = uuidv4();
+    // console.log('aaaaaaa:' + vehicle.ccrq);
+    this._vehicleFacade.add();
   }
 
   // getVehiclesUseState(): Observable<VehicleUseState[]> {
