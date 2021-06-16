@@ -16,7 +16,7 @@ export interface State {
   vehicleStructure: VehicleStructure,
   vehicleSpecial: VehicleSpecial,
   error: string;
-  query: string;}
+}
 
 const initialState: State = {
   vehicleInformation: null,
@@ -24,7 +24,6 @@ const initialState: State = {
   vehicleStructure: null,
   vehicleSpecial: null,
   error: '',
-  query: '',
 };
 
 export const reducer = createReducer(

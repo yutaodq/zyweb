@@ -14,6 +14,8 @@ import { RouteActions } from '@zyweb/shared/data-access/store/ngrx-router';
 import * as fromStates from '../reducers';
 import { map } from 'rxjs/operators';
 import { VehicleCreateActions } from '../actions';
+import * as fromSelectors from '../selectors';
+import { VehicleApiClient } from '@zyweb/shared/data-access/api/lvms';
 
 export enum UpdateType {
   UPDATE = 'update',
@@ -28,6 +30,7 @@ export class VehicleFacade {
 
   constructor(
     private _appState$: Store<fromStates.State>,
+    private _vehicleApiClient: VehicleApiClient,
     entityServices: EntityServices
   ) {
     this._collectionService =
@@ -160,6 +163,40 @@ export class VehicleFacade {
     this._appState$.dispatch(VehicleCreateActions.vehicleCreateConfirmationFormSave());
   }
 
+createSave() {
+    let information: VehicleInformation;
+  let structure: VehicleStructure;
+  let parameter: VehicleParameter;
+  let special: VehicleSpecial;
+
+
+  const information$ = this._appState$.pipe(select(fromSelectors.CreateSelectors.selectVehicleInformation));
+  const structure$ = this._appState$.pipe(select(fromSelectors.CreateSelectors.selectVehicleStructure));
+  const parameter$ = this._appState$.pipe(select(fromSelectors.CreateSelectors.selectVehicleParameter));
+  const special$ = this._appState$.pipe(select(fromSelectors.CreateSelectors.selectVehicleSpecial));
+
+  information$.pipe(map(infor => {
+    console.log('新纪录：' + infor.pz);
+
+    information = infor;
+  } )).subscribe();
+  structure$.pipe(map(stru =>{
+
+    structure = stru
+  } )).subscribe();
+  parameter$.pipe(map(para => parameter = para )).subscribe();
+  special$.pipe(map(spec => special = spec )).subscribe();
+  const vehicle: VehicleInformation = {...information, structure, parameter, special};
+  // vehicle.structure = structure;
+  // vehicle.parameter = parameter;
+  // vehicle.special = special;
+  console.log('新纪录structure：' + structure.cc);
+
+  console.log('新纪录pz：' + vehicle.pz);
+  console.log('新纪录cc：' + vehicle.structure.cc);
+
+  return this._vehicleApiClient.addVehicle(vehicle);
+}
   /*
 create end
  */

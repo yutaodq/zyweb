@@ -8,27 +8,19 @@ import { RouteActions } from '@zyweb/shared/data-access/store/ngrx-router';
 import {
   VehicleCreateActions
 } from '../actions';
+import { VehicleFacade } from '../facades';
 
 @Injectable()
 export class CreateEffects {
-  // handleaddCreateSuccess$ = createEffect(() =>
-  //   this.actions$.pipe(
-  //     ofEntityType(ENTITY_NAME),
-  //     ofEntityOp(EntityOp.SAVE_ADD_ONE_SUCCESS),
-  //     switchMap((action: EntityAction) => ([
-  //         RouteActions.go({ to: { path: ['vehicle', action.payload.data.id, 'detail'] } })
-  //       ])
-  //     )
-  //   )
-  // );
-  @Effect({ dispatch: false })
+
   addBookToCollection$ = createEffect(() =>
     this.actions$.pipe(
       ofType(VehicleCreateActions.vehicleCreateConfirmationFormSave),
-      map(_ => {
-        console.log(`BEFORE MAP`);
-        return { type: 'NOOP_ACTION'};
-      })
+      mergeMap(() => this._vehicleFacade.createSave().pipe(
+        map(() => ({type: 'NOOP_ACTION'})
+        )
+        )
+      )
     )
   );
 
@@ -45,7 +37,8 @@ export class CreateEffects {
   // );
 
   constructor(
-    private actions$: Actions
+    private actions$: Actions,
+    private _vehicleFacade: VehicleFacade
   ) {
   }
 

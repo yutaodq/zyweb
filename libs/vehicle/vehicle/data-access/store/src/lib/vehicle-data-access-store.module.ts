@@ -5,7 +5,7 @@ import { EffectsModule } from '@ngrx/effects';
 
 import * as fromVehicles from './reducers';
 import { CollectionEffects, CreateEffects } from './effects';
-// import { VehicleUseTypesApiClient } from '@zyweb/shared/data-access/api/lvms';
+import { VehicleApiClient } from '@zyweb/shared/data-access/api/lvms';
 @NgModule({
   imports: [
     CommonModule,
@@ -15,7 +15,7 @@ import { CollectionEffects, CreateEffects } from './effects';
       CreateEffects
     ]),
   ],
-  // providers: [VehicleUseTypesApiClient]
+  providers: [VehicleApiClient]
 })
 
 export class VehicleDataAccessStoreModule {}
