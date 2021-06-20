@@ -22,6 +22,16 @@ D:\学习案例\druo-dashboard\src\app\content\pages\components\invoices\invoice
   templateUrl: './create.component.html',
   styleUrls: ['./create.component.scss'],
   // providers: [
+  //   CreateFormFactory,
+  //   { provide: CreateForm,
+  //     useFactory: (factory: CreateFormFactory) => factory.create(),
+  //     deps: [CreateFormFactory]
+  //   },
+  //   CreateFormDataProvider,
+  //   CreateFormActions,
+  //
+  // ],
+  // providers: [
   //   CreateStructureFormFactory,
   //   {
   //     provide: CreateStructureForm,
@@ -43,12 +53,12 @@ export class CreateComponent  implements OnInit  {
 
   constructor(
     private _createService: CreateVehicleService,
-    public form: CreateInformationForm,
-    public formDataProvider: CreateInformationFormDataProvider,
-    public formActions: CreateInformationFormActions
+    // public form: CreateForm,
+    // public formDataProvider: CreateFormDataProvider,
+    // public formActions: CreateFormActions
   ) {
-    this.ageIsGreaterThanTen = this.form.ageIsGreaterThan(10);
-    this.formIsValid = this.form.isValid();
+    // this.ageIsGreaterThanTen = this.form.ageIsGreaterThan(10);
+    // this.formIsValid = this.form.isValid();
   }
 
   ngOnInit(): void {

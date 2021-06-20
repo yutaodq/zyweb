@@ -30,15 +30,15 @@ import { VehicleCreateFormModule } from '../../../components/create-form';
   ],
   exports: [CreateInformationComponent],
   providers: [
-    CreateInformationFormFactory,
-    { provide: CreateInformationForm,
-      useFactory: (factory: CreateInformationFormFactory) => factory.create(),
-      deps: [CreateInformationFormFactory]
-    },
-    CreateInformationFormDataProvider,
-    CreateInformationFormActions,
+    // CreateFormFactory,
+    // { provide: CreateForm,
+    //   useFactory: (factory: CreateFormFactory) => factory.create(),
+    //   deps: [CreateFormFactory]
+    // },
+    // CreateFormDataProvider,
+    // CreateFormActions,
 
-  ]
+  ],
 })
 export class VehicleMainContainersCreateInformationModule {
 }

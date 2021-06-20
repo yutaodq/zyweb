@@ -4,11 +4,10 @@ import { distinctUntilChanged, map, startWith } from 'rxjs/operators';
 import { Vehicle } from '@zyweb/shared/data-access/model/lvms';
 import { SpartacusFormService } from '@zyweb/shared/ui/common';
 
-export class CreateInformationForm  {
+export class CreateParameterForm  {
   readonly initialValue;
 
   constructor(private formGroup: FormGroup) {
-console.log("CreateInformationFormCreateInformationFormCreateInformationForm")
     this.initialValue = formGroup.value;
   }
 

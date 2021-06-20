@@ -1,0 +1,49 @@
+import { Injectable, OnDestroy, OnInit } from '@angular/core';
+import { Subject, Subscription } from 'rxjs';
+import { CreateForm } from './create.form';
+import { CreateVehicleService } from '../../../../services';
+import { Vehicle, VehicleInformation } from '@zyweb/shared/data-access/model/lvms';
+
+@Injectable()
+export class CreateFormActions implements OnDestroy {
+  private _subscriptions: Array<Subscription> = [];
+
+  resetButtonClicked = new Subject<void>();
+  cancelButtonClicked = new Subject<void>();
+  creatreInformationFormNextClicked = new Subject<void>();
+
+  constructor(
+    private _createService: CreateVehicleService,
+    private _form: CreateForm
+  ) {
+    this.registerEvents();
+
+  }
+
+  ngOnDestroy() {
+    this._subscriptions.forEach(sub => sub.unsubscribe());
+  }
+
+  /**
+   * Registers events
+   */
+  private registerEvents(): void {
+    this._subscriptions.push(
+       this.creatreInformationFormNextClicked
+        .subscribe(() => this.creatreInformationFormNext()
+        ),
+      this.resetButtonClicked
+        .subscribe(() => this._form.reset()
+        ),
+
+      this.cancelButtonClicked
+        .subscribe(() => this._createService.cancel()
+        )
+    );
+  }
+
+  private creatreInformationFormNext() {
+    const vehicleInformation = this._form.asFormGroup.value as VehicleInformation;
+    this._createService.createInformationFormNext(vehicleInformation);
+  }
+}

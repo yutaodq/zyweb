@@ -4,7 +4,7 @@ import { Observable,  } from 'rxjs';
 import {
   CreateInformationForm,
   CreateInformationFormActions,
-  CreateInformationFormDataProvider,
+  CreateInformationFormDataProvider, CreateInformationFormFactory
 } from './providers';
 import { MenuItem } from 'primeng/api';
 import { CreateVehicleService } from '../../../services';
@@ -16,6 +16,16 @@ D:\学习案例\druo-dashboard\src\app\content\pages\components\invoices\invoice
 @Component({
   selector: 'zyweb-vehicle-create-information',
   templateUrl: './create-information.component.html',
+  providers: [
+    CreateInformationFormFactory,
+    { provide: CreateInformationForm,
+      useFactory: (factory: CreateInformationFormFactory) => factory.create(),
+      deps: [CreateInformationFormFactory]
+    },
+    CreateInformationFormDataProvider,
+    CreateInformationFormActions,
+
+  ],
 
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
@@ -29,8 +39,10 @@ export class CreateInformationComponent  implements OnInit  {
     private _createService: CreateVehicleService,
     public form: CreateInformationForm,
     public formDataProvider: CreateInformationFormDataProvider,
-    public formActions: CreateInformationFormActions
-  ) {
+    public formActions: CreateInformationFormActions,
+
+) {
+    console.log("CreateInformationComponentCreateInformationComponentCreateInformationComponent");
     this.ageIsGreaterThanTen = this.form.ageIsGreaterThan(10);
     this.formIsValid = this.form.isValid();
   }
