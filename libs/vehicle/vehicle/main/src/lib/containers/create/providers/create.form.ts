@@ -5,7 +5,10 @@ import { Vehicle } from '@zyweb/shared/data-access/model/lvms';
 import { SpartacusFormService } from '@zyweb/shared/ui/common';
 
 export class CreateForm  {
-  readonly initialValue;
+  private readonly _informationInitialValue;
+  private readonly _structureInitialValue;
+  private readonly _parameterInitialValue;
+  private readonly _specialInitialValue;
 
   constructor(private _informationFormGroup: FormGroup,
               private _structureFormGroup: FormGroup,
@@ -13,7 +16,10 @@ export class CreateForm  {
               private _specialFormGroup: FormGroup
               ) {
 // console.log("CreateInformationFormCreateInformationFormCreateInformationForm")
-//     this.initialValue = formGroup.value;
+    this._informationInitialValue = _informationFormGroup.value;
+    this._structureInitialValue = _structureFormGroup.value;
+    this._parameterInitialValue = _parameterFormGroup.value;
+    this._specialInitialValue = _specialFormGroup.value;
   }
 
   get informationFormGroup() {
@@ -30,16 +36,40 @@ export class CreateForm  {
   }
 
   resetInformation() {
-    this._informationFormGroup.reset();
+    this._informationFormGroup.reset(this._informationInitialValue);
   }
   resetStructure() {
-    this._structureFormGroup.reset();
+    this._structureFormGroup.reset(this._structureInitialValue);
   }
   resetParameter() {
-    this._parameterFormGroup.reset();
+    this._parameterFormGroup.reset(this._parameterInitialValue);
   }
   resetSpecial() {
-    this._specialFormGroup.reset();
+    this._specialFormGroup.reset(this._specialInitialValue);
+  }
+  isInformationValid(): Observable<boolean> {
+    return this._informationFormGroup.statusChanges.pipe(
+      map(() => this._informationFormGroup.valid),
+      startWith(false)
+    );
+  }
+  isStructureValid(): Observable<boolean> {
+    return this._structureFormGroup.statusChanges.pipe(
+      map(() => this._structureFormGroup.valid),
+      startWith(false)
+    );
+  }
+  isParameterValid(): Observable<boolean> {
+    return this._parameterFormGroup.statusChanges.pipe(
+      map(() => this._parameterFormGroup.valid),
+      startWith(false)
+    );
+  }
+  isSpecialValid(): Observable<boolean> {
+    return this._specialFormGroup.statusChanges.pipe(
+      map(() => this._specialFormGroup.valid),
+      startWith(false)
+    );
   }
 
   // ageIsGreaterThan(min: number): Observable<boolean> {
@@ -51,12 +81,6 @@ export class CreateForm  {
   //   );
   // }
   //
-  // isValid(): Observable<boolean> {
-  //   return this.formGroup.statusChanges.pipe(
-  //     map(() => this.formGroup.valid),
-  //     startWith(false)
-  //   );
-  // }
   //
 
 }

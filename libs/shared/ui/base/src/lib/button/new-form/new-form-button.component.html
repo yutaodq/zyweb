@@ -11,7 +11,7 @@
 
     <button pButton
             type="button"
-             label="重新录入"
+             label="回复初始值"
               icon="pi pi-refresh"
               iconPos="left"
               [zywebClickEvent]="resetButtonClicked"
@@ -39,7 +39,7 @@
 
     ></button>
     <button pButton
-            type="button submit"
+            type="button"
             label="下一步"
             icon="pi pi-step-forward"
             iconPos="left"
@@ -65,7 +65,6 @@
             type="button"
             icon="pi pi-save"
             iconPos="left"
-            type="submit"
             [zywebClickEvent]="saveButtonClicked"
             pTooltip="保存新记录" tooltipPosition="top"
         [ngStyle]="{ 'display' : isShowSaveButton() ? 'none' : 'flex' }"

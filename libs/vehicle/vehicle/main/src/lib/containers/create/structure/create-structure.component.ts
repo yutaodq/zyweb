@@ -1,11 +1,6 @@
 import { ChangeDetectionStrategy, ChangeDetectorRef, Component, OnDestroy, OnInit } from '@angular/core';
 
 import { Observable,  } from 'rxjs';
-import { CreateVehicleService } from '../../../services';
-import { CreateStructureForm,
-  CreateStructureFormActions,
-  CreateStructureFormDataProvider
-} from './providers';
 import { CreateForm, CreateFormActions } from '../providers';
 
 /*
@@ -27,7 +22,7 @@ export class CreateStructureComponent  implements OnInit  {
     public form: CreateForm,
     public formActions: CreateFormActions,
   ) {
-    // this.formIsValid = this.form.isValid();
+    this.formIsValid = this.form.isStructureValid();
   }
 
   ngOnInit(): void {
