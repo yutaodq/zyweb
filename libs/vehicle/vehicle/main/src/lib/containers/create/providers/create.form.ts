@@ -7,33 +7,56 @@ import { SpartacusFormService } from '@zyweb/shared/ui/common';
 export class CreateForm  {
   readonly initialValue;
 
-  constructor(private formGroup: FormGroup) {
-console.log("CreateInformationFormCreateInformationFormCreateInformationForm")
-    this.initialValue = formGroup.value;
+  constructor(private _informationFormGroup: FormGroup,
+              private _structureFormGroup: FormGroup,
+              private _parameterFormGroup: FormGroup,
+              private _specialFormGroup: FormGroup
+              ) {
+// console.log("CreateInformationFormCreateInformationFormCreateInformationForm")
+//     this.initialValue = formGroup.value;
   }
 
-  get asFormGroup() {
-    return this.formGroup;
+  get informationFormGroup() {
+    return this._informationFormGroup;
+  }
+  get structureFormGroup() {
+    return this._structureFormGroup;
+  }
+  get parameterFormGroup() {
+    return this._parameterFormGroup;
+  }
+  get specialFormGroup() {
+    return this._specialFormGroup;
   }
 
-  ageIsGreaterThan(min: number): Observable<boolean> {
-    return this.formGroup.valueChanges.pipe(
-      map(value => value.age),
-      distinctUntilChanged(),
-      map(it => it > min),
-      startWith(false)
-    );
+  resetInformation() {
+    this._informationFormGroup.reset();
+  }
+  resetStructure() {
+    this._structureFormGroup.reset();
+  }
+  resetParameter() {
+    this._parameterFormGroup.reset();
+  }
+  resetSpecial() {
+    this._specialFormGroup.reset();
   }
 
-  isValid(): Observable<boolean> {
-    return this.formGroup.statusChanges.pipe(
-      map(() => this.formGroup.valid),
-      startWith(false)
-    );
-  }
-
-  reset() {
-    this.formGroup.reset();
-  }
+  // ageIsGreaterThan(min: number): Observable<boolean> {
+  //   return this.formGroup.valueChanges.pipe(
+  //     map(value => value.age),
+  //     distinctUntilChanged(),
+  //     map(it => it > min),
+  //     startWith(false)
+  //   );
+  // }
+  //
+  // isValid(): Observable<boolean> {
+  //   return this.formGroup.statusChanges.pipe(
+  //     map(() => this.formGroup.valid),
+  //     startWith(false)
+  //   );
+  // }
+  //
 
 }

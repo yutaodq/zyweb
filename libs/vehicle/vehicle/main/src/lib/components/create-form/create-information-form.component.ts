@@ -32,6 +32,7 @@ import { Observable, pipe, Subscription } from 'rxjs';
 import { CreateInformationFormDataProvider } from '../../containers/create/information/providers';
 import { AutoComplete } from 'primeng/autocomplete';
 import { VehicleFacade } from '@zyweb/vehicle/vehicle/data-access/store';
+import { CreateFormDataProvider } from '../../containers/create/providers';
 
 
 @Component({
@@ -53,7 +54,7 @@ export class CreateInformationFormComponent {
   form: FormGroup;
 
   constructor(
-    public formDataProvider: CreateInformationFormDataProvider,
+    public formDataProvider: CreateFormDataProvider,
 ) {
   }
 

@@ -6,6 +6,7 @@ import { CreateSpecialForm,
   CreateSpecialFormActions,
   CreateSpecialFormDataProvider
 } from './providers';
+import { CreateForm, CreateFormActions } from '../providers';
 
 /*
 https://github.com/vladeye/druo-dashboard-app/tree/master/src/app/content/pages
@@ -23,12 +24,10 @@ export class CreateSpecialComponent  implements OnInit  {
   formIsValid: Observable<boolean>;
 
   constructor(
-    private _createService: CreateVehicleService,
-    public form: CreateSpecialForm,
-    public formDataProvider: CreateSpecialFormDataProvider,
-    public formActions: CreateSpecialFormActions
+    public form: CreateForm,
+    public formActions: CreateFormActions,
   ) {
-    this.formIsValid = this.form.isValid();
+    // this.formIsValid = this.form.isValid();
   }
 
   ngOnInit(): void {

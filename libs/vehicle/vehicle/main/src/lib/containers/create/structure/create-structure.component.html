@@ -1,10 +1,10 @@
 
-  <zyweb-vehicle-create-structure-form [form]="form.asFormGroup">
+  <zyweb-vehicle-create-structure-form [form]="form.structureFormGroup">
     <zyweb-shared-ui-base-new-form-button
-      [resetButtonClicked]= "formActions.resetButtonClicked"
+      [resetButtonClicked]= "formActions.resetStructureButtonClicked"
       [cancelButtonClicked]= "formActions.cancelButtonClicked"
-      [nextStepButtonClicked]= "formActions.createStructureFormNextClicked"
-      [previousStepButtonClicked] = "formActions.createStructureFormPreviousClicked"
+      [nextStepButtonClicked]= "formActions.structureFormNextClicked"
+      [previousStepButtonClicked] = "formActions.structureFormPreviousClicked"
     >
     </zyweb-shared-ui-base-new-form-button>
 

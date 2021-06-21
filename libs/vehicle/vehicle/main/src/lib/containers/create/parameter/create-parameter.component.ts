@@ -3,6 +3,7 @@ import { ChangeDetectionStrategy, ChangeDetectorRef, Component, OnDestroy, OnIni
 import { Observable,  } from 'rxjs';
 import { CreateVehicleService } from '../../../services';
 import { CreateParameterForm, CreateParameterFormActions, CreateParameterFormDataProvider } from './providers';
+import { CreateForm, CreateFormActions } from '../providers';
 
 /*
 https://github.com/vladeye/druo-dashboard-app/tree/master/src/app/content/pages
@@ -20,12 +21,10 @@ export class CreateParameterComponent  implements OnInit  {
   formIsValid: Observable<boolean>;
 
   constructor(
-    private _createService: CreateVehicleService,
-    public form: CreateParameterForm,
-    public formDataProvider: CreateParameterFormDataProvider,
-    public formActions: CreateParameterFormActions
+    public form: CreateForm,
+    public formActions: CreateFormActions,
   ) {
-    this.formIsValid = this.form.isValid();
+    // this.formIsValid = this.form.isValid();
   }
 
   ngOnInit(): void {

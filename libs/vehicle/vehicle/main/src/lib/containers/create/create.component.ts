@@ -1,17 +1,9 @@
-import { ChangeDetectionStrategy, ChangeDetectorRef, Component, OnDestroy, OnInit } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
+import { ChangeDetectionStrategy, Component,  OnInit } from '@angular/core';
 
-import { Observable, Subscription } from 'rxjs';
-import { Vehicle, VehicleUseState } from '@zyweb/shared/data-access/model/lvms';
+import { Observable } from 'rxjs';
 import { CreateVehicleService } from '../../services/create-vehicle.service';
-import { MasterCreateCommand } from '@zyweb/shared/util/utility';
-import {
-  CreateInformationForm,
-  CreateInformationFormActions,
-  CreateInformationFormDataProvider,
-  CreateInformationFormFactory
-} from './information/providers';
 import { MenuItem } from 'primeng/api';
+import { CreateForm, CreateFormActions, CreateFormDataProvider, CreateFormFactory } from './providers';
 
 /*
 https://github.com/vladeye/druo-dashboard-app/tree/master/src/app/content/pages
@@ -21,26 +13,16 @@ D:\学习案例\druo-dashboard\src\app\content\pages\components\invoices\invoice
   selector: 'zyweb-vehicle-create',
   templateUrl: './create.component.html',
   styleUrls: ['./create.component.scss'],
-  // providers: [
-  //   CreateFormFactory,
-  //   { provide: CreateForm,
-  //     useFactory: (factory: CreateFormFactory) => factory.create(),
-  //     deps: [CreateFormFactory]
-  //   },
-  //   CreateFormDataProvider,
-  //   CreateFormActions,
-  //
-  // ],
-  // providers: [
-  //   CreateStructureFormFactory,
-  //   {
-  //     provide: CreateStructureForm,
-  //     useFactory: (factory: CreateStructureFormFactory) => factory.create(),
-  //     deps: [CreateStructureFormFactory]
-  //   },
-  //   CreateStructureFormDataProvider,
-  //   CreateStructureFormActions
-  // ],
+  providers: [
+    CreateFormFactory,
+    { provide: CreateForm,
+      useFactory: (factory: CreateFormFactory) => factory.create(),
+      deps: [CreateFormFactory]
+    },
+    CreateFormDataProvider,
+    CreateFormActions,
+
+  ],
 
   changeDetection: ChangeDetectionStrategy.OnPush,
 })

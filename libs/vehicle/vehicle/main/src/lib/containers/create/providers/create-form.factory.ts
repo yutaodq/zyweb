@@ -3,6 +3,7 @@ import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms'
 import { CreateForm } from './create.form';
 import { BaseFormControl } from '@zyweb/shared/ui/base';
 import { CreateFormDataProvider } from './create-form-data.provider';
+import { CreateStructureForm } from '../structure/providers';
 
 @Injectable()
 export class CreateFormFactory {
@@ -13,11 +14,14 @@ export class CreateFormFactory {
   }
 
   create(): CreateForm {
-    const formGroup = this.createFormGroup();
-    return new CreateForm(formGroup);
+    return new CreateForm(this.createInformationFormGroup(),
+      this.createStructureFormGroup(),
+      this.createParameterFormGroup(),
+      this.createSpecialFormGroup()
+      );
   }
 
-  private createFormGroup() {
+  private createInformationFormGroup() {
     return this._fb.group({
       pz: ['牌照号：123456', [], [this._formDataProvider.isPzExists()]],
       nbpz: ['内部牌照123', [Validators.required]],
@@ -34,14 +38,55 @@ export class CreateFormFactory {
       dpbh: ['底盘编号'],
       description: ['备注']
     });
-
-    // return this.formBuilder.group({
-    //   pz: BaseFormControl.create('牌照号：123456', '牌照',[], []),
-    //   nbpz: BaseFormControl.create('内部牌照123', '内部牌照', [Validators.required]),
-    //   name: [{value: null, disabled: true}],
-    //   ggxh: [''],
-    //   age: [''],
-    //   country: ['']
-    // });
   }
+  private createStructureFormGroup() {
+    return this._fb.group({
+      cc: [],  //车长
+      ck: [],  //车宽
+      cg: [],  //车高
+      zj: [],  //轴距
+      qlj: [],  //前轮距
+      hlj: [],  //后轮距
+      qdxs: [],  //驱动形式
+      fxpwz: [],  //方向盘位置
+      bsqxs: []  //变数器形式
+    });
+
+  }
+  private createParameterFormGroup() {
+    return this._fb.group({
+      zczbzl: [], //整车装备质量
+      zdzzzl: [],   //最大装载质量
+      rylx: [],   //燃油类型
+      pjyh: [],   //平均油耗
+      edgl: [],   //额定功率
+      zdnj: [],   //最大扭矩
+      zxzwbj: [],   //最小转弯半径
+      zgcs: []   //最高车速
+
+    });
+  }
+  private createSpecialFormGroup() {
+    return this._fb.group({
+      zdqzl: [],  //最大起重量
+      gjbj: [],   //工作半径
+      zb: [],   //主笔
+      zbc: [],   //主臂长
+      fbc: [],   //副臂长
+      fdjxh: [],   //发动机型号
+      edgl: [],   //额定功率
+      zdnj: [],   //最大扭矩
+      zgzs: [],   //最高转速
+      rylx: [],   //燃油类型
+      pjyh: [],   //平均油耗
+      glxh: [],   //锅炉型号
+      ysjxh: [],   //压缩机型号
+      bxh: [],   //泵型号
+      csyq: [],   //测试仪器
+      dr: [],   //斗容
+      bsqxs: []   //变数器形式
+
+    });
+  }
+
 }

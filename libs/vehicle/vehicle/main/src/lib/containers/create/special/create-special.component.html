@@ -1,10 +1,10 @@
 
-  <zyweb-vehicle-create-special-form [form]="form.asFormGroup">
+  <zyweb-vehicle-create-special-form [form]="form.specialFormGroup">
     <zyweb-shared-ui-base-new-form-button
-      [resetButtonClicked]= "formActions.resetButtonClicked"
+      [resetButtonClicked]= "formActions.resetSpecialButtonClicked"
       [cancelButtonClicked]= "formActions.cancelButtonClicked"
-      [nextStepButtonClicked]= "formActions.createSpecialFormNextClicked"
-      [previousStepButtonClicked] = "formActions.createSpecialFormPreviousClicked"
+      [nextStepButtonClicked]= "formActions.specialFormNextClicked"
+      [previousStepButtonClicked] = "formActions.specialFormPreviousClicked"
     >
     </zyweb-shared-ui-base-new-form-button>
 

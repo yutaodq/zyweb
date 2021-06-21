@@ -8,6 +8,7 @@ import {
 } from './providers';
 import { MenuItem } from 'primeng/api';
 import { CreateVehicleService } from '../../../services';
+import { CreateForm, CreateFormActions } from '../providers';
 
 /*
 https://github.com/vladeye/druo-dashboard-app/tree/master/src/app/content/pages
@@ -16,16 +17,16 @@ D:\学习案例\druo-dashboard\src\app\content\pages\components\invoices\invoice
 @Component({
   selector: 'zyweb-vehicle-create-information',
   templateUrl: './create-information.component.html',
-  providers: [
-    CreateInformationFormFactory,
-    { provide: CreateInformationForm,
-      useFactory: (factory: CreateInformationFormFactory) => factory.create(),
-      deps: [CreateInformationFormFactory]
-    },
-    CreateInformationFormDataProvider,
-    CreateInformationFormActions,
-
-  ],
+  // providers: [
+  //   CreateInformationFormFactory,
+  //   { provide: CreateInformationForm,
+  //     useFactory: (factory: CreateInformationFormFactory) => factory.create(),
+  //     deps: [CreateInformationFormFactory]
+  //   },
+  //   CreateInformationFormDataProvider,
+  //   CreateInformationFormActions,
+  //
+  // ],
 
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
@@ -36,15 +37,14 @@ export class CreateInformationComponent  implements OnInit  {
   formIsValid: Observable<boolean>;
 
   constructor(
-    private _createService: CreateVehicleService,
-    public form: CreateInformationForm,
-    public formDataProvider: CreateInformationFormDataProvider,
-    public formActions: CreateInformationFormActions,
+    // private _createService: CreateVehicleService,
+    public form: CreateForm,
+    public formActions: CreateFormActions,
 
 ) {
     console.log("CreateInformationComponentCreateInformationComponentCreateInformationComponent");
-    this.ageIsGreaterThanTen = this.form.ageIsGreaterThan(10);
-    this.formIsValid = this.form.isValid();
+    // this.ageIsGreaterThanTen = this.form.ageIsGreaterThan(10);
+    // this.formIsValid = this.form.isValid();
   }
 
   ngOnInit(): void {

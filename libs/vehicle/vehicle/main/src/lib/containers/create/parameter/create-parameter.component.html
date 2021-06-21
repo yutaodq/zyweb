@@ -1,10 +1,10 @@
 
-  <zyweb-vehicle-create-parameter-form [form]="form.asFormGroup">
+  <zyweb-vehicle-create-parameter-form [form]="form.parameterFormGroup">
     <zyweb-shared-ui-base-new-form-button
-      [resetButtonClicked]= "formActions.resetButtonClicked"
+      [resetButtonClicked]= "formActions.resetParameterButtonClicked"
       [cancelButtonClicked]= "formActions.cancelButtonClicked"
-      [nextStepButtonClicked]= "formActions.createParameterFormNextClicked"
-      [previousStepButtonClicked] = "formActions.createParameterFormPreviousClicked"
+      [nextStepButtonClicked]= "formActions.parameterFormNextClicked"
+      [previousStepButtonClicked] = "formActions.parameterFormPreviousClicked"
     >
     </zyweb-shared-ui-base-new-form-button>
 
